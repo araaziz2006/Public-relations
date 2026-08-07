@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="ckb" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>بەشی پەیوەندییە گشتییەکان | زانکۆی سلێمانی</title>
+<title>Department of Public Relations | University of Sulaimani</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700;900&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 <style>
   :root{
     --red:#A82823;
@@ -22,12 +22,11 @@
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
   body{
-    font-family:'Noto Kufi Arabic','Segoe UI','Tahoma',Arial,sans-serif;
+    font-family:'Inter','Segoe UI','Tahoma',Arial,sans-serif;
     background:var(--paper);
     color:var(--ink);
     overflow-x:hidden;
   }
-  .serif{font-family:'Noto Kufi Arabic',sans-serif;}
 
   /* ================= NAV ================= */
   header{
@@ -52,16 +51,19 @@
     display:flex; align-items:center; justify-content:center;
     font-size:12px;
   }
-  .nav-links{display:flex; gap:22px; list-style:none; flex-wrap:wrap;}
+  .nav-links{display:flex; gap:18px; list-style:none; flex-wrap:wrap; align-items:center;}
   .nav-links a{color:var(--ink-soft); text-decoration:none; font-weight:500; font-size:13.5px; transition:color .2s;}
   .nav-links a:hover{color:var(--red);}
+  .lang-switch{display:flex; gap:8px; font-size:12.5px; font-weight:700; background:var(--paper-2); padding:6px 12px; border-radius:20px; border:1px solid var(--line);}
+  .lang-switch a{text-decoration:none; color:var(--ink-soft);}
+  .lang-switch a.active{color:var(--red);}
 
   /* ================= HERO ================= */
   .hero-wrap{max-width:1180px; margin:0 auto; padding:64px 24px 0;}
   .hero-eyebrow{
-    font-family:'Noto Kufi Arabic',sans-serif; font-weight:600; letter-spacing:0.5px;
+    font-weight:600; letter-spacing:0.5px;
     color:var(--green); font-size:15px; display:block; margin-bottom:18px;
-    border-right:2px solid var(--gold); padding-right:12px;
+    border-left:2px solid var(--gold); padding-left:12px;
   }
   .hero h1{
     font-size:44px; line-height:1.32; font-weight:900; color:var(--black);
@@ -81,15 +83,15 @@
   }
   .chapter-strip a{
     flex:1 1 auto; text-align:center; padding:14px 10px; text-decoration:none;
-    color:var(--ink-soft); font-size:13px; font-weight:600; border-left:1px solid var(--line);
+    color:var(--ink-soft); font-size:13px; font-weight:600; border-right:1px solid var(--line);
     transition:background .2s, color .2s;
   }
-  .chapter-strip a:first-child{border-left:none;}
+  .chapter-strip a:last-child{border-right:none;}
   .chapter-strip a:hover{background:var(--paper-2); color:var(--red);}
 
   section{max-width:1180px; margin:0 auto; padding:64px 24px;}
   .tag{
-    font-family:'Noto Kufi Arabic',sans-serif; font-weight:700; letter-spacing:0.5px; color:var(--green); font-size:13px; display:block; margin-bottom:10px;
+    font-weight:700; letter-spacing:0.5px; color:var(--green); font-size:13px; display:block; margin-bottom:10px;
   }
   .title{font-size:29px; font-weight:900; color:var(--black); margin-bottom:8px;}
   .sub{font-size:15px; color:var(--ink-soft); max-width:680px; margin-bottom:34px; line-height:1.85;}
@@ -98,7 +100,7 @@
     background:#fff; border:1px solid var(--line); border-radius:6px; padding:30px;
   }
 
-  /* ================= TIMELINE (history) ================= */
+  /* ================= TIMELINE ================= */
   .timeline{display:flex; flex-direction:column; gap:0; margin-bottom:30px;}
   .tl-item{display:flex; gap:20px; position:relative; padding-bottom:26px;}
   .tl-item:last-child{padding-bottom:0;}
@@ -116,14 +118,14 @@
   .history-text p{font-size:15px; color:var(--ink-soft); line-height:1.95;}
   .history-text p + p{margin-top:16px;}
 
-  /* ================= STORY (pull quote) ================= */
+  /* ================= STORY ================= */
   .story-card{
     background:var(--black); color:var(--paper); border-radius:6px; padding:44px 36px; position:relative;
   }
   .story-card::before{
-    content:"”"; font-family:'Noto Kufi Arabic',sans-serif; font-size:90px; color:var(--gold); position:absolute; top:-6px; right:26px; opacity:.7;
+    content:"“"; font-size:90px; color:var(--gold); position:absolute; top:-6px; left:26px; opacity:.7;
   }
-  .story-card p{font-family:'Noto Kufi Arabic',sans-serif; font-weight:400; font-size:16px; line-height:2.05; color:#EDE6D6;}
+  .story-card p{font-weight:400; font-size:16px; line-height:2.05; color:#EDE6D6;}
   .story-card p + p{margin-top:18px;}
   .story-sign{margin-top:26px; font-size:13.5px; color:var(--gold); font-weight:600;}
 
@@ -145,7 +147,7 @@
     font-size:13px; color:#B9AF9C; line-height:1.8;
   }
 
-  /* ================= GRIDS (subjects/careers/why) ================= */
+  /* ================= GRIDS ================= */
   .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
   .cell{background:var(--paper); padding:26px; transition:background .2s;}
   .cell:hover{background:#fff;}
@@ -182,25 +184,14 @@
   footer .credit{font-size:14.5px; font-weight:700; color:var(--black); display:block; margin-bottom:8px;}
   footer .thanks{display:block; max-width:640px; margin:0 auto; line-height:1.8; color:#8A8171;}
 
-  a:focus-visible, button:focus-visible{outline:2px solid var(--red); outline-offset:2px;}
-
-  .reveal{margin-top:8px;}
-  .reveal > summary{
-    list-style:none; cursor:pointer; display:flex; align-items:center; gap:8px;
-    color:var(--red); font-weight:800; font-size:19px; margin-bottom:28px; user-select:none; line-height:1.5;
-  }
-  .reveal > summary::-webkit-details-marker{display:none;}
-  .reveal[open] > summary::after{content:" (داخستن)"; font-size:11px; color:var(--ink-soft); font-weight:400;}
-  .reveal[open] > summary{margin-bottom:26px;}
-
   @media (max-width:860px){
     .hero h1{font-size:30px;}
     .grid3, .grid2{grid-template-columns:1fr;}
     .plaque-row{flex-direction:column;}
-    .nav-links{display:none;}
+    .nav-links li:not(:last-child){display:none;}
+    .nav-links{gap:0;}
     section{padding:44px 20px;}
   }
-  @media (prefers-reduced-motion:reduce){*{transition:none !important;}}
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ETCW0EYQL1"></script>
 <script>
@@ -209,40 +200,41 @@
   gtag('js', new Date());
   gtag('config', 'G-ETCW0EYQL1');
 </script>
-<!-- Open Graph / Social Media Preview Meta Tags -->
-<meta property="og:title" content="بەشی پەیوەندییە گشتییەکان | زانکۆی سلێمانی">
-<meta property="og:description" content="ڕێنمایی تەواو بۆ نمرەی وەرگیران، وانەکان، مێژوو و هەلی کاری بەشی پەیوەندییە گشتییەکان لە زانکۆی سلێمانی.">
-<meta property="og:url" content="https://publicrelationsdep.com">
+<meta property="og:title" content="Department of Public Relations | University of Sulaimani">
+<meta property="og:description" content="Complete guide for admission scores, courses, history, and career opportunities in the Public Relations Department at the University of Sulaimani.">
+<meta property="og:url" content="https://publicrelationsdep.com/en.html">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://publicrelationsdep.com/og-image.png">
-<meta property="og:image:width" content="1254">
-<meta property="og:image:height" content="1254">
-<meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
 
 <header>
   <nav>
     <div class="brand">
-      <div class="brand-top"><span class="mark">▲</span> پەیوەندییە گشتییەکان</div>
+      <div class="brand-top"><span class="mark">▲</span> Public Relations</div>
     </div>
     <ul class="nav-links">
-      <li><a href="#intro">مێژوو</a></li>
-      <li><a href="#story">هۆکار</a></li>
-      <li><a href="#scores">نمرەی وەرگیران</a></li>
-      <li><a href="#subjects">وانەکان</a></li>
-      <li><a href="#careers">دواڕۆژی کار</a></li>
-      <li><a href="#why">بۆچی ئێمە</a></li>
-      <li><a href="#testimonials">فیدباکی خوێندکاران</a></li>
-      <li><a href="#contact">پەیوەندی</a></li>
+      <li><a href="#intro">History</a></li>
+      <li><a href="#story">Reason</a></li>
+      <li><a href="#scores">Admission Scores</a></li>
+      <li><a href="#subjects">Courses</a></li>
+      <li><a href="#careers">Careers</a></li>
+      <li><a href="#testimonials">Feedback</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li>
+        <div class="lang-switch">
+          <a href="index.html">KU</a> | 
+          <a href="ar.html">AR</a> | 
+          <a href="en.html" class="active">EN</a>
+        </div>
+      </li>
     </ul>
   </nav>
 </header>
 
 <div class="hero-wrap">
-  <span class="hero-eyebrow">بەشی پەیوەندییە گشتییەکان دامەزراوە لە ساڵی٢٠٢١ لە کۆلێژی زانستە مرۆڤایەتییەکان لە زانکۆی سلێمانی</span>
-  <h1>بەشی <span class="accent">پەیوەندییە گشتییەکان</span><br>دەروازەیەکی نوێ بۆ داهاتووت</h1>
-  <p class="lede">ئەم بەشە تازەیە لە زانکۆی سلێمانی، زۆرێک لە خوێندکارانی پۆلی ١٢ و کەسووکاریان زانیاریان کەمە لەسەری. لێرەدا هەموو ئەوەی پێویستە بزانن کۆمکردووەتەوە: نمرەی وەرگیران، ئەو بابەتانەی دەیخوێنیت، و ئەو کارانەی دواتر دەتوانیت تێیدا کاربکەیت.</p>
+  <span class="hero-eyebrow">Public Relations Department Established in 2021 at University of Sulaimani</span>
+  <h1>Department of <span class="accent">Public Relations</span><br>A New Gateway to Your Future</h1>
+  <p class="lede">This is a new department at the University of Sulaimani, and many 12th-grade students and their families know little about it. Here, we have gathered everything you need to know: admission scores, subjects you will study, and potential career opportunities.</p>
 
   <svg class="ridge" viewBox="0 0 1180 70" preserveAspectRatio="none">
     <path class="fill" d="M0,70 L0,42 L120,16 L220,38 L340,8 L460,34 L600,4 L740,32 L860,14 L980,40 L1080,20 L1180,42 L1180,70 Z"></path>
@@ -252,130 +244,130 @@
 
 <div class="chapters">
   <div class="chapter-strip">
-    <a href="#intro">مێژوو و دەربارەمان</a>
-    <a href="#story">هۆکاری دروستبوونی سایتەکە</a>
-    <a href="#scores">نمرەی وەرگیران</a>
-    <a href="#subjects">وانەکان</a>
-    <a href="#careers">دواڕۆژی کار</a>
-    <a href="#testimonials">فیدباکی خوێندکاران</a>
-    <a href="#contact">پەیوەندی</a>
+    <a href="#intro">History & About Us</a>
+    <a href="#story">Why This Site Was Created</a>
+    <a href="#scores">Admission Scores</a>
+    <a href="#subjects">Courses</a>
+    <a href="#careers">Future Careers</a>
+    <a href="#testimonials">Student Feedback</a>
+    <a href="#contact">Contact Us</a>
   </div>
 </div>
 
 <section id="intro">
-  <span class="tag">دەربارەی بەشەکەمان</span>
-  <h2 class="title">مێژوو و دەربارەی بەشەکەمان</h2>
+  <span class="tag">ABOUT OUR DEPARTMENT</span>
+  <h2 class="title">History and About Our Department</h2>
   <div class="card">
     <div class="history-text">
-      <p style="font-size:17px; font-weight:600; color:var(--ink);">بەشی پەیوەندییە گشتییەکان لە ساڵی ٢٠٢١ەوە لە پێناو دەستخستنی کادری ئەکادیمی و پڕکردنەوەی پێداویستی بازاڕ دامەزراوە. لەم بەشەدا گرنگی بە هەردوو لایەنی تیۆری و پراکتیکی دەدرێت. بەهۆی گرنگی پەیوەندییە گشتییەکان لە نێو کەرتی تایبەت و حکومیدا، ئەو ئامراز و ڕێگایانە بەکاردەهێنرێت، کە یارمەتیدەرن لە بەرهەمهێنانی کادری پرۆفیشناڵی پەیوەندییە گشتییەکان. لەم بەشەدا، گرنگی تەواو بەو وانە و بابەتانە دەدرێت کە پێداویستی ئێستای سەردەمی بازاڕن وەکو ڕاوێژکاری سیاسی و ڕاوێژکاری ستراتیژی بەڕێوەبردنی دامەزراوە، داهێنان، دارشتنی ستراتیژ، براندینگ، لێکۆڵینەوە لە هەڵسوکەوتی بەکاربەر، پاراستنی ناوبانگ، بەڕێوەبردنی کەمپەین و خۆپارێزی لە کاتی قەیراندا.</p>
+      <p style="font-size:17px; font-weight:600; color:var(--ink);">The Public Relations Department was established in 2021 to provide academic personnel and fulfill market requirements. This department places equal emphasis on both theoretical and practical aspects. Due to the importance of public relations in both private and public sectors, practical tools and methods are utilized to produce professional PR specialists. Full attention is given to subjects essential for today's market demands, such as political advisory, institutional strategic consultancy, innovation, strategy formulation, branding, consumer behavior research, reputation management, campaign management, and crisis prevention.</p>
     </div>
     <div style="height:1px; background:var(--line); margin:28px 0;"></div>
     <div class="timeline">
       <div class="tl-item">
-        <div class="tl-dot-col"><div class="tl-dot" style="background:var(--red);">٥</div><div class="tl-line"></div></div>
-        <div class="tl-body"><h4>خولی وەرگیران</h4><p>تاکو ئێستا بەشەکە ٥ خولی وەرگیرانی هەبووە.</p></div>
+        <div class="tl-dot-col"><div class="tl-dot" style="background:var(--red);">5</div><div class="tl-line"></div></div>
+        <div class="tl-body"><h4>Admission Batches</h4><p>The department has welcomed 5 admission batches so far.</p></div>
       </div>
       <div class="tl-item">
-        <div class="tl-dot-col"><div class="tl-dot" style="background:var(--green);">٢</div></div>
-        <div class="tl-body"><h4>خولی دەرچوون</h4><p>٢ خولی دەرچوونیش تاکو ئێستا تەواوی کردووە.</p></div>
+        <div class="tl-dot-col"><div class="tl-dot" style="background:var(--green);">2</div></div>
+        <div class="tl-body"><h4>Graduation Batches</h4><p>2 batches of students have successfully graduated to date.</p></div>
       </div>
     </div>
   </div>
 </section>
 
 <section id="story">
-  <span class="tag">وتەی دروستکەری سایتەکە</span>
-  <h2 class="title">بۆچی ئەم سایتەم دروستکرد؟</h2>
+  <span class="tag">WORDS FROM THE CREATOR</span>
+  <h2 class="title">Why Did I Create This Website?</h2>
   <div class="story-card">
-    <p>کاتێک پۆلی ١٢م تەواو کرد، زۆر گەڕام بۆ دۆزینەوەی بەشێک کە لەگەڵ خولیا و ئارەزوو و ئەزموونم بگونجێت. لەنێو چەند بەشێکدا، بەشی پەیوەندییە گشتییەکان زۆر سەرنجی ڕاکێشام — بەڵام چونکە بەشێکی تازە بوو لە زانکۆی سلێمانی، لە سۆشیال میدیا و ئینتەرنێت زانیارییەکی زۆر کەمم دەستکەوت دەربارەی وردەکاری خوێندن، وانەکان، و هەلی کار.</p>
-    <p>پاشان چومە زانکۆ و دوای ئاشنابوون بە وانەکان، مامۆستا و دکتۆرە لێهاتووەکان، و بەتایبەتی سەرۆکی بەشەکەمان کە زانیاری زۆری هەبووە دەربارەی بەشەکە، بۆم دەرکەوت کە کارە ڕاستەکەم ئەنجام داوە. لەبەر ئەوە هەستام بە دروستکردنی ئەم سایتە بۆ خوێندکاران بۆ ئەوەی بە هەمان شێوەی من توشی کێشەی نەبوونی زانیاری نەبن سەبارەت بەم بەشە و زانیاری زیاتریان هەبێت.</p>
-    <div class="story-sign">— ئارا عەزیز</div>
+    <p>When I finished 12th grade, I searched extensively for a major that matched my passion, interest, and experience. Among several options, the Public Relations department caught my attention — but because it was a new department at the University of Sulaimani, I found very little information on social media and the internet regarding academic details, subjects, and job opportunities.</p>
+    <p>Nevertheless, I joined the university, and after getting to know the courses, skilled professors, and especially our head of department who possessed extensive knowledge, I realized I had made the right choice. Therefore, I created this website for students so they would not face the same lack of information and could gain comprehensive insight into this department.</p>
+    <div class="story-sign">— Ara Aziz</div>
   </div>
 </section>
 
 <section id="scores">
-  <span class="tag">وردەگیری</span>
-  <h2 class="title">نمرەی وەرگیران — ساڵی ٢٠٢٥-٢٠٢٦</h2>
+  <span class="tag">DETAILS</span>
+  <h2 class="title">Admission Scores — 2025-2026</h2>
   <div class="scores-band">
-    <p class="sub" style="margin-bottom:26px;">ئەمانە نمرەکانی وەرگیرانی ساڵی پار بوون بۆ بەشی پەیوەندییە گشتییەکان. نمرەکان ساڵ بە ساڵ دەگۆڕێن بەپێی ژمارەی داواکار و کۆتای وەرگیراوان، بۆیە ئەمانە تەنها ڕێنماییەکن.</p>
+    <p class="sub" style="margin-bottom:26px;">These were last year's admission scores for the Public Relations Department. Scores vary annually based on applicant count and quota, so these serve as a general guide.</p>
     <div class="plaque-row">
       <div class="plaque">
-        <div class="num">٦١.٢</div>
-        <div class="lbl">کەمترین نمرەی وەرگیراو — زانکۆلاین</div>
-        <div class="yr">ساڵی ٢٠٢٥</div>
+        <div class="num">61.2</div>
+        <div class="lbl">Lowest Score Accepted — Zankoline</div>
+        <div class="yr">Year 2025</div>
       </div>
       <div class="plaque">
-        <div class="num">٥٨.٧٩</div>
-        <div class="lbl">کەمترین نمرەی وەرگیراو — پاراڵێل</div>
-        <div class="yr">ساڵی ٢٠٢٥</div>
+        <div class="num">58.79</div>
+        <div class="lbl">Lowest Score Accepted — Parallel</div>
+        <div class="yr">Year 2025</div>
       </div>
     </div>
-    <div class="note">تێبینی: ئەم نمرانە بۆ ساڵی ڕابردوون و ڕەنگە ئەمساڵ بگۆڕێن. بۆ زانیاری وردتر و دووپاتکردنەوە، سەیری فۆڕمی زانکۆلاین یان بەشەکەمان بکە.</div>
-    <div class="note" style="margin-top:14px; border-top:none; padding-top:0; font-size:16px; font-weight:700; color:var(--gold);">لە ساڵی ٢٠٢٥-٢٠٢٦، ٨٠ خوێندکار وەرگیراوە.</div>
+    <div class="note">Note: These scores are from the previous year and may change this year. For precise information and verification, please refer to the Zankoline form or the department.</div>
+    <div class="note" style="margin-top:14px; border-top:none; padding-top:0; font-size:16px; font-weight:700; color:var(--gold);">In 2025-2026, 80 students were admitted.</div>
   </div>
 </section>
 
 <section id="subjects">
-  <span class="tag">پەرچەکردنی خوێندن</span>
-  <h2 class="title">4ساڵی زانکۆت بە زیاتر لە 20وانەی بەهێز نەخشە ڕێگەی خوێندنەکەتە</h2>
-  <p class="sub">کۆمەڵێک وانەی پڕاکتیکی و تیۆری دەخوێندرێ لە چوارچێوەی ٤ ساڵدا کە دەکاتە ٨ وەرزی خوێندن. ئەمانەش نموونەی هەندێک لە وانە گرنگەکانە.</p>
+  <span class="tag">CURRICULUM OVERVIEW</span>
+  <h2 class="title">4 Years of University with Over 20 Essential Courses Mapping Your Study Journey</h2>
+  <p class="sub">A blend of practical and theoretical courses taught across 4 years (8 academic semesters). Below are examples of key subjects covered.</p>
   <div class="grid3">
-    <div class="cell"><div class="icon">📺</div><h3>ڕیکلام</h3><p>شێوازەکانی دروستکردنی ڕیکلام و کاریگەری لەسەر بیرکردنەوەی کۆمەڵگا.</p></div>
-    <div class="cell"><div class="icon">🛒</div><h3>مارکێتینگ</h3><p>بەکارهێنانی ستراتیژەکانی بازاڕگەرمکردنی کاڵا و شتومەک و خزمەتگوزارییەکان لە ڕێگەی تێگەیشتن لە چۆنیەتی بەڕێوەچوونی ڕەوشی بازاڕ.</p></div>
-    <div class="cell"><div class="icon">🏅</div><h3>بەڕێوەبردنی ناوبانگ و براند</h3><p>پاراستن و بەهێزکردنی ناوبانگ و براندی کۆمپانیا و دامەزراوەکان.</p></div>
-    <div class="cell"><div class="icon">🤝</div><h3>پرۆتۆکۆڵ</h3><p>ڕێز و ڕێساکانی پێشوازیکردن و بەڕێوەبردنی چالاکی فەرمی و دیپلۆماسی.</p></div>
-    <div class="cell"><div class="icon">🚨</div><h3>بەڕێوەبردنی قەیرانەکان</h3><p>چۆنیەتی مامەڵەکردن لەگەڵ قەیران و پاراستنی وێنەی گشتی لە کاتی تەنگژەدا.</p></div>
-    <div class="cell"><div class="icon">🏢</div><h3>بەڕێوەبردنی دامەزراوە و پەیوەندییەکان</h3><p>چۆنیەتی بەڕێوەبردنی دامەزراوە و پەیوەندییەکانی.</p></div>
-    <div class="cell"><div class="icon">🗣️</div><h3>وتووێژ و قسەکردنی گشتی</h3><p>لێهاتووی قسەکردن لەبەردەم کۆمەڵگا و پێشکەشکردنی پەیام بە شێوەیەکی کاریگەر.</p></div>
-    <div class="cell"><div class="icon">📊</div><h3>ستراتیژی و پلاندانان</h3><p>دروستکردنی پلانی پەیوەندی گشتی بۆ کۆمپانیا و دامەزراوەکان.</p></div>
-    <div class="cell"><div class="icon">💻</div><h3>بەڕێوەبردنی سۆشیال میدیا</h3><p>بەڕێوەبردنی ناوەڕۆکی دیجیتاڵ و کەمپینی ڕاگەیاندن لەسەر ئینتەرنێت.</p></div>
-    <div class="cell"><div class="icon">🎤</div><h3>ڕێکخستن و بەڕێوەبردنی ئیڤینت و بۆنەکان</h3><p>ڕێکخستن و بەڕێوەبردنی چالاکی و ئیڤینتی گشتی.</p></div>
-    <div class="cell"><div class="icon">📡</div><h3>بەڕێوەبردنی پەیوەندییە میدیاییەکان</h3><p>چۆنیەتی دروستکردن و بەڕێوەبردنی پەیوەندی لەگەڵ میدیا و ڕۆژنامەنووسان.</p></div>
-    <div class="cell"><div class="icon">🎨</div><h3>گرافیک دیزاین</h3><p>دیزاینی بابەتە بینراوەکان بۆ کەمپین و ناوەڕۆکی ڕاگەیاندن.</p></div>
-    <div class="cell"><div class="icon">📷</div><h3>فۆتۆگرافی و ڤیدیۆگرافی</h3><p>وێنەگرتن و تۆمارکردنی ڤیدیۆ بۆ کەمپین و ناوەڕۆکی ڕاگەیاندن.</p></div>
-    <div class="cell"><div class="icon">🎬</div><h3>بەرهەمهێنانی پەیوەندی گشتی</h3><p>ئامادەکردن و دروستکردنی ناوەڕۆکی پەیوەندی گشتی بۆ بڵاوکردنەوە.</p></div>
-    <div class="cell"><div class="icon">📣</div><h3>هەڵمەتی پەیوەندی گشتی</h3><p>دروستکردن و بەڕێوەبردنی هەڵمەتی ڕاگەیاندن بۆ کۆمپانیا و دامەزراوەکان.</p></div>
-    <div class="cell"><div class="icon">🤵</div><h3>دیپلۆماسی</h3><p>پرۆسەی بەڕێوەبردنی پەیوەندییە لە ڕێگەی دانوستان و گفتوگۆ بە ئامانجی چارەسەرکردنی کێشەکان و دروستکردنی هاوپەیمانی.</p></div>
-    <div class="cell"><div class="icon">💰</div><h3>ئابووری دامەزراوە</h3><p>بنەماکانی ئابووری کە پەیوەندیدارن بە کارکردنی دامەزراوەکانەوە.</p></div>
-    <div class="cell"><div class="icon">🖥️</div><h3>بەڕێوەبردنی پەیجی ئەلیکترۆنی</h3><p>بنەماکانی دیزاینکردنی ماڵپەڕ و پێشکەشکردنی ناوەڕۆک لەسەر ئینتەرنێت.</p></div>
-    <div class="cell"><div class="icon">🌐</div><h3>پەیوەندی گشتی دیجیتاڵی</h3><p>بەکارهێنانی ئامرازە دیجیتاڵییەکان لە پەیوەندی گشتیدا لە سەردەمی ئۆنلایندا.</p></div>
-    <div class="cell"><div class="icon">🕊️</div><h3>پەیوەندی نێودەوڵەتی</h3><p>لێکۆڵینەوە و پراکتیزەکردنی چۆنیەتی کارلێکی وڵاتان، حکوومەتەکان، ڕێکخراوەکان و خەڵک لە ئاستی جیهانیدا.</p></div>
+    <div class="cell"><div class="icon">📺</div><h3>Advertising</h3><p>Techniques of creating advertisements and their impact on societal thinking.</p></div>
+    <div class="cell"><div class="icon">🛒</div><h3>Marketing</h3><p>Applying market strategy for products and services through understanding market dynamics.</p></div>
+    <div class="cell"><div class="icon">🏅</div><h3>Reputation & Brand Management</h3><p>Protecting and strengthening corporate and institutional brand reputation.</p></div>
+    <div class="cell"><div class="icon">🤝</div><h3>Protocol</h3><p>Rules and etiquette of reception, official event management, and diplomacy.</p></div>
+    <div class="cell"><div class="icon">🚨</div><h3>Crisis Management</h3><p>Handling crises and safeguarding public perception during challenging times.</p></div>
+    <div class="cell"><div class="icon">🏢</div><h3>Institutional Management & PR</h3><p>Managing organizations and developing their communication networks.</p></div>
+    <div class="cell"><div class="icon">🗣️</div><h3>Public Speaking & Negotiation</h3><p>Skills for delivering impactful speeches and messaging in public settings.</p></div>
+    <div class="cell"><div class="icon">📊</div><h3>Strategic Planning</h3><p>Developing comprehensive public relations strategies for companies and institutions.</p></div>
+    <div class="cell"><div class="icon">💻</div><h3>Social Media Management</h3><p>Managing digital content and media campaigns across online platforms.</p></div>
+    <div class="cell"><div class="icon">🎤</div><h3>Event & Conference Organizing</h3><p>Planning and directing public events, activities, and functions.</p></div>
+    <div class="cell"><div class="icon">📡</div><h3>Media Relations Management</h3><p>Building and managing professional relationships with media and journalists.</p></div>
+    <div class="cell"><div class="icon">🎨</div><h3>Graphic Design</h3><p>Designing visual assets for PR campaigns and promotional materials.</p></div>
+    <div class="cell"><div class="icon">📷</div><h3>Photography & Videography</h3><p>Capturing photos and producing videos for campaign media content.</p></div>
+    <div class="cell"><div class="icon">🎬</div><h3>PR Production</h3><p>Preparing and producing media content tailored for public dissemination.</p></div>
+    <div class="cell"><div class="icon">📣</div><h3>PR Campaigns</h3><p>Creating and executing communication campaigns for companies and institutions.</p></div>
+    <div class="cell"><div class="icon">🤵</div><h3>Diplomacy</h3><p>Managing relations through negotiation and dialogue to build alliances and resolve issues.</p></div>
+    <div class="cell"><div class="icon">💰</div><h3>Institutional Economics</h3><p>Economic principles relevant to corporate and organizational operations.</p></div>
+    <div class="cell"><div class="icon">🖥️</div><h3>Web Page Management</h3><p>Fundamentals of web design and online content presentation.</p></div>
+    <div class="cell"><div class="icon">🌐</div><h3>Digital Public Relations</h3><p>Utilizing modern digital tools for public relations in the online era.</p></div>
+    <div class="cell"><div class="icon">🕊️</div><h3>International Relations</h3><p>Studying and practicing global interactions between nations, governments, and organizations.</p></div>
   </div>
 </section>
 
 <section id="careers">
-  <span class="tag">دواڕۆژی کار</span>
-  <h2 class="title">🚀 ئەو پۆست و پیشانەی چاوەڕێی دەرچوانی ئەم بەشە دەکات</h2>
-  <p class="sub">پەیوەندییە گشتییەکان زانستێکە دەرگای زۆر بوار و پیشەی جیاواز دەکاتەوە، کە لە ئێستاو داهاتوودا بایەخ و گرنگی زۆریان لە بازاری کاردا هەیە.</p>
+  <span class="tag">FUTURE CAREERS</span>
+  <h2 class="title">🚀 Job Roles Await Graduates of This Department</h2>
+  <p class="sub">Public Relations is a field that opens doors to diverse careers highly valued in current and future job markets.</p>
   <div class="grid2">
-    <div class="cell-h"><div class="icon">📊</div><div><h4>توێژینەوە و پێوانەکردنی ڕای گشتی</h4><p>ئەنجامدانی ڕاپرسی توێژینەوە و شیکردنەوەی ئاڕاستە و هەڵوێستی جەماوەر و پێشنیار کردن بۆ پارتە سیاسیەکان و دامزراوە میریی و تایبەتەکان.</p></div></div>
-    <div class="cell-h"><div class="icon">📋</div><div><h4>پسپۆڕی پەیوەندییە گشتییەکان (PR Specialist)</h4><p>ئامادەکردن و جێبەجێکردنی کەمپەین و هەڵمەتی پەیوەندییە گشتییەکان، نووسینی بەیاننامە و هەواڵە ڕۆژنامەوانییەکان.</p></div></div>
-    <div class="cell-h"><div class="icon">🏢</div><div><h4>بەرپرسی پەیوەندیی دامەزراوە</h4><p>بەڕێوەبردنی پەیوەندیی ناوخۆیی و دەرەکی دامەزراوە، دروستکردن و بەهێزکردنی ناسنامە و ناوبانگی دامەزراوە.</p></div></div>
-    <div class="cell-h"><div class="icon">📱</div><div><h4>بەڕێوەبەری/هەماهەنگکەری تۆڕە کۆمەڵایەتییەکان</h4><p>بەڕێوەبردنی هەژمارە دیجیتاڵییەکان، ئامادەکردنی ناوەڕۆک و شوێنکەوتنی کاردانەوەی جەماوەر، و شیکردنەوەی ئامار.</p></div></div>
-    <div class="cell-h"><div class="icon">✍️</div><div><h4>نووسەری ناوەڕۆک و ڕیکلام</h4><p>نووسینی هەواڵ، ڕاپۆرت و وتار، و ئامادەکردنی ماددەی بانگەشە و پڕۆمۆشن.</p></div></div>
-    <div class="cell-h"><div class="icon">🎪</div><div><h4>ڕێکخەری چالاکی، کۆنفرانس و پێشانگا</h4><p>پلاندانان بۆ کۆنفرانس، پێشانگا و بۆنەکان، و هەماهەنگی لەگەڵ بەشداربووان و سپۆنسەرەکان.</p></div></div>
-    <div class="cell-h"><div class="icon">🎙️</div><div><h4>وتەبێژی فەرمی دامەزراوە و کۆمپانیاکان</h4><p>نوێنەرایەتی دامەزراوە لە بەرامبەر میدیا، و بەڕێوەبردنی پەیامەکانی دامەزراوە.</p></div></div>
-    <div class="cell-h"><div class="icon">💼</div><div><h4>ڕاوێژکاری پەیوەندی و پەیوەندییە گشتییەکان</h4><p>پێشکەشکردنی ڕاوێژ بۆ دامەزراوەکان و کۆمپانیاکان لە بوارەکانی ناوبانگ و بەڕێوەبردنی قەیران.</p></div></div>
-    <div class="cell-h"><div class="icon">🤲</div><div><h4>پسپۆڕی بەرپرسیارێتی کۆمەڵایەتی</h4><p>بەڕێوەبردنی بەرنامەکانی خزمەتگوزاری کۆمەڵگا، و دروستکردنی پەیوەندی لەگەڵ کۆمەڵگای خوارەوە و ڕێکخراوە مەدەنییەکان.</p></div></div>
-    <div class="cell-h"><div class="icon">🌍</div><div><h4>کەرتی حکومی و ڕێکخراوە نێودەوڵەتییەکان</h4><p>وەزارەت و دامەزراوە حکومییەکان، زانکۆ و دامەزراوە پەروەردەییەکان، و ڕێکخراوە نێودەوڵەتی و ناحکومییەکان.</p></div></div>
+    <div class="cell-h"><div class="icon">📊</div><div><h4>Public Opinion Research & Analysis</h4><p>Conducting surveys, analyzing public trends, and advising political parties or public/private institutions.</p></div></div>
+    <div class="cell-h"><div class="icon">📋</div><div><h4>Public Relations Specialist (PR Specialist)</h4><p>Planning and implementing PR campaigns, drafting press releases and news statements.</p></div></div>
+    <div class="cell-h"><div class="icon">🏢</div><div><h4>Corporate Communications Officer</h4><p>Managing internal and external communications, strengthening organizational identity and reputation.</p></div></div>
+    <div class="cell-h"><div class="icon">📱</div><div><h4>Social Media Manager / Coordinator</h4><p>Managing digital accounts, curating content, tracking public engagement, and analyzing metrics.</p></div></div>
+    <div class="cell-h"><div class="icon">✍️</div><div><h4>Content Writer & Copywriter</h4><p>Writing news articles, reports, promotional copy, and feature stories.</p></div></div>
+    <div class="cell-h"><div class="icon">🎪</div><div><h4>Event, Conference & Exhibition Organizer</h4><p>Planning conferences, expos, and coordinating with participants and sponsors.</p></div></div>
+    <div class="cell-h"><div class="icon">🎙️</div><div><h4>Official Spokesperson</h4><p>Representing organizations to media outlets and managing strategic messaging.</p></div></div>
+    <div class="cell-h"><div class="icon">💼</div><div><h4>PR & Communications Consultant</h4><p>Providing expert advice to organizations on reputation building and crisis response.</p></div></div>
+    <div class="cell-h"><div class="icon">🤲</div><div><h4>CSR Specialist (Corporate Social Responsibility)</h4><p>Directing community service initiatives and cultivating relationships with civil society organizations.</p></div></div>
+    <div class="cell-h"><div class="icon">🌍</div><div><h4>Government Sector & International NGOs</h4><p>Working within ministries, educational institutions, international agencies, and non-profits.</p></div></div>
   </div>
 </section>
 
 <section id="why">
-  <span class="tag">بۆچی ئێمە؟</span>
-  <h2 class="title">بۆچی ئەم بەشە هەڵبژێریت؟</h2>
+  <span class="tag">WHY US?</span>
+  <h2 class="title">Why Choose This Department?</h2>
   <div class="grid2">
-    <div class="cell-h"><div class="icon">🆕</div><div><h4>بەشێکی نوێ و مۆدێرن</h4><p>وانەکان و شێوازی خوێندن بەپێی پێداویستی ڕاستەقینەی بازاڕی کار داڕێژراون، تایبەت بە سەردەمی دیجیتاڵ.</p></div></div>
-    <div class="cell-h"><div class="icon">🎓</div><div><h4>سەرپەرشتی بەهێز</h4><p>سەرۆکایەتی و مامۆستایانی پسپۆڕ کە لە دامەزراندنەوە هەوڵی بەرزکردنەوەی ئاستی بەشیان داوە.</p></div></div>
-    <div class="cell-h"><div class="icon">🌍</div><div><h4>دەرفەتی کاری فراوان</h4><p>لە کۆنسوڵخانە و کۆمپانیا تا دامەزراوەی میدیایی و دەرەوەی وڵات — بواری کارکردن یەک لایەن نییە.</p></div></div>
-    <div class="cell-h"><div class="icon">🤝</div><div><h4>کۆمەڵگایەکی چالاک</h4><p>پەیجی فەیسبووک و ئینستاگرامی چالاک، چالاکی و ئیڤینتی بەردەوام لەنێو خوێندکارانی بەش.</p></div></div>
+    <div class="cell-h"><div class="icon">🆕</div><div><h4>Modern & Updated Curriculum</h4><p>Courses designed around real-world demands of the modern digital job market.</p></div></div>
+    <div class="cell-h"><div class="icon">🎓</div><div><h4>Strong Leadership & Faculty</h4><p>Dedicated department leadership and specialized professors fostering academic growth.</p></div></div>
+    <div class="cell-h"><div class="icon">🌍</div><div><h4>Broad Career Horizon</h4><p>Opportunities span consultancies, corporations, media firms, and international entities.</p></div></div>
+    <div class="cell-h"><div class="icon">🤝</div><div><h4>Vibrant Community</h4><p>Active social platforms and continuous student activities, events, and workshops.</p></div></div>
   </div>
 </section>
 
 <section id="testimonials">
-  <span class="tag">دەنگی خوێندکاران</span>
-  <h2 class="title">هەڵوێستی گەڕاوەی خوێندکاران لەسەر بەشەکە</h2>
-  <p class="sub">💡 ڕاستییە شاراوەکانی ناو بەشەکە لە زمانی خوێندکارانی پێشخۆتانەوە (نهێنییەکان بخوێنەوە)</p>
+  <span class="tag">STUDENT VOICES</span>
+  <h2 class="title">Student Feedback & Experience</h2>
+  <p class="sub">💡 Insights and firsthand perspectives from students who studied here</p>
 
   <style>
     .acc{border:1px solid var(--line); border-radius:6px; overflow:hidden; background:#fff;}
@@ -393,88 +385,88 @@
   </style>
 
   <details class="acc" open>
-    <summary>قۆناغی دووەم</summary>
+    <summary>Second Stage</summary>
     <div class="acc-body">
-      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">سۆما ئیبراهیم ئەحمەد، قۆناغی ٢، پەیوەندییە گشتییەکان</div>
-      <p><strong style="color:var(--black);">چۆن بەشەکەم هەڵبژارد؟</strong><br>سەرەتا ئامانجم پەیوەندییە سیاسییەکان بوو، بەڵام نمرەکەم کەمتر بوو بۆ وەرگرتنم تێیدا. دواتر گەڕام بۆ بەشی پەیوەندییە گشتییەکان و تێبینیم کرد لەم بەشەدا هەلی کارکردن بۆ ئامانجەکەم گونجاوە.</p>
-      <p><strong style="color:var(--black);">چی زانیارییەکم دەربارەی هەبوو؟</strong><br>هەوڵمدا زانیاری وەربگرم لە ماڵپەڕی سۆشیال میدیای زانکۆی سلێمانی، بەڵام زۆر ڕوون نەبوو لام.</p>
-      <p><strong style="color:var(--black);">ئێستا چۆن لێی دەڕوانم؟</strong><br>بەو شێوەیە لێی دەڕوانم کە داهاتوویەکی زۆر گەش لە بەردەممە، و سەرکەوتنێکی زۆر باشم دەبێت.</p>
-      <p><strong style="color:var(--black);">چی فێربووم؟</strong><br>ئەم بەشە فێری هونەری پەیوەندیکردنمان دەکات بە شێوەیەکی ستراتیژی، و کاریگەریمان لە کۆمەڵگا و لە دامودەزگاکان و تێگەیشتنی وردمان لە جەماوەری دامەزراوەکە، واتە گوێگرێکی باش بوون.</p>
+      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">Soma Ibrahim Ahmed, Stage 2, Public Relations</div>
+      <p><strong style="color:var(--black);">How did I choose this department?</strong><br>Initially, my goal was Political Relations, but my grade fell short. I then explored Public Relations and realized the job opportunities aligned perfectly with my ambitions.</p>
+      <p><strong style="color:var(--black);">What prior knowledge did I have?</strong><br>I tried gathering details from University of Sulaimani social media pages, but the information wasn't very clear at the time.</p>
+      <p><strong style="color:var(--black);">How do I view it now?</strong><br>I see a very bright future ahead, and I believe I will achieve great professional success.</p>
+      <p><strong style="color:var(--black);">What have I learned?</strong><br>This field teaches us strategic communication, societal influence, institutional understanding, and active listening.</p>
       <div style="height:1px; background:var(--line); margin:22px 0;"></div>
-      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">ماریا نەریمان، خاوەنی پلەی یەکەمی قۆناغی یەکەمی ساڵی ڕابردوو</div>
-      <p><strong style="color:var(--black);">چۆن بەشەکەم هەڵبژارد؟</strong><br>ئەم بەشەم هەڵبژارد هەر لە قۆناغی ئامادەییەوە ئارەزووم لێی هەبووە، چونکە هەر زوو لە گرنگی ئەم بەشە تێگەیشتم لەبەر چەند هۆکارێک: ١- ئارەزوو دەکەم ببمە دەنگی کەسانی دیکە. ٢- ئارەزووی بزنسم هەیە و ئێرە بە بژاردەیەکی باش دەزانم.</p>
-      <p><strong style="color:var(--black);">چی زانیارییەکم دەربارەی هەبوو؟</strong><br>نەمدەزانی خوێندنی ئەم بەشە لێرە چۆنە و وانەکانی چین. لە ڕێگەی هاوڕێکەمەوە کەمێک زانیاری گشتیم وەرگرت، بەڵام بە تەواوی نا.</p>
-      <p><strong style="color:var(--black);">ئێستا چۆن لێی دەڕوانم؟</strong><br>پێشتر چۆن سەیری بەشەکەمم دەکرد لە ڕووی گرنگییەوە، ئێستا زۆر زیاتر گرنگتر لێی دەڕوانم دوای ساڵێک خوێندن لە بەشەکە.</p>
+      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">Maria Nariman, Top Student of First Stage (Last Year)</div>
+      <p><strong style="color:var(--black);">How did I choose this department?</strong><br>I wanted this department since high school because I recognized its importance early on: 1- I want to be a voice for others. 2- I have a passion for business, and this is an excellent choice for it.</p>
+      <p><strong style="color:var(--black);">What prior knowledge did I have?</strong><br>I wasn't sure how the studies were structured or what subjects were taught. I got some general insights from a friend, but not completely.</p>
+      <p><strong style="color:var(--black);">How do I view it now?</strong><br>I valued it before, but after studying here for a year, I view its importance as vastly greater.</p>
       <div style="height:1px; background:var(--line); margin:22px 0;"></div>
-      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">ئەژی بژار، قۆناغی ٢</div>
-      <p><strong style="color:var(--black);">چۆن ئەم بەشەت هەڵبژارد؟</strong><br>هەڵبژاردە نەبوو، بەڵکو ناوهاتنەوە بوو بەپێی نمرەکەم.</p>
-      <p><strong style="color:var(--black);">چی زانیارییەکەت دەربارەی ئەم بەشە هەبوو؟</strong><br>هیچ، بەهۆی تازەیی بەشەکە هیچ زانیارییەکی ئەوتۆم نەبووە لەسەری. بەڵام دواتر گەڕانم بۆ کرد و زانیاریم دەستکەوت.</p>
-      <p><strong style="color:var(--black);">ئێستا چۆن لێی ئەڕوانی؟</strong><br>داهاتووی خۆمی لێدەبینم. ئەم بەشە دەرفەتی کارت پێدەدات، چ لە حکومەت یان کەرتی تایبەت، کە ئەگەر توانای تێدا بێت خۆت کاریگەری دەبێت.</p>
-      <p><strong style="color:var(--black);">چی فێربووی؟</strong><br>گرنگی پەیوەندییە کۆمەڵایەتی و کەسییەکانمان، بایەخدان و برەودان بە پەیوەندییەکان.</p>
+      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">Azhi Bzhar, Stage 2</div>
+      <p><strong style="color:var(--black);">How did you choose this department?</strong><br>It was not my initial choice, but rather assigned based on my score.</p>
+      <p><strong style="color:var(--black);">What prior knowledge did you have?</strong><br>None. Because it was a new major, I had no prior information. However, I researched later and learned a lot.</p>
+      <p><strong style="color:var(--black);">How do you view it now?</strong><br>I see my future in it. This major offers wide career opportunities in both public and private sectors if you possess dedication.</p>
+      <p><strong style="color:var(--black);">What have you learned?</strong><br>The value of personal and social relationships, and how to nurture and maintain them.</p>
     </div>
   </details>
   <details class="acc">
-    <summary>قۆناغی سێیەم</summary>
+    <summary>Third Stage</summary>
     <div class="acc-body">
-      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">شەنگە لەتیف سلێمان، قۆناغی ٣</div>
-      <p><strong style="color:var(--black);">چۆن بەشەکەت هەڵبژارد؟</strong><br>سەرەتا لەبەر ئەوەی بەتەمای زانکۆی سلێمانی نەبووم، بۆخۆم هەر بە ئاسایی فۆڕمەکەم پڕکردەوە و لای ئیرادی ئەم بەشەم تێکرد، ئەگینا بە ویستی خۆم هەڵم نەبژارد.</p>
-      <p><strong style="color:var(--black);">چی زانیارییەکت دەربارەی هەبوو؟</strong><br>لەبەر ئەوەی بەشەکە زۆر نوێ بوو، هیچ زانیارییەکی ئەوتۆم لەسەری نەبوو. بەڵام دوای ئەوەی ناوم لەو بەشە هاتەوە، لە زۆر سەرچاوەوە هەوڵمدا زانیاری لەسەری کۆبکەمەوە.</p>
-      <p><strong style="color:var(--black);">ئێستا چۆن لێی ئەڕوانی؟</strong><br>بەڕاستی تاکە بڕیارە کە لە ژیانمدا یابێتم و لێی پەشیمان نەبووبێتمەوە. لەبەر ئەوەی من خۆم لەم بەشەدا دۆزییەوە، چونکە زۆر فراوانە و پەیوەندی زۆر باش لەگەڵ خەڵکدا دروست دەکەیت و بەشێکی وشک نییە. جگە لە هەمووی، هاوڕێیەتی بەڕاستی هاوڕێی زۆر باش و دڵسۆزم هەیە کە هەموو خەمخۆر و بەوەفان — لەبەر ئەوەش (خێزانی PR) بووە بە دروشمی بەشەکەمان.</p>
-      <p><strong style="color:var(--black);">چی فێربووی؟</strong><br>فێری جۆرەها ڕێگا و شێواز بووم کە بتوانم پەیوەندی پێ ببەستم و کاریان پێ بکەم.</p>
+      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">Shanga Latif Sulaiman, Stage 3</div>
+      <p><strong style="color:var(--black);">How did you choose this department?</strong><br>Since I originally didn't plan on attending University of Sulaimani, I filled out the form casually and included this major without strong initial intent.</p>
+      <p><strong style="color:var(--black);">What prior knowledge did you have?</strong><br>Since it was very new, I had virtually no information. But once I was accepted, I made efforts to gather details from various sources.</p>
+      <p><strong style="color:var(--black);">How do you view it now?</strong><br>Honestly, it's the one decision in my life I have never regretted. I found myself in this field because it is broad, allows building strong connections, and isn't rigid. Beyond that, "PR Family" has truly become our department's motto due to our close bond.</p>
+      <p><strong style="color:var(--black);">What have you learned?</strong><br>I learned diverse ways and strategies to establish and manage professional communication.</p>
       <div style="height:1px; background:var(--line); margin:22px 0;"></div>
-      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">ئەشکان یاسین حسێن، قۆناغی ٣</div>
-      <p><strong style="color:var(--black);">چۆن بەشەکەت هەڵبژارد؟</strong><br>کاتێک زانیم کە بەشەکە پەیوەندی بە کۆمەڵگا و ژیانی ڕۆژانەوە هەیە و ئەو شتانەی کە ڕوودەدەن و ئەگەری ڕووداندنی هەیە لە داهاتوودا، پێشبینیکردنی بۆ ڕووداوەکانی کۆمەڵگا، زیاتر خولیام هەبوو بۆ بەشەکە و ویستم پەرە بەو بوارە بدەم چونکە خۆم حەزم لە پیشەیەکی لەو جۆرە بووە، هەستم دەکرد خۆم لەو بەشە دەبینمەوە.</p>
-      <p><strong style="color:var(--black);">چی زانیارییەکت دەربارەی هەبوو؟</strong><br>سەرەتا هیچ زانیارییەکم نەبوو، بەحوکمی ئەوەی بەشەکە بەشێکی تازە بوو. پرسیارم کرد و هەندێک مامۆستا یارمەتیان دام، دواتر کە بۆم ڕوون بووەوە بەبێ هیچ دوودڵییەک لە یەکەم بەشی فۆڕمەکەمم دانا. دواتر سێرچم بۆی کرد و زانیاری زیاترم دەربارەی بەشەکە زانی کە پەیوەندی بە حکومەت و سیاسەت و کەرتی تایبەت و گشتی و کۆمپانیا و دامەزراوەکانەوە هەیە. زیاتر خولیای کارە سیاسییەکانم هەبوو، دواتر دڵنیایی تەواوم وەرگرت کە بەشێکی تەواو سەرکەوتووە.</p>
-      <p><strong style="color:var(--black);">ئێستا چۆن لێی ئەڕوانی؟</strong><br>ئێستا وەک بەشێکی سەرکەوتوو، بەشێکی زۆر باش لێی دەڕوانم. هیچ پەشیمان نیم لە هەڵبژاردنی بەشەکەم و زۆر حەزم لێیەتی، هیواداریشم زیاتر پەرەی پێ بدرێت لە ساڵانی داهاتوودا.</p>
-      <p><strong style="color:var(--black);">چی فێربووی؟</strong><br>زۆر شت لەم بەشەدا فێربووم — فێری ئیدارەدانی وێنەی زەینی و دروستکردنی ناوبانگی باش و شیکاری جەماوەر و ئیدارەدانی قەیران و پێشبینیکردن و بەرەنگاربوونەوە و داڕشتنی پەیامی ستراتیژی و میدیایی و ڕووبەڕووبوونەوەی پڕوپاگەندە و هتد. بە کورتی زۆر شتی باش لەم بەشەدا فێربووم و ڕۆژ بە ڕۆژ زیاتر خولیام بۆ بەشەکە و زانیاریەکانی مامۆستا ئازیزەکان زیاتر دەبێت. فێربووم کە پەیوەندییە گشتییەکان پردێکە لە نێوان ڕێکخراو و کۆمەڵگەدا، فێربووم چۆن بە شێوازێکی زانستی و ئەخلاقی ئەم پردە بپارێزم.</p>
+      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">Ashkan Yasin Hussein, Stage 3</div>
+      <p><strong style="color:var(--black);">How did you choose this department?</strong><br>When I realized it directly connected to society, daily life, and predicting future trends, my passion grew. I wanted to develop in a field where I saw my true potential.</p>
+      <p><strong style="color:var(--black);">What prior knowledge did you have?</strong><br>Initially none, as it was new. Professors helped guide me, and once things became clear, I placed it as my top choice without hesitation. I then researched its connections to government, corporate, and private sectors.</p>
+      <p><strong style="color:var(--black);">How do you view it now?</strong><br>I view it as a highly successful and promising department. I have zero regrets and hope to see it expand further in coming years.</p>
+      <p><strong style="color:var(--black);">What have you learned?</strong><br>I learned brand reputation management, crisis administration, public analysis, and strategic messaging. I learned that PR is a bridge between an organization and the public, which must be maintained ethically and scientifically.</p>
       <div style="height:1px; background:var(--line); margin:22px 0;"></div>
-      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">دینا دلێر جەبار، قۆناغی ٣</div>
-      <p><strong style="color:var(--black);">چۆن بەشەکەت هەڵبژارد؟</strong><br>سەرەتا زانیارییەکی زۆرم نەبوو لەسەری، بەڵام بەشی پەیوەندییە گشتییەکانم وەک پردێکی سەرەکی لە نێوان ڕێکخراو، کۆمپانیا و جەماوەردا بینیوە. حەز و ئارەزووی خۆمم لە کارامەییەکانی پەیوەندیکردن و بەڕێوەبردنی قەیرانەکاندا دۆزییەوە.</p>
-      <p><strong style="color:var(--black);">چی زانیارییەکت هەبوو لەسەر بەشەکە؟</strong><br>تەنها تێڕوانینێکی گشتیم هەبوو کە بۆ ڕیکلام و ڕەنگدانەوەی کارەکان بەکاردێت.</p>
-      <p><strong style="color:var(--black);">ئێستا چۆن بەشەکەت دەبینی؟</strong><br>ئێستا بەشەکەم بە یەکێک لە ستوونە سەرەکی و ستراتیژییەکانی هەر سەرکەوتنێک دەبینم. تێگەیشتووم کە پەیوەندییە گشتییەکان تەنها وەڵامدانەوەی ڕووداوەکان نییە، بەڵکو پلاندانانی پێشوەختەیە بۆ پاراستنی ناوبانگ و دروستکردنی بەهای درێژخایەن بۆ دامەزراوەکە.</p>
-      <p><strong style="color:var(--black);">چی فێربووی؟</strong><br>توانای گوێگرتنی چالاک و شیکردنەوەی بۆچوونی جەماوەر. فێربووم چۆن پەیامێکی ڕوون، کاریگەر و متمانەپێکراو بگەیەنم و وێنەی ڕاستەقینەی دامەزراوەکە پیشان بدەم.</p>
+      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">Dina Dler Jabar, Stage 3</div>
+      <p><strong style="color:var(--black);">How did you choose this department?</strong><br>I didn't know much at first, but I saw PR as a crucial bridge between organizations, companies, and the public. I discovered my passion in communication skills and crisis management.</p>
+      <p><strong style="color:var(--black);">What prior knowledge did you have?</strong><br>I only had a general impression that it was used for advertising and public representation.</p>
+      <p><strong style="color:var(--black);">How do you view it now?</strong><br>I see it as a cornerstone for organizational success. I realized PR isn't merely reacting to events, but proactive planning for reputation protection.</p>
+      <p><strong style="color:var(--black);">What have you learned?</strong><br>Active listening, public sentiment analysis, and delivering clear, trustworthy, and authentic messaging for institutions.</p>
       <div style="height:1px; background:var(--line); margin:22px 0;"></div>
-      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">گۆڤار شۆڕش ئەحمەد، قۆناغی ٣</div>
-      <p><strong style="color:var(--black);">چۆن بەشەکەم هەڵبژارد؟</strong><br>بەهۆی حەز و خولیای بەهێزم بۆ دروستکردنی پەیوەندی کۆمەڵایەتی، ڕاگەیاندن و تێگەیشتن لە ڕای گشتی ئەم بەشەم هەڵبژارد، وەک دەرفەتێک بۆ ئەوەی بە شێوازێکی زانستی بوارەکانی ڕێکخستنی کارگێڕی، پرۆتۆکۆڵ و بەڕێوەبردنی کەشوهەوای دەزگایی فێربم.</p>
-      <p><strong style="color:var(--black);">چی زانیارییەکم دەربارەی هەبوو؟</strong><br>زانیارییە سەرەتاییەکانم کورت بوون، بەڵام خاوەنی چەند هاوڕێیەک بووم لەم بەشە کە یارمەتیدەرێکی زۆر باش بوون بۆ زیادکردنی زانیارییەکانم سەبارەت بەوەی کە پەیوەندییە گشتییەکان پردی پەیوەندی نێوان ڕێکخراو و جەماوەرەکەیەتی، هەروەها دەمزانی بەشێکە لە بوارە گرنگەکانی میدیا و بەڕێوەبردن کە یارمەتی دروستکردنی وێنەی ئەرێنی کۆمپانیا و دامەزراوەکان دەدات.</p>
-      <p><strong style="color:var(--black);">ئێستا چۆن لێی ئەڕوانم؟</strong><br>ئێستا بەشەکە بە زۆر فراوانتر و گرنگتر دەبینم لە تەنها بەڕێوەبردنی ئاسایی، وەک هونەر و زانستێکی ستراتیژی لێی دەڕوانم بۆ بەڕێوەبردنی قەیرانەکان، دروستکردنی ناوبانگی ڕێکخراوەیی و هەماهەنگی پرۆتۆکۆڵی و ڕێکخستنی چالاکییەکان.</p>
-      <p><strong style="color:var(--black);">چی فێربووم؟</strong><br>فێری تیۆرەکانی پەیوەندیکردن، ستراتیژییەکانی بەڕێوەبردنی قەیران، بەڕێوەبردنی هەڵمەتە ڕاگەیاندنییەکان و کارامەییەکانی پێشکەشکردن بووم، لەگەڵ ئەوەشدا فێری دروستکردنی ناوەڕۆکی میدیایی بەهێز و تێگەیشتن لە بنەماکانی ڕەفتاری جەماوەر بووم.</p>
+      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">Govar Shorsh Ahmed, Stage 3</div>
+      <p><strong style="color:var(--black);">How did I choose this department?</strong><br>Driven by my strong desire to build social connections, understand media, and analyze public opinion, I chose this major to scientifically master administrative organization and protocol.</p>
+      <p><strong style="color:var(--black);">What prior knowledge did I have?</strong><br>Basic information, but friends in the department helped me understand that PR serves as the essential bridge between an entity and its audience.</p>
+      <p><strong style="color:var(--black);">How do I view it now?</strong><br>I view it as far broader than general management — it is a strategic art and science for crisis management, reputation building, and protocol organization.</p>
+      <p><strong style="color:var(--black);">What have I learned?</strong><br>Communication theories, crisis response strategies, media campaign execution, presentation skills, and media content creation.</p>
     </div>
   </details>
   <details class="acc">
-    <summary>قۆناغی چوارەم</summary>
+    <summary>Fourth Stage</summary>
     <div class="acc-body">
-      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">لاوان تاریق محەمەد، قۆناغی ٤</div>
-      <p><strong style="color:var(--black);">چۆن بەشەکەم هەڵبژارد؟</strong><br>چونکە بەشێکی تازە بوو، سەرنجی ڕاکێشام؛ حەزم کرد بوارێکی نوێ تاقیبکەمەوە کە تێکەڵەیەکە لە پەیوەندی کۆمەڵایەتی، ڕێکخستن و ڕاگەیاندن.</p>
-      <p><strong style="color:var(--black);">چی زانیارییەکم دەربارەی هەبوو؟</strong><br>تەنها تێگەیشتنێکی سەرەتایی؛ کە بەشێکە بۆ ڕێکخستنی وێنەی دامەزراوەکان و دروستکردنی پردی پەیوەندی لەگەڵ خەڵکدا.</p>
-      <p><strong style="color:var(--black);">ئێستا چۆن لێی دەڕوانم؟</strong><br>بە بەشێکی ستراتیژی و گرنگی دەبینم کە هیچ کۆمپانیا یان دامەزراوەیەک ناتوانێت بێ ئەوە سەرکەوتوو بێت.</p>
-      <p><strong style="color:var(--black);">چی فێربووم؟</strong><br>فێری هونەری گفتوگۆ، بەڕێوەبردنی بۆنە و ئیڤینتەکان، و پرۆتۆکۆڵ بووم.</p>
+      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">Lawan Tariq Muhammad, Stage 4</div>
+      <p><strong style="color:var(--black);">How did I choose this department?</strong><br>Because it was new, it drew my attention. I wanted to explore a field combining communication, organization, and media.</p>
+      <p><strong style="color:var(--black);">What prior knowledge did I have?</strong><br>Only basic understanding that it focused on organizational image and building public connection.</p>
+      <p><strong style="color:var(--black);">How do I view it now?</strong><br>I see it as a vital strategic department without which no company or institution can succeed.</p>
+      <p><strong style="color:var(--black);">What have I learned?</strong><br>The art of negotiation, event management, and protocol etiquette.</p>
       <div style="height:1px; background:var(--line); margin:22px 0;"></div>
-      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">ئاکام نەجمەدین، قۆناغی ٤</div>
-      <p><strong style="color:var(--black);">چۆن بەشەکەم هەڵبژارد؟</strong><br>ڕەفیقێکم لەو بەشە بوو، منیش بەهۆی ئەوەوە هەڵمبژارد.</p>
-      <p><strong style="color:var(--black);">چی زانیارییەکم دەربارەی هەبوو؟</strong><br>هیچ زانیارییەکی سەرەتایم نەبوو، تەنها ئەوەنەم دەزانی زۆرینەی بابەتەکان بە کوردی دەخوێندرێن.</p>
-      <p><strong style="color:var(--black);">ئێستا چۆن لێی دەڕوانم؟</strong><br>بەشێکی تازەیە و تا ئێستا زۆر ناسراو نییە لە ناو دامەزراوە و کۆمەڵگا.</p>
-      <p><strong style="color:var(--black);">چی فێربووم؟</strong><br>باشترکردنی پەیوەندی نێوان دامەزراوە و جەماوەر و چەندان شتی دیکە.</p>
+      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">Akam Najmaddin, Stage 4</div>
+      <p><strong style="color:var(--black);">How did I choose this department?</strong><br>I had a friend in this department, and I joined because of him.</p>
+      <p><strong style="color:var(--black);">What prior knowledge did I have?</strong><br>No initial knowledge, other than knowing most subjects were taught in Kurdish.</p>
+      <p><strong style="color:var(--black);">How do I view it now?</strong><br>It's a modern department that is gaining increasing recognition across institutions and society.</p>
+      <p><strong style="color:var(--black);">What have I learned?</strong><br>Improving institutional-public communication and various practical management skills.</p>
     </div>
   </details>
 </section>
 
 <section id="contact" class="contact-wrap">
-  <span class="tag">پەیوەندی</span>
-  <h2>هێشتا پرسیارت هەیە؟</h2>
-  <p>پەیوەندی بە بەشی پەیوەندییە گشتییەکانی زانکۆی سلێمانی بکە بۆ زانیاری زیاتر لەسەر وەرگرتن و خوێندن.</p>
-  <p class="addr">📍 کەمپی نوێی زانکۆی سلێمانی — کۆلێژی زانستە مرۆڤایەتییەکان (بینای ١١)</p>
+  <span class="tag">CONTACT</span>
+  <h2>Still Have Questions?</h2>
+  <p>Get in touch with the Public Relations Department at the University of Sulaimani for more details on admissions and study programs.</p>
+  <p class="addr">📍 University of Sulaimani New Campus — College of Humanities (Building 11)</p>
   <div class="contact-btns">
-    <a class="cbtn solid" href="https://wa.me/9647740823075" target="_blank" rel="noopener">💬 واتساپ</a>
-    <a class="cbtn" href="https://www.facebook.com/share/1Eu4ffZzKL/?mibextid=wwXIfr" target="_blank" rel="noopener">📘 فەیسبووکی فەرمی</a>
-    <a class="cbtn" href="https://www.instagram.com/public.relations.students?igsh=MThiOWV3dzZycjhreA==" target="_blank" rel="noopener">📷 ئینستاگرامی خوێندکاران</a>
+    <a class="cbtn solid" href="https://wa.me/9647740823075" target="_blank" rel="noopener">💬 WhatsApp</a>
+    <a class="cbtn" href="https://www.facebook.com/share/1Eu4ffZzKL/?mibextid=wwXIfr" target="_blank" rel="noopener">📘 Official Facebook</a>
+    <a class="cbtn" href="https://www.instagram.com/public.relations.students?igsh=MThiOWV3dzZycjhreA==" target="_blank" rel="noopener">📷 Student Instagram</a>
   </div>
 </section>
 
 <footer>
-  © ٢٠٢٦ بەشی پەیوەندییە گشتییەکان — زانکۆی سلێمانی
-  <span class="credit">دروستکراوە لە لایەن ئارا عەزیز، خوێندکاری قۆناغی دووەمی بەشی پەیوەندییە گشتییەکان</span>
-  <span class="thanks">شایەنی باسە دەمەوێ پێزانین و دەسخۆشی خۆم ئاڕاستەی تەواوی ستافی بەش و مامۆستا ماندوونەناسەکانمان بە گشتی، و دکتۆرە لانەی سەرۆک بەش و مامۆستا شۆخان بڕیاردەری بەشەکەمان و مامۆستا ئاڤێستا مامۆستا لە بەشەکەمان بە تایبەتی بکەم. هەروەها دەسخۆشی لە دژوار عادل هاوڕێ و نوێنەری قۆناغی دووەم و تەواوی ئەو خوێندکارانەی کە فیدباکیان ئەنجام دا بۆ سایتەکەم بکەم، کە هاوکاری تەواویان کردم لە باشترکردنی ئەم سایتە بۆ خوێندکاران</span>
+  © 2026 Public Relations Department — University of Sulaimani
+  <span class="credit">Developed by Ara Aziz, 2nd-year Public Relations student</span>
+  <span class="thanks">Special thanks and appreciation to our entire department staff and hardworking professors in general, and to Dr. Lana (Head of Department), Lecturer Shokhan (Department Decision Maker), and Lecturer Avesta in particular. Also, special thanks to my friend Dzhwar Adel (2nd-year representative) and all students who provided feedback to improve this website for future students.</span>
 </footer>
 
 </body>
