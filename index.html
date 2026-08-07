@@ -262,7 +262,7 @@
 
   <div class="visitor-badge">
     <span class="live-dot"></span>
-    <span>زیاتر لە ٥,٤٠٠ خوێندکار و سەردانیکەر سوودیان لەم ماڵپەڕە وەرگرتووە</span>
+    <span>زیاتر لە <span id="visitor-count">...</span> خوێندکار و سەردانیکەر سوودیان لەم ماڵپەڕە وەرگرتووە</span>
   </div>
 
   <svg class="ridge" viewBox="0 0 1180 70" preserveAspectRatio="none">
@@ -451,7 +451,7 @@
       <p><strong style="color:var(--black);">چی فێربووم؟</strong><br>ئەم بەشە فێری هونەری پەیوەندیکردنمان دەکات بە شێوەیەکی ستراتیژی، و کاریگەریمان لە کۆمەڵگا و لە دامودەزگاکان و تێگەیشتنی وردمان لە جەماوەری دامەزراوەکە، واتە گوێگرێکی باش بوون.</p>
       <div style="height:1px; background:var(--line); margin:22px 0;"></div>
       <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">ماریا نەریمان، خاوەنی پلەی یەکەمی قۆناغی یەکەمی ساڵی ڕابردوو</div>
-      <p><strong style="color:var(--black);">چۆن بەشەکەم هەڵبژارد؟</strong><br>ئەم بەشەم هەڵبژارد هر لە قۆناغی ئامادەییەوە ئارەزووم لێی هەبووە، چونکە هەر زوو لە گرنگی ئەم بەشە تێگەیشتم لەبەر چەند هۆکارێک: ١- ئارەزوو دەکەم ببمە دەنگی کەسانی دیکە. ٢- ئارەزووی بزنسم هەیە و ئێرە بە بژاردەیەکی باش دەزانم.</p>
+      <p><strong style="color:var(--black);">چۆن بەشەکەم هەڵبژارد؟</strong><br>ئەم بەشەم هەڵبژارد هەر لە قۆناغی ئامادەییەوە ئارەزووم لێی هەبووە، چونکە هەر زوو لە گرنگی ئەم بەشە تێگەیشتم لەبەر چەند هۆکارێک: ١- ئارەزوو دەکەم ببمە دەنگی کەسانی دیکە. ٢- ئارەزووی بزنسم هەیە و ئێرە بە بژاردەیەکی باش دەزانم.</p>
       <p><strong style="color:var(--black);">چی زانیارییەکم دەربارەی هەبوو؟</strong><br>نەمدەزانی خوێندنی ئەم بەشە لێرە چۆنە و وانەکانی چین. لە ڕێگەی هاوڕێکەمەوە کەمێک زانیاری گشتیم وەرگرت، بەڵام بە تەواوی نا.</p>
       <p><strong style="color:var(--black);">ئێستا چۆن لێی دەڕوانم؟</strong><br>پێشتر چۆن سەیری بەشەکەمم دەکرد لە ڕووی گرنگییەوە، ئێستا زۆر زیاتر گرنگتر لێی دەڕوانم دوای ساڵێک خوێندن لە بەشەکە.</p>
       <div style="height:1px; background:var(--line); margin:22px 0;"></div>
@@ -525,6 +525,23 @@
   <span class="credit">دروستکراوە لە لایەن ئارا عەزیز، خوێندکاری قۆناغی دووەمی بەشی پەیوەندییە گشتییەکان</span>
   <span class="thanks">شایەنی باسە دەمەوێ پێزانین و دەسخۆشی خۆم ئاڕاستەی تەواوی ستافی بەش و مامۆستا ماندوونەناسەکانمان بە گشتی، و دکتۆرە لانەی سەرۆک بەش و مامۆستا شۆخان بڕیاردەری بەشەکەمان و مامۆستا ئاڤێستا مامۆستا لە بەشەکەمان بە تایبەتی بکەم. هەروەها دەسخۆشی لە دژوار عادل هاوڕێ و نوێنەری قۆناغی دووەم و تەواوی ئەو خوێندکارانەی کە فیدباکیان ئەنجام دا بۆ سایتەکەم بکەم، کە هاوکاری تەواویان کردم لە باشترکردنی ئەم سایتە بۆ خوێندکاران</span>
 </footer>
+
+<!-- Real-time Visitor Counter Script -->
+<script>
+  function updateVisitorCount() {
+    fetch('https://api.countapi.xyz/hit/publicrelationsdep.com/visits')
+      .then(res => res.json())
+      .then(res => {
+        const count = res.value || 1000;
+        document.getElementById('visitor-count').innerText = count.toLocaleString('ckb-IQ');
+      })
+      .catch(err => {
+        // Fallback display if network issue
+        document.getElementById('visitor-count').innerText = "٥,٤٠٠+";
+      });
+  }
+  document.addEventListener("DOMContentLoaded", updateVisitorCount);
+</script>
 
 </body>
 </html>
