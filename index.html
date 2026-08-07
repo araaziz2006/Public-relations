@@ -83,18 +83,6 @@
   .hero h1 .accent{color:var(--red);}
   .hero p.lede{font-size:16.5px; color:var(--ink-soft); max-width:600px; line-height:1.85; margin-bottom:8px;}
 
-  /* Visitor Counter Banner */
-  .visitor-badge{
-    display:inline-flex; align-items:center; gap:10px;
-    background:var(--paper-2); border:1px solid var(--line);
-    padding:8px 16px; border-radius:30px; font-size:13.5px; font-weight:700;
-    color:var(--black); margin-top:16px;
-  }
-  .visitor-badge .live-dot{
-    width:9px; height:9px; background:#22c55e; border-radius:50%;
-    box-shadow:0 0 8px #22c55e;
-  }
-
   .ridge{width:100%; height:70px; display:block; margin-top:44px;}
   .ridge path{fill:none; stroke:var(--black); stroke-width:1.4; opacity:.55;}
   .ridge .fill{fill:var(--green); opacity:.10; stroke:none;}
@@ -259,11 +247,6 @@
   <span class="hero-eyebrow">بەشی پەیوەندییە گشتییەکان دامەزراوە لە ساڵی٢٠٢١ لە کۆلێژی زانستە مرۆڤایەتییەکان لە زانکۆی سلێمانی</span>
   <h1>بەشی <span class="accent">پەیوەندییە گشتییەکان</span><br>دەروازەیەکی نوێ بۆ داهاتووت</h1>
   <p class="lede">ئەم بەشە تازەیە لە زانکۆی سلێمانی، زۆرێک لە خوێندکارانی پۆلی ١٢ و کەسووکاریان زانیاریان کەمە لەسەری. لێرەدا هەموو ئەوەی پێویستە بزانن کۆمکردووەتەوە: نمرەی وەرگیران، ئەو بابەتانەی دەیخوێنیت، و ئەو کارانەی دواتر دەتوانیت تێیدا کاربکەیت.</p>
-
-  <div class="visitor-badge">
-    <span class="live-dot"></span>
-    <span>زیاتر لە <span id="visitor-count">...</span> خوێندکار و سەردانیکەر سوودیان لەم ماڵپەڕە وەرگرتووە</span>
-  </div>
 
   <svg class="ridge" viewBox="0 0 1180 70" preserveAspectRatio="none">
     <path class="fill" d="M0,70 L0,42 L120,16 L220,38 L340,8 L460,34 L600,4 L740,32 L860,14 L980,40 L1080,20 L1180,42 L1180,70 Z"></path>
@@ -525,23 +508,6 @@
   <span class="credit">دروستکراوە لە لایەن ئارا عەزیز، خوێندکاری قۆناغی دووەمی بەشی پەیوەندییە گشتییەکان</span>
   <span class="thanks">شایەنی باسە دەمەوێ پێزانین و دەسخۆشی خۆم ئاڕاستەی تەواوی ستافی بەش و مامۆستا ماندوونەناسەکانمان بە گشتی، و دکتۆرە لانەی سەرۆک بەش و مامۆستا شۆخان بڕیاردەری بەشەکەمان و مامۆستا ئاڤێستا مامۆستا لە بەشەکەمان بە تایبەتی بکەم. هەروەها دەسخۆشی لە دژوار عادل هاوڕێ و نوێنەری قۆناغی دووەم و تەواوی ئەو خوێندکارانەی کە فیدباکیان ئەنجام دا بۆ سایتەکەم بکەم، کە هاوکاری تەواویان کردم لە باشترکردنی ئەم سایتە بۆ خوێندکاران</span>
 </footer>
-
-<!-- Real-time Visitor Counter Script -->
-<script>
-  function updateVisitorCount() {
-    fetch('https://api.countapi.xyz/hit/publicrelationsdep.com/visits')
-      .then(res => res.json())
-      .then(res => {
-        const count = res.value || 1000;
-        document.getElementById('visitor-count').innerText = count.toLocaleString('ckb-IQ');
-      })
-      .catch(err => {
-        // Fallback display if network issue
-        document.getElementById('visitor-count').innerText = "٥,٤٠٠+";
-      });
-  }
-  document.addEventListener("DOMContentLoaded", updateVisitorCount);
-</script>
 
 </body>
 </html>
