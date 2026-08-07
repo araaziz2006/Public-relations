@@ -520,13 +520,13 @@
   <span class="thanks">شایەنی باسە دەمەوێ پێزانین و دەسخۆشی خۆم ئاڕاستەی تەواوی ستافی بەش و مامۆستا ماندوونەناسەکانمان بە گشتی، و دکتۆرە لانەی سەرۆک بەش و مامۆستا شۆخان بڕیاردەری بەشەکەمان و مامۆستا ئاڤێستا مامۆستا لە بەشەکەمان بە تایبەتی بکەم. هەروەها دەسخۆشی لە دژوار عادل هاوڕێ و نوێنەری قۆناغی دووەم و تەواوی ئەو خوێندکارانەی کە فیدباکیان ئەنجام دا بۆ سایتەکەم بکەم، کە هاوکاری تەواویان کردم لە باشترکردنی ئەم سایتە بۆ خوێندکاران</span>
 </footer>
 
-<!-- PWA Service Worker Registration -->
+<!-- PWA Service Worker Script -->
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js').catch(err => {
-        console.log('SW reg error: ', err);
-      });
+      navigator.serviceWorker.register('/sw.js', { scope: '/' })
+        .then(reg => console.log('SW Registered!', reg))
+        .catch(err => console.log('SW Registration Failed:', err));
     });
   }
 
@@ -537,7 +537,9 @@
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
-    if (pwaBanner) pwaBanner.style.display = 'flex';
+    if (pwaBanner) {
+      pwaBanner.style.display = 'flex';
+    }
   });
 
   if (installBtn) {
@@ -546,7 +548,7 @@
         deferredPrompt.prompt();
         deferredPrompt.userChoice.then((choiceResult) => {
           if (choiceResult.outcome === 'accepted') {
-            pwaBanner.style.display = 'none';
+            if (pwaBanner) pwaBanner.style.display = 'none';
           }
           deferredPrompt = null;
         });
