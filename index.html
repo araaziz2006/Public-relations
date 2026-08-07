@@ -9,13 +9,6 @@
 <meta name="author" content="ئارا عەزیز">
 <meta name="robots" content="index, follow">
 
-<!-- PWA Manifest & Mobile Config -->
-<link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#A82823">
-<meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="PR Dept">
-
 <link rel="canonical" href="https://publicrelationsdep.com">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -69,15 +62,6 @@
   .nav-links{display:flex; gap:18px; list-style:none; flex-wrap:wrap; align-items:center;}
   .nav-links a{color:var(--ink-soft); text-decoration:none; font-weight:500; font-size:13.5px; transition:color .2s;}
   .nav-links a:hover{color:var(--red);}
-
-  /* Nav Install Button */
-  .nav-install-btn{
-    background:var(--red); color:#fff !important;
-    padding:6px 14px; border-radius:20px; font-weight:700 !important;
-    display:inline-flex; align-items:center; gap:6px; cursor:pointer;
-    border:none; font-family:inherit; font-size:12.5px; transition:background .2s;
-  }
-  .nav-install-btn:hover{background:#8A1F1B;}
 
   /* ================= HERO ================= */
   .hero-wrap{max-width:1180px; margin:0 auto; padding:64px 24px 0;}
@@ -242,9 +226,6 @@
       <li><a href="#campaign">کەمپەینی مانگ</a></li>
       <li><a href="#testimonials">فیدباک</a></li>
       <li><a href="#contact">پەیوەندی</a></li>
-      <li>
-        <button id="nav-pwa-btn" class="nav-install-btn">📲 دابەزاندنی ئەپ</button>
-      </li>
     </ul>
   </nav>
 </header>
@@ -490,7 +471,7 @@
       <div style="height:1px; background:var(--line); margin:22px 0;"></div>
       <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">ئاکام نەجمەدین، قۆناغی ٤</div>
       <p><strong style="color:var(--black);">چۆن بەشەکەم هەڵبژارد؟</strong><br>ڕەفیقێکم لەو بەشە بوو، منیش بەهۆی ئەوەوە هەڵمبژارد.</p>
-      <p><strong style="color:var(--black);">چی زانیارییەکم دەربارەی هەبوو؟</strong><br>هیچ زانیارییەکی سەرەتایم نەبوو، تەنها ئەوەنەم دەزانی زۆرینەی بابەتەکان بە کوردی دەخوێندرێن.</p>
+      <p><strong style="color:var(--black);">چی زانیارییەکی دەربارەی هەبوو؟</strong><br>هیچ زانیارییەکی سەرەتایم نەبوو، تەنها ئەوەنەم دەزانی زۆرینەی بابەتەکان بە کوردی دەخوێندرێن.</p>
       <p><strong style="color:var(--black);">ئێستا چۆن لێی دەڕوانم؟</strong><br>بەشێکی تازەیە و تا ئێستا زۆر ناسراو نییە لە ناو دامەزراوە و کۆمەڵگا.</p>
       <p><strong style="color:var(--black);">چی فێربووم؟</strong><br>باشترکردنی پەیوەندی نێوان دامەزراوە و جەماوەر و چەندان شتی دیکە.</p>
     </div>
@@ -514,39 +495,6 @@
   <span class="credit">دروستکراوە لە لایەن ئارا عەزیز، خوێندکاری قۆناغی دووەمی بەشی پەیوەندییە گشتییەکان</span>
   <span class="thanks">شایەنی باسە دەمەوێ پێزانین و دەسخۆشی خۆم ئاڕاستەی تەواوی ستافی بەش و مامۆستا ماندوونەناسەکانمان بە گشتی، و دکتۆرە لانەی سەرۆک بەش و مامۆستا شۆخان بڕیاردەری بەشەکەمان و مامۆستا ئاڤێستا مامۆستا لە بەشەکەمان بە تایبەتی بکەم. هەروەها دەسخۆشی لە دژوار عادل هاوڕێ و نوێنەری قۆناغی دووەم و تەواوی ئەو خوێندکارانەی کە فیدباکیان ئەنجام دا بۆ سایتەکەم بکەم، کە هاوکاری تەواویان کردم لە باشترکردنی ئەم سایتە بۆ خوێندکاران</span>
 </footer>
-
-<!-- PWA Logic for Nav Button -->
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js', { scope: '/' })
-        .then(reg => console.log('SW Registered!', reg))
-        .catch(err => console.log('SW Registration Failed:', err));
-    });
-  }
-
-  let deferredPrompt;
-  const navBtn = document.getElementById('nav-pwa-btn');
-
-  window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    deferredPrompt = e;
-  });
-
-  if (navBtn) {
-    navBtn.addEventListener('click', () => {
-      if (deferredPrompt) {
-        deferredPrompt.prompt();
-        deferredPrompt.userChoice.then((choiceResult) => {
-          deferredPrompt = null;
-        });
-      } else {
-        // Fallback guide if prompt is not triggered or iOS Safari
-        alert('بۆ دابەزاندنی ئەپەکە:\n\n- لە ئایفۆن (Safari): کلیک لەسەر دوگمەی بەشکردن (Share) بکە و "Add to Home Screen" هەڵبژێرە.\n\n- لە ئەندرۆید (Chrome): کلیک لەسەر (⋮) لە سەرەوەی کۆشەک بکه و "Add to Home screen" یان "Install app" هەڵبژێرە.');
-      }
-    });
-  }
-</script>
 
 </body>
 </html>
