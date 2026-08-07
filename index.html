@@ -70,17 +70,14 @@
   .nav-links a{color:var(--ink-soft); text-decoration:none; font-weight:500; font-size:13.5px; transition:color .2s;}
   .nav-links a:hover{color:var(--red);}
 
-  /* PWA Install Banner */
-  .pwa-banner{
-    display:none; background:var(--black); color:var(--paper);
-    padding:12px 24px; font-size:13.5px; font-weight:600;
-    align-items:center; justify-content:space-between; gap:12px;
+  /* Nav Install Button */
+  .nav-install-btn{
+    background:var(--red); color:#fff !important;
+    padding:6px 14px; border-radius:20px; font-weight:700 !important;
+    display:inline-flex; align-items:center; gap:6px; cursor:pointer;
+    border:none; font-family:inherit; font-size:12.5px; transition:background .2s;
   }
-  .pwa-banner button{
-    background:var(--gold); border:none; color:var(--black);
-    padding:6px 14px; border-radius:4px; font-weight:700; cursor:pointer;
-    font-family:inherit;
-  }
+  .nav-install-btn:hover{background:#8A1F1B;}
 
   /* ================= HERO ================= */
   .hero-wrap{max-width:1180px; margin:0 auto; padding:64px 24px 0;}
@@ -231,11 +228,6 @@
 </head>
 <body>
 
-<div id="pwa-install-banner" class="pwa-banner">
-  <span>📱 دەتەوێت ڕێنمایی بەشی PR وەک ئەپڵیکەیشن بخەیتە سەر موبایلەکەت بۆ بەکارهێنانی ئۆفلاین؟</span>
-  <button id="pwa-install-btn">دابەزاندن</button>
-</div>
-
 <header>
   <nav>
     <div class="brand">
@@ -250,6 +242,9 @@
       <li><a href="#campaign">کەمپەینی مانگ</a></li>
       <li><a href="#testimonials">فیدباک</a></li>
       <li><a href="#contact">پەیوەندی</a></li>
+      <li>
+        <button id="nav-pwa-btn" class="nav-install-btn">📲 دابەزاندنی ئەپ</button>
+      </li>
     </ul>
   </nav>
 </header>
@@ -520,7 +515,7 @@
   <span class="thanks">شایەنی باسە دەمەوێ پێزانین و دەسخۆشی خۆم ئاڕاستەی تەواوی ستافی بەش و مامۆستا ماندوونەناسەکانمان بە گشتی، و دکتۆرە لانەی سەرۆک بەش و مامۆستا شۆخان بڕیاردەری بەشەکەمان و مامۆستا ئاڤێستا مامۆستا لە بەشەکەمان بە تایبەتی بکەم. هەروەها دەسخۆشی لە دژوار عادل هاوڕێ و نوێنەری قۆناغی دووەم و تەواوی ئەو خوێندکارانەی کە فیدباکیان ئەنجام دا بۆ سایتەکەم بکەم، کە هاوکاری تەواویان کردم لە باشترکردنی ئەم سایتە بۆ خوێندکاران</span>
 </footer>
 
-<!-- PWA Service Worker Script -->
+<!-- PWA Logic for Nav Button -->
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
@@ -531,27 +526,23 @@
   }
 
   let deferredPrompt;
-  const pwaBanner = document.getElementById('pwa-install-banner');
-  const installBtn = document.getElementById('pwa-install-btn');
+  const navBtn = document.getElementById('nav-pwa-btn');
 
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault();
     deferredPrompt = e;
-    if (pwaBanner) {
-      pwaBanner.style.display = 'flex';
-    }
   });
 
-  if (installBtn) {
-    installBtn.addEventListener('click', () => {
+  if (navBtn) {
+    navBtn.addEventListener('click', () => {
       if (deferredPrompt) {
         deferredPrompt.prompt();
         deferredPrompt.userChoice.then((choiceResult) => {
-          if (choiceResult.outcome === 'accepted') {
-            if (pwaBanner) pwaBanner.style.display = 'none';
-          }
           deferredPrompt = null;
         });
+      } else {
+        // Fallback guide if prompt is not triggered or iOS Safari
+        alert('بۆ دابەزاندنی ئەپەکە:\n\n- لە ئایفۆن (Safari): کلیک لەسەر دوگمەی بەشکردن (Share) بکە و "Add to Home Screen" هەڵبژێرە.\n\n- لە ئەندرۆید (Chrome): کلیک لەسەر (⋮) لە سەرەوەی کۆشەک بکه و "Add to Home screen" یان "Install app" هەڵبژێرە.');
       }
     });
   }
