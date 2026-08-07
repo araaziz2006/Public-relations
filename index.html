@@ -52,12 +52,9 @@
     display:flex; align-items:center; justify-content:center;
     font-size:12px;
   }
-  .nav-links{display:flex; gap:18px; list-style:none; flex-wrap:wrap; align-items:center;}
+  .nav-links{display:flex; gap:22px; list-style:none; flex-wrap:wrap;}
   .nav-links a{color:var(--ink-soft); text-decoration:none; font-weight:500; font-size:13.5px; transition:color .2s;}
   .nav-links a:hover{color:var(--red);}
-  .lang-switch{display:flex; gap:8px; font-size:12.5px; font-weight:700; background:var(--paper-2); padding:6px 12px; border-radius:20px; border:1px solid var(--line);}
-  .lang-switch a{text-decoration:none; color:var(--ink-soft);}
-  .lang-switch a.active{color:var(--red);}
 
   /* ================= HERO ================= */
   .hero-wrap{max-width:1180px; margin:0 auto; padding:64px 24px 0;}
@@ -101,7 +98,7 @@
     background:#fff; border:1px solid var(--line); border-radius:6px; padding:30px;
   }
 
-  /* ================= TIMELINE ================= */
+  /* ================= TIMELINE (history) ================= */
   .timeline{display:flex; flex-direction:column; gap:0; margin-bottom:30px;}
   .tl-item{display:flex; gap:20px; position:relative; padding-bottom:26px;}
   .tl-item:last-child{padding-bottom:0;}
@@ -119,7 +116,7 @@
   .history-text p{font-size:15px; color:var(--ink-soft); line-height:1.95;}
   .history-text p + p{margin-top:16px;}
 
-  /* ================= STORY ================= */
+  /* ================= STORY (pull quote) ================= */
   .story-card{
     background:var(--black); color:var(--paper); border-radius:6px; padding:44px 36px; position:relative;
   }
@@ -148,7 +145,7 @@
     font-size:13px; color:#B9AF9C; line-height:1.8;
   }
 
-  /* ================= GRIDS ================= */
+  /* ================= GRIDS (subjects/careers/why) ================= */
   .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
   .cell{background:var(--paper); padding:26px; transition:background .2s;}
   .cell:hover{background:#fff;}
@@ -185,14 +182,25 @@
   footer .credit{font-size:14.5px; font-weight:700; color:var(--black); display:block; margin-bottom:8px;}
   footer .thanks{display:block; max-width:640px; margin:0 auto; line-height:1.8; color:#8A8171;}
 
+  a:focus-visible, button:focus-visible{outline:2px solid var(--red); outline-offset:2px;}
+
+  .reveal{margin-top:8px;}
+  .reveal > summary{
+    list-style:none; cursor:pointer; display:flex; align-items:center; gap:8px;
+    color:var(--red); font-weight:800; font-size:19px; margin-bottom:28px; user-select:none; line-height:1.5;
+  }
+  .reveal > summary::-webkit-details-marker{display:none;}
+  .reveal[open] > summary::after{content:" (داخستن)"; font-size:11px; color:var(--ink-soft); font-weight:400;}
+  .reveal[open] > summary{margin-bottom:26px;}
+
   @media (max-width:860px){
     .hero h1{font-size:30px;}
     .grid3, .grid2{grid-template-columns:1fr;}
     .plaque-row{flex-direction:column;}
-    .nav-links li:not(:last-child){display:none;}
-    .nav-links{gap:0;}
+    .nav-links{display:none;}
     section{padding:44px 20px;}
   }
+  @media (prefers-reduced-motion:reduce){*{transition:none !important;}}
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ETCW0EYQL1"></script>
 <script>
@@ -201,10 +209,15 @@
   gtag('js', new Date());
   gtag('config', 'G-ETCW0EYQL1');
 </script>
+<!-- Open Graph / Social Media Preview Meta Tags -->
 <meta property="og:title" content="بەشی پەیوەندییە گشتییەکان | زانکۆی سلێمانی">
 <meta property="og:description" content="ڕێنمایی تەواو بۆ نمرەی وەرگیران، وانەکان، مێژوو و هەلی کاری بەشی پەیوەندییە گشتییەکان لە زانکۆی سلێمانی.">
 <meta property="og:url" content="https://publicrelationsdep.com">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://publicrelationsdep.com/og-image.png">
+<meta property="og:image:width" content="1254">
+<meta property="og:image:height" content="1254">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
 
@@ -219,21 +232,15 @@
       <li><a href="#scores">نمرەی وەرگیران</a></li>
       <li><a href="#subjects">وانەکان</a></li>
       <li><a href="#careers">دواڕۆژی کار</a></li>
-      <li><a href="#testimonials">فیدباک</a></li>
+      <li><a href="#why">بۆچی ئێمە</a></li>
+      <li><a href="#testimonials">فیدباکی خوێندکاران</a></li>
       <li><a href="#contact">پەیوەندی</a></li>
-      <li>
-        <div class="lang-switch">
-          <a href="index.html" class="active">KU</a> | 
-          <a href="ar.html">AR</a> | 
-          <a href="en.html">EN</a>
-        </div>
-      </li>
     </ul>
   </nav>
 </header>
 
 <div class="hero-wrap">
-  <span class="hero-eyebrow">بەشی پەیوەندییە گشتییەکان دامەزراوە لە ٢٠٢١ لە زانکۆی سلێمانی</span>
+  <span class="hero-eyebrow">بەشی پەیوەندییە گشتییەکان دامەزراوە لە ساڵی ٢٠٢١ لە کۆلێژی زانستە مرۆڤایەتییەکان لە زانکۆی سلێمانی</span>
   <h1>بەشی <span class="accent">پەیوەندییە گشتییەکان</span><br>دەروازەیەکی نوێ بۆ داهاتووت</h1>
   <p class="lede">ئەم بەشە تازەیە لە زانکۆی سلێمانی، زۆرێک لە خوێندکارانی پۆلی ١٢ و کەسووکاریان زانیاریان کەمە لەسەری. لێرەدا هەموو ئەوەی پێویستە بزانن کۆمکردووەتەوە: نمرەی وەرگیران، ئەو بابەتانەی دەیخوێنیت، و ئەو کارانەی دواتر دەتوانیت تێیدا کاربکەیت.</p>
 
@@ -281,7 +288,7 @@
   <h2 class="title">بۆچی ئەم سایتەم دروستکرد؟</h2>
   <div class="story-card">
     <p>کاتێک پۆلی ١٢م تەواو کرد، زۆر گەڕام بۆ دۆزینەوەی بەشێک کە لەگەڵ خولیا و ئارەزوو و ئەزموونم بگونجێت. لەنێو چەند بەشێکدا، بەشی پەیوەندییە گشتییەکان زۆر سەرنجی ڕاکێشام — بەڵام چونکە بەشێکی تازە بوو لە زانکۆی سلێمانی، لە سۆشیال میدیا و ئینتەرنێت زانیارییەکی زۆر کەمم دەستکەوت دەربارەی وردەکاری خوێندن، وانەکان، و هەلی کار.</p>
-    <p>بەهەرحاڵ چومە زانکۆ، و دوای ئاشنابوون بە وانەکان، مامۆستا و دکتۆرە لێهاتووەکان، و بەتایبەتی سەرۆکی بەشەکەمان کە زانیاری زۆری هەبووە دەربارەی بەشەکە، بۆم دەرکەوت کە کارە ڕاستەکەم ئەنجام داوە. لەبەر ئەوە هەستام بە دروستکردنی ئەم سایتە بۆ خوێندکاران بۆ ئەوەی بە هەمان شێوەی من توشی کێشەی نەبوونی زانیاری نەبن سەبارەت بەم بەشە و زانیاری زیاتریان هەبێت.</p>
+    <p>پاشان چومە زانکۆ و دوای ئاشنابوون بە وانەکان، مامۆستا و دکتۆرە لێهاتووەکان، و بەتایبەتی سەرۆکی بەشەکەمان کە زانیاری زۆری هەبووە دەربارەی بەشەکە، بۆم دەرکەوت کە کارە ڕاستەکەم ئەنجام داوە. لەبەر ئەوە هەستام بە دروستکردنی ئەم سایتە بۆ خوێندکاران بۆ ئەوەی بە هەمان شێوەی من توشی کێشەی نەبوونی زانیاری نەبن سەبارەت بەم بەشە و زانیاری زیاتریان هەبێت.</p>
     <div class="story-sign">— ئارا عەزیز</div>
   </div>
 </section>
@@ -343,12 +350,12 @@
   <div class="grid2">
     <div class="cell-h"><div class="icon">📊</div><div><h4>توێژینەوە و پێوانەکردنی ڕای گشتی</h4><p>ئەنجامدانی ڕاپرسی توێژینەوە و شیکردنەوەی ئاڕاستە و هەڵوێستی جەماوەر و پێشنیار کردن بۆ پارتە سیاسیەکان و دامزراوە میریی و تایبەتەکان.</p></div></div>
     <div class="cell-h"><div class="icon">📋</div><div><h4>پسپۆڕی پەیوەندییە گشتییەکان (PR Specialist)</h4><p>ئامادەکردن و جێبەجێکردنی کەمپەین و هەڵمەتی پەیوەندییە گشتییەکان، نووسینی بەیاننامە و هەواڵە ڕۆژنامەوانییەکان.</p></div></div>
-    <div class="cell-h"><div class="icon">🏢</div><div><h4>بەرپرسی پەیوەندیی دامەزراوە</h4><p>بەڕێوەبردنی پەیوەندیی ناوخۆیی و دەرەکی دامەزراوە, دروستکردن و بەهێزکردنی ناسنامە و ناوبانگی دامەزراوە.</p></div></div>
+    <div class="cell-h"><div class="icon">🏢</div><div><h4>بەرپرسی پەیوەندیی دامەزراوە</h4><p>بەڕێوەبردنی پەیوەندیی ناوخۆیی و دەرەکی دامەزراوە، دروستکردن و بەهێزکردنی ناسنامە و ناوبانگی دامەزراوە.</p></div></div>
     <div class="cell-h"><div class="icon">📱</div><div><h4>بەڕێوەبەری/هەماهەنگکەری تۆڕە کۆمەڵایەتییەکان</h4><p>بەڕێوەبردنی هەژمارە دیجیتاڵییەکان، ئامادەکردنی ناوەڕۆک و شوێنکەوتنی کاردانەوەی جەماوەر، و شیکردنەوەی ئامار.</p></div></div>
     <div class="cell-h"><div class="icon">✍️</div><div><h4>نووسەری ناوەڕۆک و ڕیکلام</h4><p>نووسینی هەواڵ، ڕاپۆرت و وتار، و ئامادەکردنی ماددەی بانگەشە و پڕۆمۆشن.</p></div></div>
     <div class="cell-h"><div class="icon">🎪</div><div><h4>ڕێکخەری چالاکی، کۆنفرانس و پێشانگا</h4><p>پلاندانان بۆ کۆنفرانس، پێشانگا و بۆنەکان، و هەماهەنگی لەگەڵ بەشداربووان و سپۆنسەرەکان.</p></div></div>
     <div class="cell-h"><div class="icon">🎙️</div><div><h4>وتەبێژی فەرمی دامەزراوە و کۆمپانیاکان</h4><p>نوێنەرایەتی دامەزراوە لە بەرامبەر میدیا، و بەڕێوەبردنی پەیامەکانی دامەزراوە.</p></div></div>
-    <div class="cell-h"><div class="icon">💼</div><div><h4>ڕاوێژکاری پەیوەندی و پەیوەندییە گشتییەکان</h4><p>پێشکەشکردنی ڕاوێژ بۆ دامەزراوەکان و کۆمپانیاکان لە بوارەکانی ناوبانگ و بەڕێوەبردنی قەیران.</p></div></div>
+    <div class="cell-h"><div class="icon">💼</div><div><h4>ڕاوێژکاری پەیوەندی و پەیوەندییە گشتییەکان</h4><p>پێشکەشکردنی ڕاوێژ بۆ دامەزراوەکان و لایەنە سیاسییەکان و کۆمپانیاکان لە بوارەکانی ناوبانگ و بەڕێوەبردنی قەیران.</p></div></div>
     <div class="cell-h"><div class="icon">🤲</div><div><h4>پسپۆڕی بەرپرسیارێتی کۆمەڵایەتی</h4><p>بەڕێوەبردنی بەرنامەکانی خزمەتگوزاری کۆمەڵگا، و دروستکردنی پەیوەندی لەگەڵ کۆمەڵگای خوارەوە و ڕێکخراوە مەدەنییەکان.</p></div></div>
     <div class="cell-h"><div class="icon">🌍</div><div><h4>کەرتی حکومی و ڕێکخراوە نێودەوڵەتییەکان</h4><p>وەزارەت و دامەزراوە حکومییەکان، زانکۆ و دامەزراوە پەروەردەییەکان، و ڕێکخراوە نێودەوڵەتی و ناحکومییەکان.</p></div></div>
   </div>
