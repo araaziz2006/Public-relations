@@ -9,6 +9,13 @@
 <meta name="author" content="ئارا عەزیز">
 <meta name="robots" content="index, follow">
 
+<!-- PWA Manifest & Mobile Config -->
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#A82823">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="PR Dept">
+
 <link rel="canonical" href="https://publicrelationsdep.com">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -62,6 +69,18 @@
   .nav-links{display:flex; gap:18px; list-style:none; flex-wrap:wrap; align-items:center;}
   .nav-links a{color:var(--ink-soft); text-decoration:none; font-weight:500; font-size:13.5px; transition:color .2s;}
   .nav-links a:hover{color:var(--red);}
+
+  /* PWA Install Banner */
+  .pwa-banner{
+    display:none; background:var(--black); color:var(--paper);
+    padding:12px 24px; font-size:13.5px; font-weight:600;
+    align-items:center; justify-content:space-between; gap:12px;
+  }
+  .pwa-banner button{
+    background:var(--gold); border:none; color:var(--black);
+    padding:6px 14px; border-radius:4px; font-weight:700; cursor:pointer;
+    font-family:inherit;
+  }
 
   /* ================= HERO ================= */
   .hero-wrap{max-width:1180px; margin:0 auto; padding:64px 24px 0;}
@@ -211,6 +230,11 @@
 <meta property="og:type" content="website">
 </head>
 <body>
+
+<div id="pwa-install-banner" class="pwa-banner">
+  <span>📱 دەتەوێت ڕێنمایی بەشی PR وەک ئەپڵیکەیشن بخەیتە سەر موبایلەکەت بۆ بەکارهێنانی ئۆفلاین؟</span>
+  <button id="pwa-install-btn">دابەزاندن</button>
+</div>
 
 <header>
   <nav>
@@ -495,6 +519,41 @@
   <span class="credit">دروستکراوە لە لایەن ئارا عەزیز، خوێندکاری قۆناغی دووەمی بەشی پەیوەندییە گشتییەکان</span>
   <span class="thanks">شایەنی باسە دەمەوێ پێزانین و دەسخۆشی خۆم ئاڕاستەی تەواوی ستافی بەش و مامۆستا ماندوونەناسەکانمان بە گشتی، و دکتۆرە لانەی سەرۆک بەش و مامۆستا شۆخان بڕیاردەری بەشەکەمان و مامۆستا ئاڤێستا مامۆستا لە بەشەکەمان بە تایبەتی بکەم. هەروەها دەسخۆشی لە دژوار عادل هاوڕێ و نوێنەری قۆناغی دووەم و تەواوی ئەو خوێندکارانەی کە فیدباکیان ئەنجام دا بۆ سایتەکەم بکەم، کە هاوکاری تەواویان کردم لە باشترکردنی ئەم سایتە بۆ خوێندکاران</span>
 </footer>
+
+<!-- PWA Service Worker Registration -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/sw.js').catch(err => {
+        console.log('SW reg error: ', err);
+      });
+    });
+  }
+
+  let deferredPrompt;
+  const pwaBanner = document.getElementById('pwa-install-banner');
+  const installBtn = document.getElementById('pwa-install-btn');
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    if (pwaBanner) pwaBanner.style.display = 'flex';
+  });
+
+  if (installBtn) {
+    installBtn.addEventListener('click', () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        deferredPrompt.userChoice.then((choiceResult) => {
+          if (choiceResult.outcome === 'accepted') {
+            pwaBanner.style.display = 'none';
+          }
+          deferredPrompt = null;
+        });
+      }
+    });
+  }
+</script>
 
 </body>
 </html>
