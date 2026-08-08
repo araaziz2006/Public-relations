@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ئیستۆپکردنی میمۆری کۆن لەسەر کۆمپیوتەر تا هەمیشە وەشانی نوێ دەربکەوێت -->
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
@@ -341,18 +340,18 @@
     <p class="sub" style="margin-bottom:26px;">ئەمانە نمرەکانی وەرگیرانی ساڵی پار بوون بۆ بەشی پەیوەندییە گشتییەکان. نمرەکان ساڵ بە ساڵ دەگۆڕێن بەپێی ژمارەی داواکار و کۆتای وەرگیراوان، بۆیە ئەمانە تەنها ڕێنماییەکن.</p>
     <div class="plaque-row">
       <div class="plaque">
-        <div class="num">٦١.٢</div>
+        <div class="num" id="score-zankoline">٦١.٢</div>
         <div class="lbl">کەمترین نمرەی وەرگیراو — زانکۆلاین</div>
         <div class="yr">ساڵی ٢٠٢٥</div>
       </div>
       <div class="plaque">
-        <div class="num">٥٨.٧٩</div>
+        <div class="num" id="score-parallel">٥٨.٧٩</div>
         <div class="lbl">کەمترین نمرەی وەرگیراو — پاراڵێل</div>
         <div class="yr">ساڵی ٢٠٢٥</div>
       </div>
     </div>
     <div class="note">تێبینی: ئەم نمرانە بۆ ساڵی ڕابردوون و ڕەنگە ئەمساڵ بگۆڕێن. بۆ زانیاری وردتر و دووپاتکردنەوە، سەیری فۆڕمی زانکۆلاین یان بەشەکەمان بکە.</div>
-    <div class="note" style="margin-top:14px; border-top:none; padding-top:0; font-size:16px; font-weight:700; color:var(--gold);">لە ساڵی ٢٠٢٥-٢٠٢٦، ٨٠ خوێندکار وەرگیراوە.</div>
+    <div class="note" style="margin-top:14px; border-top:none; padding-top:0; font-size:16px; font-weight:700; color:var(--gold);">لە ساڵی ٢٠٢٥-٢٠٢٦، <span id="students-count">٨٠</span> خوێندکار وەرگیراوە.</div>
   </div>
 </section>
 
@@ -543,27 +542,7 @@
   <span class="tag">وەڵامی خێرا</span>
   <h2 class="title">❓ پرسیارە باوەکان</h2>
   <p class="sub">ئەم وەڵامانەی خوارەوە بە شێوەیەکی ڕاستەقینە ڕوونکردنەوە دەدەن لەسەر ئەو پرسیارانەی زۆرترین جار لە لایەن خوێندکارانی نوێوە دەپرسرێن.</p>
-
-  <details class="faq-acc" open>
-    <summary>١. ئایا خوێندن لە بەشی پەیوەندییە گشتییەکان بە چ زمانێکە؟</summary>
-    <div class="acc-body">
-      زۆربەی وانە سەرەکییەکان بە زمانی کوردی دەخوێندرێن، لەگەڵ هەندێک زاراوەی ئەکادیمی و وانەی تایبەت بە ئینگلیزی بۆ بەهێزکردنی ئاستی زمانی خوێندکاران.
-    </div>
-  </details>
-
-  <details class="faq-acc">
-    <summary>٢. ئایا تەنها خوێندکارانی لقی وێژەیی دەتوانن بێنە ئەم بەشە یان لقی زانستیش؟</summary>
-    <div class="acc-body">
-      دەرچووانی هەردوو لقی وێژەیی و زانستی دەتوانن لە ڕێگەی زانکۆلاین یان پاراڵێلەوە داواکاری پێشکەش بکەن.
-    </div>
-  </details>
-
-  <details class="faq-acc">
-    <summary>٣. جیاوازیی سەرەکی لە نێوان بەشی "پەیوەندییە گشتییەکان (PR)" و بەشی "ڕاگەیاندن / ڕۆژنامەنووسی" چییە؟</summary>
-    <div class="acc-body">
-      بەشی ڕاگەیاندن زیاتر تیشک دەخاتە سەر دروستکردنی ڕاپۆرت و کارکردن لە کەناڵەکاندا؛ بەڵام بەشی پەیوەندییە گشتییەکان زانستی بەڕێوەبردنی ناوبانگ، دروستکردنی ستراتیژ، بەڕێوەبردنی قەیرانەکان و هەماهەنگییە لە نێوان دامەزراوەکان و جەماوەردا.
-    </div>
-  </details>
+  <div id="faq-list"></div>
 </section>
 
 <section id="contact" class="contact-wrap">
@@ -583,6 +562,38 @@
   <span class="credit">دروستکراوە لە لایەن ئارا عەزیز، خوێندکاری قۆناغی دووەمی بەشی پەیوەندییە گشتییەکان</span>
   <span class="thanks">شایەنی باسە دەمەوێ پێزانین و دەسخۆشی خۆم ئاڕاستەی تەواوی ستافی بەش و مامۆستا ماندوونەناسەکانمان بە گشتی، و دکتۆرە لانەی سەرۆک بەش و مامۆستا شۆخان بڕیاردەری بەشەکەمان و مامۆستا ئاڤێستا مامۆستا لە بەشەکەمان بە تایبەتی بکەم. هەروەها دەسخۆشی لە دژوار عادل هاوڕێ و نوێنەری قۆناغی دووەم و تەواوی ئەو خوێندکارانەی کە فیدباکیان ئەنجام دا بۆ سایتەکەم بکەم، کە هاوکاری تەواویان کردم لە باشترکردنی ئەم سایتە بۆ خوێندکاران</span>
 </footer>
+
+<!-- سکریپت بۆ خوێندنەوەی ئۆتۆماتیکی زانیارییەکان لە data.json -->
+<script>
+  fetch('data.json?v=' + new Date().getTime())
+    .then(response => response.json())
+    .then(data => {
+      // نوێکردنەوەی نمرەکان
+      if(data.scores) {
+        document.getElementById('score-zankoline').innerText = data.scores.zankoline;
+        document.getElementById('score-parallel').innerText = data.scores.parallel;
+        document.getElementById('students-count').innerText = data.scores.students_count;
+      }
+      
+      // نوێکردنەوەی پرسیارە باوەکان
+      if(data.faq) {
+        const faqContainer = document.getElementById('faq-list');
+        faqContainer.innerHTML = '';
+        data.faq.forEach((item, index) => {
+          const details = document.createElement('details');
+          details.className = 'faq-acc';
+          if(index === 0) details.open = true;
+          
+          details.innerHTML = `
+            <summary>${item.q}</summary>
+            <div class="acc-body">${item.a}</div>
+          `;
+          faqContainer.appendChild(details);
+        });
+      }
+    })
+    .catch(err => console.error("Error loading JSON:", err));
+</script>
 
 </body>
 </html>
