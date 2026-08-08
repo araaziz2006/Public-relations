@@ -167,6 +167,18 @@
   .cell-h h4{font-size:14.5px; color:var(--black); margin-bottom:5px; font-weight:700;}
   .cell-h p{font-size:12.5px; color:var(--ink-soft); line-height:1.65;}
 
+  /* ================= FAQ ACCORDION ================= */
+  .faq-acc{border:1px solid var(--line); border-radius:6px; overflow:hidden; background:#fff; margin-bottom:12px;}
+  .faq-acc summary{
+    list-style:none; cursor:pointer; padding:18px 22px; font-size:15.5px; font-weight:700; color:var(--black);
+    display:flex; align-items:center; justify-content:space-between; user-select:none;
+  }
+  .faq-acc summary::-webkit-details-marker{display:none;}
+  .faq-acc summary::after{content:"+"; font-size:20px; color:var(--red); font-weight:400;}
+  .faq-acc[open] summary::after{content:"−";}
+  .faq-acc summary:hover{background:var(--paper-2);}
+  .faq-acc .acc-body{padding:0 22px 22px; font-size:14px; color:var(--ink-soft); line-height:1.9;}
+
   /* ================= CONTACT ================= */
   .contact-wrap{text-align:center;}
   .contact-wrap h2{font-size:27px; font-weight:900; color:var(--black); margin-bottom:12px;}
@@ -226,6 +238,7 @@
       <li><a href="#careers">دواڕۆژی کار</a></li>
       <li><a href="#campaign">کەمپەینی مانگ</a></li>
       <li><a href="#testimonials">فیدباک</a></li>
+      <li><a href="#faq">پرسیارە باوەکان</a></li>
       <li><a href="#contact">پەیوەندی</a></li>
     </ul>
   </nav>
@@ -252,6 +265,7 @@
     <a href="#careers">دواڕۆژی کار</a>
     <a href="#campaign">کەمپەینی مانگ</a>
     <a href="#testimonials">فیدباکی خوێندکاران</a>
+    <a href="#faq">پرسیارە باوەکان</a>
     <a href="#contact">پەیوەندی</a>
   </div>
 </div>
@@ -488,6 +502,33 @@
       <p><strong style="color:var(--black);">چی زانیارییەکی دەربارەی هەبوو؟</strong><br>هیچ زانیارییەکی سەرەتایم نەبوو، تەنها ئەوەنەم دەزانی زۆرینەی بابەتەکان بە کوردی دەخوێندرێن.</p>
       <p><strong style="color:var(--black);">ئێستا چۆن لێی دەڕوانم؟</strong><br>بەشێکی تازەیە و تا ئێستا زۆر ناسراو نییە لە ناو دامەزراوە و کۆمەڵگا.</p>
       <p><strong style="color:var(--black);">چی فێربووم؟</strong><br>باشترکردنی پەیوەندی نێوان دامەزراوە و جەماوەر و چەندان شتی دیکە.</p>
+    </div>
+  </details>
+</section>
+
+<section id="faq">
+  <span class="tag">وەڵامی خێرا</span>
+  <h2 class="title">❓ پرسیارە باوەکان</h2>
+  <p class="sub">ئەم وەڵامانەی خوارەوە بە شێوەیەکی ڕاستەقینە ڕوونکردنەوە دەدەن لەسەر ئەو پرسیارانەی زۆرترین جار لە لایەن خوێندکارانی نوێوە دەپرسرێن.</p>
+
+  <details class="faq-acc" open>
+    <summary>١. ئایا خوێندن لە بەشی پەیوەندییە گشتییەکان بە چ زمانێکە؟</summary>
+    <div class="acc-body">
+      زۆربەی وانە سەرەکییەکان بە زمانی کوردی دەخوێندرێن، لەگەڵ هەندێک زاراوەی ئەکادیمی و وانەی تایبەت بە ئینگلیزی بۆ بەهێزکردنی ئاستی زمانی خوێندکاران.
+    </div>
+  </details>
+
+  <details class="faq-acc">
+    <summary>٢. ئایا تەنها خوێندکارانی لقی وێژەیی دەتوانن بێنە ئەم بەشە یان لقی زانستیش؟</summary>
+    <div class="acc-body">
+      دەرچووانی هەردوو لقی وێژەیی و زانستی دەتوانن لە ڕێگەی زانکۆلاین یان پاراڵێلەوە داواکاری پێشکەش بکەن.
+    </div>
+  </details>
+
+  <details class="faq-acc">
+    <summary>٣. جیاوازیی سەرەکی لە نێوان بەشی "پەیوەندییە گشتییەکان (PR)" و بەشی "ڕاگەیاندن" چییە؟</summary>
+    <div class="acc-body">
+      بەشی ڕاگەیاندن زیاتر تیشک دەخاتە سەر دروستکردنی ڕاپۆرت و کارکردن لە کەناڵەکاندا؛ بەڵام بەشی پەیوەندییە گشتییەکان زانستی بەڕێوەبردنی ناوبانگ، دروستکردنی ستراتیژ، بەڕێوەبردنی قەیرانەکان و هەماهەنگییە لە نێوان دامەزراوەکان و جەماوەردا.
     </div>
   </details>
 </section>
