@@ -1,9 +1,7 @@
 backend:
-  name: github
-  repo: araaziz2006/Public-relations
+  name: git-gateway
+  site_domain: scintillating-platypus-cb6f05.netlify.app
   branch: main
-  base_url: https://decap-cms-oauth-provider.vercel.app
-  auth_endpoint: auth
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
