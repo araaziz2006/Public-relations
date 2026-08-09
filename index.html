@@ -825,7 +825,7 @@
       const data = await response.json();
       
       if (data && data.count !== undefined) {
-        const apiVisits = 545 + parseInt(data.count);
+        const apiVisits = 20 + parseInt(data.count);
         const finalCount = Math.max(visits, apiVisits);
         document.getElementById('real-visitor-count').innerText = finalCount.toLocaleString();
         localStorage.setItem('pr_site_visits_count', finalCount);
