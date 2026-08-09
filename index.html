@@ -505,7 +505,7 @@
   <p class="sub">پەیوەندییە گشتییەکان زانستێکە دەرگای زۆر بوار و پیشەی جیاواز دەکاتەوە، کە لە ئێستاو داهاتوودا بایەخ و گرنگی زۆریان لە بازاری کاردا هەیە.</p>
   <div class="grid2">
     <div class="cell-h"><div class="icon">📊</div><div><h4>توێژینەوە و پێوانەکردنی ڕای گشتی</h4><p>ئەنجامدانی ڕاپرسی توێژینەوە و شیکردنەوەی ئاڕاستە و هەڵوێستی جەماوەر و پێشنیار کردن بۆ پارتە سیاسیەکان و دامزراوە میریی و تایبەتەکان.</p></div></div>
-    <div class="cell-h"><div class="icon">📋</div><div><h4>پسپۆڕی پەیوەندییە گشتییەکان (PR Specialist)</h4><p>ئامادەکردن و جێبەجێکردنی کەمپەین و هەڵمەتی پەیوەندییە گشتییەکان, نووسینی بەیاننامە و هەواڵە ڕۆژنامەوانییەکان.</p></div></div>
+    <div class="cell-h"><div class="icon">📋</div><div><h4>پسپۆڕی پەیوەندییە گشتییەکان (PR Specialist)</h4><p>ئامادەکردن و جێبەجێکردنی کەمپەین و هەڵمەتی پەیوەندییە گشتییەکان، نووسینی بەیاننامە و هەواڵە ڕۆژنامەوانییەکان.</p></div></div>
     <div class="cell-h"><div class="icon">🏢</div><div><h4>بەرپرسی پەیوەندیی دامەزراوە</h4><p>بەڕێوەبردنی پەیوەندیی ناوخۆیی و دەرەکی دامەزراوە, دروستکردن و بەهێزکردنی ناسنامە و ناوبانگی دامەزراوە.</p></div></div>
     <div class="cell-h"><div class="icon">📱</div><div><h4>بەڕێوەبەری/هەماهەنگکەری تۆڕە کۆمەڵایەتییەکان</h4><p>بەڕێوەبردنی هەژمارە دیجیتاڵییەکان، ئامادەکردنی ناوەڕۆک و شوێنکەوتنی کاردانەوەی جەماوەر، و شیکردنەوەی ئامار.</p></div></div>
     <div class="cell-h"><div class="icon">✍️</div><div><h4>نووسەری ناوەڕۆک و ڕیکلام</h4><p>نووسینی هەواڵ، ڕاپۆرت و وتار، و ئامادەکردنی ماددەی بانگەشە و پڕۆمۆشن.</p></div></div>
@@ -697,7 +697,7 @@
   </div>
 </footer>
 
-<!-- سکریپتی نوێکراوە بۆ خوێندنەوەی Google Sheet CSV + Calculator + CounterAPI -->
+<!-- سکریپتی نوێکراوە بۆ خوێندنەوەی Google Sheet CSV + Calculator + CounterAPI (Starting from 546) -->
 <script>
   const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSPjo4-lFAwndWw81v0KpDfU1gderIfedi5pSoe3g6ted4KEpNZ2GeUDHMVbk0D4dKZmAuc2ePFf45v/pub?gid=0&single=true&output=csv';
 
@@ -814,20 +814,21 @@
     }
   }
 
-  // Real Visitor Counter Logic using CounterAPI
+  // Real Visitor Counter Logic (Starting from 546)
   async function updateVisitorCount() {
     try {
       const response = await fetch('https://counterapi.dev/v1/publicrelationsdep.com/visits/up');
       const data = await response.json();
       
       if (data && data.count !== undefined) {
-        document.getElementById('real-visitor-count').innerText = data.count.toLocaleString();
+        const totalVisits = 545 + parseInt(data.count);
+        document.getElementById('real-visitor-count').innerText = totalVisits.toLocaleString();
       } else {
-        document.getElementById('real-visitor-count').innerText = '1';
+        document.getElementById('real-visitor-count').innerText = '546';
       }
     } catch (error) {
       console.log('کێشە لە هەژمارکردنی سەردانکەران:', error);
-      document.getElementById('real-visitor-count').innerText = '1';
+      document.getElementById('real-visitor-count').innerText = '546';
     }
   }
 
