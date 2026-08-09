@@ -290,6 +290,28 @@
   .cbtn.solid{background:var(--red); border-color:var(--red); color:#fff;}
   .cbtn.solid:hover{background:#8A1F1B;}
 
+  /* Real Visitor Counter Styling */
+  .visitor-counter-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    border: 1px solid var(--line);
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 18px auto 0;
+  }
+  .visitor-counter-box .dot {
+    width: 8px;
+    height: 8px;
+    background-color: #1C6B45;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #1C6B45;
+  }
+
   footer{
     text-align:center; padding:40px 24px; color:var(--ink-soft); font-size:12.5px; border-top:1px solid var(--line);
     background:var(--paper-2);
@@ -666,9 +688,16 @@
   © ٢٠٢٦ بەشی پەیوەندییە گشتییەکان — زانکۆی سلێمانی
   <span class="credit">دروستکراوە لە لایەن ئارا عەزیز، خوێندکاری قۆناغی دووەمی بەشی پەیوەندییە گشتییەکان</span>
   <span class="thanks">شایەنی باسە دەمەوێ پێزانین و دەسخۆشی خۆم ئاڕاستەی تەواوی ستافی بەش و مامۆستا ماندوونەناسەکانمان بە گشتی، و دکتۆرە لانەی سەرۆک بەش و مامۆستا شۆخان بڕیاردەری بەشەکەمان و مامۆستا ئاڤێستا مامۆستا لە بەشەکەمان بە تایبەتی بکەم. هەروەها دەسخۆشی لە دژوار عادل هاوڕێ و نوێنەری قۆناغی دووەم و تەواوی ئەو خوێندکارانەی کە فیدباکیان ئەنجام دا بۆ سایتەکەم بکەم، کە هاوکاری تەواویان کردم لە باشترکردنی ئەم سایتە بۆ خوێندکاران</span>
+  
+  <br>
+  <!-- Real Visitor Counter Component -->
+  <div class="visitor-counter-box">
+    <span class="dot"></span>
+    ژمارەی سەردانکەرانی ڕاستەقینە: <span id="real-visitor-count">...</span>
+  </div>
 </footer>
 
-<!-- سکریپتی نوێکراوە بۆ خوێندنەوەی ئۆتۆماتیکی فایلی Google Sheet CSV + Calculator logic -->
+<!-- سکریپتی نوێکراوە بۆ خوێندنەوەی Google Sheet CSV + Calculator + Visitor Counter -->
 <script>
   const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSPjo4-lFAwndWw81v0KpDfU1gderIfedi5pSoe3g6ted4KEpNZ2GeUDHMVbk0D4dKZmAuc2ePFf45v/pub?gid=0&single=true&output=csv';
 
@@ -785,7 +814,26 @@
     }
   }
 
+  // Real Visitor Counter Logic
+  async function updateVisitorCount() {
+    try {
+      const namespace = 'publicrelationsdep.com';
+      const key = 'visits';
+      
+      const response = await fetch(`https://api.countapi.xyz/hit/${namespace}/${key}`);
+      const data = await response.json();
+      
+      if (data && data.value) {
+        document.getElementById('real-visitor-count').innerText = data.value.toLocaleString();
+      }
+    } catch (error) {
+      console.log('کێشە لە هەژمارکردنی سەردانکەران:', error);
+      document.getElementById('real-visitor-count').innerText = '—';
+    }
+  }
+
   loadDataFromGoogleSheet();
+  updateVisitorCount();
 </script>
 
 </body>
