@@ -38,7 +38,7 @@ collections:
           - label: "پەیامی کورتی دەروازە (Hero Description)"
             name: "hero_description"
             widget: "text"
-          - label: "پەیامی ئارا عەزیز (دروستکەری سایت)"
+          - label: "پەیامی دروستکەری سایت"
             name: "creator_story"
             widget: "text"
           - label: "پرسیارە باوەکان (FAQ)"
