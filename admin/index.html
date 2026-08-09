@@ -5,19 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>پەنێلی بەڕێوەبردنی بەشی پەیوەندییە گشتییەکان</title>
   
-  <link href="/admin/config.yml" type="text/yaml" rel="cms-config-url" />
+  <!-- بەستنی ڕاستەوخۆی Netlify Identity بە دۆمەینی Netlifyەکەتەوە -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
+  <!-- Decap CMS Script -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
   <script>
+    // دیاریکردنی ناونیشانی سەرچاوەی Netlify Identity بۆ ڕێگریکردن لە هەڵەی Vercel
     if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", user => {
-        if (!user) {
-          window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin/";
-          });
-        }
+      window.netlifyIdentity.init({
+        APIUrl: "https://scintillating-platypus-cb6f05.netlify.app/.netlify/identity"
       });
     }
   </script>
