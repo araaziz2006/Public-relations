@@ -329,23 +329,23 @@
 
 <section id="scores">
   <span class="tag">وردەگیری</span>
-  <h2 class="title">نمرەی وەرگیران — ساڵی ٢٠٢٥-٢٠٢٦</h2>
+  <h2 class="title">نمرەی وەرگیران — ساڵی <span id="dyn-academic-year">٢٠٢٥-٢٠٢٦</span></h2>
   <div class="scores-band">
     <p class="sub" style="margin-bottom:26px;">ئەمانە نمرەکانی وەرگیرانی ساڵی پار بوون بۆ بەشی پەیوەندییە گشتییەکان. نمرەکان ساڵ بە ساڵ دەگۆڕێن بەپێی ژمارەی داواکار و کۆتای وەرگیراوان، بۆیە ئەمانە تەنها ڕێنماییەکن.</p>
     <div class="plaque-row">
       <div class="plaque">
         <div class="num" id="score-zankoline">٦١.٢</div>
         <div class="lbl">کەمترین نمرەی وەرگیراو — زانکۆلاین</div>
-        <div class="yr">ساڵی ٢٠٢٥</div>
+        <div class="yr">ساڵی <span class="dyn-score-year">٢٠٢٥</span></div>
       </div>
       <div class="plaque">
         <div class="num" id="score-parallel">٥٨.٧٩</div>
         <div class="lbl">کەمترین نمرەی وەرگیراو — پاراڵێل</div>
-        <div class="yr">ساڵی ٢٠٢٥</div>
+        <div class="yr">ساڵی <span class="dyn-score-year">٢٠٢٥</span></div>
       </div>
     </div>
     <div class="note">تێبینی: ئەم نمرانە بۆ ساڵی ڕابردوون و ڕەنگە ئەمساڵ بگۆڕێن. بۆ زانیاری وردتر و دووپاتکردنەوە، سەیری فۆڕمی زانکۆلاین یان بەشەکەمان بکە.</div>
-    <div class="note" style="margin-top:14px; border-top:none; padding-top:0; font-size:16px; font-weight:700; color:var(--gold);">لە ساڵی ٢٠٢٥-٢٠٢٦، <span id="students-count">٨٠</span> خوێندکار وەرگیراوە.</div>
+    <div class="note" style="margin-top:14px; border-top:none; padding-top:0; font-size:16px; font-weight:700; color:var(--gold);">لە ساڵی <span id="dyn-academic-year-note">٢٠٢٥-٢٠٢٦</span>، <span id="students-count">٨٠</span> خوێندکار وەرگیراوە.</div>
   </div>
 </section>
 
@@ -640,6 +640,14 @@
       }
       if (data.subjects_count && document.getElementById('subjects-count')) {
         document.getElementById('subjects-count').innerText = data.subjects_count;
+      }
+      if (data.academic_year) {
+        if (document.getElementById('dyn-academic-year')) document.getElementById('dyn-academic-year').innerText = data.academic_year;
+        if (document.getElementById('dyn-academic-year-note')) document.getElementById('dyn-academic-year-note').innerText = data.academic_year;
+      }
+      if (data.score_year) {
+        const scoreYearElements = document.querySelectorAll('.dyn-score-year');
+        scoreYearElements.forEach(el => el.innerText = data.score_year);
       }
       if (data.hero_title && document.getElementById('dyn-hero-title')) {
         document.getElementById('dyn-hero-title').innerHTML = data.hero_title;
