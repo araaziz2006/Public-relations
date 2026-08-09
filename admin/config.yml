@@ -1,5 +1,6 @@
 backend:
   name: git-gateway
+  site_domain: scintillating-platypus-cb6f05.netlify.app
   branch: main
 
 media_folder: "assets/uploads"
