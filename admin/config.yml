@@ -1,0 +1,32 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "site_content"
+    label: "ناوەڕۆک و زانیارییەکانی سایت"
+    files:
+      - file: "content/site_data.json"
+        label: "دەستکاریکردنی نوسین و ژمارەکان"
+        name: "site_data"
+        fields:
+          - { label: "کەمترین نمرەی زانکۆلاین", name: "zankoline_score", widget: "string" }
+          - { label: "کەمترین نمرەی پاراڵێل", name: "parallel_score", widget: "string" }
+          - { label: "ژمارەی خوێندکارانی وەرگیراو", name: "students_count", widget: "string" }
+          - { label: "ژمارەی خولی وەرگیران", name: "intake_rounds", widget: "string" }
+          - { label: "ژمارەی خولی دەرچوون", name: "graduation_rounds", widget: "string" }
+          - { label: "ژمارەی وانەکان", name: "subjects_count", widget: "string" }
+          - { label: "دەقی سەرەکی (Hero Title)", name: "hero_title", widget: "string" }
+          - { label: "پەیامی کورتی دەروازە (Hero Description)", name: "hero_description", widget: "text" }
+          - { label: "پەیامی ئارا عەزیز (دروستکەری سایت)", name: "creator_story", widget: "text" }
+          - {
+              label: "پرسیارە باوەکان (FAQ)",
+              name: "faq_list",
+              widget: "list",
+              fields:
+                - { label: "پرسیار", name: "question", widget: "string" }
+                - { label: "وەڵام", name: "answer", widget: "text" }
+            }
