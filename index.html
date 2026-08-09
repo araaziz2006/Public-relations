@@ -42,7 +42,7 @@
   }
   .serif{font-family:'Noto Kufi Arabic',sans-serif;}
 
-  /* Notice Banner Styling with Smooth Scrolling Animation */
+  /* Notice Banner Styling with Smooth Scrolling Animation (Right to Left) */
   #notice-banner {
     display: none;
     background: var(--red);
@@ -59,20 +59,20 @@
 
   .notice-scroll-content {
     display: inline-block;
-    padding-left: 100%;
-    animation: marquee-right 20s linear infinite;
+    padding-right: 100%;
+    animation: marquee-left 20s linear infinite;
   }
 
   #notice-banner:hover .notice-scroll-content {
     animation-play-state: paused;
   }
 
-  @keyframes marquee-right {
+  @keyframes marquee-left {
     0% {
-      transform: translate3d(-100%, 0, 0);
+      transform: translate3d(0, 0, 0);
     }
     100% {
-      transform: translate3d(0, 0, 0);
+      transform: translate3d(-100%, 0, 0);
     }
   }
 
@@ -364,7 +364,7 @@
 </head>
 <body>
 
-<!-- Notice Banner with Marquee Animation from Google Sheets -->
+<!-- Notice Banner with Right-to-Left Marquee Animation from Google Sheets -->
 <div id="notice-banner">
   <div class="notice-scroll-content">
     📢 <span id="notice-text"></span>
