@@ -1,6 +1,6 @@
 backend:
-  name: git-gateway
-  site_domain: scintillating-platypus-cb6f05.netlify.app
+  name: github
+  repo: araaziz2006/Public-relations
   branch: main
 
 media_folder: "assets/uploads"
@@ -23,9 +23,4 @@ collections:
           - { label: "دەقی سەرەکی (Hero Title)", name: "hero_title", widget: "string" }
           - { label: "پەیامی کورتی دەروازە (Hero Description)", name: "hero_description", widget: "text" }
           - { label: "پەیامی دروستکەری سایت", name: "creator_story", widget: "text" }
-          - label: "پرسیارە باوەکان (FAQ)"
-            name: "faq_list"
-            widget: "list"
-            fields:
-              - { label: "پرسیار", name: "question", widget: "string" }
-              - { label: "وەڵام", name: "answer", widget: "text" }
+          - label: "پرسیارە باوەکان (FAQ)", name: "faq_list", widget: "list", fields: [{ label: "پرسیار", name: "question", widget: "string" }, { label: "وەڵام", name: "answer", widget: "text" }] }
