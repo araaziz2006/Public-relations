@@ -42,6 +42,18 @@
   }
   .serif{font-family:'Noto Kufi Arabic',sans-serif;}
 
+  /* Notice Banner Styling */
+  #notice-banner {
+    display: none;
+    background: var(--red);
+    color: #fff;
+    text-align: center;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  }
+
   header{
     position:sticky; top:0; z-index:50;
     background:rgba(246,241,230,0.92);
@@ -152,6 +164,66 @@
     font-size:13px; color:#B9AF9C; line-height:1.8;
   }
 
+  /* Score Calculator Box */
+  .calc-box {
+    margin-top: 28px;
+    background: rgba(246,241,230,0.08);
+    border: 1px solid rgba(246,241,230,0.2);
+    border-radius: 6px;
+    padding: 24px;
+  }
+  .calc-box h4 {
+    font-size: 16px;
+    color: var(--gold);
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .calc-box p {
+    font-size: 13.5px;
+    color: #C9C0AE;
+    margin-bottom: 16px;
+  }
+  .calc-form {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .calc-input {
+    flex: 1 1 180px;
+    padding: 12px 16px;
+    border-radius: 4px;
+    border: 1px solid rgba(246,241,230,0.3);
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    font-family: inherit;
+  }
+  .calc-input:focus {
+    border-color: var(--gold);
+  }
+  .calc-btn {
+    padding: 12px 24px;
+    background: var(--gold);
+    color: var(--black);
+    font-weight: 700;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: inherit;
+    transition: background 0.2s;
+  }
+  .calc-btn:hover {
+    background: #d4a037;
+  }
+  #calc-result {
+    margin-top: 16px;
+    font-size: 14.5px;
+    line-height: 1.8;
+    font-weight: 600;
+  }
+
   .grid3{
     display:grid; 
     grid-template-columns:repeat(3,1fr); 
@@ -247,6 +319,11 @@
 <meta property="og:type" content="website">
 </head>
 <body>
+
+<!-- Notice Banner from Google Sheets -->
+<div id="notice-banner">
+  📢 <span id="notice-text"></span>
+</div>
 
 <header>
   <nav>
@@ -346,6 +423,17 @@
     </div>
     <div class="note">تێبینی: ئەم نمرانە بۆ ساڵی ڕابردوون و ڕەنگە ئەمساڵ بگۆڕێن. بۆ زانیاری وردتر و دووپاتکردنەوە، سەیری فۆڕمی زانکۆلاین یان بەشەکەمان بکە.</div>
     <div class="note" style="margin-top:14px; border-top:none; padding-top:0; font-size:16px; font-weight:700; color:var(--gold);">لە ساڵی <span id="dyn-academic-year-note">٢٠٢٥-٢٠٢٦</span>، <span id="students-count">٨٠</span> خوێندکار وەرگیراوە.</div>
+
+    <!-- Zankoline Calculator Tool -->
+    <div class="calc-box">
+      <h4>🔍 ئامرازی تاقیکردنەوەی نمرەکەت:</h4>
+      <p>نمرەکەت بنووسە تاوەکو بزانیت چانسی وەرگیرانت لەسەر زانکۆلاین یان پاراڵێل چۆنە:</p>
+      <div class="calc-form">
+        <input type="number" id="user-score-input" class="calc-input" placeholder="نمرەکەت (نموونە: 62)" step="0.1" min="50" max="100">
+        <button type="button" onclick="calculateChances()" class="calc-btn">تاقیکردنەوەی نمرە</button>
+      </div>
+      <div id="calc-result"></div>
+    </div>
   </div>
 </section>
 
@@ -580,9 +668,12 @@
   <span class="thanks">شایەنی باسە دەمەوێ پێزانین و دەسخۆشی خۆم ئاڕاستەی تەواوی ستافی بەش و مامۆستا ماندوونەناسەکانمان بە گشتی، و دکتۆرە لانەی سەرۆک بەش و مامۆستا شۆخان بڕیاردەری بەشەکەمان و مامۆستا ئاڤێستا مامۆستا لە بەشەکەمان بە تایبەتی بکەم. هەروەها دەسخۆشی لە دژوار عادل هاوڕێ و نوێنەری قۆناغی دووەم و تەواوی ئەو خوێندکارانەی کە فیدباکیان ئەنجام دا بۆ سایتەکەم بکەم، کە هاوکاری تەواویان کردم لە باشترکردنی ئەم سایتە بۆ خوێندکاران</span>
 </footer>
 
-<!-- سکریپتی نوێکراوە بۆ خوێندنەوەی ئۆتۆماتیکی فایلی Google Sheet CSV -->
+<!-- سکریپتی نوێکراوە بۆ خوێندنەوەی ئۆتۆماتیکی فایلی Google Sheet CSV + Calculator logic -->
 <script>
   const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSPjo4-lFAwndWw81v0KpDfU1gderIfedi5pSoe3g6ted4KEpNZ2GeUDHMVbk0D4dKZmAuc2ePFf45v/pub?gid=0&single=true&output=csv';
+
+  let currentZankolineScore = 61.2;
+  let currentParallelScore = 58.79;
 
   function parseCSVLine(line) {
     const result = [];
@@ -623,9 +714,11 @@
 
       if (data.zankoline && document.getElementById('score-zankoline')) {
         document.getElementById('score-zankoline').innerText = data.zankoline;
+        currentZankolineScore = parseFloat(data.zankoline) || 61.2;
       }
       if (data.parallel && document.getElementById('score-parallel')) {
         document.getElementById('score-parallel').innerText = data.parallel;
+        currentParallelScore = parseFloat(data.parallel) || 58.79;
       }
       if (data.students && document.getElementById('students-count')) {
         document.getElementById('students-count').innerText = data.students;
@@ -658,8 +751,37 @@
       if (data.creator_story && document.getElementById('dyn-creator-story')) {
         document.getElementById('dyn-creator-story').innerHTML = `<p>${data.creator_story}</p>`;
       }
+
+      // Handle Notice Banner
+      if (data.notice_text && data.notice_text.trim().length > 0) {
+        document.getElementById('notice-text').innerText = data.notice_text;
+        document.getElementById('notice-banner').style.display = 'block';
+      } else {
+        document.getElementById('notice-banner').style.display = 'none';
+      }
+
     } catch (err) {
       console.log("کێشە لە هێنانی زانیاری Google Sheet:", err);
+    }
+  }
+
+  function calculateChances() {
+    const inputVal = document.getElementById('user-score-input').value;
+    const resultDiv = document.getElementById('calc-result');
+    
+    if (!inputVal) {
+      resultDiv.innerHTML = '<span style="color: #ff6b6b;">تکایە نمرەکەت بنووسە.</span>';
+      return;
+    }
+
+    const score = parseFloat(inputVal);
+
+    if (score >= currentZankolineScore) {
+      resultDiv.innerHTML = `<span style="color: #51cf66;">🎉 پیرۆزە! نمرەکەت (${score}) لە کەمترین نمرەی زانکۆلاین (${currentZankolineScore}) بەرزترە. چانسێکی زۆر بەرزت هەیە بۆ وەرگیرانی ڕاستەوخۆ!</span>`;
+    } else if (score >= currentParallelScore) {
+      resultDiv.innerHTML = `<span style="color: #fcc419;">😊 نمرەکەت (${score}) لە کەمترین نمرەی پاراڵێل (${currentParallelScore}) بەرزترە. چانسی وەرگیرانت لەسەر سیستمی پاراڵێل زۆر بەرزە!</span>`;
+    } else {
+      resultDiv.innerHTML = `<span style="color: #ff922b;">ندەتوانیت هیوایەک بهێڵیتەوە! نمرەکەت (${score}) لە کەمترین نمرەی پاراڵێلی ساڵی ڕابردوو (${currentParallelScore}) کەمێک نزمترە. بەهۆی گۆڕانی نمرەکان، هێشتا چانس هەیە؛ هەمیشە فۆڕمی زانکۆلاین پڕبکەرەوە.</span>`;
     }
   }
 
