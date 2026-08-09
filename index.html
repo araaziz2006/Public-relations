@@ -19,7 +19,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700;900&display=swap" rel="stylesheet">
-<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
 <style>
   :root{
@@ -300,7 +299,7 @@
   <h2 class="title">مێژوو و دەربارەی بەشەکەمان</h2>
   <div class="card">
     <div class="history-text">
-      <p style="font-size:17px; font-weight:600; color:var(--ink);">بەشی پەیوەندییە گشتییەکان لە ساڵی ٢٠٢١ەوە لە پێناو دەستخستنی کادری ئەکادیمی و پڕکردنەوەی پێداویستی بازاڕ دامەزراوە. لەم بەشەدا گرنگی بە هەردوو لایەنی تیۆری و پراکتیکی دەدرێت. بەهۆی گرنگی پەیوەندییە گشتییەکان لە نێو کەرتی تایبەت و حکومیدا، ئەو ئامراز و ڕێگایانە بەکاردەهێنرێت، کە یارمەتیدەرن لە بەرهەمهێنانی کادری پرۆفیشناڵی پەیوەندییە گشتییەکان. لەم بەشەدا، گرنگی تەواو بەو وانە و بابەتانە دەدرێت کە پێداویستی ئێستای سەردەمی بازاڕن وەکو ڕاوێژکاری سیاسی و ڕاوێژکاری ستراتیژی بەڕێوەبردنی دامەزراوە، داهێنان، دارشتنی ستراتیژ، براندینگ، لێکۆڵینەوە لە هەڵسوکەوتی بەکاربەر، پاراستنی ناوبانگ، بەڕێوەبردنی کەمپەین و خۆپارێزی لە کاتی قەیراندا.</p>
+      <p style="font-size:17px; font-weight:600; color:var(--ink);">بەشی پەیوەندییە گشتییەکان لە ساڵی ٢٠٢١ەوە لە پێناو دەستخستنی کادری ئەکادیمی و پڕکردنەوەی پێداویستی بازاڕ دامەزراوە. لەم بەشەدا گرنگی بە هەردوو لایەنی تیۆری و پراکتیکی دەدرێت. بەهۆی گرنگی پەیوەندییە گشتییەکان لە نێو کەرتی تایبەت و حکومیدا، ئەو ئامراز و ڕێگایانە بەکارهێنرێت، کە یارمەتیدەرن لە بەرهەمهێنانی کادری پرۆفیشناڵی پەیوەندییە گشتییەکان. لەم بەشەدا، گرنگی تەواو بەو وانە و بابەتانە دەدرێت کە پێداویستی ئێستای سەردەمی بازاڕن وەکو ڕاوێژکاری سیاسی و ڕاوێژکاری ستراتیژی بەڕێوەبردنی دامەزراوە، داهێنان، دارشتنی ستراتیژ، براندینگ، لێکۆڵینەوە لە هەڵسوکەوتی بەکاربەر، پاراستنی ناوبانگ، بەڕێوەبردنی کەمپەین و خۆپارێزی لە کاتی قەیراندا.</p>
     </div>
     <div style="height:1px; background:var(--line); margin:28px 0;"></div>
     <div class="timeline">
@@ -581,55 +580,82 @@
   <span class="thanks">شایەنی باسە دەمەوێ پێزانین و دەسخۆشی خۆم ئاڕاستەی تەواوی ستافی بەش و مامۆستا ماندوونەناسەکانمان بە گشتی، و دکتۆرە لانەی سەرۆک بەش و مامۆستا شۆخان بڕیاردەری بەشەکەمان و مامۆستا ئاڤێستا مامۆستا لە بەشەکەمان بە تایبەتی بکەم. هەروەها دەسخۆشی لە دژوار عادل هاوڕێ و نوێنەری قۆناغی دووەم و تەواوی ئەو خوێندکارانەی کە فیدباکیان ئەنجام دا بۆ سایتەکەم بکەم، کە هاوکاری تەواویان کردم لە باشترکردنی ئەم سایتە بۆ خوێندکاران</span>
 </footer>
 
-<!-- سکریپت بۆ خوێندنەوەی ئۆتۆماتیکی زانیارییەکانی Decap CMS -->
+<!-- سکریپتی نوێکراوە بۆ خوێندنەوەی ئۆتۆماتیکی فایلی Google Sheet CSV -->
 <script>
-  fetch('/content/site_data.json?t=' + new Date().getTime())
-    .then(response => response.json())
-    .then(data => {
-      if (data.zankoline_score) document.getElementById('score-zankoline').innerText = data.zankoline_score;
-      if (data.parallel_score) document.getElementById('score-parallel').innerText = data.parallel_score;
-      if (data.students_count) document.getElementById('students-count').innerText = data.students_count;
+  const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSPjo4-lFAwndWw81v0KpDfU1gderIfedi5pSoe3g6ted4KEpNZ2GeUDHMVbk0D4dKZmAuc2ePFf45v/pub?gid=0&single=true&output=csv';
+
+  function parseCSVLine(line) {
+    const result = [];
+    let current = '';
+    let inQuotes = false;
+    for (let i = 0; i < line.length; i++) {
+      const char = line[i];
+      if (char === '"') {
+        inQuotes = !inQuotes;
+      } else if (char === ',' && !inQuotes) {
+        result.push(current.trim());
+        current = '';
+      } else {
+        current += char;
+      }
+    }
+    result.push(current.trim());
+    return result;
+  }
+
+  async function loadDataFromGoogleSheet() {
+    try {
+      const res = await fetch(CSV_URL + '&t=' + new Date().getTime());
+      const text = await res.text();
+      const lines = text.split('\n');
+
+      const data = {};
+      lines.forEach(line => {
+        if (line.trim().length > 0) {
+          const parts = parseCSVLine(line);
+          if (parts.length >= 2) {
+            const key = parts[0].replace(/^"|"$/g, '').trim();
+            const val = parts[1].replace(/^"|"$/g, '').trim();
+            data[key] = val;
+          }
+        }
+      });
+
+      if (data.zankoline && document.getElementById('score-zankoline')) {
+        document.getElementById('score-zankoline').innerText = data.zankoline;
+      }
+      if (data.parallel && document.getElementById('score-parallel')) {
+        document.getElementById('score-parallel').innerText = data.parallel;
+      }
+      if (data.students && document.getElementById('students-count')) {
+        document.getElementById('students-count').innerText = data.students;
+      }
       if (data.intake_rounds) {
-        document.getElementById('intake-rounds').innerText = data.intake_rounds;
-        document.getElementById('intake-rounds-text').innerText = data.intake_rounds;
+        if (document.getElementById('intake-rounds')) document.getElementById('intake-rounds').innerText = data.intake_rounds;
+        if (document.getElementById('intake-rounds-text')) document.getElementById('intake-rounds-text').innerText = data.intake_rounds;
       }
       if (data.graduation_rounds) {
-        document.getElementById('graduation-rounds').innerText = data.graduation_rounds;
-        document.getElementById('graduation-rounds-text').innerText = data.graduation_rounds;
+        if (document.getElementById('graduation-rounds')) document.getElementById('graduation-rounds').innerText = data.graduation_rounds;
+        if (document.getElementById('graduation-rounds-text')) document.getElementById('graduation-rounds-text').innerText = data.graduation_rounds;
       }
-      if (data.subjects_count) document.getElementById('subjects-count').innerText = data.subjects_count;
-      if (data.hero_title) document.getElementById('dyn-hero-title').innerHTML = data.hero_title;
-      if (data.hero_description) document.getElementById('dyn-hero-desc').innerText = data.hero_description;
-      if (data.creator_story) document.getElementById('dyn-creator-story').innerHTML = `<p>${data.creator_story}</p>`;
-
-      if (data.faq_list && data.faq_list.length > 0) {
-        const faqContainer = document.getElementById('dyn-faq-list');
-        faqContainer.innerHTML = '';
-        data.faq_list.forEach((item, index) => {
-          const details = document.createElement('details');
-          details.className = 'faq-acc';
-          if (index === 0) details.open = true;
-          details.innerHTML = `
-            <summary>${item.question}</summary>
-            <div class="acc-body">${item.answer}</div>
-          `;
-          faqContainer.appendChild(details);
-        });
+      if (data.subjects_count && document.getElementById('subjects-count')) {
+        document.getElementById('subjects-count').innerText = data.subjects_count;
       }
-    })
-    .catch(err => console.log("کارکردن لە دۆخی ئاساییدا"));
-</script>
-
-<script>
-  if (window.netlifyIdentity) {
-    window.netlifyIdentity.on("init", user => {
-      if (!user) {
-        window.netlifyIdentity.on("login", () => {
-          document.location.href = "/admin/";
-        });
+      if (data.hero_title && document.getElementById('dyn-hero-title')) {
+        document.getElementById('dyn-hero-title').innerHTML = data.hero_title;
       }
-    });
+      if (data.hero_description && document.getElementById('dyn-hero-desc')) {
+        document.getElementById('dyn-hero-desc').innerText = data.hero_description;
+      }
+      if (data.creator_story && document.getElementById('dyn-creator-story')) {
+        document.getElementById('dyn-creator-story').innerHTML = `<p>${data.creator_story}</p>`;
+      }
+    } catch (err) {
+      console.log("کێشە لە هێنانی زانیاری Google Sheet:", err);
+    }
   }
+
+  loadDataFromGoogleSheet();
 </script>
 
 </body>
