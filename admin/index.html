@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>پەنێلی بەڕێوەبردنی بەشی پەیوەندییە گشتییەکان</title>
 
-  <!-- دیاریکردنی ئادرەسی ڕاستەوخۆی config.yml -->
+  <!-- لینکی ڕاستەوخۆ بۆ config.yml -->
   <link href="/admin/config.yml" type="text/yaml" rel="cms-config-url" />
 
   <!-- سکرێپتی Netlify Identity -->
@@ -16,10 +16,14 @@
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
   <script>
-    // بەستنەوەی ڕاستەوخۆی Identity بە Netlify backend بۆ ڕێگریکردن لە هەڵەی Vercel
     if (window.netlifyIdentity) {
-      window.netlifyIdentity.init({
-        APIUrl: "https://scintillating-platypus-cb6f05.netlify.app/.netlify/identity"
+      // بەستنەوەی ڕاستەوخۆی Netlify Identity بە ئادریسی نێتفڵای
+      window.netlifyIdentity.on("init", user => {
+        if (!user) {
+          window.netlifyIdentity.on("login", () => {
+            document.location.href = "/admin/";
+          });
+        }
       });
     }
   </script>
