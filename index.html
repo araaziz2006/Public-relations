@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ئیستۆپکردنی میمۆری کۆن لەسەر کۆمپیوتەر تا هەمیشە وەشانی نوێ دەربکەوێت -->
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
@@ -20,6 +19,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
 <style>
   :root{
     --red:#A82823;
@@ -42,7 +43,6 @@
   }
   .serif{font-family:'Noto Kufi Arabic',sans-serif;}
 
-  /* ================= NAV ================= */
   header{
     position:sticky; top:0; z-index:50;
     background:rgba(246,241,230,0.92);
@@ -69,7 +69,6 @@
   .nav-links a{color:var(--ink-soft); text-decoration:none; font-weight:500; font-size:13.5px; transition:color .2s;}
   .nav-links a:hover{color:var(--red);}
 
-  /* ================= HERO ================= */
   .hero-wrap{max-width:1180px; margin:0 auto; padding:64px 24px 0;}
   .hero-eyebrow{
     font-family:'Noto Kufi Arabic',sans-serif; font-weight:600; letter-spacing:0.5px;
@@ -87,7 +86,6 @@
   .ridge path{fill:none; stroke:var(--black); stroke-width:1.4; opacity:.55;}
   .ridge .fill{fill:var(--green); opacity:.10; stroke:none;}
 
-  /* quick chapter strip */
   .chapters{max-width:1180px; margin:0 auto; padding:0 24px 10px;}
   .chapter-strip{
     display:flex; gap:0; flex-wrap:wrap; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
@@ -111,7 +109,6 @@
     background:#fff; border:1px solid var(--line); border-radius:6px; padding:30px;
   }
 
-  /* ================= TIMELINE ================= */
   .timeline{display:flex; flex-direction:column; gap:0; margin-bottom:30px;}
   .tl-item{display:flex; gap:20px; position:relative; padding-bottom:26px;}
   .tl-item:last-child{padding-bottom:0;}
@@ -129,7 +126,6 @@
   .history-text p{font-size:15px; color:var(--ink-soft); line-height:1.95;}
   .history-text p + p{margin-top:16px;}
 
-  /* ================= STORY ================= */
   .story-card{
     background:var(--black); color:var(--paper); border-radius:6px; padding:44px 36px; position:relative;
   }
@@ -140,7 +136,6 @@
   .story-card p + p{margin-top:18px;}
   .story-sign{margin-top:26px; font-size:13.5px; color:var(--gold); font-weight:600;}
 
-  /* ================= SCORES ================= */
   .scores-band{background:var(--black); color:var(--paper); border-radius:6px; padding:44px 36px;}
   .scores-band .tag{color:var(--gold);}
   .scores-band .title{color:#fff;}
@@ -158,7 +153,6 @@
     font-size:13px; color:#B9AF9C; line-height:1.8;
   }
 
-  /* ================= GRIDS ================= */
   .grid3{
     display:grid; 
     grid-template-columns:repeat(3,1fr); 
@@ -200,7 +194,6 @@
   .cell-h h4{font-size:14.5px; color:var(--black); margin-bottom:5px; font-weight:700;}
   .cell-h p{font-size:12.5px; color:var(--ink-soft); line-height:1.65;}
 
-  /* ================= FAQ ACCORDION ================= */
   .faq-acc{border:1px solid var(--line); border-radius:6px; overflow:hidden; background:#fff; margin-bottom:12px;}
   .faq-acc summary{
     list-style:none; cursor:pointer; padding:18px 22px; font-size:15.5px; font-weight:700; color:var(--black);
@@ -212,7 +205,6 @@
   .faq-acc summary:hover{background:var(--paper-2);}
   .faq-acc .acc-body{padding:0 22px 22px; font-size:14px; color:var(--ink-soft); line-height:1.9;}
 
-  /* ================= CONTACT ================= */
   .contact-wrap{text-align:center;}
   .contact-wrap h2{font-size:27px; font-weight:900; color:var(--black); margin-bottom:12px;}
   .contact-wrap p{font-size:15px; color:var(--ink-soft); margin-bottom:6px;}
@@ -279,8 +271,8 @@
 
 <div class="hero-wrap">
   <span class="hero-eyebrow">بەشی پەیوەندییە گشتییەکان دامەزراوە لە ساڵی٢٠٢١ لە کۆلێژی زانستە مرۆڤایەتییەکان لە زانکۆی سلێمانی</span>
-  <h1>بەشی <span class="accent">پەیوەندییە گشتییەکان</span><br>دەروازەیەکی نوێ بۆ داهاتووت</h1>
-  <p class="lede">ئەم بەشە تازەیە لە زانکۆی سلێمانی، زۆرێک لە خوێندکارانی پۆلی ١٢ و کەسووکاریان زانیاریان کەمە لەسەری. لێرەدا هەموو ئەوەی پێویستە بزانن کۆمکردووەتەوە: نمرەی وەرگیران، ئەو بابەتانەی دەیخوێنیت، و ئەو کارانەی دواتر دەتوانیت تێیدا کاربکەیت.</p>
+  <h1 id="dyn-hero-title">بەشی <span class="accent">پەیوەندییە گشتییەکان</span><br>دەروازەیەکی نوێ بۆ داهاتووت</h1>
+  <p class="lede" id="dyn-hero-desc">ئەم بەشە تازەیە لە زانکۆی سلێمانی، زۆرێک لە خوێندکارانی پۆلی ١٢ و کەسووکاریان زانیاریان کەمە لەسەری. لێرەدا هەموو ئەوەی پێویستە بزانن کۆمکردووەتەوە: نمرەی وەرگیران، ئەو بابەتانەی دەیخوێنیت، و ئەو کارانەی دواتر دەتوانیت تێیدا کاربکەیت.</p>
 
   <svg class="ridge" viewBox="0 0 1180 70" preserveAspectRatio="none">
     <path class="fill" d="M0,70 L0,42 L120,16 L220,38 L340,8 L460,34 L600,4 L740,32 L860,14 L980,40 L1080,20 L1180,42 L1180,70 Z"></path>
@@ -313,12 +305,12 @@
     <div style="height:1px; background:var(--line); margin:28px 0;"></div>
     <div class="timeline">
       <div class="tl-item">
-        <div class="tl-dot-col"><div class="tl-dot" style="background:var(--red);">٥</div><div class="tl-line"></div></div>
-        <div class="tl-body"><h4>خولی وەرگیران</h4><p>تاکو ئێستا بەشەکە ٥ خولی وەرگیرانی هەبووە.</p></div>
+        <div class="tl-dot-col"><div class="tl-dot" style="background:var(--red);" id="intake-rounds">٥</div><div class="tl-line"></div></div>
+        <div class="tl-body"><h4>خولی وەرگیران</h4><p>تاکو ئێستا بەشەکە <span id="intake-rounds-text">٥</span> خولی وەرگیرانی هەبووە.</p></div>
       </div>
       <div class="tl-item">
-        <div class="tl-dot-col"><div class="tl-dot" style="background:var(--green);">٢</div></div>
-        <div class="tl-body"><h4>خولی دەرچوون</h4><p>٢ خولی دەرچوونیش تاکو ئێستا تەواوی کردووە.</p></div>
+        <div class="tl-dot-col"><div class="tl-dot" style="background:var(--green);" id="graduation-rounds">٢</div></div>
+        <div class="tl-body"><h4>خولی دەرچوون</h4><p><span id="graduation-rounds-text">٢</span> خولی دەرچوونیش تاکو ئێستا تەواوی کردووە.</p></div>
       </div>
     </div>
   </div>
@@ -328,8 +320,10 @@
   <span class="tag">وتەی دروستکەری سایتەکە</span>
   <h2 class="title">بۆچی ئەم سایتەم دروستکرد؟</h2>
   <div class="story-card">
-    <p>کاتێک پۆلی ١٢م تەواو کرد، زۆر گەڕام بۆ دۆزینەوەی بەشێک کە لەگەڵ خولیا و ئارەزوو و ئەزموونم بگونجێت. لەنێو چەند بەشێکدا، بەشی پەیوەندییە گشتییەکان زۆر سەرنجی ڕاکێشام — بەڵام چونکە بەشێکی تازە بوو لە زانکۆی سلێمانی، لە سۆشیال میدیا و ئینتەرنێت زانیارییەکی زۆر کەمم دەستکەوت دەربارەی وردەکاری خوێندن، وانەکان، و هەلی کار.</p>
-    <p>پاشان چومە زانکۆ و دوای ئاشنابوون بە وانەکان، مامۆستا و دکتۆرە لێهاتووەکان، و بەتایبەتی سەرۆکی بەشەکەمان کە زانیاری زۆری هەبووە دەربارەی بەشەکە، بۆم دەرکەوت کە کارە ڕاستەکەم ئەنجام داوە. لەبەر ئەوە هەستام بە دروستکردنی ئەم سایتە بۆ خوێندکاران بۆ ئەوەی بە هەمان شێوەی من توشی کێشەی نەبوونی زانیاری نەبن سەبارەت بەم بەشە و زانیاری زیاتریان هەبێت.</p>
+    <div id="dyn-creator-story">
+      <p>کاتێک پۆلی ١٢م تەواو کرد، زۆر گەڕام بۆ دۆزینەوەی بەشێک کە لەگەڵ خولیا و ئارەزوو و ئەزموونم بگونجێت. لەنێو چەند بەشێکدا، بەشی پەیوەندییە گشتییەکان زۆر سەرنجی ڕاکێشام — بەڵام چونکە بەشێکی تازە بوو لە زانکۆی سلێمانی، لە سۆشیال میدیا و ئینتەرنێت زانیارییەکی زۆر کەمم دەستکەوت دەربارەی وردەکاری خوێندن، وانەکان، و هەلی کار.</p>
+      <p>پاشان چومە زانکۆ و دوای ئاشنابوون بە وانەکان، مامۆستا و دکتۆرە لێهاتووەکان، و بەتایبەتی سەرۆکی بەشەکەمان کە زانیاری زۆری هەبووە دەربارەی بەشەکە، بۆم دەرکەوت کە کارە ڕاستەکەم ئەنجام داوە. لەبەر ئەوە هەستام بە دروستکردنی ئەم سایتە بۆ خوێندکاران بۆ ئەوەی بە هەمان شێوەی من توشی کێشەی نەبوونی زانیاری نەبن سەبارەت بەم بەشە و زانیاری زیاتریان هەبێت.</p>
+    </div>
     <div class="story-sign">— ئارا عەزیز</div>
   </div>
 </section>
@@ -358,7 +352,7 @@
 
 <section id="subjects">
   <span class="tag">پەرچەکردنی خوێندن</span>
-  <h2 class="title">4ساڵی زانکۆت بە زیاتر لە 20وانەی بەهێز نەخشە ڕێگەی خوێندنەکەتە</h2>
+  <h2 class="title">4ساڵی زانکۆت بە زیاتر لە <span id="subjects-count">20</span>وانەی بەهێز نەخشە ڕێگەی خوێندنەکەتە</h2>
   <p class="sub">کۆمەڵێک وانەی پڕاکتیکی و تیۆری دەخوێندرێ لە چوارچێوەی ٤ ساڵدا کە دەکاتە ٨ وەرزی خوێندن. ئەمانەش نموونەی هەندێک لە وانە گرنگەکانە.</p>
   <div class="grid3">
     <div class="cell"><div class="icon">📺</div><h3>ڕیکلام</h3><p>شێوازەکانی دروستکردنی ڕیکلام و کاریگەری لەسەر بیرکردنەوەی کۆمەڵگا.</p></div>
@@ -432,7 +426,7 @@
     <div style="background:#fff; padding:20px; border-radius:6px; border-right:3px solid var(--red); margin-bottom:14px;">
       <h4 style="font-size:14.5px; font-weight:700; color:var(--black); margin-bottom:6px;">💡 نھێنی سەرکەوتنی PR لەم کەمپەینەدا:</h4>
       <p style="font-size:13.5px; line-height:1.8; color:var(--ink-soft);">
-        کۆمپانیاکە شتومەکی نەفرۆشت، بەڵکو **پەیوەندی کۆمەڵایەتی و هەستی تایبەتی** دروستکرد. خەڵک لە سۆشیال میدیا دەستیان کرد بە بڵاوکردنەوەی وێنەی بوتڵەکان بە ناوی خۆیان و هاوڕێکانیانەوە. بەمەش زیاتر لە **٥٠0,٠٠٠ وێنە** لە ئینتەرنێت بڵاوبووەوە و فرۆشی کۆمپانیاکە بە ڕێژەی **٢.٥٪ بۆ یەکەمجار دوای ساڵانێک زیادی کرد**.
+        کۆمپانیاکە شتومەکی نەفرۆشت، بەڵکو **پەیوەندی کۆمەڵایەتی و هەستی تایبەتی** دروستکرد. خەڵک لە سۆشیال میدیا دەستیان کرد بە بڵاوکردنەوەی وێنەی بوتڵەکان بە ناوی خۆیان و هاوڕێکانیانەوە. بەمەش زیاتر لە **٥٠٠,٠٠٠ وێنە** لە ئینتەرنێت بڵاوبووەوە و فرۆشی کۆمپانیاکە بە ڕێژەی **٢.٥٪ بۆ یەکەمجار دوای ساڵانێک زیادی کرد**.
       </p>
     </div>
     <p style="font-size:13.5px; font-weight:600; color:var(--green);">
@@ -493,6 +487,7 @@
       <p><strong style="color:var(--black);">چی فێربووی؟</strong><br>گرنگی پەیوەندییە کۆمەڵایەتی و کەسییەکانمان، بایەخدان و برەودان بە پەیوەندییەکان.</p>
     </div>
   </details>
+
   <details class="acc">
     <summary>قۆناغی سێیەم</summary>
     <div class="acc-body">
@@ -544,27 +539,28 @@
   <span class="tag">وەڵامی خێرا</span>
   <h2 class="title">❓ پرسیارە باوەکان</h2>
   <p class="sub">ئەم وەڵامانەی خوارەوە بە شێوەیەکی ڕاستەقینە ڕوونکردنەوە دەدەن لەسەر ئەو پرسیارانەی زۆرترین جار لە لایەن خوێندکارانی نوێوە دەپرسرێن.</p>
+  <div id="dyn-faq-list">
+    <details class="faq-acc" open>
+      <summary>١. ئایا خوێندن لە بەشی پەیوەندییە گشتییەکان بە چ زمانێکە؟</summary>
+      <div class="acc-body">
+        زۆربەی وانە سەرەکییەکان بە زمانی کوردی دەخوێندرێن، لەگەڵ هەندێک زاراوەی ئەکادیمی و وانەی تایبەت بە ئینگلیزی بۆ بەهێزکردنی ئاستی زمانی خوێندکاران.
+      </div>
+    </details>
 
-  <details class="faq-acc" open>
-    <summary>١. ئایا خوێندن لە بەشی پەیوەندییە گشتییەکان بە چ زمانێکە؟</summary>
-    <div class="acc-body">
-      زۆربەی وانە سەرەکییەکان بە زمانی کوردی دەخوێندرێن، لەگەڵ هەندێک زاراوەی ئەکادیمی و وانەی تایبەت بە ئینگلیزی بۆ بەهێزکردنی ئاستی زمانی خوێندکاران.
-    </div>
-  </details>
+    <details class="faq-acc">
+      <summary>٢. ئایا تەنها خوێندکارانی لقی وێژەیی دەتوانن بێنە ئەم بەشە یان لقی زانستیش؟</summary>
+      <div class="acc-body">
+        دەرچووانی هەردوو لقی وێژەیی و زانستی دەتوانن لە ڕێگەی زانکۆلاین یان پاراڵێلەوە داواکاری پێشکەش بکەن.
+      </div>
+    </details>
 
-  <details class="faq-acc">
-    <summary>٢. ئایا تەنها خوێندکارانی لقی وێژەیی دەتوانن بێنە ئەم بەشە یان لقی زانستیش؟</summary>
-    <div class="acc-body">
-      دەرچووانی هەردوو لقی وێژەیی و زانستی دەتوانن لە ڕێگەی زانکۆلاین یان پاراڵێلەوە داواکاری پێشکەش بکەن.
-    </div>
-  </details>
-
-  <details class="faq-acc">
-    <summary>٣. جیاوازیی سەرەکی لە نێوان بەشی "پەیوەندییە گشتییەکان (PR)" و بەشی "ڕاگەیاندن / ڕۆژنامەنووسی" چییە؟</summary>
-    <div class="acc-body">
-      بەشی ڕاگەیاندن زیاتر تیشک دەخاتە سەر دروستکردنی ڕاپۆرت و کارکردن لە کەناڵەکاندا؛ بەڵام بەشی پەیوەندییە گشتییەکان زانستی بەڕێوەبردنی ناوبانگ، دروستکردنی ستراتیژ، بەڕێوەبردنی قەیرانەکان و هەماهەنگییە لە نێوان دامەزراوەکان و جەماوەردا.
-    </div>
-  </details>
+    <details class="faq-acc">
+      <summary>٣. جیاوازیی سەرەکی لە نێوان بەشی "پەیوەندییە گشتییەکان (PR)" و بەشی "ڕاگەیاندن / ڕۆژنامەنووسی" چییە؟</summary>
+      <div class="acc-body">
+        بەشی ڕاگەیاندن زیاتر تیشک دەخاتە سەر دروستکردنی ڕاپۆرت و کارکردن لە کەناڵەکاندا؛ بەڵام بەشی پەیوەندییە گشتییەکان زانستی بەڕێوەبردنی ناوبانگ، دروستکردنی ستراتیژ، بەڕێوەبردنی قەیرانەکان و هەماهەنگییە لە نێوان دامەزراوەکان و جەماوەردا.
+      </div>
+    </details>
+  </div>
 </section>
 
 <section id="contact" class="contact-wrap">
@@ -585,27 +581,54 @@
   <span class="thanks">شایەنی باسە دەمەوێ پێزانین و دەسخۆشی خۆم ئاڕاستەی تەواوی ستافی بەش و مامۆستا ماندوونەناسەکانمان بە گشتی، و دکتۆرە لانەی سەرۆک بەش و مامۆستا شۆخان بڕیاردەری بەشەکەمان و مامۆستا ئاڤێستا مامۆستا لە بەشەکەمان بە تایبەتی بکەم. هەروەها دەسخۆشی لە دژوار عادل هاوڕێ و نوێنەری قۆناغی دووەم و تەواوی ئەو خوێندکارانەی کە فیدباکیان ئەنجام دا بۆ سایتەکەم بکەم، کە هاوکاری تەواویان کردم لە باشترکردنی ئەم سایتە بۆ خوێندکاران</span>
 </footer>
 
-<!-- سکریپت بۆ خوێندنەوەی ئۆتۆماتیکی نمرەکان لە لینکی گووگڵ شیتەکەدا -->
+<!-- سکریپت بۆ خوێندنەوەی ئۆتۆماتیکی زانیارییەکانی Decap CMS -->
 <script>
-  const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSPjo4-lFAwndWw81v0KpDfU1gderIfedi5pSoe3g6ted4KEpNZ2GeUDHMVbk0D4dKZmAuc2ePFf45v/pub?gid=0&single=true&output=csv';
+  fetch('/content/site_data.json?t=' + new Date().getTime())
+    .then(response => response.json())
+    .then(data => {
+      if (data.zankoline_score) document.getElementById('score-zankoline').innerText = data.zankoline_score;
+      if (data.parallel_score) document.getElementById('score-parallel').innerText = data.parallel_score;
+      if (data.students_count) document.getElementById('students-count').innerText = data.students_count;
+      if (data.intake_rounds) {
+        document.getElementById('intake-rounds').innerText = data.intake_rounds;
+        document.getElementById('intake-rounds-text').innerText = data.intake_rounds;
+      }
+      if (data.graduation_rounds) {
+        document.getElementById('graduation-rounds').innerText = data.graduation_rounds;
+        document.getElementById('graduation-rounds-text').innerText = data.graduation_rounds;
+      }
+      if (data.subjects_count) document.getElementById('subjects-count').innerText = data.subjects_count;
+      if (data.hero_title) document.getElementById('dyn-hero-title').innerHTML = data.hero_title;
+      if (data.hero_description) document.getElementById('dyn-hero-desc').innerText = data.hero_description;
+      if (data.creator_story) document.getElementById('dyn-creator-story').innerHTML = `<p>${data.creator_story}</p>`;
 
-  if (SHEET_CSV_URL) {
-    fetch(SHEET_CSV_URL + '&t=' + new Date().getTime())
-      .then(response => response.text())
-      .then(csvText => {
-        const lines = csvText.split('\n');
-        lines.forEach(line => {
-          const parts = line.split(',');
-          if (parts.length >= 2) {
-            const key = parts[0].trim().toLowerCase();
-            const val = parts[1].trim();
-            if (key === 'zankoline') document.getElementById('score-zankoline').innerText = val;
-            if (key === 'parallel') document.getElementById('score-parallel').innerText = val;
-            if (key === 'students') document.getElementById('students-count').innerText = val;
-          }
+      if (data.faq_list && data.faq_list.length > 0) {
+        const faqContainer = document.getElementById('dyn-faq-list');
+        faqContainer.innerHTML = '';
+        data.faq_list.forEach((item, index) => {
+          const details = document.createElement('details');
+          details.className = 'faq-acc';
+          if (index === 0) details.open = true;
+          details.innerHTML = `
+            <summary>${item.question}</summary>
+            <div class="acc-body">${item.answer}</div>
+          `;
+          faqContainer.appendChild(details);
         });
-      })
-      .catch(err => console.error("Error reading Google Sheet:", err));
+      }
+    })
+    .catch(err => console.log("کارکردن لە دۆخی ئاساییدا"));
+</script>
+
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
   }
 </script>
 
