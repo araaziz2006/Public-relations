@@ -693,11 +693,11 @@
   <!-- Real Visitor Counter Component -->
   <div class="visitor-counter-box">
     <span class="dot"></span>
-    ژمارەی سەردانکەرانی ڕاستەقینە: <span id="real-visitor-count">...</span>
+    ژمارەی سەردانکەرانی ڕاستەقینە: <span id="real-visitor-count">546</span>
   </div>
 </footer>
 
-<!-- سکریپتی نوێکراوە بۆ خوێندنەوەی Google Sheet CSV + Calculator + CounterAPI (Starting from 546) -->
+<!-- سکریپتی نوێکراوە بۆ خوێندنەوەی Google Sheet CSV + Calculator + Live Counter (Bypassing Cache) -->
 <script>
   const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSPjo4-lFAwndWw81v0KpDfU1gderIfedi5pSoe3g6ted4KEpNZ2GeUDHMVbk0D4dKZmAuc2ePFf45v/pub?gid=0&single=true&output=csv';
 
@@ -814,21 +814,26 @@
     }
   }
 
-  // Real Visitor Counter Logic (Starting from 546)
+  // Improved Live Visitor Counter
   async function updateVisitorCount() {
     try {
-      const response = await fetch('https://counterapi.dev/v1/publicrelationsdep.com/visits/up');
+      const response = await fetch('https://counterapi.dev/v1/publicrelationsdep.com/visits/up', {
+        cache: 'no-store'
+      });
       const data = await response.json();
       
       if (data && data.count !== undefined) {
         const totalVisits = 545 + parseInt(data.count);
+        localStorage.setItem('pr_site_visits', totalVisits);
         document.getElementById('real-visitor-count').innerText = totalVisits.toLocaleString();
       } else {
-        document.getElementById('real-visitor-count').innerText = '546';
+        const savedVisits = localStorage.getItem('pr_site_visits') || '546';
+        document.getElementById('real-visitor-count').innerText = parseInt(savedVisits).toLocaleString();
       }
     } catch (error) {
       console.log('کێشە لە هەژمارکردنی سەردانکەران:', error);
-      document.getElementById('real-visitor-count').innerText = '546';
+      const savedVisits = localStorage.getItem('pr_site_visits') || '546';
+      document.getElementById('real-visitor-count').innerText = parseInt(savedVisits).toLocaleString();
     }
   }
 
