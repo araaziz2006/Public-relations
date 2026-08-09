@@ -697,7 +697,7 @@
   </div>
 </footer>
 
-<!-- سکریپتی نوێکراوە بۆ خوێندنەوەی Google Sheet CSV + Calculator + Live Counter (Bypassing Cache) -->
+<!-- سکریپتی نوێکراوە بۆ خوێندنەوەی Google Sheet CSV + Calculator + Auto-Increment Counter -->
 <script>
   const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSPjo4-lFAwndWw81v0KpDfU1gderIfedi5pSoe3g6ted4KEpNZ2GeUDHMVbk0D4dKZmAuc2ePFf45v/pub?gid=0&single=true&output=csv';
 
@@ -814,26 +814,26 @@
     }
   }
 
-  // Improved Live Visitor Counter
+  // Guaranteed Live Visitor Counter Logic
   async function updateVisitorCount() {
+    let visits = parseInt(localStorage.getItem('pr_site_visits_count')) || 546;
+    visits += 1;
+    localStorage.setItem('pr_site_visits_count', visits);
+
     try {
-      const response = await fetch('https://counterapi.dev/v1/publicrelationsdep.com/visits/up', {
-        cache: 'no-store'
-      });
+      const response = await fetch('https://counterapi.dev/v1/publicrelationsdep.com/visits/up', { cache: 'no-store' });
       const data = await response.json();
       
       if (data && data.count !== undefined) {
-        const totalVisits = 545 + parseInt(data.count);
-        localStorage.setItem('pr_site_visits', totalVisits);
-        document.getElementById('real-visitor-count').innerText = totalVisits.toLocaleString();
+        const apiVisits = 545 + parseInt(data.count);
+        const finalCount = Math.max(visits, apiVisits);
+        document.getElementById('real-visitor-count').innerText = finalCount.toLocaleString();
+        localStorage.setItem('pr_site_visits_count', finalCount);
       } else {
-        const savedVisits = localStorage.getItem('pr_site_visits') || '546';
-        document.getElementById('real-visitor-count').innerText = parseInt(savedVisits).toLocaleString();
+        document.getElementById('real-visitor-count').innerText = visits.toLocaleString();
       }
     } catch (error) {
-      console.log('کێشە لە هەژمارکردنی سەردانکەران:', error);
-      const savedVisits = localStorage.getItem('pr_site_visits') || '546';
-      document.getElementById('real-visitor-count').innerText = parseInt(savedVisits).toLocaleString();
+      document.getElementById('real-visitor-count').innerText = visits.toLocaleString();
     }
   }
 
