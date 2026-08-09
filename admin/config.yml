@@ -2,6 +2,8 @@ backend:
   name: github
   repo: araaziz2006/Public-relations
   branch: main
+  base_url: https://decap-cms-oauth-provider.vercel.app
+  auth_endpoint: auth
 
 media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
