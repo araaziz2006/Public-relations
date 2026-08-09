@@ -16,8 +16,11 @@
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
   <script>
-    // ئەم پارچە کۆدە ناهێڵێت Vercel هەڵەی Unable to access identity settings بدات
+    // ئاراستەکردنی ڕاستەوخۆی Identity بۆ سەر سێرڤەری Netlify
     if (window.netlifyIdentity) {
+      window.netlifyIdentity.init({
+        APIUrl: "https://scintillating-platypus-cb6f05.netlify.app/.netlify/identity"
+      });
       window.netlifyIdentity.on("init", user => {
         if (!user) {
           window.netlifyIdentity.on("login", () => {
