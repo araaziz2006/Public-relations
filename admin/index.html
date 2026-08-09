@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>پەنێلی بەڕێوەبردنی بەشی پەیوەندییە گشتییەکان</title>
 
-  <!-- لینکی ڕاستەوخۆ بۆ config.yml -->
+  <!-- لینکی config.yml -->
   <link href="/admin/config.yml" type="text/yaml" rel="cms-config-url" />
 
   <!-- سکرێپتی Netlify Identity -->
@@ -16,8 +16,8 @@
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 
   <script>
+    // ئەم پارچە کۆدە ناهێڵێت Vercel هەڵەی Unable to access identity settings بدات
     if (window.netlifyIdentity) {
-      // بەستنەوەی ڕاستەوخۆی Netlify Identity بە ئادریسی نێتفڵای
       window.netlifyIdentity.on("init", user => {
         if (!user) {
           window.netlifyIdentity.on("login", () => {
