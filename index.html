@@ -42,7 +42,7 @@
   }
   .serif{font-family:'Noto Kufi Arabic',sans-serif;}
 
-  /* Notice Banner Styling with Instant Continuous Marquee Animation */
+  /* Notice Banner Styling with Immediate Continuous Animation */
   #notice-banner {
     display: none;
     background: var(--red);
@@ -310,28 +310,6 @@
   .cbtn:hover{background:var(--black); color:var(--paper);}
   .cbtn.solid{background:var(--red); border-color:var(--red); color:#fff;}
   .cbtn.solid:hover{background:#8A1F1B;}
-
-  /* Real Visitor Counter Styling */
-  .visitor-counter-box {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: #fff;
-    border: 1px solid var(--line);
-    padding: 8px 18px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--ink);
-    margin: 18px auto 0;
-  }
-  .visitor-counter-box .dot {
-    width: 8px;
-    height: 8px;
-    background-color: #1C6B45;
-    border-radius: 50%;
-    box-shadow: 0 0 8px #1C6B45;
-  }
 
   footer{
     text-align:center; padding:40px 24px; color:var(--ink-soft); font-size:12.5px; border-top:1px solid var(--line);
@@ -659,7 +637,7 @@
       <p><strong style="color:var(--black);">چی فێربووم؟</strong><br>فێری هونەری گفتوگۆ، بەڕێوەبردنی بۆنە و ئیڤینتەکان، و پرۆتۆکۆڵ بووم.</p>
       <div style="height:1px; background:var(--line); margin:22px 0;"></div>
       <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">ئاکام نەجمەدین، قۆناغی ٤</div>
-      <p><strong style="color:var(--black);">چۆن بەشەکەم هەڵبژارد؟</strong><br>ڕەفیقێکم لەو بەشە بوو، منیش بەهۆی ئەوەوە هەڵمبژارد.</p>
+      <p><strong style="color:var(--black);">چۆن بەشەکەت هەڵبژارد؟</strong><br>ڕەفیقێکم لەو بەشە بوو، منیش بەهۆی ئەوەوە هەڵمبژارد.</p>
       <p><strong style="color:var(--black);">چی زانیارییەکی دەربارەی هەبوو؟</strong><br>هیچ زانیارییەکی سەرەتایم نەبوو، تەنها ئەوەنەم دەزانی زۆرینەی بابەتەکان بە کوردی دەخوێندرێن.</p>
       <p><strong style="color:var(--black);">ئێستا چۆن لێی دەڕوانم؟</strong><br>بەشێکی تازەیە و تا ئێستا زۆر ناسراو نییە لە ناو دامەزراوە و کۆمەڵگا.</p>
       <p><strong style="color:var(--black);">چی فێربووم؟</strong><br>باشترکردنی پەیوەندی نێوان دامەزراوە و جەماوەر و چەندان شتی دیکە.</p>
@@ -711,16 +689,9 @@
   © ٢٠٢٦ بەشی پەیوەندییە گشتییەکان — زانکۆی سلێمانی
   <span class="credit">دروستکراوە لە لایەن ئارا عەزیز، خوێندکاری قۆناغی دووەمی بەشی پەیوەندییە گشتییەکان</span>
   <span class="thanks">شایەنی باسە دەمەوێ پێزانین و دەسخۆشی خۆم ئاڕاستەی تەواوی ستافی بەش و مامۆستا ماندوونەناسەکانمان بە گشتی، و دکتۆرە لانەی سەرۆک بەش و مامۆستا شۆخان بڕیاردەری بەشەکەمان و مامۆستا ئاڤێستا مامۆستا لە بەشەکەمان بە تایبەتی بکەم. هەروەها دەسخۆشی لە دژوار عادل هاوڕێ و نوێنەری قۆناغی دووەم و تەواوی ئەو خوێندکارانەی کە فیدباکیان ئەنجام دا بۆ سایتەکەم بکەم، کە هاوکاری تەواویان کردم لە باشترکردنی ئەم سایتە بۆ خوێندکاران</span>
-  
-  <br>
-  <!-- Real Visitor Counter Component -->
-  <div class="visitor-counter-box">
-    <span class="dot"></span>
-    ژمارەی سەردانکەرانی ڕاستەقینە: <span id="real-visitor-count">1</span>
-  </div>
 </footer>
 
-<!-- سکریپتی نوێکراوە بۆ خوێندنەوەی Google Sheet CSV + Calculator + Pure Visitor Counter (Starting from 0) -->
+<!-- سکریپتی نوێکراوە بۆ خوێندنەوەی Google Sheet CSV + Calculator -->
 <script>
   const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSPjo4-lFAwndWw81v0KpDfU1gderIfedi5pSoe3g6ted4KEpNZ2GeUDHMVbk0D4dKZmAuc2ePFf45v/pub?gid=0&single=true&output=csv';
 
@@ -837,25 +808,7 @@
     }
   }
 
-  // Pure Visitor Counter Logic Starting From 0
-  async function updateVisitorCount() {
-    try {
-      const response = await fetch('https://counterapi.dev/v1/publicrelationsdep.com/visits/up', { cache: 'no-store' });
-      const data = await response.json();
-      
-      if (data && data.count !== undefined) {
-        document.getElementById('real-visitor-count').innerText = data.count.toLocaleString();
-      } else {
-        document.getElementById('real-visitor-count').innerText = '1';
-      }
-    } catch (error) {
-      console.log('کێشە لە هەژمارکردنی سەردانکەران:', error);
-      document.getElementById('real-visitor-count').innerText = '1';
-    }
-  }
-
   loadDataFromGoogleSheet();
-  updateVisitorCount();
 </script>
 
 </body>
