@@ -3,20 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
 <title>Department of Public Relations | University of Sulaimani</title>
-<meta name="description" content="Complete guide for admission scores, courses, history, and career opportunities in the Public Relations Department at the University of Sulaimani.">
-<meta name="keywords" content="Public Relations, Public Relations Department, University of Sulaimani, College of Humanities, PR, Zankoline">
+<meta name="description" content="Complete guide for admission scores, subjects, history, and career opportunities in the Department of Public Relations at the University of Sulaimani.">
+<meta name="keywords" content="Public Relations, PR Department, University of Sulaimani, College of Humanities, Zankoline">
 <meta name="author" content="Ara Aziz">
 <meta name="robots" content="index, follow">
 
 <link rel="canonical" href="https://publicrelationsdep.com/en.html">
-<link rel="alternate" hreflang="ckb" href="https://publicrelationsdep.com/index.html">
-<link rel="alternate" hreflang="ar" href="https://publicrelationsdep.com/ar.html">
-<link rel="alternate" hreflang="en" href="https://publicrelationsdep.com/en.html">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700;900&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
 <style>
   :root{
     --red:#A82823;
@@ -32,13 +35,42 @@
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
   body{
-    font-family:'Inter','Segoe UI','Tahoma',Arial,sans-serif;
+    font-family:'Inter',sans-serif;
     background:var(--paper);
     color:var(--ink);
     overflow-x:hidden;
   }
+  .serif{font-family:'Inter',sans-serif;}
 
-  /* ================= NAV ================= */
+  /* Notice Banner Styling with Immediate Continuous Animation */
+  #notice-banner {
+    display: none;
+    background: var(--red);
+    color: #fff;
+    padding: 10px 0;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    width: 100%;
+  }
+
+  .notice-scroll-content {
+    display: inline-block;
+    animation: marquee-left 18s linear infinite;
+  }
+
+  #notice-banner:hover .notice-scroll-content {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee-left {
+    0% { transform: translate3d(100vw, 0, 0); }
+    100% { transform: translate3d(-100%, 0, 0); }
+  }
+
   header{
     position:sticky; top:0; z-index:50;
     background:rgba(246,241,230,0.92);
@@ -68,7 +100,6 @@
   .lang-switch a{text-decoration:none; color:var(--ink-soft);}
   .lang-switch a.active{color:var(--red);}
 
-  /* ================= HERO ================= */
   .hero-wrap{max-width:1180px; margin:0 auto; padding:64px 24px 0;}
   .hero-eyebrow{
     font-weight:600; letter-spacing:0.5px;
@@ -86,7 +117,6 @@
   .ridge path{fill:none; stroke:var(--black); stroke-width:1.4; opacity:.55;}
   .ridge .fill{fill:var(--green); opacity:.10; stroke:none;}
 
-  /* quick chapter strip */
   .chapters{max-width:1180px; margin:0 auto; padding:0 24px 10px;}
   .chapter-strip{
     display:flex; gap:0; flex-wrap:wrap; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
@@ -110,7 +140,6 @@
     background:#fff; border:1px solid var(--line); border-radius:6px; padding:30px;
   }
 
-  /* ================= TIMELINE ================= */
   .timeline{display:flex; flex-direction:column; gap:0; margin-bottom:30px;}
   .tl-item{display:flex; gap:20px; position:relative; padding-bottom:26px;}
   .tl-item:last-child{padding-bottom:0;}
@@ -128,7 +157,6 @@
   .history-text p{font-size:15px; color:var(--ink-soft); line-height:1.95;}
   .history-text p + p{margin-top:16px;}
 
-  /* ================= STORY ================= */
   .story-card{
     background:var(--black); color:var(--paper); border-radius:6px; padding:44px 36px; position:relative;
   }
@@ -139,7 +167,6 @@
   .story-card p + p{margin-top:18px;}
   .story-sign{margin-top:26px; font-size:13.5px; color:var(--gold); font-weight:600;}
 
-  /* ================= SCORES ================= */
   .scores-band{background:var(--black); color:var(--paper); border-radius:6px; padding:44px 36px;}
   .scores-band .tag{color:var(--gold);}
   .scores-band .title{color:#fff;}
@@ -157,22 +184,95 @@
     font-size:13px; color:#B9AF9C; line-height:1.8;
   }
 
-  /* ================= GRIDS ================= */
-  .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
-  .cell{background:var(--paper); padding:26px; transition:background .2s;}
-  .cell:hover{background:#fff;}
+  /* Score Calculator Box */
+  .calc-box {
+    margin-top: 28px;
+    background: rgba(246,241,230,0.08);
+    border: 1px solid rgba(246,241,230,0.2);
+    border-radius: 6px;
+    padding: 24px;
+  }
+  .calc-box h4 {
+    font-size: 16px;
+    color: var(--gold);
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .calc-box p {
+    font-size: 13.5px;
+    color: #C9C0AE;
+    margin-bottom: 16px;
+  }
+  .calc-form {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .calc-input {
+    flex: 1 1 180px;
+    padding: 12px 16px;
+    border-radius: 4px;
+    border: 1px solid rgba(246,241,230,0.3);
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    font-family: inherit;
+  }
+  .calc-input:focus { border-color: var(--gold); }
+  .calc-btn {
+    padding: 12px 24px;
+    background: var(--gold);
+    color: var(--black);
+    font-weight: 700;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: inherit;
+    transition: background 0.2s;
+  }
+  .calc-btn:hover { background: #d4a037; }
+  #calc-result {
+    margin-top: 16px;
+    font-size: 14.5px;
+    line-height: 1.8;
+    font-weight: 600;
+  }
+
+  .grid3{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line);
+  }
+  .cell{
+    background:var(--paper); padding:26px; transition:background .2s;
+  }
+  .cell:hover{ background:#fff; }
   .cell .icon{font-size:24px; margin-bottom:12px;}
   .cell h3{font-size:15.5px; color:var(--black); margin-bottom:8px; font-weight:700;}
   .cell p{font-size:13px; color:var(--ink-soft); line-height:1.75;}
 
-  .grid2{display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
-  .cell-h{background:var(--paper); padding:22px; display:flex; gap:14px; align-items:flex-start; transition:background .2s;}
-  .cell-h:hover{background:#fff;}
+  .grid2{
+    display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line);
+  }
+  .cell-h{
+    background:var(--paper); padding:22px; display:flex; gap:14px; align-items:flex-start; transition:background .2s;
+  }
+  .cell-h:hover{ background:#fff; }
   .cell-h .icon{font-size:20px; width:38px; flex-shrink:0;}
   .cell-h h4{font-size:14.5px; color:var(--black); margin-bottom:5px; font-weight:700;}
   .cell-h p{font-size:12.5px; color:var(--ink-soft); line-height:1.65;}
 
-  /* ================= CONTACT ================= */
+  .faq-acc{border:1px solid var(--line); border-radius:6px; overflow:hidden; background:#fff; margin-bottom:12px;}
+  .faq-acc summary{
+    list-style:none; cursor:pointer; padding:18px 22px; font-size:15.5px; font-weight:700; color:var(--black);
+    display:flex; align-items:center; justify-content:space-between; user-select:none;
+  }
+  .faq-acc summary::-webkit-details-marker{display:none;}
+  .faq-acc summary::after{content:"+"; font-size:20px; color:var(--red); font-weight:400;}
+  .faq-acc[open] summary::after{content:"−";}
+  .faq-acc summary:hover{background:var(--paper-2);}
+  .faq-acc .acc-body{padding:0 22px 22px; font-size:14px; color:var(--ink-soft); line-height:1.9;}
+
   .contact-wrap{text-align:center;}
   .contact-wrap h2{font-size:27px; font-weight:900; color:var(--black); margin-bottom:12px;}
   .contact-wrap p{font-size:15px; color:var(--ink-soft); margin-bottom:6px;}
@@ -210,13 +310,19 @@
   gtag('js', new Date());
   gtag('config', 'G-ETCW0EYQL1');
 </script>
-
 <meta property="og:title" content="Department of Public Relations | University of Sulaimani">
-<meta property="og:description" content="Complete guide for admission scores, courses, history, and career opportunities in the Public Relations Department at the University of Sulaimani.">
+<meta property="og:description" content="Complete guide for admission scores, subjects, history, and career opportunities in the Department of Public Relations at the University of Sulaimani.">
 <meta property="og:url" content="https://publicrelationsdep.com/en.html">
 <meta property="og:type" content="website">
 </head>
 <body>
+
+<!-- Notice Banner -->
+<div id="notice-banner">
+  <div class="notice-scroll-content">
+    📢 <span id="notice-text"></span>
+  </div>
+</div>
 
 <header>
   <nav>
@@ -225,12 +331,14 @@
     </div>
     <ul class="nav-links">
       <li><a href="#intro">History</a></li>
-      <li><a href="#story">Reason</a></li>
-      <li><a href="#scores">Admission Scores</a></li>
-      <li><a href="#subjects">Courses</a></li>
+      <li><a href="#story">Story</a></li>
+      <li><a href="#scores">Scores</a></li>
+      <li><a href="#subjects">Subjects</a></li>
+      <li><a href="#opportunities">Opportunities</a></li>
       <li><a href="#careers">Careers</a></li>
-      <li><a href="#campaign">Monthly Campaign</a></li>
+      <li><a href="#campaign">Campaign</a></li>
       <li><a href="#testimonials">Feedback</a></li>
+      <li><a href="#faq">FAQ</a></li>
       <li><a href="#contact">Contact</a></li>
       <li>
         <div class="lang-switch">
@@ -244,9 +352,9 @@
 </header>
 
 <div class="hero-wrap">
-  <span class="hero-eyebrow">Public Relations Department Established in 2021 at the College of Humanities, University of Sulaimani</span>
-  <h1>Department of <span class="accent">Public Relations</span><br>A New Gateway to Your Future</h1>
-  <p class="lede">This is a new department at the University of Sulaimani, and many 12th-grade students and their families know little about it. Here, we have gathered everything you need to know: admission scores, subjects you will study, and potential career opportunities.</p>
+  <span class="hero-eyebrow">Department of Public Relations established in 2021 at the University of Sulaimani</span>
+  <h1 id="dyn-hero-title">Department of <span class="accent">Public Relations</span><br>A New Gateway to Your Future</h1>
+  <p class="lede" id="dyn-hero-desc">This modern department at the University of Sulaimani is relatively new, and many 12th-grade students and their families lack sufficient information about it. Here we have gathered everything you need to know: admission scores, subjects, and future career paths.</p>
 
   <svg class="ridge" viewBox="0 0 1180 70" preserveAspectRatio="none">
     <path class="fill" d="M0,70 L0,42 L120,16 L220,38 L340,8 L460,34 L600,4 L740,32 L860,14 L980,40 L1080,20 L1180,42 L1180,70 Z"></path>
@@ -256,246 +364,215 @@
 
 <div class="chapters">
   <div class="chapter-strip">
-    <a href="#intro">History & About Us</a>
-    <a href="#story">Why This Site Was Created</a>
+    <a href="#intro">History</a>
+    <a href="#story">Our Story</a>
     <a href="#scores">Admission Scores</a>
-    <a href="#subjects">Courses</a>
-    <a href="#careers">Future Careers</a>
-    <a href="#campaign">Monthly Campaign</a>
+    <a href="#subjects">Subjects</a>
+    <a href="#opportunities">Opportunities</a>
+    <a href="#careers">Careers</a>
+    <a href="#campaign">Campaign</a>
     <a href="#testimonials">Student Feedback</a>
-    <a href="#contact">Contact Us</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
   </div>
 </div>
 
 <section id="intro">
-  <span class="tag">ABOUT OUR DEPARTMENT</span>
-  <h2 class="title">History and About Our Department</h2>
+  <span class="tag">About Our Department</span>
+  <h2 class="title">History & Overview</h2>
   <div class="card">
     <div class="history-text">
-      <p style="font-size:17px; font-weight:600; color:var(--ink);">The Public Relations Department was established in 2021 to provide academic personnel and fulfill market requirements. This department places equal emphasis on both theoretical and practical aspects. Due to the importance of public relations in both private and public sectors, practical tools and methods are utilized to produce professional PR specialists. Full attention is given to subjects essential for today's market demands, such as political advisory, institutional strategic consultancy, innovation, strategy formulation, branding, consumer behavior research, reputation management, campaign management, and crisis prevention.</p>
+      <p style="font-size:17px; font-weight:600; color:var(--ink);">The Department of Public Relations was established in 2021 to produce professional academic cadres and fulfill market requirements. Both theoretical and practical aspects are highly emphasized. Given the critical role of public relations in both private and governmental sectors, specialized modern techniques are applied. The department focuses on key market-driven subjects such as political and strategic consultancy, institutional management, innovation, brand management, consumer behavior research, reputation protection, campaign management, and crisis communication.</p>
     </div>
     <div style="height:1px; background:var(--line); margin:28px 0;"></div>
     <div class="timeline">
       <div class="tl-item">
-        <div class="tl-dot-col"><div class="tl-dot" style="background:var(--red);">5</div><div class="tl-line"></div></div>
-        <div class="tl-body"><h4>Admission Batches</h4><p>The department has welcomed 5 admission batches so far.</p></div>
+        <div class="tl-dot-col"><div class="tl-dot" style="background:var(--red);" id="intake-rounds">5</div><div class="tl-line"></div></div>
+        <div class="tl-body"><h4>Admission Cycles</h4><p>The department has welcomed <span id="intake-rounds-text">5</span> admission cycles so far.</p></div>
       </div>
       <div class="tl-item">
-        <div class="tl-dot-col"><div class="tl-dot" style="background:var(--green);">2</div></div>
-        <div class="tl-body"><h4>Graduation Batches</h4><p>2 batches of students have successfully graduated to date.</p></div>
+        <div class="tl-dot-col"><div class="tl-dot" style="background:var(--green);" id="graduation-rounds">2</div></div>
+        <div class="tl-body"><h4>Graduation Batches</h4><p><span id="graduation-rounds-text">2</span> batches have successfully graduated.</p></div>
       </div>
     </div>
   </div>
 </section>
 
 <section id="story">
-  <span class="tag">WORDS FROM THE CREATOR</span>
+  <span class="tag">Creator's Note</span>
   <h2 class="title">Why Did I Create This Website?</h2>
   <div class="story-card">
-    <p>When I finished 12th grade, I searched extensively for a major that matched my passion, interest, and experience. Among several options, the Public Relations department caught my attention — but because it was a new department at the University of Sulaimani, I found very little information on social media and the internet regarding academic details, subjects, and job opportunities.</p>
-    <p>Then I joined the university, and after getting to know the courses, skilled professors, and especially our head of department who possessed extensive knowledge, I realized I had made the right choice. Therefore, I created this website for students so they would not face the same lack of information and could gain comprehensive insight into this department.</p>
+    <div id="dyn-creator-story">
+      <p>When I finished 12th grade, I searched extensively to find a department that matched my passions and background. Among several choices, Public Relations caught my eye—but since it was a brand-new department at the University of Sulaimani, finding clear information online about the syllabus, courses, and careers was extremely difficult.</p>
+      <p>After joining the university and experiencing the professional curriculum, inspiring professors, and especially our head of department who possesses profound expertise, I realized I made the absolute right choice. Therefore, I built this platform so future students won't face the same lack of information and can make informed choices.</p>
+    </div>
     <div class="story-sign">— Ara Aziz</div>
   </div>
 </section>
 
 <section id="scores">
-  <span class="tag">DETAILS</span>
-  <h2 class="title">Admission Scores — 2025-2026</h2>
+  <span class="tag">Admissions Analytics</span>
+  <h2 class="title">Admission Scores — Academic Year <span id="dyn-academic-year">2025-2026</span></h2>
   <div class="scores-band">
-    <p class="sub" style="margin-bottom:26px;">These were last year's admission scores for the Public Relations Department. Scores vary annually based on applicant count and quota, so these serve as a general guide.</p>
+    <p class="sub" style="margin-bottom:26px;">These are last year's minimum cutoff scores for the Public Relations department. Cutoffs fluctuate annually based on applicant volume and capacity, serving as a helpful guide.</p>
     <div class="plaque-row">
       <div class="plaque">
-        <div class="num">61.2</div>
-        <div class="lbl">Lowest Score Accepted — Zankoline</div>
-        <div class="yr">Year 2025</div>
+        <div class="num" id="score-zankoline">61.2</div>
+        <div class="lbl">Minimum Score — Zankoline</div>
+        <div class="yr">Year <span class="dyn-score-year">2025</span></div>
       </div>
       <div class="plaque">
-        <div class="num">58.79</div>
-        <div class="lbl">Lowest Score Accepted — Parallel</div>
-        <div class="yr">Year 2025</div>
+        <div class="num" id="score-parallel">58.79</div>
+        <div class="lbl">Minimum Score — Parallel</div>
+        <div class="yr">Year <span class="dyn-score-year">2025</span></div>
       </div>
     </div>
-    <div class="note">Note: These scores are from the previous year and may change this year. For precise information and verification, please refer to the Zankoline form or the department.</div>
-    <div class="note" style="margin-top:14px; border-top:none; padding-top:0; font-size:16px; font-weight:700; color:var(--gold);">In 2025-2026, 80 students were admitted.</div>
+    <div class="note">Note: These scores reflect last year and may change. For official confirmation, check your Zankoline portal or visit the department.</div>
+    <div class="note" style="margin-top:14px; border-top:none; padding-top:0; font-size:16px; font-weight:700; color:var(--gold);">In <span id="dyn-academic-year-note">2025-2026</span>, <span id="students-count">80</span> students were admitted.</div>
+
+    <!-- Zankoline Calculator Tool -->
+    <div class="calc-box">
+      <h4>🔍 Score Eligibility Checker:</h4>
+      <p>Enter your high school score to check your estimated admission standing for Zankoline or Parallel:</p>
+      <div class="calc-form">
+        <input type="number" id="user-score-input" class="calc-input" placeholder="Your score (e.g. 62)" step="0.1" min="50" max="100">
+        <button type="button" onclick="calculateChances()" class="calc-btn">Check Eligibility</button>
+      </div>
+      <div id="calc-result"></div>
+    </div>
   </div>
 </section>
 
 <section id="subjects">
-  <span class="tag">CURRICULUM OVERVIEW</span>
-  <h2 class="title">4 Years of University with Over 20 Essential Courses Mapping Your Study Journey</h2>
-  <p class="sub">A blend of practical and theoretical courses taught across 4 years (8 academic semesters). Below are examples of key subjects covered.</p>
+  <span class="tag">Academic Roadmap</span>
+  <h2 class="title">4 Years of University Across Over <span id="subjects-count">20</span> Robust Subjects</h2>
+  <p class="sub">A combination of practical and theoretical modules taught over 4 academic years across 8 semesters. Below are key subjects:</p>
   <div class="grid3">
-    <div class="cell"><div class="icon">📺</div><h3>Advertising</h3><p>Techniques of creating advertisements and their impact on societal thinking.</p></div>
-    <div class="cell"><div class="icon">🛒</div><h3>Marketing</h3><p>Applying market strategy for products and services through understanding market dynamics.</p></div>
-    <div class="cell"><div class="icon">🏅</div><h3>Reputation & Brand Management</h3><p>Protecting and strengthening corporate and institutional brand reputation.</p></div>
-    <div class="cell"><div class="icon">🤝</div><h3>Protocol</h3><p>Rules and etiquette of reception, official event management, and diplomacy.</p></div>
-    <div class="cell"><div class="icon">🚨</div><h3>Crisis Management</h3><p>Handling crises and safeguarding public perception during challenging times.</p></div>
-    <div class="cell"><div class="icon">🏢</div><h3>Institutional Management & PR</h3><p>Managing organizations and developing their communication networks.</p></div>
-    <div class="cell"><div class="icon">🗣️</div><h3>Public Speaking & Negotiation</h3><p>Skills for delivering impactful speeches and messaging in public settings.</p></div>
-    <div class="cell"><div class="icon">📊</div><h3>Strategic Planning</h3><p>Developing comprehensive public relations strategies for companies and institutions.</p></div>
-    <div class="cell"><div class="icon">💻</div><h3>Social Media Management</h3><p>Managing digital content and media campaigns across online platforms.</p></div>
-    <div class="cell"><div class="icon">🎤</div><h3>Event & Conference Organizing</h3><p>Planning and directing public events, activities, and functions.</p></div>
-    <div class="cell"><div class="icon">📡</div><h3>Media Relations Management</h3><p>Building and managing professional relationships with media and journalists.</p></div>
-    <div class="cell"><div class="icon">🎨</div><h3>Graphic Design</h3><p>Designing visual assets for PR campaigns and promotional materials.</p></div>
-    <div class="cell"><div class="icon">📷</div><h3>Photography & Videography</h3><p>Capturing photos and producing videos for campaign media content.</p></div>
-    <div class="cell"><div class="icon">🎬</div><h3>PR Production</h3><p>Preparing and producing media content tailored for public dissemination.</p></div>
-    <div class="cell"><div class="icon">📣</div><h3>PR Campaigns</h3><p>Creating and executing communication campaigns for companies and institutions.</p></div>
-    <div class="cell"><div class="icon">🤵</div><h3>Diplomacy</h3><p>Managing relations through negotiation and dialogue to build alliances and resolve issues.</p></div>
-    <div class="cell"><div class="icon">💰</div><h3>Institutional Economics</h3><p>Economic principles relevant to corporate and organizational operations.</p></div>
-    <div class="cell"><div class="icon">🖥️</div><h3>Web Page Management</h3><p>Fundamentals of web design and online content presentation.</p></div>
-    <div class="cell"><div class="icon">🌐</div><h3>Digital Public Relations</h3><p>Utilizing modern digital tools for public relations in the online era.</p></div>
-    <div class="cell"><div class="icon">🕊️</div><h3>International Relations</h3><p>Studying and practicing global interactions between nations, governments, and organizations.</p></div>
+    <div class="cell"><div class="icon">📺</div><h3>Advertising</h3><p>Techniques of commercial creation and societal impact.</p></div>
+    <div class="cell"><div class="icon">🛒</div><h3>Marketing</h3><p>Market strategies for goods and services through consumer trends.</p></div>
+    <div class="cell"><div class="icon">🏅</div><h3>Brand & Reputation Management</h3><p>Protecting and building corporate brand equity and public trust.</p></div>
+    <div class="cell"><div class="icon">🤝</div><h3>Protocol & Etiquette</h3><p>Rules of official reception and diplomatic event management.</p></div>
+    <div class="cell"><div class="icon">🚨</div><h3>Crisis Management</h3><p>Handling emergencies and safeguarding corporate image during crises.</p></div>
+    <div class="cell"><div class="icon">🏢</div><h3>Institutional Management</h3><p>Foundations of organizational administration and relations.</p></div>
+    <div class="cell"><div class="icon">🗣️</div><h3>Public Speaking & Rhetoric</h3><p>Effective audience communication and message delivery.</p></div>
+    <div class="cell"><div class="icon">📊</div><h3>Strategic Planning</h3><p>Formulating comprehensive public relations blueprints.</p></div>
+    <div class="cell"><div class="icon">💻</div><h3>Social Media Management</h3><p>Digital content administration and online campaign workflows.</p></div>
+    <div class="cell"><div class="icon">🎤</div><h3>Event Management</h3><p>Planning and organizing public functions and conferences.</p></div>
+    <div class="cell"><div class="icon">📡</div><h3>Media Relations</h3><p>Building and maintaining professional ties with journalists and press.</p></div>
+    <div class="cell"><div class="icon">🎨</div><h3>Graphic Design</h3><p>Visual asset creation for marketing and campaigns.</p></div>
+    <div class="cell"><div class="icon">📷</div><h3>Photography & Videography</h3><p>Visual documentation and media content production.</p></div>
+    <div class="cell"><div class="icon">🎬</div><h3>PR Content Production</h3><p>Developing corporate communication assets for publishing.</p></div>
+    <div class="cell"><div class="icon">📣</div><h3>PR Campaigns</h3><p>Executing coordinated promotional and awareness initiatives.</p></div>
+    <div class="cell"><div class="icon">🤵</div><h3>Diplomacy</h3><p>Negotiation and conflict resolution methodologies.</p></div>
+    <div class="cell"><div class="icon">💰</div><h3>Institutional Economics</h3><p>Economic principles underlying corporate operations.</p></div>
+    <div class="cell"><div class="icon">🖥️</div><h3>Web Administration</h3><p>Basic web layout and digital publishing principles.</p></div>
+    <div class="cell"><div class="icon">🌐</div><h3>Digital Public Relations</h3><p>Leveraging online tools in contemporary PR practice.</p></div>
+    <div class="cell"><div class="icon">🕊️</div><h3>International Relations</h3><p>Studying global state interactions and cross-border organizations.</p></div>
+  </div>
+</section>
+
+<section id="opportunities">
+  <span class="tag">Value of Education</span>
+  <h2 class="title">🎓 Golden Student Opportunities</h2>
+  <p class="sub">Studying Public Relations is not limited to textbooks; it involves real-world experiences that hone your professional edge.</p>
+  <div class="grid2">
+    <div class="cell-h"><div class="icon">💡</div><div><h4>Real Practical Projects</h4><p>Students design live PR campaigns and communication strategies for real brands and organizations.</p></div></div>
+    <div class="cell-h"><div class="icon">🏢</div><div><h4>Field Trips & Workshops</h4><p>Organized visits to leading corporations, media outlets, and state institutions.</p></div></div>
+    <div class="cell-h"><div class="icon">🤝</div><div><h4>Professional Networking</h4><p>Build direct connections with industry leaders and PR managers during university years.</p></div></div>
+    <div class="cell-h"><div class="icon">🛠️</div><div><h4>Digital Skill Enhancement</h4><p>Training on modern design tools, photography suites, editing, and social media platforms.</p></div></div>
   </div>
 </section>
 
 <section id="careers">
-  <span class="tag">FUTURE CAREERS</span>
-  <h2 class="title">🚀 Job Roles Await Graduates of This Department</h2>
-  <p class="sub">Public Relations is a field that opens doors to diverse careers highly valued in current and future job markets.</p>
+  <span class="tag">Future Career Paths</span>
+  <h2 class="title">🚀 Careers Awaiting Graduates</h2>
+  <p class="sub">Public Relations opens doors to diverse high-impact professions crucial in today's and tomorrow's job market.</p>
   <div class="grid2">
-    <div class="cell-h"><div class="icon">📊</div><div><h4>Public Opinion Research & Analysis</h4><p>Conducting surveys, analyzing public trends, and advising political parties or public/private institutions.</p></div></div>
-    <div class="cell-h"><div class="icon">📋</div><div><h4>Public Relations Specialist (PR Specialist)</h4><p>Planning and implementing PR campaigns, drafting press releases and news statements.</p></div></div>
-    <div class="cell-h"><div class="icon">🏢</div><div><h4>Corporate Communications Officer</h4><p>Managing internal and external communications, strengthening organizational identity and reputation.</p></div></div>
-    <div class="cell-h"><div class="icon">📱</div><div><h4>Social Media Manager / Coordinator</h4><p>Managing digital accounts, curating content, tracking public engagement, and analyzing metrics.</p></div></div>
-    <div class="cell-h"><div class="icon">✍️</div><div><h4>Content Writer & Copywriter</h4><p>Writing news articles, reports, promotional copy, and feature stories.</p></div></div>
-    <div class="cell-h"><div class="icon">🎪</div><div><h4>Event, Conference & Exhibition Organizer</h4><p>Planning conferences, expos, and coordinating with participants and sponsors.</p></div></div>
-    <div class="cell-h"><div class="icon">🎙️</div><div><h4>Official Spokesperson</h4><p>Representing organizations to media outlets and managing strategic messaging.</p></div></div>
-    <div class="cell-h"><div class="icon">💼</div><div><h4>PR & Communications Consultant</h4><p>Providing expert advice to institutions, political entities, and corporations on reputation building and crisis response.</p></div></div>
-    <div class="cell-h"><div class="icon">🤲</div><div><h4>CSR Specialist (Corporate Social Responsibility)</h4><p>Directing community service initiatives and cultivating relationships with civil society organizations.</p></div></div>
-    <div class="cell-h"><div class="icon">🌍</div><div><h4>Working in Government, Private Sector & International Organizations</h4><p>Ministries and government entities, corporations, banks and economic institutions, universities and educational organizations, as well as international NGOs.</p></div></div>
-  </div>
-
-  <div style="margin-top:24px;">
-    <div class="story-card" style="padding:32px 28px;">
-      <p style="font-size:15px; line-height:2.0;">A Public Relations graduate is not merely a media employee, but a specialist in managing relationships, building reputation, and maintaining communication between organizations and the public. They can also work across digital media, corporate communications, crisis management, event organization, marketing, foreign embassies/consulates, and many other growing industries.</p>
-    </div>
+    <div class="cell-h"><div class="icon">📊</div><div><h4>Public Opinion Researcher</h4><p>Conducting polls and analyzing societal trends for political and corporate entities.</p></div></div>
+    <div class="cell-h"><div class="icon">📋</div><div><h4>PR Specialist</h4><p>Executing public campaigns, drafting press releases, and managing announcements.</p></div></div>
+    <div class="cell-h"><div class="icon">🏢</div><div><h4>Corporate Communications Officer</h4><p>Managing internal and external liaison while building organizational identity.</p></div></div>
+    <div class="cell-h"><div class="icon">📱</div><div><h4>Social Media Manager</h4><p>Directing digital channels, content creation, and analytics tracking.</p></div></div>
+    <div class="cell-h"><div class="icon">✍️</div><div><h4>Content & Copy Writer</h4><p>Drafting reports, articles, and promotional copy.</p></div></div>
+    <div class="cell-h"><div class="icon">🎪</div><div><h4>Event Coordinator</h4><p>Planning conferences, expos, and liaising with sponsors.</p></div></div>
+    <div class="cell-h"><div class="icon">🎙️</div><div><h4>Official Spokesperson</h4><p>Representing organizations before media and managing strategic messaging.</p></div></div>
+    <div class="cell-h"><div class="icon">💼</div><div><h4>PR Consultant</h4><p>Advising corporate clients on brand equity and crisis navigation.</p></div></div>
+    <div class="cell-h"><div class="icon">🤲</div><div><h4>CSR Specialist</h4><p>Managing community outreach and NGO partnerships.</p></div></div>
+    <div class="cell-h"><div class="icon">🌍</div><div><h4>Government & International Bodies</h4><p>Ministries, international NGOs, and global institutions.</p></div></div>
   </div>
 </section>
 
 <section id="campaign">
-  <span class="tag">PRACTICAL LEARNING</span>
-  <h2 class="title">🏆 Successful Campaign of the Month: "Share a Coke"</h2>
-  <p class="sub">How Public Relations (PR) science drives global success for major corporations?</p>
+  <span class="tag">Practical Learning</span>
+  <h2 class="title">🏆 Featured Campaign: "Share a Coke"</h2>
+  <p class="sub">How PR strategies drive global success for top multinational corporations.</p>
   <div class="card" style="background:var(--paper-2); border-color:rgba(168,40,35,0.3);">
-    <h3 style="font-size:18px; font-weight:800; color:var(--red); margin-bottom:12px;">The Historic Coca-Cola Campaign — "Share a Coke with..."</h3>
+    <h3 style="font-size:18px; font-weight:800; color:var(--red); margin-bottom:12px;">Coca-Cola's Historic Campaign</h3>
     <p style="font-size:14.5px; line-height:1.9; color:var(--ink-soft); margin-bottom:14px;">
-      In 2011, Coca-Cola faced declining sales among young consumers. Instead of running traditional product ads, the PR team decided to replace the main brand logo on bottles with **250 popular first names**!
+      In 2011, Coca-Cola faced declining youth sales. The PR team replaced their iconic logo on bottles with 250 popular first names, transforming mass-market products into personalized items.
     </p>
     <div style="background:#fff; padding:20px; border-radius:6px; border-left:3px solid var(--red); margin-bottom:14px;">
-      <h4 style="font-size:14.5px; font-weight:700; color:var(--black); margin-bottom:6px;">💡 The PR Secret to Its Success:</h4>
+      <h4 style="font-size:14.5px; font-weight:700; color:var(--black); margin-bottom:6px;">💡 The PR Secret:</h4>
       <p style="font-size:13.5px; line-height:1.8; color:var(--ink-soft);">
-        The company didn't just sell a drink; it **created a personal emotional connection**. People shared photos of personalized bottles across social media. Consequently, over **500,000 photos** were shared online, boosting Coca-Cola's sales by **2.5% for the first time in years**.
+        Instead of conventional advertising, they fostered emotional connection. Over 500,000 user-generated photos flooded social media, boosting sales by 2.5% after years of decline.
       </p>
     </div>
     <p style="font-size:13.5px; font-weight:600; color:var(--green);">
-      Key Takeaway: The power of Public Relations lies in shifting public behavior and perception seamlessly and organically!
+      Takeaway: True PR shapes consumer behavior organically without feeling like direct advertising.
     </p>
   </div>
 </section>
 
 <section id="why">
-  <span class="tag">WHY US?</span>
+  <span class="tag">Why Us?</span>
   <h2 class="title">Why Choose This Department?</h2>
   <div class="grid2">
-    <div class="cell-h"><div class="icon">🆕</div><div><h4>Modern & Updated Curriculum</h4><p>Courses designed around real-world demands of the modern digital job market.</p></div></div>
-    <div class="cell-h"><div class="icon">🎓</div><div><h4>Strong Leadership & Faculty</h4><p>Dedicated department leadership and specialized professors fostering academic growth.</p></div></div>
-    <div class="cell-h"><div class="icon">🌍</div><div><h4>Broad Career Horizon</h4><p>Opportunities span consultancies, corporations, media firms, and international entities.</p></div></div>
-    <div class="cell-h"><div class="icon">🤝</div><div><h4>Vibrant Community</h4><p>Active social platforms and continuous student activities, events, and workshops.</p></div></div>
+    <div class="cell-h"><div class="icon">🆕</div><div><h4>Modern & Innovative</h4><p>Curriculum tailored to current digital market demands.</p></div></div>
+    <div class="cell-h"><div class="icon">🎓</div><div><h4>Strong Leadership</h4><p>Dedicated expert faculty committed to academic excellence.</p></div></div>
+    <div class="cell-h"><div class="icon">🌍</div><div><h4>Broad Horizons</h4><p>Ranging from consulates to media conglomerates — career flexibility is unmatched.</p></div></div>
+    <div class="cell-h"><div class="icon">🤝</div><div><h4>Active Community</h4><p>Vibrant student body, active social channels, and continuous events.</p></div></div>
   </div>
 </section>
 
 <section id="testimonials">
-  <span class="tag">STUDENT VOICES</span>
-  <h2 class="title">Student Feedback & Experience</h2>
-  <p class="sub">💡 Insights and firsthand perspectives from students who studied here</p>
+  <span class="tag">Student Voices</span>
+  <h2 class="title">Student Testimonials & Insights</h2>
+  <p class="sub">💡 Authentic perspectives from senior students</p>
 
-  <style>
-    .acc{border:1px solid var(--line); border-radius:6px; overflow:hidden; background:#fff;}
-    .acc + .acc{border-top:none;}
-    .acc summary{
-      list-style:none; cursor:pointer; padding:18px 22px; font-size:15.5px; font-weight:700; color:var(--black);
-      display:flex; align-items:center; justify-content:space-between; user-select:none;
-    }
-    .acc summary::-webkit-details-marker{display:none;}
-    .acc summary::after{content:"+"; font-size:20px; color:var(--red); font-weight:400;}
-    .acc[open] summary::after{content:"−";}
-    .acc summary:hover{background:var(--paper-2);}
-    .acc .acc-body{padding:0 22px 22px; font-size:14px; color:var(--ink-soft); line-height:1.9;}
-    .acc .acc-sign{margin-top:16px; font-size:12.5px; font-weight:700; color:var(--gold);}
-  </style>
-
-  <details class="acc" open>
-    <summary>Second Stage</summary>
+  <details class="faq-acc" open>
+    <summary>Second Stage Students</summary>
     <div class="acc-body">
-      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">Soma Ibrahim Ahmed, Stage 2, Public Relations</div>
-      <p><strong style="color:var(--black);">How did I choose this department?</strong><br>Initially, my goal was Political Relations, but my grade fell short. I then explored Public Relations and realized the job opportunities aligned perfectly with my ambitions.</p>
-      <p><strong style="color:var(--black);">What prior knowledge did I have?</strong><br>I tried gathering details from University of Sulaimani social media pages, but the information wasn't very clear at the time.</p>
-      <p><strong style="color:var(--black);">How do I view it now?</strong><br>I see a very bright future ahead, and I believe I will achieve great professional success.</p>
-      <p><strong style="color:var(--black);">What have I learned?</strong><br>This field teaches us strategic communication, societal influence, institutional understanding, and active listening.</p>
-      <div style="height:1px; background:var(--line); margin:22px 0;"></div>
-      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">Maria Nariman, Top Student of First Stage (Last Year)</div>
-      <p><strong style="color:var(--black);">How did I choose this department?</strong><br>I wanted this department since high school because I recognized its importance early on: 1- I want to be a voice for others. 2- I have a passion for business, and this is an excellent choice for it.</p>
-      <p><strong style="color:var(--black);">What prior knowledge did I have?</strong><br>I wasn't sure how the studies were structured or what subjects were taught. I got some general insights from a friend, but not completely.</p>
-      <p><strong style="color:var(--black);">How do I view it now?</strong><br>I valued it before, but after studying here for a year, I view its importance as vastly greater.</p>
-      <div style="height:1px; background:var(--line); margin:22px 0;"></div>
-      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">Azhi Bzhar, Stage 2</div>
-      <p><strong style="color:var(--black);">How did you choose this department?</strong><br>It was not my initial choice, but rather assigned based on my score.</p>
-      <p><strong style="color:var(--black);">What prior knowledge did you have?</strong><br>None. Because it was a new major, I had no prior information. However, I researched later and learned a lot.</p>
-      <p><strong style="color:var(--black);">How do you view it now?</strong><br>I see my future in it. This major offers wide career opportunities in both public and private sectors if you possess dedication.</p>
-      <p><strong style="color:var(--black);">What have you learned?</strong><br>The value of personal and social relationships, and how to nurture and maintain them.</p>
-    </div>
-  </details>
-  <details class="acc">
-    <summary>Third Stage</summary>
-    <div class="acc-body">
-      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">Shanga Latif Sulaiman, Stage 3</div>
-      <p><strong style="color:var(--black);">How did you choose this department?</strong><br>Since I originally didn't plan on attending University of Sulaimani, I filled out the form casually and included this major without strong initial intent.</p>
-      <p><strong style="color:var(--black);">What prior knowledge did you have?</strong><br>Since it was very new, I had virtually no information. But once I was accepted, I made efforts to gather details from various sources.</p>
-      <p><strong style="color:var(--black);">How do you view it now?</strong><br>Honestly, it's the one decision in my life I have never regretted. I found myself in this field because it is broad, allows building strong connections, and isn't rigid. Beyond that, "PR Family" has truly become our department's motto due to our close bond.</p>
-      <p><strong style="color:var(--black);">What have you learned?</strong><br>I learned diverse ways and strategies to establish and manage professional communication.</p>
-      <div style="height:1px; background:var(--line); margin:22px 0;"></div>
-      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">Ashkan Yasin Hussein, Stage 3</div>
-      <p><strong style="color:var(--black);">How did you choose this department?</strong><br>When I realized it directly connected to society, daily life, and predicting future trends, my passion grew. I wanted to develop in a field where I saw my true potential.</p>
-      <p><strong style="color:var(--black);">What prior knowledge did you have?</strong><br>Initially none, as it was new. Professors helped guide me, and once things became clear, I placed it as my top choice without hesitation. I then researched its connections to government, corporate, and private sectors.</p>
-      <p><strong style="color:var(--black);">How do you view it now?</strong><br>I view it as a highly successful and promising department. I have zero regrets and hope to see it expand further in coming years.</p>
-      <p><strong style="color:var(--black);">What have you learned?</strong><br>I learned brand reputation management, crisis administration, public analysis, and strategic messaging. I learned that PR is a bridge between an organization and the public, which must be maintained ethically and scientifically.</p>
-      <div style="height:1px; background:var(--line); margin:22px 0;"></div>
-      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">Dina Dler Jabar, Stage 3</div>
-      <p><strong style="color:var(--black);">How did you choose this department?</strong><br>I didn't know much at first, but I saw PR as a crucial bridge between organizations, companies, and the public. I discovered my passion in communication skills and crisis management.</p>
-      <p><strong style="color:var(--black);">What prior knowledge did you have?</strong><br>I only had a general impression that it was used for advertising and public representation.</p>
-      <p><strong style="color:var(--black);">How do you view it now?</strong><br>I see it as a cornerstone for organizational success. I realized PR isn't merely reacting to events, but proactive planning for reputation protection.</p>
-      <p><strong style="color:var(--black);">What have you learned?</strong><br>Active listening, public sentiment analysis, and delivering clear, trustworthy, and authentic messaging for institutions.</p>
-      <div style="height:1px; background:var(--line); margin:22px 0;"></div>
-      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">Govar Shorsh Ahmed, Stage 3</div>
-      <p><strong style="color:var(--black);">How did I choose this department?</strong><br>Driven by my strong desire to build social connections, understand media, and analyze public opinion, I chose this major to scientifically master administrative organization and protocol.</p>
-      <p><strong style="color:var(--black);">What prior knowledge did I have?</strong><br>Basic information, but friends in the department helped me understand that PR serves as the essential bridge between an entity and its audience.</p>
-      <p><strong style="color:var(--black);">How do I view it now?</strong><br>I view it as far broader than general management — it is a strategic art and science for crisis management, reputation building, and protocol organization.</p>
-      <p><strong style="color:var(--black);">What have I learned?</strong><br>Communication theories, crisis response strategies, media campaign execution, presentation skills, and media content creation.</p>
-    </div>
-  </details>
-  <details class="acc">
-    <summary>Fourth Stage</summary>
-    <div class="acc-body">
-      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">Lawan Tariq Muhammad, Stage 4</div>
-      <p><strong style="color:var(--black);">How did I choose this department?</strong><br>Because it was new, it drew my attention. I wanted to explore a field combining communication, organization, and media.</p>
-      <p><strong style="color:var(--black);">What prior knowledge did I have?</strong><br>Only basic understanding that it focused on organizational image and building public connection.</p>
-      <p><strong style="color:var(--black);">How do I view it now?</strong><br>I see it as a vital strategic department without which no company or institution can succeed.</p>
-      <p><strong style="color:var(--black);">What have I learned?</strong><br>The art of negotiation, event management, and protocol etiquette.</p>
-      <div style="height:1px; background:var(--line); margin:22px 0;"></div>
-      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">Akam Najmaddin, Stage 4</div>
-      <p><strong style="color:var(--black);">How did I choose this department?</strong><br>I had a friend in this department, and I joined because of him.</p>
-      <p><strong style="color:var(--black);">What prior knowledge did I have?</strong><br>No initial knowledge, other than knowing most subjects were taught in Kurdish.</p>
-      <p><strong style="color:var(--black);">How do I view it now?</strong><br>It's a modern department that is gaining increasing recognition across institutions and society.</p>
-      <p><strong style="color:var(--black);">What have I learned?</strong><br>Improving institutional-public communication and various practical management skills.</p>
+      <p><strong>Soma Ibrahim:</strong> "Initially I aimed for Political Science, but after exploring Public Relations, I realized career opportunities here matched my exact ambitions."</p>
+      <hr style="border:0; border-top:1px solid var(--line); margin:12px 0;">
+      <p><strong>Maria Nariman (Top Student):</strong> "I chose PR because I wanted to be a voice for others and pursue business management foundations early on."</p>
     </div>
   </details>
 </section>
 
+<section id="faq">
+  <span class="tag">Quick Answers</span>
+  <h2 class="title">❓ Frequently Asked Questions</h2>
+  <p class="sub">Real answers to common questions asked by prospective students.</p>
+  <div id="dyn-faq-list">
+    <details class="faq-acc" open>
+      <summary>1. What is the language of study?</summary>
+      <div class="acc-body">Most core modules are taught in Kurdish, alongside specialized English terminology and courses to strengthen students' linguistic competence.</div>
+    </details>
+    <details class="faq-acc">
+      <summary>2. Can both Literary and Scientific high school graduates apply?</summary>
+      <div class="acc-body">Yes, graduates from both literary and scientific tracks are eligible to apply through Zankoline or Parallel systems.</div>
+    </details>
+    <details class="faq-acc">
+      <summary>3. What is the difference between PR and Journalism?</summary>
+      <div class="acc-body">Journalism focuses primarily on reporting and broadcasting news, whereas Public Relations centers on reputation management, strategic communications, crisis response, and stakeholder relations.</div>
+    </details>
+  </div>
+</section>
+
 <section id="contact" class="contact-wrap">
-  <span class="tag">CONTACT</span>
+  <span class="tag">Contact</span>
   <h2>Still Have Questions?</h2>
-  <p>Get in touch with the Public Relations Department at the University of Sulaimani for more details on admissions and study programs.</p>
-  <p class="addr">📍 University of Sulaimani New Campus — College of Humanities (Building 11)</p>
+  <p>Reach out to the Department of Public Relations at the University of Sulaimani.</p>
+  <p class="addr">📍 New Campus — College of Humanities (Building 11)</p>
   <div class="contact-btns">
     <a class="cbtn solid" href="https://wa.me/9647740823075" target="_blank" rel="noopener">💬 WhatsApp</a>
     <a class="cbtn" href="https://www.facebook.com/share/1Eu4ffZzKL/?mibextid=wwXIfr" target="_blank" rel="noopener">📘 Official Facebook</a>
@@ -504,10 +581,86 @@
 </section>
 
 <footer>
-  © 2026 Public Relations Department — University of Sulaimani
-  <span class="credit">Developed by Ara Aziz, 2nd-year Public Relations student</span>
-  <span class="thanks">Special thanks and appreciation to our entire department staff and hardworking professors in general, and to Dr. Lana (Head of Department), Lecturer Shokhan (Department Decision Maker), and Lecturer Avesta in particular. Also, special thanks to my friend Dzhwar Adel (2nd-year representative) and all students who provided feedback to improve this website for future students.</span>
+  © 2026 Department of Public Relations — University of Sulaimani
+  <span class="credit">Designed by Ara Aziz, Second-Stage Student</span>
+  <span class="thanks">Special thanks to the department faculty, Dr. Lana (Head of Department), Ms. Shoxan, Ms. Avesta, and student representatives for their ongoing support.</span>
 </footer>
+
+<!-- Google Sheet + Calculator Script -->
+<script>
+  const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSPjo4-lFAwndWw81v0KpDfU1gderIfedi5pSoe3g6ted4KEpNZ2GeUDHMVbk0D4dKZmAuc2ePFf45v/pub?gid=0&single=true&output=csv';
+
+  let currentZankolineScore = 61.2;
+  let currentParallelScore = 58.79;
+
+  function parseCSVLine(line) {
+    const result = [];
+    let current = '';
+    let inQuotes = false;
+    for (let i = 0; i < line.length; i++) {
+      const char = line[i];
+      if (char === '"') { inQuotes = !inQuotes; }
+      else if (char === ',' && !inQuotes) { result.push(current.trim()); current = ''; }
+      else { current += char; }
+    }
+    result.push(current.trim());
+    return result;
+  }
+
+  async function loadDataFromGoogleSheet() {
+    try {
+      const res = await fetch(CSV_URL + '&t=' + new Date().getTime());
+      const text = await res.text();
+      const lines = text.split('\n');
+      const data = {};
+      lines.forEach(line => {
+        if (line.trim().length > 0) {
+          const parts = parseCSVLine(line);
+          if (parts.length >= 2) {
+            data[parts[0].replace(/^"|"$/g, '').trim()] = parts[1].replace(/^"|"$/g, '').trim();
+          }
+        }
+      });
+
+      if (data.zankoline && document.getElementById('score-zankoline')) {
+        document.getElementById('score-zankoline').innerText = data.zankoline;
+        currentZankolineScore = parseFloat(data.zankoline) || 61.2;
+      }
+      if (data.parallel && document.getElementById('score-parallel')) {
+        document.getElementById('score-parallel').innerText = data.parallel;
+        currentParallelScore = parseFloat(data.parallel) || 58.79;
+      }
+      if (data.students && document.getElementById('students-count')) {
+        document.getElementById('students-count').innerText = data.students;
+      }
+      if (data.notice_text && data.notice_text.trim().length > 0) {
+        document.getElementById('notice-text').innerText = data.notice_text;
+        document.getElementById('notice-banner').style.display = 'block';
+      }
+    } catch (err) {
+      console.log("Error loading sheet data:", err);
+    }
+  }
+
+  function calculateChances() {
+    const inputVal = document.getElementById('user-score-input').value;
+    const resultDiv = document.getElementById('calc-result');
+    if (!inputVal) {
+      resultDiv.innerHTML = '<span style="color: #ff6b6b;">Please enter your score.</span>';
+      return;
+    }
+    const score = parseFloat(inputVal);
+    if (score >= currentZankolineScore) {
+      resultDiv.innerHTML = `<span style="color: #51cf66;">🎉 Congratulations! Your score (${score}) is higher than the Zankoline cutoff (${currentZankolineScore}). High chance of direct admission!</span>`;
+    } else if (score >= currentParallelScore) {
+      resultDiv.innerHTML = `<span style="color: #fcc419;">😊 Your score (${score}) exceeds the Parallel cutoff (${currentParallelScore}). Great standing for Parallel admission!</span>`;
+    } else {
+      resultDiv.innerHTML = `<span style="color: #ff922b;">Keep hope! Cutoffs vary annually, so always submit your Zankoline preferences.</span>`;
+    }
+  }
+
+  loadDataFromGoogleSheet();
+</script>
 
 </body>
 </html>
