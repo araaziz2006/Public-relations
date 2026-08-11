@@ -18,7 +18,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Noto+Kufi+Arabic:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 
 <style>
   :root{
@@ -35,14 +35,17 @@
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
   body{
-    font-family:'Noto Kufi Arabic','Segoe UI','Tahoma',Arial,sans-serif;
+    font-family:'Noto Kufi Arabic','Inter','Segoe UI','Tahoma',Arial,sans-serif;
     background:var(--paper);
     color:var(--ink);
     overflow-x:hidden;
   }
-  .serif{font-family:'Noto Kufi Arabic',sans-serif;}
+  
+  body.lang-en {
+    font-family:'Inter','Segoe UI',Arial,sans-serif;
+  }
 
-  /* Notice Banner Styling with Immediate Continuous Animation */
+  /* Notice Banner Styling */
   #notice-banner {
     display: none;
     background: var(--red);
@@ -67,12 +70,8 @@
   }
 
   @keyframes marquee-left {
-    0% {
-      transform: translate3d(100vw, 0, 0);
-    }
-    100% {
-      transform: translate3d(-100%, 0, 0);
-    }
+    0% { transform: translate3d(100vw, 0, 0); }
+    100% { transform: translate3d(-100%, 0, 0); }
   }
 
   header{
@@ -85,6 +84,7 @@
     max-width:1180px; margin:0 auto;
     display:flex; align-items:center; justify-content:space-between;
     padding:16px 24px;
+    gap:12px;
   }
   .brand{
     font-size:17px; font-weight:700; color:var(--black);
@@ -97,16 +97,45 @@
     display:flex; align-items:center; justify-content:center;
     font-size:12px;
   }
+  .nav-right-wrap {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
   .nav-links{display:flex; gap:18px; list-style:none; flex-wrap:wrap; align-items:center;}
   .nav-links a{color:var(--ink-soft); text-decoration:none; font-weight:500; font-size:13.5px; transition:color .2s;}
   .nav-links a:hover{color:var(--red);}
 
+  /* Language Switcher Button */
+  .lang-btn {
+    background: var(--black);
+    color: var(--paper);
+    border: 1px solid var(--black);
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 12.5px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .lang-btn:hover {
+    background: var(--red);
+    border-color: var(--red);
+    color: #fff;
+  }
+
   .hero-wrap{max-width:1180px; margin:0 auto; padding:64px 24px 0;}
   .hero-eyebrow{
-    font-family:'Noto Kufi Arabic',sans-serif; font-weight:600; letter-spacing:0.5px;
+    font-weight:600; letter-spacing:0.5px;
     color:var(--green); font-size:15px; display:block; margin-bottom:18px;
-    border-right:2px solid var(--gold); padding-right:12px;
+    padding-right:12px;
   }
+  html[dir="rtl"] .hero-eyebrow { border-right:2px solid var(--gold); }
+  html[dir="ltr"] .hero-eyebrow { border-left:2px solid var(--gold); padding-right:0; padding-left:12px; }
+
   .hero h1{
     font-size:44px; line-height:1.32; font-weight:900; color:var(--black);
     max-width:820px; margin-bottom:22px;
@@ -124,15 +153,18 @@
   }
   .chapter-strip a{
     flex:1 1 auto; text-align:center; padding:14px 10px; text-decoration:none;
-    color:var(--ink-soft); font-size:13px; font-weight:600; border-left:1px solid var(--line);
+    color:var(--ink-soft); font-size:13px; font-weight:600;
     transition:background .2s, color .2s;
   }
-  .chapter-strip a:first-child{border-left:none;}
+  html[dir="rtl"] .chapter-strip a { border-left:1px solid var(--line); }
+  html[dir="rtl"] .chapter-strip a:first-child { border-left:none; }
+  html[dir="ltr"] .chapter-strip a { border-right:1px solid var(--line); }
+  html[dir="ltr"] .chapter-strip a:first-child { border-right:none; }
   .chapter-strip a:hover{background:var(--paper-2); color:var(--red);}
 
   section{max-width:1180px; margin:0 auto; padding:64px 24px;}
   .tag{
-    font-family:'Noto Kufi Arabic',sans-serif; font-weight:700; letter-spacing:0.5px; color:var(--green); font-size:13px; display:block; margin-bottom:10px;
+    font-weight:700; letter-spacing:0.5px; color:var(--green); font-size:13px; display:block; margin-bottom:10px;
   }
   .title{font-size:29px; font-weight:900; color:var(--black); margin-bottom:8px;}
   .sub{font-size:15px; color:var(--ink-soft); max-width:680px; margin-bottom:34px; line-height:1.85;}
@@ -162,9 +194,12 @@
     background:var(--black); color:var(--paper); border-radius:6px; padding:44px 36px; position:relative;
   }
   .story-card::before{
-    content:"”"; font-family:'Noto Kufi Arabic',sans-serif; font-size:90px; color:var(--gold); position:absolute; top:-6px; right:26px; opacity:.7;
+    font-size:90px; color:var(--gold); position:absolute; top:-6px; opacity:.7;
   }
-  .story-card p{font-family:'Noto Kufi Arabic',sans-serif; font-weight:400; font-size:16px; line-height:2.05; color:#EDE6D6;}
+  html[dir="rtl"] .story-card::before { content:"”"; right:26px; }
+  html[dir="ltr"] .story-card::before { content:"“"; left:26px; }
+
+  .story-card p{font-weight:400; font-size:16px; line-height:2.05; color:#EDE6D6;}
   .story-card p + p{margin-top:18px;}
   .story-sign{margin-top:26px; font-size:13.5px; color:var(--gold); font-weight:600;}
 
@@ -318,6 +353,23 @@
   footer .credit{font-size:14.5px; font-weight:700; color:var(--black); display:block; margin-bottom:8px;}
   footer .thanks{display:block; max-width:640px; margin:0 auto; line-height:1.8; color:#8A8171;}
 
+  .acc{border:1px solid var(--line); border-radius:6px; overflow:hidden; background:#fff;}
+  .acc + .acc{border-top:none;}
+  .acc summary{
+    list-style:none; cursor:pointer; padding:18px 22px; font-size:15.5px; font-weight:700; color:var(--black);
+    display:flex; align-items:center; justify-content:space-between; user-select:none;
+  }
+  .acc summary::-webkit-details-marker{display:none;}
+  .acc summary::after{content:"+"; font-size:20px; color:var(--red); font-weight:400;}
+  .acc[open] summary::after{content:"−";}
+  .acc summary:hover{background:var(--paper-2);}
+  .acc .acc-body{padding:0 22px 22px; font-size:14px; color:var(--ink-soft); line-height:1.9;}
+  .acc .acc-sign{margin-top:16px; font-size:12.5px; font-weight:700; color:var(--gold);}
+
+  /* Campaign box border alignment */
+  html[dir="rtl"] .campaign-box { border-right: 3px solid var(--red); }
+  html[dir="ltr"] .campaign-box { border-left: 3px solid var(--red); }
+
   @media (max-width:860px){
     .hero h1{font-size:30px;}
     .grid3, .grid2{grid-template-columns:1fr;}
@@ -341,7 +393,7 @@
 </head>
 <body>
 
-<!-- Notice Banner with Immediate Continuous Animation from Google Sheets -->
+<!-- Notice Banner -->
 <div id="notice-banner">
   <div class="notice-scroll-content">
     📢 <span id="notice-text"></span>
@@ -351,27 +403,32 @@
 <header>
   <nav>
     <div class="brand">
-      <div class="brand-top"><span class="mark">▲</span> پەیوەندییە گشتییەکان</div>
+      <div class="brand-top"><span class="mark">▲</span> <span data-i18n="brand_name">پەیوەندییە گشتییەکان</span></div>
     </div>
-    <ul class="nav-links">
-      <li><a href="#intro">مێژوو</a></li>
-      <li><a href="#story">هۆکار</a></li>
-      <li><a href="#scores">نمرەی وەرگیران</a></li>
-      <li><a href="#subjects">وانەکان</a></li>
-      <li><a href="#opportunities">دەرفەتەکان</a></li>
-      <li><a href="#careers">دواڕۆژی کار</a></li>
-      <li><a href="#campaign">کەمپەینی مانگ</a></li>
-      <li><a href="#testimonials">فیدباک</a></li>
-      <li><a href="#faq">پرسیارە باوەکان</a></li>
-      <li><a href="#contact">پەیوەندی</a></li>
-    </ul>
+    <div class="nav-right-wrap">
+      <ul class="nav-links">
+        <li><a href="#intro" data-i18n="nav_history">مێژوو</a></li>
+        <li><a href="#story" data-i18n="nav_reason">هۆکار</a></li>
+        <li><a href="#scores" data-i18n="nav_scores">نمرەی وەرگیران</a></li>
+        <li><a href="#subjects" data-i18n="nav_subjects">وانەکان</a></li>
+        <li><a href="#opportunities" data-i18n="nav_opportunities">دەرفەتەکان</a></li>
+        <li><a href="#careers" data-i18n="nav_careers">دواڕۆژی کار</a></li>
+        <li><a href="#campaign" data-i18n="nav_campaign">کەمپەینی مانگ</a></li>
+        <li><a href="#testimonials" data-i18n="nav_feedback">فیدباک</a></li>
+        <li><a href="#faq" data-i18n="nav_faq">پرسیارە باوەکان</a></li>
+        <li><a href="#contact" data-i18n="nav_contact">پەیوەندی</a></li>
+      </ul>
+      <button class="lang-btn" onclick="toggleLanguage()">
+        🌐 <span id="lang-btn-text">English</span>
+      </button>
+    </div>
   </nav>
 </header>
 
 <div class="hero-wrap">
-  <span class="hero-eyebrow">بەشی پەیوەندییە گشتییەکان دامەزراوە لە ساڵی٢٠٢١ لە کۆلێژی زانستە مرۆڤایەتییەکان لە زانکۆی سلێمانی</span>
-  <h1 id="dyn-hero-title">بەشی <span class="accent">پەیوەندییە گشتییەکان</span><br>دەروازەیەکی نوێ بۆ داهاتووت</h1>
-  <p class="lede" id="dyn-hero-desc">ئەم بەشە تازەیە لە زانکۆی سلێمانی، زۆرێک لە خوێندکارانی پۆلی ١٢ و کەسووکاریان زانیاریان کەمە لەسەری. لێرەدا هەموو ئەوەی پێویستە بزانن کۆمکردووەتەوە: نمرەی وەرگیران، ئەو بابەتانەی دەیخوێنیت، و ئەو کارانەی دواتر دەتوانیت تێیدا کاربکەیت.</p>
+  <span class="hero-eyebrow" data-i18n="hero_eyebrow">بەشی پەیوەندییە گشتییەکان دامەزراوە لە ساڵی٢٠٢١ لە کۆلێژی زانستە مرۆڤایەتییەکان لە زانکۆی سلێمانی</span>
+  <h1 id="dyn-hero-title" data-i18n-html="hero_title">بەشی <span class="accent">پەیوەندییە گشتییەکان</span><br>دەروازەیەکی نوێ بۆ داهاتووت</h1>
+  <p class="lede" id="dyn-hero-desc" data-i18n="hero_desc">ئەم بەشە تازەیە لە زانکۆی سلێمانی، زۆرێک لە خوێندکارانی پۆلی ١٢ و کەسووکاریان زانیاریان کەمە لەسەری. لێرەدا هەموو ئەوەی پێویستە بزانن کۆمکردووەتەوە: نمرەی وەرگیران، ئەو بابەتانەی دەیخوێنیت، و ئەو کارانەی دواتر دەتوانیت تێیدا کاربکەیت.</p>
 
   <svg class="ridge" viewBox="0 0 1180 70" preserveAspectRatio="none">
     <path class="fill" d="M0,70 L0,42 L120,16 L220,38 L340,8 L460,34 L600,4 L740,32 L860,14 L980,40 L1080,20 L1180,42 L1180,70 Z"></path>
@@ -381,79 +438,79 @@
 
 <div class="chapters">
   <div class="chapter-strip">
-    <a href="#intro">مێژوو و دەربارەمان</a>
-    <a href="#story">هۆکاری دروستبوونی سایتەکە</a>
-    <a href="#scores">نمرەی وەرگیران</a>
-    <a href="#subjects">وانەکان</a>
-    <a href="#opportunities">دەرفەتەکانی خوێندکار</a>
-    <a href="#careers">دواڕۆژی کار</a>
-    <a href="#campaign">کەمپەینی مانگ</a>
-    <a href="#testimonials">فیدباکی خوێندکاران</a>
-    <a href="#faq">پرسیارە باوەکان</a>
-    <a href="#contact">پەیوەندی</a>
+    <a href="#intro" data-i18n="chap_history">مێژوو و دەربارەمان</a>
+    <a href="#story" data-i18n="chap_reason">هۆکاری دروستبوونی سایتەکە</a>
+    <a href="#scores" data-i18n="chap_scores">نمرەی وەرگیران</a>
+    <a href="#subjects" data-i18n="chap_subjects">وانەکان</a>
+    <a href="#opportunities" data-i18n="chap_opportunities">دەرفەتەکانی خوێندکار</a>
+    <a href="#careers" data-i18n="chap_careers">دواڕۆژی کار</a>
+    <a href="#campaign" data-i18n="chap_campaign">کەمپەینی مانگ</a>
+    <a href="#testimonials" data-i18n="chap_feedback">فیدباکی خوێندکاران</a>
+    <a href="#faq" data-i18n="chap_faq">پرسیارە باوەکان</a>
+    <a href="#contact" data-i18n="chap_contact">پەیوەندی</a>
   </div>
 </div>
 
 <section id="intro">
-  <span class="tag">دەربارەی بەشەکەمان</span>
-  <h2 class="title">مێژوو و دەربارەی بەشەکەمان</h2>
+  <span class="tag" data-i18n="tag_about">دەربارەی بەشەکەمان</span>
+  <h2 class="title" data-i18n="title_about">مێژوو و دەربارەی بەشەکەمان</h2>
   <div class="card">
     <div class="history-text">
-      <p style="font-size:17px; font-weight:600; color:var(--ink);">بەشی پەیوەندییە گشتییەکان لە ساڵی ٢٠٢١ەوە لە پێناو دەستخستنی کادری ئەکادیمی و پڕکردنەوەی پێداویستی بازاڕ دامەزراوە. لەم بەشەدا گرنگی بە هەردوو لایەنی تیۆری و پراکتیکی دەدرێت. بەهۆی گرنگی پەیوەندییە گشتییەکان لە نێو کەرتی تایبەت و حکومیدا، ئەو ئامراز و ڕێگایانە بەکارهێنرێت، کە یارمەتیدەرن لە بەرهەمهێنانی کادری پرۆفیشناڵی پەیوەندییە گشتییەکان. لەم بەشەدا، گرنگی تەواو بەو وانە و بابەتانە دەدرێت کە پێداویستی ئێستای سەردەمی بازاڕن وەکو ڕاوێژکاری سیاسی و ڕاوێژکاری ستراتیژی بەڕێوەبردنی دامەزراوە، داهێنان، دارشتنی ستراتیژ، براندینگ، لێکۆڵینەوە لە هەڵسوکەوتی بەکاربەر، پاراستنی ناوبانگ، بەڕێوەبردنی کەمپەین و خۆپارێزی لە کاتی قەیراندا.</p>
+      <p style="font-size:17px; font-weight:600; color:var(--ink);" data-i18n="about_p1">بەشی پەیوەندییە گشتییەکان لە ساڵی ٢٠٢١ەوە لە پێناو دەستخستنی کادری ئەکادیمی و پڕکردنەوەی پێداویستی بازاڕ دامەزراوە. لەم بەشەدا گرنگی بە هەردوو لایەنی تیۆری و پراکتیکی دەدرێت. بەهۆی گرنگی پەیوەندییە گشتییەکان لە نێو کەرتی تایبەت و حکومیدا، ئەو ئامراز و ڕێگایانە بەکارهێنرێت، کە یارمەتیدەرن لە بەرهەمهێنانی کادری پرۆفیشناڵی پەیوەندییە گشتییەکان. لەم بەشەدا، گرنگی تەواو بەو وانە و بابەتانە دەدرێت کە پێداویستی ئێستای سەردەمی بازاڕن وەکو ڕاوێژکاری سیاسی و ڕاوێژکاری ستراتیژی بەڕێوەبردنی دامەزراوە، داهێنان، دارشتنی ستراتیژ، براندینگ، لێکۆڵینەوە لە هەڵسوکەوتی بەکاربەر، پاراستنی ناوبانگ، بەڕێوەبردنی کەمپەین و خۆپارێزی لە کاتی قەیراندا.</p>
     </div>
     <div style="height:1px; background:var(--line); margin:28px 0;"></div>
     <div class="timeline">
       <div class="tl-item">
         <div class="tl-dot-col"><div class="tl-dot" style="background:var(--red);" id="intake-rounds">٥</div><div class="tl-line"></div></div>
-        <div class="tl-body"><h4>خولی وەرگیران</h4><p>تاکو ئێستا بەشەکە <span id="intake-rounds-text">٥</span> خولی وەرگیرانی هەبووە.</p></div>
+        <div class="tl-body"><h4 data-i18n="tl_intake_h">خولی وەرگیران</h4><p data-i18n-html="tl_intake_p">تاکو ئێستا بەشەکە <span id="intake-rounds-text">٥</span> خولی وەرگیرانی هەبووە.</p></div>
       </div>
       <div class="tl-item">
         <div class="tl-dot-col"><div class="tl-dot" style="background:var(--green);" id="graduation-rounds">٢</div></div>
-        <div class="tl-body"><h4>خولی دەرچوون</h4><p><span id="graduation-rounds-text">٢</span> خولی دەرچوونیش تاکو ئێستا تەواوی کردووە.</p></div>
+        <div class="tl-body"><h4 data-i18n="tl_grad_h">خولی دەرچوون</h4><p data-i18n-html="tl_grad_p"><span id="graduation-rounds-text">٢</span> خولی دەرچوونیش تاکو ئێستا تەواوی کردووە.</p></div>
       </div>
     </div>
   </div>
 </section>
 
 <section id="story">
-  <span class="tag">وتەی دروستکەری سایتەکە</span>
-  <h2 class="title">بۆچی ئەم سایتەم دروستکرد؟</h2>
+  <span class="tag" data-i18n="tag_story">وتەی دروستکەری سایتەکە</span>
+  <h2 class="title" data-i18n="title_story">بۆچی ئەم سایتەم دروستکرد؟</h2>
   <div class="story-card">
     <div id="dyn-creator-story">
-      <p>کاتێک پۆلی ١٢م تەواو کرد، زۆر گەڕام بۆ دۆزینەوەی بەشێک کە لەگەڵ خولیا و ئارەزوو و ئەزموونم بگونجێت. لەنێو چەند بەشێکدا، بەشی پەیوەندییە گشتییەکان زۆر سەرنجی ڕاکێشام — بەڵام چونکە بەشێکی تازە بوو لە زانکۆی سلێمانی، لە سۆشیال میدیا و ئینتەرنێت زانیارییەکی زۆر کەمم دەستکەوت دەربارەی وردەکاری خوێندن، وانەکان، و هەلی کار.</p>
-      <p>پاشان چومە زانکۆ و دوای ئاشنابوون بە وانەکان، مامۆستا و دکتۆرە لێهاتووەکان، و بەتایبەتی سەرۆکی بەشەکەمان کە زانیاری زۆری هەبووە دەربارەی بەشەکە، بۆم دەرکەوت کە کارە ڕاستەکەم ئەنجام داوە. لەبەر ئەوە هەستام بە دروستکردنی ئەم سایتە بۆ خوێندکاران بۆ ئەوەی بە هەمان شێوەی من توشی کێشەی نەبوونی زانیاری نەبن سەبارەت بەم بەشە و زانیاری زیاتریان هەبێت.</p>
+      <p data-i18n="story_p1">کاتێک پۆلی ١٢م تەواو کرد، زۆر گەڕام بۆ دۆزینەوەی بەشێک کە لەگەڵ خولیا و ئارەزوو و ئەزموونم بگونجێت. لەنێو چەند بەشێکدا، بەشی پەیوەندییە گشتییەکان زۆر سەرنجی ڕاکێشام — بەڵام چونکە بەشێکی تازە بوو لە زانکۆی سلێمانی، لە سۆشیال میدیا و ئینتەرنێت زانیارییەکی زۆر کەمم دەستکەوت دەربارەی وردەکاری خوێندن، وانەکان، و هەلی کار.</p>
+      <p data-i18n="story_p2">پاشان چومە زانکۆ و دوای ئاشنابوون بە وانەکان، مامۆستا و دکتۆرە لێهاتووەکان، و بەتایبەتی سەرۆکی بەشەکەمان کە زانیاری زۆری هەبووە دەربارەی بەشەکە، بۆم دەرکەوت کە کارە ڕاستەکەم ئەنجام داوە. لەبەر ئەوە هەستام بە دروستکردنی ئەم سایتە بۆ خوێندکاران بۆ ئەوەی بە هەمان شێوەی من توشی کێشەی نەبوونی زانیاری نەبن سەبارەت بەم بەشە و زانیاری زیاتریان هەبێت.</p>
     </div>
-    <div class="story-sign">— ئارا عەزیز</div>
+    <div class="story-sign" data-i18n="story_sign">— ئارا عەزیز</div>
   </div>
 </section>
 
 <section id="scores">
-  <span class="tag">وردەگیری</span>
-  <h2 class="title">نمرەی وەرگیران — ساڵی <span id="dyn-academic-year">٢٠٢٥-٢٠٢٦</span></h2>
+  <span class="tag" data-i18n="tag_scores">وردەگیری</span>
+  <h2 class="title" data-i18n-html="title_scores">نمرەی وەرگیران — ساڵی <span id="dyn-academic-year">٢٠٢٥-٢٠٢٦</span></h2>
   <div class="scores-band">
-    <p class="sub" style="margin-bottom:26px;">ئەمانە نمرەکانی وەرگیرانی ساڵی پار بوون بۆ بەشی پەیوەندییە گشتییەکان. نمرەکان ساڵ بە ساڵ دەگۆڕێن بەپێی ژمارەی داواکار و کۆتای وەرگیراوان، بۆیە ئەمانە تەنها ڕێنماییەکن.</p>
+    <p class="sub" style="margin-bottom:26px;" data-i18n="scores_sub">ئەمانە نمرەکانی وەرگیرانی ساڵی پار بوون بۆ بەشی پەیوەندییە گشتییەکان. نمرەکان ساڵ بە ساڵ دەگۆڕێن بەپێی ژمارەی داواکار و کۆتای وەرگیراوان، بۆیە ئەمانە تەنها ڕێنماییەکن.</p>
     <div class="plaque-row">
       <div class="plaque">
         <div class="num" id="score-zankoline">٦١.٢</div>
-        <div class="lbl">کەمترین نمرەی وەرگیراو — زانکۆلاین</div>
-        <div class="yr">ساڵی <span class="dyn-score-year">٢٠٢٥</span></div>
+        <div class="lbl" data-i18n="plaque_zankoline">کەمترین نمرەی وەرگیراو — زانکۆلاین</div>
+        <div class="yr" data-i18n-html="plaque_yr1">ساڵی <span class="dyn-score-year">٢٠٢٥</span></div>
       </div>
       <div class="plaque">
         <div class="num" id="score-parallel">٥٨.٧٩</div>
-        <div class="lbl">کەمترین نمرەی وەرگیراو — پاراڵێل</div>
-        <div class="yr">ساڵی <span class="dyn-score-year">٢٠٢٥</span></div>
+        <div class="lbl" data-i18n="plaque_parallel">کەمترین نمرەی وەرگیراو — پاراڵێل</div>
+        <div class="yr" data-i18n-html="plaque_yr2">ساڵی <span class="dyn-score-year">٢٠٢٥</span></div>
       </div>
     </div>
-    <div class="note">تێبینی: ئەم نمرانە بۆ ساڵی ڕابردوون و ڕەنگە ئەمساڵ بگۆڕێن. بۆ زانیاری وردتر و دووپاتکردنەوە، سەیری فۆڕمی زانکۆلاین یان بەشەکەمان بکە.</div>
-    <div class="note" style="margin-top:14px; border-top:none; padding-top:0; font-size:16px; font-weight:700; color:var(--gold);">لە ساڵی <span id="dyn-academic-year-note">٢٠٢٥-٢٠٢٦</span>، <span id="students-count">٨٠</span> خوێندکار وەرگیراوە.</div>
+    <div class="note" data-i18n="scores_note1">تێبینی: ئەم نمرانە بۆ ساڵی ڕابردوون و ڕەنگە ئەمساڵ بگۆڕێن. بۆ زانیاری وردتر و دووپاتکردنەوە، سەیری فۆڕمی زانکۆلاین یان بەشەکەمان بکە.</div>
+    <div class="note" style="margin-top:14px; border-top:none; padding-top:0; font-size:16px; font-weight:700; color:var(--gold);" data-i18n-html="scores_note2">لە ساڵی <span id="dyn-academic-year-note">٢٠٢٥-٢٠٢٦</span>، <span id="students-count">٨٠</span> خوێندکار وەرگیراوە.</div>
 
     <!-- Zankoline Calculator Tool -->
     <div class="calc-box">
-      <h4>🔍 ئامرازی تاقیکردنەوەی نمرەکەت:</h4>
-      <p>نمرەکەت بنووسە تاوەکو بزانیت چانسی وەرگیرانت لەسەر زانکۆلاین یان پاراڵێل چۆنە:</p>
+      <h4 data-i18n="calc_h4">🔍 ئامرازی تاقیکردنەوەی نمرەکەت:</h4>
+      <p data-i18n="calc_p">نمرەکەت بنووسە تاوەکو بزانیت چانسی وەرگیرانت لەسەر زانکۆلاین یان پاراڵێل چۆنە:</p>
       <div class="calc-form">
         <input type="number" id="user-score-input" class="calc-input" placeholder="نمرەکەت (نموونە: 62)" step="0.1" min="50" max="100">
-        <button type="button" onclick="calculateChances()" class="calc-btn">تاقیکردنەوەی نمرە</button>
+        <button type="button" onclick="calculateChances()" class="calc-btn" data-i18n="calc_btn">تاقیکردنەوەی نمرە</button>
       </div>
       <div id="calc-result"></div>
     </div>
@@ -461,212 +518,197 @@
 </section>
 
 <section id="subjects">
-  <span class="tag">پەرچەکردنی خوێندن</span>
-  <h2 class="title">4ساڵی زانکۆت بە زیاتر لە <span id="subjects-count">20</span>وانەی بەهێز نەخشە ڕێگەی خوێندنەکەتە</h2>
-  <p class="sub">کۆمەڵێک وانەی پڕاکتیکی و تیۆری دەخوێندرێ لە چوارچێوەی ٤ ساڵدا کە دەکاتە ٨ وەرزی خوێندن. ئەمانەش نموونەی هەندێک لە وانە گرنگەکانە.</p>
+  <span class="tag" data-i18n="tag_subjects">پەرچەکردنی خوێندن</span>
+  <h2 class="title" data-i18n-html="title_subjects">4ساڵی زانکۆت بە زیاتر لە <span id="subjects-count">20</span>وانەی بەهێز نەخشە ڕێگەی خوێندنەکەتە</h2>
+  <p class="sub" data-i18n="sub_subjects">کۆمەڵێک وانەی پڕاکتیکی و تیۆری دەخوێندرێ لە چوارچێوەی ٤ ساڵدا کە دەکاتە ٨ وەرزی خوێندن. ئەمانەش نموونەی هەندێک لە وانە گرنگەکانە.</p>
   <div class="grid3">
-    <div class="cell"><div class="icon">📺</div><h3>ڕیکلام</h3><p>شێوازەکانی دروستکردنی ڕیکلام و کاریگەری لەسەر بیرکردنەوەی کۆمەڵگا.</p></div>
-    <div class="cell"><div class="icon">🛒</div><h3>مارکێتینگ</h3><p>بەکارهێنانی ستراتیژەکانی بازاڕگەرمکردنی کاڵا و شتومەک و خزمەتگوزارییەکان لە ڕێگەی تێگەیشتن لە چۆنیەتی بەڕێوەچوونی ڕەوشی بازاڕ.</p></div>
-    <div class="cell"><div class="icon">🏅</div><h3>بەڕێوەبردنی ناوبانگ و براند</h3><p>پاراستن و بەهێزکردنی ناوبانگ و براندی کۆمپانیا و دامەزراوەکان.</p></div>
-    <div class="cell"><div class="icon">🤝</div><h3>پرۆتۆکۆڵ</h3><p>ڕێز و ڕێساکانی پێشوازیکردن و بەڕێوەبردنی چالاکی فەرمی و دیپلۆماسی.</p></div>
-    <div class="cell"><div class="icon">🚨</div><h3>بەڕێوەبردنی قەیرانەکان</h3><p>چۆنیەتی مامەڵەکردن لەگەڵ قەیران و پاراستنی وێنەی گشتی لە کاتی تەنگژەدا.</p></div>
-    <div class="cell"><div class="icon">🏢</div><h3>بەڕێوەبردنی دامەزراوە و پەیوەندییەکان</h3><p>چۆنیەتی بەڕێوەبردنی دامەزراوە و پەیوەندییەکانی.</p></div>
-    <div class="cell"><div class="icon">🗣️</div><h3>وتووێژ و قسەکردنی گشتی</h3><p>لێهاتووی قسەکردن لەبەردەم کۆمەڵگا و پێشکەشکردنی پەیام بە شێوەیەکی کاریگەر.</p></div>
-    <div class="cell"><div class="icon">📊</div><h3>ستراتیژی و پلاندانان</h3><p>دروستکردنی پلانی پەیوەندی گشتی بۆ کۆمپانیا و دامەزراوەکان.</p></div>
-    <div class="cell"><div class="icon">💻</div><h3>بەڕێوەبردنی سۆشیال میدیا</h3><p>بەڕێوەبردنی ناوەڕۆکی دیجیتاڵ و کەمپینی ڕاگەیاندن لەسەر ئینتەرنێت.</p></div>
-    <div class="cell"><div class="icon">🎤</div><h3>ڕێکخستن و بەڕێوەبردنی ئیڤینت و بۆنەکان</h3><p>ڕێکخستن و بەڕێوەبردنی چالاکی و ئیڤینتی گشتی.</p></div>
-    <div class="cell"><div class="icon">📡</div><h3>بەڕێوەبردنی پەیوەندییە میدیاییەکان</h3><p>چۆنیەتی دروستکردن و بەڕێوەبردنی پەیوەندی لەگەڵ میدیا و ڕۆژنامەنووسان.</p></div>
-    <div class="cell"><div class="icon">🎨</div><h3>گرافیک دیزاین</h3><p>دیزاینی بابەتە بینراوەکان بۆ کەمپین و ناوەڕۆکی ڕاگەیاندن.</p></div>
-    <div class="cell"><div class="icon">📷</div><h3>فۆتۆگرافی و ڤیدیۆگرافی</h3><p>وێنەگرتن و تۆمارکردنی ڤیدیۆ بۆ کەمپین و ناوەڕۆکی ڕاگەیاندن.</p></div>
-    <div class="cell"><div class="icon">🎬</div><h3>بەرهەمهێنانی پەیوەندی گشتی</h3><p>ئامادەکردن و دروستکردنی ناوەڕۆکی پەیوەندی گشتی بۆ بڵاوکردنەوە.</p></div>
-    <div class="cell"><div class="icon">📣</div><h3>هەڵمەتی پەیوەندی گشتی</h3><p>دروستکردن و بەڕێوەبردنی هەڵمەتی ڕاگەیاندن بۆ کۆمپانیا و دامەزراوەکان.</p></div>
-    <div class="cell"><div class="icon">🤵</div><h3>دیپلۆماسی</h3><p>پرۆسەی بەڕێوەبردنی پەیوەندییە لە ڕێگەی دانوستان و گفتوگۆ بە ئامانجی چارەسەرکردنی کێشەکان و دروستکردنی هاوپەیمانی.</p></div>
-    <div class="cell"><div class="icon">💰</div><h3>ئابووری دامەزراوە</h3><p>بنەماکانی ئابووری کە پەیوەندیدارن بە کارکردنی دامەزراوەکانەوە.</p></div>
-    <div class="cell"><div class="icon">🖥️</div><h3>بەڕێوەبردنی پەیجی ئەلیکترۆنی</h3><p>بنەماکانی دیزاینکردنی ماڵپەڕ و پێشکەشکردنی ناوەڕۆک لەسەر ئینتەرنێت.</p></div>
-    <div class="cell"><div class="icon">🌐</div><h3>پەیوەندی گشتی دیجیتاڵی</h3><p>بەکارهێنانی ئامرازە دیجیتاڵییەکان لە پەیوەندی گشتیدا لە سەردەمی ئۆنلایندا.</p></div>
-    <div class="cell"><div class="icon">🕊️</div><h3>پەیوەندی نێودەوڵەتی</h3><p>لێکۆڵینەوە و پراکتیزەکردنی چۆنیەتی کارلێکی وڵاتان، حکوومەتەکان، ڕێکخراوەکان و خەڵک لە ئاستی جیهانیدا.</p></div>
+    <div class="cell"><div class="icon">📺</div><h3 data-i18n="subj1_t">ڕیکلام</h3><p data-i18n="subj1_d">شێوازەکانی دروستکردنی ڕیکلام و کاریگەری لەسەر بیرکردنەوەی کۆمەڵگا.</p></div>
+    <div class="cell"><div class="icon">🛒</div><h3 data-i18n="subj2_t">مارکێتینگ</h3><p data-i18n="subj2_d">بەکارهێنانی ستراتیژەکانی بازاڕگەرمکردنی کاڵا و شتومەک و خزمەتگوزارییەکان لە ڕێگەی تێگەیشتن لە چۆنیەتی بەڕێوەچوونی ڕەوشی بازاڕ.</p></div>
+    <div class="cell"><div class="icon">🏅</div><h3 data-i18n="subj3_t">بەڕێوەبردنی ناوبانگ و براند</h3><p data-i18n="subj3_d">پاراستن و بەهێزکردنی ناوبانگ و براندی کۆمپانیا و دامەزراوەکان.</p></div>
+    <div class="cell"><div class="icon">🤝</div><h3 data-i18n="subj4_t">پرۆتۆکۆڵ</h3><p data-i18n="subj4_d">ڕێز و ڕێساکانی پێشوازیکردن و بەڕێوەبردنی چالاکی فەرمی و دیپلۆماسی.</p></div>
+    <div class="cell"><div class="icon">🚨</div><h3 data-i18n="subj5_t">بەڕێوەبردنی قەیرانەکان</h3><p data-i18n="subj5_d">چۆنیەتی مامەڵەکردن لەگەڵ قەیران و پاراستنی وێنەی گشتی لە کاتی تەنگژەدا.</p></div>
+    <div class="cell"><div class="icon">🏢</div><h3 data-i18n="subj6_t">بەڕێوەبردنی دامەزراوە و پەیوەندییەکان</h3><p data-i18n="subj6_d">چۆنیەتی بەڕێوەبردنی دامەزراوە و پەیوەندییەکانی.</p></div>
+    <div class="cell"><div class="icon">🗣️</div><h3 data-i18n="subj7_t">وتووێژ و قسەکردنی گشتی</h3><p data-i18n="subj7_d">لێهاتووی قسەکردن لەبەردەم کۆمەڵگا و پێشکەشکردنی پەیام بە شێوەیەکی کاریگەر.</p></div>
+    <div class="cell"><div class="icon">📊</div><h3 data-i18n="subj8_t">ستراتیژی و پلاندانان</h3><p data-i18n="subj8_d">دروستکردنی پلانی پەیوەندی گشتی بۆ کۆمپانیا و دامەزراوەکان.</p></div>
+    <div class="cell"><div class="icon">💻</div><h3 data-i18n="subj9_t">بەڕێوەبردنی سۆشیال میدیا</h3><p data-i18n="subj9_d">بەڕێوەبردنی ناوەڕۆکی دیجیتاڵ و کەمپینی ڕاگەیاندن لەسەر ئینتەرنێت.</p></div>
+    <div class="cell"><div class="icon">🎤</div><h3 data-i18n="subj10_t">ڕێکخستن و بەڕێوەبردنی ئیڤینت و بۆنەکان</h3><p data-i18n="subj10_d">ڕێکخستن و بەڕێوەبردنی چالاکی و ئیڤینتی گشتی.</p></div>
+    <div class="cell"><div class="icon">📡</div><h3 data-i18n="subj11_t">بەڕێوەبردنی پەیوەندییە میدیاییەکان</h3><p data-i18n="subj11_d">چۆنیەتی دروستکردن و بەڕێوەبردنی پەیوەندی لەگەڵ میدیا و ڕۆژنامەنووسان.</p></div>
+    <div class="cell"><div class="icon">🎨</div><h3 data-i18n="subj12_t">گرافیک دیزاین</h3><p data-i18n="subj12_d">دیزاینی بابەتە بینراوەکان بۆ کەمپین و ناوەڕۆکی ڕاگەیاندن.</p></div>
+    <div class="cell"><div class="icon">📷</div><h3 data-i18n="subj13_t">فۆتۆگرافی و ڤیدیۆگرافی</h3><p data-i18n="subj13_d">وێنەگرتن و تۆمارکردنی ڤیدیۆ بۆ کەمپین و ناوەڕۆکی ڕاگەیاندن.</p></div>
+    <div class="cell"><div class="icon">🎬</div><h3 data-i18n="subj14_t">بەرهەمهێنانی پەیوەندی گشتی</h3><p data-i18n="subj14_d">ئامادەکردن و دروستکردنی ناوەڕۆکی پەیوەندی گشتی بۆ بڵاوکردنەوە.</p></div>
+    <div class="cell"><div class="icon">📣</div><h3 data-i18n="subj15_t">هەڵمەتی پەیوەندی گشتی</h3><p data-i18n="subj15_d">دروستکردن و بەڕێوەبردنی هەڵمەتی ڕاگەیاندن بۆ کۆمپانیا و دامەزراوەکان.</p></div>
+    <div class="cell"><div class="icon">🤵</div><h3 data-i18n="subj16_t">دیپلۆماسی</h3><p data-i18n="subj16_d">پرۆسەی بەڕێوەبردنی پەیوەندییە لە ڕێگەی دانوستان و گفتوگۆ بە ئامانجی چارەسەرکردنی کێشەکان و دروستکردنی هاوپەیمانی.</p></div>
+    <div class="cell"><div class="icon">💰</div><h3 data-i18n="subj17_t">ئابووری دامەزراوە</h3><p data-i18n="subj17_d">بنەماکانی ئابووری کە پەیوەندیدارن بە کارکردنی دامەزراوەکانەوە.</p></div>
+    <div class="cell"><div class="icon">🖥️</div><h3 data-i18n="subj18_t">بەڕێوەبردنی پەیجی ئەلیکترۆنی</h3><p data-i18n="subj18_d">بنەماکانی دیزاینکردنی ماڵپەڕ و پێشکەشکردنی ناوەڕۆک لەسەر ئینتەرنێت.</p></div>
+    <div class="cell"><div class="icon">🌐</div><h3 data-i18n="subj19_t">پەیوەندی گشتی دیجیتاڵی</h3><p data-i18n="subj19_d">بەکارهێنانی ئامرازە دیجیتاڵییەکان لە پەیوەندی گشتیدا لە سەردەمی ئۆنلایندا.</p></div>
+    <div class="cell"><div class="icon">🕊️</div><h3 data-i18n="subj20_t">پەیوەندی نێودەوڵەتی</h3><p data-i18n="subj20_d">لێکۆڵینەوە و پراکتیزەکردنی چۆنیەتی کارلێکی وڵاتان، حکوومەتەکان، ڕێکخراوەکان و خەڵک لە ئاستی جیهانیدا.</p></div>
   </div>
 </section>
 
 <section id="opportunities">
-  <span class="tag">بەهای ڕاستەقینەی خوێندن</span>
-  <h2 class="title">🎓 دەرفەتە زێڕینەکانی خوێندکار لەم بەشەدا</h2>
-  <p class="sub">خوێندنی پەیوەندییە گشتییەکان تەنها وەرگرتنی زانیاری ناو کتێبەکان نییە، بەڵکو کۆمەڵێک دەرفەتی کردارییە کە لە ساڵانی خوێندندا کارامەییەکانت پەرە پێدەدات.</p>
+  <span class="tag" data-i18n="tag_opp">بەهای ڕاستەقینەی خوێندن</span>
+  <h2 class="title" data-i18n="title_opp">🎓 دەرفەتە زێڕینەکانی خوێندکار لەم بەشەدا</h2>
+  <p class="sub" data-i18n="sub_opp">خوێندنی پەیوەندییە گشتییەکان تەنها وەرگرتنی زانیاری ناو کتێبەکان نییە، بەڵکو کۆمەڵێک دەرفەتی کردارییە کە لە ساڵانی خوێندندا کارامەییەکانت پەرە پێدەدات.</p>
   <div class="grid2">
-    <div class="cell-h"><div class="icon">💡</div><div><h4>پرۆژەی پڕاکتیکی ڕاستەقینە</h4><p>خوێندکاران لە ساڵانی خوێندندا تەنها تیۆری ناخوێنن، بەڵکو کەمپەین و پلانی پەیوەندی گشتی بۆ براند و ڕێکخراوە ڕاستەقینەکان دیزاین دەکەن.</p></div></div>
-    <div class="cell-h"><div class="icon">🏢</div><div><h4>سەردانی مەیدانی و وۆرکشۆپ</h4><p>ڕێکخستنی سەردانی مەیدانی بۆ کۆمپانیا گەورەکان، کەناڵەکانی ڕاگەیاندن و دامەزراوە حکومییەکان تا لە نزیکەوە ئاشنای ژینگەی کار ببن.</p></div></div>
-    <div class="cell-h"><div class="icon">🤝</div><div><h4>تۆڕی پەیوەندی بەهێز (Networking)</h4><p>دەرفەتی دروستکردنی پەیوەندی ڕاستەقینە لەگەڵ بەڕێوەبەرانی PR و مارکێتینگی کۆمپانیاکان هێشتا لە سەردەمی خوێندندایت.</p></div></div>
-    <div class="cell-h"><div class="icon">🛠️</div><div><h4>پەرەپێدانی کارامەیی دیجیتاڵی</h4><p>ڕاهێنان لەسەر بەکارهێنانی مۆدێرنترین ئامرازەکانی دیزاین، فۆتۆگرافی، مۆنتاژ و بەڕێوەبردنی سۆشیال میدیا.</p></div></div>
+    <div class="cell-h"><div class="icon">💡</div><div><h4 data-i18n="opp1_t">پرۆژەی پڕاکتیکی ڕاستەقینە</h4><p data-i18n="opp1_d">خوێندکاران لە ساڵانی خوێندندا تەنها تیۆری ناخوێنن، بەڵکو کەمپەین و پلانی پەیوەندی گشتی بۆ براند و ڕێکخراوە ڕاستەقینەکان دیزاین دەکەن.</p></div></div>
+    <div class="cell-h"><div class="icon">🏢</div><div><h4 data-i18n="opp2_t">سەردانی مەیدانی و وۆرکشۆپ</h4><p data-i18n="opp2_d">ڕێکخستنی سەردانی مەیدانی بۆ کۆمپانیا گەورەکان، کەناڵەکانی ڕاگەیاندن و دامەزراوە حکومییەکان تا لە نزیکەوە ئاشنای ژینگەی کار ببن.</p></div></div>
+    <div class="cell-h"><div class="icon">🤝</div><div><h4 data-i18n="opp3_t">تۆڕی پەیوەندی بەهێز (Networking)</h4><p data-i18n="opp3_d">دەرفەتی دروستکردنی پەیوەندی ڕاستەقینە لەگەڵ بەڕێوەبەرانی PR و مارکێتینگی کۆمپانیاکان هێشتا لە سەردەمی خوێندندایت.</p></div></div>
+    <div class="cell-h"><div class="icon">🛠️</div><div><h4 data-i18n="opp4_t">پەرەپێدانی کارامەیی دیجیتاڵی</h4><p data-i18n="opp4_d">ڕاهێنان لەسەر بەکارهێنانی مۆدێرنترین ئامرازەکانی دیزاین، فۆتۆگرافی، مۆنتاژ و بەڕێوەبردنی سۆشیال میدیا.</p></div></div>
   </div>
 </section>
 
 <section id="careers">
-  <span class="tag">دواڕۆژی کار</span>
-  <h2 class="title">🚀 ئەو پۆست و پیشانەی چاوەڕێی دەرچوانی ئەم بەشە دەکات</h2>
-  <p class="sub">پەیوەندییە گشتییەکان زانستێکە دەرگای زۆر بوار و پیشەی جیاواز دەکاتەوە، کە لە ئێستاو داهاتوودا بایەخ و گرنگی زۆریان لە بازاری کاردا هەیە.</p>
+  <span class="tag" data-i18n="tag_careers">دواڕۆژی کار</span>
+  <h2 class="title" data-i18n="title_careers">🚀 ئەو پۆست و پیشانەی چاوەڕێی دەرچوانی ئەم بەشە دەکات</h2>
+  <p class="sub" data-i18n="sub_careers">پەیوەندییە گشتییەکان زانستێکە دەرگای زۆر بوار و پیشەی جیاواز دەکاتەوە، کە لە ئێستاو داهاتوودا بایەخ و گرنگی زۆریان لە بازاری کاردا هەیە.</p>
   <div class="grid2">
-    <div class="cell-h"><div class="icon">📊</div><div><h4>توێژینەوە و پێوانەکردنی ڕای گشتی</h4><p>ئەنجامدانی ڕاپرسی توێژینەوە و شیکردنەوەی ئاڕاستە و هەڵوێستی جەماوەر و پێشنیار کردن بۆ پارتە سیاسیەکان و دامزراوە میریی و تایبەتەکان.</p></div></div>
-    <div class="cell-h"><div class="icon">📋</div><div><h4>پسپۆڕی پەیوەندییە گشتییەکان (PR Specialist)</h4><p>ئامادەکردن و جێبەجێکردنی کەمپەین و هەڵمەتی پەیوەندییە گشتییەکان، نووسینی بەیاننامە و هەواڵە ڕۆژنامەوانییەکان.</p></div></div>
-    <div class="cell-h"><div class="icon">🏢</div><div><h4>بەرپرسی پەیوەندیی دامەزراوە</h4><p>بەڕێوەبردنی پەیوەندیی ناوخۆیی و دەرەکی دامەزراوە, دروستکردن و بەهێزکردنی ناسنامە و ناوبانگی دامەزراوە.</p></div></div>
-    <div class="cell-h"><div class="icon">📱</div><div><h4>بەڕێوەبەری/هەماهەنگکەری تۆڕە کۆمەڵایەتییەکان</h4><p>بەڕێوەبردنی هەژمارە دیجیتاڵییەکان، ئامادەکردنی ناوەڕۆک و شوێنکەوتنی کاردانەوەی جەماوەر، و شیکردنەوەی ئامار.</p></div></div>
-    <div class="cell-h"><div class="icon">✍️</div><div><h4>نووسەری ناوەڕۆک و ڕیکلام</h4><p>نووسینی هەواڵ، ڕاپۆرت و وتار، و ئامادەکردنی ماددەی بانگەشە و پڕۆمۆشن.</p></div></div>
-    <div class="cell-h"><div class="icon">🎪</div><div><h4>ڕێکخەری چالاکی، کۆنفرانس و پێشانگا</h4><p>پلاندانان بۆ کۆنفرانس، پێشانگا و بۆنەکان، و هەماهەنگی لەگەڵ بەشداربووان و سپۆنسەرەکان.</p></div></div>
-    <div class="cell-h"><div class="icon">🎙️</div><div><h4>وتەبێژی فەرمی دامەزراوە و کۆمپانیاکان</h4><p>نوێنەرایەتی دامەزراوە لە بەرامبەر میدیا، و بەڕێوەبردنی پەیامەکانی دامەزراوە.</p></div></div>
-    <div class="cell-h"><div class="icon">💼</div><div><h4>ڕاوێژکاری پەیوەندی و پەیوەندییە گشتییەکان</h4><p>پێشکەشکردنی ڕاوێژ بۆ دامەزراوەکان و لایەنە سیاسییەکان و کۆمپانیاکان لە بوارەکانی ناوبانگ و بەڕێوەبردنی قەیران.</p></div></div>
-    <div class="cell-h"><div class="icon">🤲</div><div><h4>پسپۆڕی بەرپرسیارێتی کۆمەڵایەتی</h4><p>بەڕێوەبردنی بەرنامەکانی خزمەتگوزاری کۆمەڵگا، و دروستکردنی پەیوەندی لەگەڵ کۆمەڵگای خوارەوە و ڕێکخراوە مەدەنییەکان.</p></div></div>
-    <div class="cell-h"><div class="icon">🌍</div><div><h4>کارکردن لە کەرتی حکومی، تایبەت و ڕێکخراوە نێودەوڵەتییەکان</h4><p>وەزارەت و دامەزراوە حکومییەکان، کۆمپانیا و بانک و دامەزراوە ئابوورییەکان، زانکۆ و دامەزراوە پەروەردەییەکان، و ڕێکخراوە نێودەوڵەتی و ناحکومییەکان.</p></div></div>
+    <div class="cell-h"><div class="icon">📊</div><div><h4 data-i18n="car1_t">توێژینەوە و پێوانەکردنی ڕای گشتی</h4><p data-i18n="car1_d">ئەنجامدانی ڕاپرسی توێژینەوە و شیکردنەوەی ئاڕاستە و هەڵوێستی جەماوەر و پێشنیار کردن بۆ پارتە سیاسیەکان و دامزراوە میریی و تایبەتەکان.</p></div></div>
+    <div class="cell-h"><div class="icon">📋</div><div><h4 data-i18n="car2_t">پسپۆڕی پەیوەندییە گشتییەکان (PR Specialist)</h4><p data-i18n="car2_d">ئامادەکردن و جێبەجێکردنی کەمپەین و هەڵمەتی پەیوەندییە گشتییەکان، نووسینی بەیاننامە و هەواڵە ڕۆژنامەوانییەکان.</p></div></div>
+    <div class="cell-h"><div class="icon">🏢</div><div><h4 data-i18n="car3_t">بەرپرسی پەیوەندیی دامەزراوە</h4><p data-i18n="car3_d">بەڕێوەبردنی پەیوەندیی ناوخۆیی و دەرەکی دامەزراوە, دروستکردن و بەهێزکردنی ناسنامە و ناوبانگی دامەزراوە.</p></div></div>
+    <div class="cell-h"><div class="icon">📱</div><div><h4 data-i18n="car4_t">بەڕێوەبەری/هەماهەنگکەری تۆڕە کۆمەڵایەتییەکان</h4><p data-i18n="car4_d">بەڕێوەبردنی هەژمارە دیجیتاڵییەکان، ئامادەکردنی ناوەڕۆک و شوێنکەوتنی کاردانەوەی جەماوەر، و شیکردنەوەی ئامار.</p></div></div>
+    <div class="cell-h"><div class="icon">✍️</div><div><h4 data-i18n="car5_t">نووسەری ناوەڕۆک و ڕیکلام</h4><p data-i18n="car5_d">نووسینی هەواڵ، ڕاپۆرت و وتار، و ئامادەکردنی ماددەی بانگەشە و پڕۆمۆشن.</p></div></div>
+    <div class="cell-h"><div class="icon">🎪</div><div><h4 data-i18n="car6_t">ڕێکخەری چالاکی، کۆنفرانس و پێشانگا</h4><p data-i18n="car6_d">پلاندانان بۆ کۆنفرانس، پێشانگا و بۆنەکان، و هەماهەنگی لەگەڵ بەشداربووان و سپۆنسەرەکان.</p></div></div>
+    <div class="cell-h"><div class="icon">🎙️</div><div><h4 data-i18n="car7_t">وتەبێژی فەرمی دامەزراوە و کۆمپانیاکان</h4><p data-i18n="car7_d">نوێنەرایەتی دامەزراوە لە بەرامبەر میدیا، و بەڕێوەبردنی پەیامەکانی دامەزراوە.</p></div></div>
+    <div class="cell-h"><div class="icon">💼</div><div><h4 data-i18n="car8_t">ڕاوێژکاری پەیوەندی و پەیوەندییە گشتییەکان</h4><p data-i18n="car8_d">پێشکەشکردنی ڕاوێژ بۆ دامەزراوەکان و لایەنە سیاسییەکان و کۆمپانیاکان لە بوارەکانی ناوبانگ و بەڕێوەبردنی قەیران.</p></div></div>
+    <div class="cell-h"><div class="icon">🤲</div><div><h4 data-i18n="car9_t">پسپۆڕی بەرپرسیارێتی کۆمەڵایەتی</h4><p data-i18n="car9_d">بەڕێوەبردنی بەرنامەکانی خزمەتگوزاری کۆمەڵگا، و دروستکردنی پەیوەندی لەگەڵ کۆمەڵگای خوارەوە و ڕێکخراوە مەدەنییەکان.</p></div></div>
+    <div class="cell-h"><div class="icon">🌍</div><div><h4 data-i18n="car10_t">کارکردن لە کەرتی حکومی، تایبەت و ڕێکخراوە نێودەوڵەتییەکان</h4><p data-i18n="car10_d">وەزارەت و دامەزراوە حکومییەکان، کۆمپانیا و بانک و دامەزراوە ئابوورییەکان، زانکۆ و دامەزراوە پەروەردەییەکان، و ڕێکخراوە نێودەوڵەتی و ناحکومییەکان.</p></div></div>
   </div>
 
   <div style="margin-top:24px;">
     <div class="story-card" style="padding:32px 28px;">
-      <p style="font-size:15px; line-height:2.0;">دەرچووی پەیوەندییە گشتییەکان تەنها کارمەندێکی میدیایی نییە، بەڵکو پسپۆڕێکە لە بەڕێوەبردنی پەیوەندی و دروستکردنی ناوبانگ و پەیوەندی نێوان دامەزراوە و جەماوەر، هەروەها دەتوانێت لە بوارەکانی میدیای دیجیتاڵ، پەیوەندی دامەزراوەیی، بەڕێوەبردنی قەیران، ڕێکخستنی چالاکییەکان، بازاڕگەری، کارکردن لە کۆنسوڵخانەکانی وڵاتان و زۆر بواری گەشەسەندووەکانی تر کار بکات.</p>
+      <p style="font-size:15px; line-height:2.0;" data-i18n="career_summary">دەرچووی پەیوەندییە گشتییەکان تەنها کارمەندێکی میدیایی نییە، بەڵکو پسپۆڕێکە لە بەڕێوەبردنی پەیوەندی و دروستکردنی ناوبانگ و پەیوەندی نێوان دامەزراوە و جەماوەر، هەروەها دەتوانێت لە بوارەکانی میدیای دیجیتاڵ، پەیوەندی دامەزراوەیی، بەڕێوەبردنی قەیران، ڕێکخستنی چالاکییەکان، بازاڕگەری، کارکردن لە کۆنسوڵخانەکانی وڵاتان و زۆر بواری گەشەسەندووەکانی تر کار بکات.</p>
     </div>
   </div>
 </section>
 
 <section id="campaign">
-  <span class="tag">فێربوونی کرداری</span>
-  <h2 class="title">🏆 کەمپەینی سەرکەوتووی مانگ: "Share a Coke"</h2>
-  <p class="sub">چۆن زانستی پەیوەندییە گشتییەکان (PR) سەرکەوتنی جیهانی بۆ گەورەترین کۆمپانیاکان دروست دەکات؟</p>
+  <span class="tag" data-i18n="tag_campaign">فێربوونی کرداری</span>
+  <h2 class="title" data-i18n="title_campaign">🏆 کەمپەینی سەرکەوتووی مانگ: "Share a Coke"</h2>
+  <p class="sub" data-i18n="sub_campaign">چۆن زانستی پەیوەندییە گشتییەکان (PR) سەرکەوتنی جیهانی بۆ گەورەترین کۆمپانیاکان دروست دەکات؟</p>
   <div class="card" style="background:var(--paper-2); border-color:rgba(168,40,35,0.3);">
-    <h3 style="font-size:18px; font-weight:800; color:var(--red); margin-bottom:12px;">کەمپەینی مێژوویی کۆکا کۆلا — "کۆکایەک ببه‌خشە بە..."</h3>
-    <p style="font-size:14.5px; line-height:1.9; color:var(--ink-soft); margin-bottom:14px;">
+    <h3 style="font-size:18px; font-weight:800; color:var(--red); margin-bottom:12px;" data-i18n="camp_h3">کەمپەینی مێژوویی کۆکا کۆلا — "کۆکایەک ببه‌خشە بە..."</h3>
+    <p style="font-size:14.5px; line-height:1.9; color:var(--ink-soft); margin-bottom:14px;" data-i18n-html="camp_p1">
       لە ساڵی ٢٠١١دا، کۆمپانیای کۆکا کۆلا (Coca-Cola) ڕووبەڕووی دابەزینی فرۆش ببووەوە لەناو گەنجاندا. تیمی پەیوەندییە گشتییەکانی کۆمپانیاکە لە جیاتی بەکارهێنانی ڕیکلامی بەرهەمەکان، بڕیاریان دا لۆگۆیە سەرەکییەکەی سەر بوتڵەکان لاببەن و لە شوێنیدا **٢٥٠ ناوی کوڕان و کچانی باو** لەسەر بوتڵەکان بنووسن!
     </p>
-    <div style="background:#fff; padding:20px; border-radius:6px; border-right:3px solid var(--red); margin-bottom:14px;">
-      <h4 style="font-size:14.5px; font-weight:700; color:var(--black); margin-bottom:6px;">💡 نھێنی سەرکەوتنی PR لەم کەمپەینەدا:</h4>
-      <p style="font-size:13.5px; line-height:1.8; color:var(--ink-soft);">
+    <div class="campaign-box" style="background:#fff; padding:20px; border-radius:6px; margin-bottom:14px;">
+      <h4 style="font-size:14.5px; font-weight:700; color:var(--black); margin-bottom:6px;" data-i18n="camp_box_h">💡 نھێنی سەرکەوتنی PR لەم کەمپەینەدا:</h4>
+      <p style="font-size:13.5px; line-height:1.8; color:var(--ink-soft);" data-i18n-html="camp_box_p">
         کۆمپانیاکە شتومەکی نەفرۆشت، بەڵکو **پەیوەندی کۆمەڵایەتی و هەستی تایبەتی** دروستکرد. خەڵک لە سۆشیال میدیا دەستیان کرد بە بڵاوکردنەوەی وێنەی بوتڵەکان بە ناوی خۆیان و هاوڕێکانیانەوە. بەمەش زیاتر لە **٥٠٠,٠٠٠ وێنە** لە ئینتەرنێت بڵاوبووەوە و فرۆشی کۆمپانیاکە بە ڕێژەی **٢.٥٪ بۆ یەکەمجار دوای ساڵانێک زیادی کرد**.
       </p>
     </div>
-    <p style="font-size:13.5px; font-weight:600; color:var(--green);">
+    <p style="font-size:13.5px; font-weight:600; color:var(--green);" data-i18n="camp_note">
       کەڵکی ئەم نموونەیە بۆ تۆ: هێزی پەیوەندییە گشتییەکان لەوەدایە کە دەتوانێت ڕەفتار و بیرکردنەوەی جەماوەر بگۆڕێت بە بێ ئەوەی هەست بکەن ڕیکلامیان بۆ دەکرێت!
     </p>
   </div>
 </section>
 
 <section id="why">
-  <span class="tag">بۆچی ئێمە؟</span>
-  <h2 class="title">بۆچی ئەم بەشە هەڵبژێریت؟</h2>
+  <span class="tag" data-i18n="tag_why">بۆچی ئێمە؟</span>
+  <h2 class="title" data-i18n="title_why">بۆچی ئەم بەشە هەڵبژێریت؟</h2>
   <div class="grid2">
-    <div class="cell-h"><div class="icon">🆕</div><div><h4>بەشێکی نوێ و مۆدێرن</h4><p>وانەکان و شێوازی خوێندن بەپێی پێداویستی ڕاستەقینەی بازاڕی کار داڕێژراون، تایبەت بە سەردەمی دیجیتاڵ.</p></div></div>
-    <div class="cell-h"><div class="icon">🎓</div><div><h4>سەرپەرشتی بەهێز</h4><p>سەرۆکایەتی و مامۆستایانی پسپۆڕ کە لە دامەزراندنەوە هەوڵی بەرزکردنەوەی ئاستی بەشیان داوە.</p></div></div>
-    <div class="cell-h"><div class="icon">🌍</div><div><h4>دەرفەتی کاری فراوان</h4><p>لە کۆنسوڵخانە و کۆمپانیا تا دامەزراوەی میدیایی و دەرەوەی وڵات — بواری کارکردن یەک لایەن نییە.</p></div></div>
-    <div class="cell-h"><div class="icon">🤝</div><div><h4>کۆمەڵگایەکی چالاک</h4><p>پەیجی فەیسبووک و ئینستاگرامی چالاک، چالاکی و ئیڤینتی بەردەوام لەنێو خوێندکارانی بەش.</p></div></div>
+    <div class="cell-h"><div class="icon">🆕</div><div><h4 data-i18n="why1_t">بەشێکی نوێ و مۆدێرن</h4><p data-i18n="why1_d">وانەکان و شێوازی خوێندن بەپێی پێداویستی ڕاستەقینەی بازاڕی کار داڕێژراون، تایبەت بە سەردەمی دیجیتاڵ.</p></div></div>
+    <div class="cell-h"><div class="icon">🎓</div><div><h4 data-i18n="why2_t">سەرپەرشتی بەهێز</h4><p data-i18n="why2_d">سەرۆکایەتی و مامۆستایانی پسپۆڕ کە لە دامەزراندنەوە هەوڵی بەرزکردنەوەی ئاستی بەشیان داوە.</p></div></div>
+    <div class="cell-h"><div class="icon">🌍</div><div><h4 data-i18n="why3_t">دەرفەتی کاری فراوان</h4><p data-i18n="why3_d">لە کۆنسوڵخانە و کۆمپانیا تا دامەزراوەی میدیایی و دەرەوەی وڵات — بواری کارکردن یەک لایەن نییە.</p></div></div>
+    <div class="cell-h"><div class="icon">🤝</div><div><h4 data-i18n="why4_t">کۆمەڵگایەکی چالاک</h4><p data-i18n="why4_d">پەیجی فەیسبووک و ئینستاگرامی چالاک، چالاکی و ئیڤینتی بەردەوام لەنێو خوێندکارانی بەش.</p></div></div>
   </div>
 </section>
 
 <section id="testimonials">
-  <span class="tag">دەنگی خوێندکاران</span>
-  <h2 class="title">هەڵوێستی گەڕاوەی خوێندکاران لەسەر بەشەکە</h2>
-  <p class="sub">💡 ڕاستییە شاراوەکانی ناو بەشەکە لە زمانی خوێندکارانی پێشخۆتانەوە (نهێنییەکان بخوێنەوە)</p>
-
-  <style>
-    .acc{border:1px solid var(--line); border-radius:6px; overflow:hidden; background:#fff;}
-    .acc + .acc{border-top:none;}
-    .acc summary{
-      list-style:none; cursor:pointer; padding:18px 22px; font-size:15.5px; font-weight:700; color:var(--black);
-      display:flex; align-items:center; justify-content:space-between; user-select:none;
-    }
-    .acc summary::-webkit-details-marker{display:none;}
-    .acc summary::after{content:"+"; font-size:20px; color:var(--red); font-weight:400;}
-    .acc[open] summary::after{content:"−";}
-    .acc summary:hover{background:var(--paper-2);}
-    .acc .acc-body{padding:0 22px 22px; font-size:14px; color:var(--ink-soft); line-height:1.9;}
-    .acc .acc-sign{margin-top:16px; font-size:12.5px; font-weight:700; color:var(--gold);}
-  </style>
+  <span class="tag" data-i18n="tag_testi">دەنگی خوێندکاران</span>
+  <h2 class="title" data-i18n="title_testi">هەڵوێستی گەڕاوەی خوێندکاران لەسەر بەشەکە</h2>
+  <p class="sub" data-i18n="sub_testi">💡 ڕاستییە شاراوەکانی ناو بەشەکە لە زمانی خوێندکارانی پێشخۆتانەوە (نهێنییەکان بخوێنەوە)</p>
 
   <details class="acc" open>
-    <summary>قۆناغی دووەم</summary>
+    <summary data-i18n="stage2_summary">قۆناغی دووەم</summary>
     <div class="acc-body">
-      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">سۆما ئیبراهیم ئەحمەد، قۆناغی ٢، پەیوەندییە گشتییەکان</div>
-      <p><strong style="color:var(--black);">چۆن بەشەکەم هەڵبژارد؟</strong><br>سەرەتا ئامانجم پەیوەندییە سیاسییەکان بوو، بەڵام نمرەکەم کەمتر بوو بۆ وەرگرتنم تێیدا. دواتر گەڕام بۆ بەشی پەیوەندییە گشتییەکان و تێبینیم کرد لەم بەشەدا هەلی کارکردن بۆ ئامانجەکەم گونجاوە.</p>
-      <p><strong style="color:var(--black);">چی زانیارییەکم دەربارەی هەبوو؟</strong><br>هەوڵمدا زانیاری وەربگرم لە ماڵپەڕی سۆشیال میدیای زانکۆی سلێمانی، بەڵام زۆر ڕوون نەبوو لام.</p>
-      <p><strong style="color:var(--black);">ئێستا چۆن لێی دەڕوانم؟</strong><br>بەو شێوەیە لێی دەڕوانم کە داهاتوویەکی زۆر گەش لە بەردەممە، و سەرکەوتنێکی زۆر باشم دەبێت.</p>
-      <p><strong style="color:var(--black);">چی فێربووم؟</strong><br>ئەم بەشە فێری هونەری پەیوەندیکردنمان دەکات بە شێوەیەکی ستراتیژی، و کاریگەریمان لە کۆمەڵگا و لە دامودەزگاکان و تێگەیشتنی وردمان لە جەماوەری دامەزراوەکە، واتە گوێگرێکی باش بوون.</p>
+      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;" data-i18n="soma_sign">سۆما ئیبراهیم ئەحمەد، قۆناغی ٢، پەیوەندییە گشتییەکان</div>
+      <p data-i18n-html="soma_q1"><strong style="color:var(--black);">چۆن بەشەکەم هەڵبژارد؟</strong><br>سەرەتا ئامانجم پەیوەندییە سیاسییەکان بوو، بەڵام نمرەکەم کەمتر بوو بۆ وەرگرتنم تێیدا. دواتر گەڕام بۆ بەشی پەیوەندییە گشتییەکان و تێبینیم کرد لەم بەشەدا هەلی کارکردن بۆ ئامانجەکەم گونجاوە.</p>
+      <p data-i18n-html="soma_q2"><strong style="color:var(--black);">چی زانیارییەکم دەربارەی هەبوو؟</strong><br>هەوڵمدا زانیاری وەربگرم لە ماڵپەڕی سۆشیال میدیای زانکۆی سلێمانی، بەڵام زۆر ڕوون نەبوو لام.</p>
+      <p data-i18n-html="soma_q3"><strong style="color:var(--black);">ئێستا چۆن لێی دەڕوانم؟</strong><br>بەو شێوەیە لێی دەڕوانم کە داهاتوویەکی زۆر گەش لە بەردەممە، و سەرکەوتنێکی زۆر باشم دەبێت.</p>
+      <p data-i18n-html="soma_q4"><strong style="color:var(--black);">چی فێربووم؟</strong><br>ئەم بەشە فێری هونەری پەیوەندیکردنمان دەکات بە شێوەیەکی ستراتیژی، و کاریگەریمان لە کۆمەڵگا و لە دامودەزگاکان و تێگەیشتنی وردمان لە جەماوەری دامەزراوەکە، واتە گوێگرێکی باش بوون.</p>
       <div style="height:1px; background:var(--line); margin:22px 0;"></div>
-      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">ماریا نەریمان، خاوەنی پلەی یەکەمی قۆناغی یەکەمی ساڵی ڕابردوو</div>
-      <p><strong style="color:var(--black);">چۆن بەشەکەم هەڵبژارد؟</strong><br>ئەم بەشەم هەڵبژارد هەر لە قۆناغی ئامادەییەوە ئارەزووم لێی هەبووە، چونکە هەر زوو لە گرنگی ئەم بەشە تێگەیشتم لەبەر چەند هۆکارێک: ١- ئارەزوو دەکەم ببمە دەنگی کەسانی دیکە. ٢- ئارەزووی بزنسم هەیە و ئێرە بە بژاردەیەکی باش دەزانم.</p>
-      <p><strong style="color:var(--black);">چی زانیارییەکم دەربارەی هەبوو؟</strong><br>نەمدەزانی خوێندنی ئەم بەشە لێرە چۆنە و وانەکانی چین. لە ڕێگەی هاوڕێکەمەوە کەمێک زانیاری گشتیم وەرگرت، بەڵام بە تەواوی نا.</p>
-      <p><strong style="color:var(--black);">ئێستا چۆن لێی دەڕوانم؟</strong><br>پێشتر چۆن سەیری بەشەکەمم دەکرد لە ڕووی گرنگییەوە، ئێستا زۆر زیاتر گرنگتر لێی دەڕوانم دوای ساڵێک خوێندن لە بەشەکە.</p>
+      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;" data-i18n="maria_sign">ماریا نەریمان، خاوەنی پلەی یەکەمی قۆناغی یەکەمی ساڵی ڕابردوو</div>
+      <p data-i18n-html="maria_q1"><strong style="color:var(--black);">چۆن بەشەکەم هەڵبژارد؟</strong><br>ئەم بەشەم هەڵبژارد هەر لە قۆناغی ئامادەییەوە ئارەزووم لێی هەبووە، چونکە هەر زوو لە گرنگی ئەم بەشە تێگەیشتم لەبەر چەند هۆکارێک: ١- ئارەزوو دەکەم ببمە دەنگی کەسانی دیکە. ٢- ئارەزووی بزنسم هەیە و ئێرە بە بژاردەیەکی باش دەزانم.</p>
+      <p data-i18n-html="maria_q2"><strong style="color:var(--black);">چی زانیارییەکم دەربارەی هەبوو؟</strong><br>نەمدەزانی خوێندنی ئەم بەشە لێرە چۆنە و وانەکانی چین. لە ڕێگەی هاوڕێکەمەوە کەمێک زانیاری گشتیم وەرگرت، بەڵام بە تەواوی نا.</p>
+      <p data-i18n-html="maria_q3"><strong style="color:var(--black);">ئێستا چۆن لێی دەڕوانم؟</strong><br>پێشتر چۆن سەیری بەشەکەمم دەکرد لە ڕووی گرنگییەوە، ئێستا زۆر زیاتر گرنگتر لێی دەڕوانم دوای ساڵێک خوێندن لە بەشەکە.</p>
       <div style="height:1px; background:var(--line); margin:22px 0;"></div>
-      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">ئەژی بژار، قۆناغی ٢</div>
-      <p><strong style="color:var(--black);">چۆن ئەم بەشەت هەڵبژارد؟</strong><br>هەڵبژاردە نەبوو، بەڵکو ناوهاتنەوە بوو بەپێی نمرەکەم.</p>
-      <p><strong style="color:var(--black);">چی زانیارییەکەت دەربارەی ئەم بەشە هەبوو؟</strong><br>هیچ، بەهۆی تازەیی بەشەکە هیچ زانیارییەکی ئەوتۆم نەبووە لەسەری. بەڵام دواتر گەڕانم بۆ کرد و زانیاریم دەستکەوت.</p>
-      <p><strong style="color:var(--black);">ئێستا چۆن لێی ئەڕوانی؟</strong><br>داهاتووی خۆمی لێدەبینم. ئەم بەشە دەرفەتی کارت پێدەدات، چ لە حکومەت یان کەرتی تایبەت، کە ئەگەر توانای تێدا بێت خۆت کاریگەری دەبێت.</p>
-      <p><strong style="color:var(--black);">چی فێربووی؟</strong><br>گرنگی پەیوەندییە کۆمەڵایەتی و کەسییەکانمان، بایەخدان و برەودان بە پەیوەندییەکان.</p>
+      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;" data-i18n="azhi_sign">ئەژی بژار، قۆناغی ٢</div>
+      <p data-i18n-html="azhi_q1"><strong style="color:var(--black);">چۆن ئەم بەشەت هەڵبژارد؟</strong><br>هەڵبژاردە نەبوو، بەڵکو ناوهاتنەوە بوو بەپێی نمرەکەم.</p>
+      <p data-i18n-html="azhi_q2"><strong style="color:var(--black);">چی زانیارییەکت دەربارەی ئەم بەشە هەبوو؟</strong><br>هیچ، بەهۆی تازەیی بەشەکە هیچ زانیارییەکی ئەوتۆم نەبووە لەسەری. بەڵام دواتر گەڕانم بۆ کرد و زانیاریم دەستکەوت.</p>
+      <p data-i18n-html="azhi_q3"><strong style="color:var(--black);">ئێستا چۆن لێی ئەڕوانی؟</strong><br>داهاتووی خۆمی لێدەبینم. ئەم بەشە دەرفەتی کارت پێدەدات، چ لە حکومەت یان کەرتی تایبەت، کە ئەگەر توانای تێدا بێت خۆت کاریگەری دەبێت.</p>
+      <p data-i18n-html="azhi_q4"><strong style="color:var(--black);">چی فێربووی؟</strong><br>گرنگی پەیوەندییە کۆمەڵایەتی و کەسییەکانمان، بایەخدان و برەودان بە پەیوەندییەکان.</p>
     </div>
   </details>
 
   <details class="acc">
-    <summary>قۆناغی سێیەم</summary>
+    <summary data-i18n="stage3_summary">قۆناغی سێیەم</summary>
     <div class="acc-body">
-      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">شەنگە لەتیف سلێمان، قۆناغی ٣</div>
-      <p><strong style="color:var(--black);">چۆن بەشەکەت هەڵبژارد؟</strong><br>سەرەتا لەبەر ئەوەی بەتەمای زانکۆی سلێمانی نەبووم، بۆخۆم هەر بە ئاسایی فۆڕمەکەم پڕکردەوە و لای ئیرادی ئەم بەشەم تێکرد، ئەگینا بە ویستی خۆم هەڵم نەبژارد.</p>
-      <p><strong style="color:var(--black);">چی زانیارییەکت دەربارەی هەبوو؟</strong><br>لەبەر ئەوەی بەشەکە زۆر نوێ بوو، هیچ زانیارییەکی ئەوتۆم لەسەری نەبوو. بەڵام دوای ئەوەی ناوم لەو بەشە هاتەوە، لە زۆر سەرچاوەوە هەوڵمدا زانیاری لەسەری کۆبکەمەوە.</p>
-      <p><strong style="color:var(--black);">ئێستا چۆن لێی ئەڕوانی؟</strong><br>بەڕاستی تاکە بڕیارە کە لە ژیانمدا یابێتم و لێی پەشیمان نەبووبێتمەوە. لەبەر ئەوەی من خۆم لەم بەشەدا دۆزییەوە، چونکە زۆر فراوانە و پەیوەندی زۆر باش لەگەڵ خەڵکدا دروست دەکەیت و بەشێکی وشک نییە. جگە لە هەمووی، هاوڕێیەتی بەڕاستی هاوڕێی زۆر باش و دڵسۆزم هەیە کە هەموو خەمخۆر و بەوەفان — لەبەر ئەوەش (خێزانی PR) بووە بە دروشمی بەشەکەمان.</p>
-      <p><strong style="color:var(--black);">چی فێربووی؟</strong><br>فێری جۆرەها ڕێگا و شێواز بووم کە بتوانم پەیوەندی پێ ببەستم و کاریان پێ بکەم.</p>
+      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;" data-i18n="shanga_sign">شەنگە لەتیف سلێمان، قۆناغی ٣</div>
+      <p data-i18n-html="shanga_q1"><strong style="color:var(--black);">چۆن بەشەکەت هەڵبژارد؟</strong><br>سەرەتا لەبەر ئەوەی بەتەمای زانکۆی سلێمانی نەبووم، بۆخۆم هەر بە ئاسایی فۆڕمەکەم پڕکردەوە و لای ئیرادی ئەم بەشەم تێکرد، ئەگینا بە ویستی خۆم هەڵم نەبژارد.</p>
+      <p data-i18n-html="shanga_q2"><strong style="color:var(--black);">چی زانیارییەکت دەربارەی هەبوو؟</strong><br>لەبەر ئەوەی بەشەکە زۆر نوێ بوو، هیچ زانیارییەکی ئەوتۆم لەسەری نەبوو. بەڵام دوای ئەوەی ناوم لەو بەشە هاتەوە، لە زۆر سەرچاوەوە هەوڵمدا زانیاری لەسەری کۆبکەمەوە.</p>
+      <p data-i18n-html="shanga_q3"><strong style="color:var(--black);">ئێستا چۆن لێی ئەڕوانی؟</strong><br>بەڕاستی تاکە بڕیارە کە لە ژیانمدا یابێتم و لێی پەشیمان نەبووبێتمەوە. لەبەر ئەوەی من خۆم لەم بەشەدا دۆزییەوە، چونکە زۆر فراوانە و پەیوەندی زۆر باش لەگەڵ خەڵکدا دروست دەکەیت و بەشێکی وشک نییە. جگە لە هەمووی، هاوڕێیەتی بەڕاستی هاوڕێی زۆر باش و دڵسۆزم هەیە کە هەموو خەمخۆر و بەوەفان — لەبەر ئەوەش (خێزانی PR) بووە بە دروشمی بەشەکەمان.</p>
+      <p data-i18n-html="shanga_q4"><strong style="color:var(--black);">چی فێربووی؟</strong><br>فێری جۆرەها ڕێگا و شێواز بووم کە بتوانم پەیوەندی پێ ببەستم و کاریان پێ بکەم.</p>
       <div style="height:1px; background:var(--line); margin:22px 0;"></div>
-      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">ئەشکان یاسین حسێن، قۆناغی ٣</div>
-      <p><strong style="color:var(--black);">چۆن بەشەکەت هەڵبژارد؟</strong><br>کاتێک زانیم کە بەشەکە پەیوەندی بە کۆمەڵگا و ژیانی ڕۆژانەوە هەیە و ئەو شتانەی کە ڕوودەدەن و ئەگەری ڕووداندنی هەیە لە داهاتوودا، پێشبینیکردنی بۆ ڕووداوەکانی کۆمەڵگا، زیاتر خولیام هەبوو بۆ بەشەکە و ویستم پەرە بەو بوارە بدەم چونکە خۆم حەزم لە پیشەیەکی لەو جۆرە بووە، هەستم دەکرد خۆم لەو بەشە دەبینمەوە.</p>
-      <p><strong style="color:var(--black);">چی زانیارییەکت دەربارەی هەبوو؟</strong><br>سەرەتا هیچ زانیارییەکم نەبوو، بەحوکمی ئەوەی بەشەکە بەشێکی تازە بوو. پرسیارم کرد و هەندێک مامۆستا یارمەتیان دام، دواتر کە بۆم ڕوون بووەوە بەبێ هیچ دوودڵییەک لە یەکەم بەشی فۆڕمەکەمم دانا. دواتر سێرچم بۆی کرد و زانیاری زیاترم دەربارەی بەشەکە زانی کە پەیوەندی بە حکومەت و سیاسەت و کەرتی تایبەت و گشتی و کۆمپانیا و دامەزراوەکانەوە هەیە. زیاتر خولیای کارە سیاسییەکانم هەبوو، دواتر دڵنیایی تەواوم وەرگرت کە بەشێکی تەواو سەرکەوتووە.</p>
-      <p><strong style="color:var(--black);">ئێستا چۆن لێی ئەڕوانی؟</strong><br>ئێستا وەک بەشێکی سەرکەوتوو، بەشێکی زۆر باش لێی دەڕوانم. هیچ پەشیمان نیم لە هەڵبژاردنی بەشەکەم و زۆر حەزم لێیەتی، هیواداریشم زیاتر پەرەی پێ بدرێت لە ساڵانی داهاتوودا.</p>
-      <p><strong style="color:var(--black);">چی فێربووی؟</strong><br>زۆر شت لەم بەشەدا فێربووم — فێری ئیدارەدانی وێنەی زەینی و دروستکردنی ناوبانگی باش و شیکاری جەماوەر و ئیدارەدانی قەیران و پێشبینیکردن و بەرەنگاربوونەوە و داڕشتنی پەیامی ستراتیژی و میدیایی و ڕووبەڕووبوونەوەی پڕوپاگەندە و هtd. بە کورتی زۆر شتی باش لەم بەشەدا فێربووم و ڕۆژ بە ڕۆژ زیاتر خولیام بۆ بەشەکە و زانیاریەکانی مامۆستا ئازیزەکان زیاتر دەبێت. فێربووم کە پەیوەندییە گشتییەکان پردێکە لە نێوان ڕێکخراو و کۆمەڵگەدا، فێربووم چۆن بە شێوازێکی زانستی و ئەخلاقی ئەم پردە بپارێزم.</p>
+      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;" data-i18n="ashkan_sign">ئەشکان یاسین حسێن، قۆناغی ٣</div>
+      <p data-i18n-html="ashkan_q1"><strong style="color:var(--black);">چۆن بەشەکەت هەڵبژارد؟</strong><br>کاتێک زانیم کە بەشەکە پەیوەندی بە کۆمەڵگا و ژیانی ڕۆژانەوە هەیە و ئەو شتانەی کە ڕوودەدەن و ئەگەری ڕووداندنی هەیە لە داهاتوودا، پێشبینیکردنی بۆ ڕووداوەکانی کۆمەڵگا، زیاتر خولیام هەبوو بۆ بەشەکە و ویستم پەرە بەو بوارە بدەم چونکە خۆم حەزم لە پیشەیەکی لەو جۆرە بووە، هەستم دەکرد خۆم لەو بەشە دەبینمەوە.</p>
+      <p data-i18n-html="ashkan_q2"><strong style="color:var(--black);">چی زانیارییەکت دەربارەی هەبوو؟</strong><br>سەرەتا هیچ زانیارییەکم نەبوو، بەحوکمی ئەوەی بەشەکە بەشێکی تازە بوو. پرسیارم کرد و هەندێک مامۆستا یارمەتیان دام، دواتر کە بۆم ڕوون بووەوە بەبێ هیچ دوودڵییەک لە یەکەم بەشی فۆڕمەکەمم دانا. دواتر سێرچم بۆی کرد و زانیاری زیاترم دەربارەی بەشەکە زانی کە پەیوەندی بە حکومەت و سیاسەت و کەرتی تایبەت و گشتی و کۆمپانیا و دامەزراوەکانەوە هەیە. زیاتر خولیای کارە سیاسییەکانم هەبوو، دواتر دڵنیایی تەواوم وەرگرت کە بەشێکی تەواو سەرکەوتووە.</p>
+      <p data-i18n-html="ashkan_q3"><strong style="color:var(--black);">ئێستا چۆن لێی ئەڕوانی؟</strong><br>ئێستا وەک بەشێکی سەرکەوتوو، بەشێکی زۆر باش لێی دەڕوانم. هیچ پەشیمان نیم لە هەڵبژاردنی بەشەکەم و زۆر حەزم لێیەتی، هیواداریشم زیاتر پەرەی پێ بدرێت لە ساڵانی داهاتوودا.</p>
+      <p data-i18n-html="ashkan_q4"><strong style="color:var(--black);">چی فێربووی؟</strong><br>زۆر شت لەم بەشەدا فێربووم — فێری ئیدارەدانی وێنەی زەینی و دروستکردنی ناوبانگی باش و شیکاری جەماوەر و ئیدارەدانی قەیران و پێشبینیکردن و بەرەنگاربوونەوە و داڕشتنی پەیامی ستراتیژی و میدیایی و ڕووبەڕووبوونەوەی پڕوپاگەندە و هtd. بە کورتی زۆر شتی باش لەم بەشەدا فێربووم و ڕۆژ بە ڕۆژ زیاتر خولیام بۆ بەشەکە و زانیاریەکانی مامۆستا ئازیزەکان زیاتر دەبێت. فێربووم کە پەیوەندییە گشتییەکان پردێکە لە نێوان ڕێکخراو و کۆمەڵگەدا، فێربووم چۆن بە شێوازێکی زانستی و ئەخلاقی ئەم پردە بپارێزم.</p>
       <div style="height:1px; background:var(--line); margin:22px 0;"></div>
-      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">دینا دلێر جەبار، قۆناغی ٣</div>
-      <p><strong style="color:var(--black);">چۆن بەشەکەت هەڵبژارد؟</strong><br>سەرەتا زانیارییەکی زۆرم نەبوو لەسەری، بەڵام بەشی پەیوەندییە گشتییەکانم وەک پردێکی سەرەکی لە نێوان ڕێکخراو، کۆمپانیا و جەماوەردا بینیوە. حەز و ئارەزووی خۆمم لە کارامەییەکانی پەیوەندیکردن و بەڕێوەبردنی قەیرانەکاندا دۆزییەوە.</p>
-      <p><strong style="color:var(--black);">چی زانیارییەکت هەبوو لەسەر بەشەکە؟</strong><br>تەنها تێڕوانینێکی گشتیم هەبوو کە بۆ ڕیکلام و ڕەنگدانەوەی کارەکان بەکاردێت.</p>
-      <p><strong style="color:var(--black);">ئێستا چۆن بەشەکەت دەبینی؟</strong><br>ئێستا بەشەکەم بە یەکێک لە ستوونە سەرەکی و ستراتیژییەکانی هەر سەرکەوتنێک دەبینم. تێگەیشتووم کە پەیوەندییە گشتییەکان تەنها وەڵامدانەوەی ڕووداوەکان نییە، بەڵکو پلاندانانی پێشوەختەیە بۆ پاراستنی ناوبانگ و دروستکردنی بەهای درێژخایەن بۆ دامەزراوەکە.</p>
-      <p><strong style="color:var(--black);">چی فێربووی؟</strong><br>توانای گوێگرتنی چالاک و شیکردنەوەی بۆچوونی جەماوەر. فێربووم چۆن پەیامێکی ڕوون، کاریگەر و متمانەپێکراو بگەیەنم و وێنەی ڕاستەقینەی دامەزراوەکە پیشان بدەم.</p>
+      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;" data-i18n="dina_sign">دینا دلێر جەبار، قۆناغی ٣</div>
+      <p data-i18n-html="dina_q1"><strong style="color:var(--black);">چۆن بەشەکەت هەڵبژارد؟</strong><br>سەرەتا زانیارییەکی زۆرم نەبوو لەسەری، بەڵام بەشی پەیوەندییە گشتییەکانم وەک پردێکی سەرەکی لە نێوان ڕێکخراو، کۆمپانیا و جەماوەردا بینیوە. حەز و ئارەزووی خۆمم لە کارامەییەکانی پەیوەندیکردن و بەڕێوەبردنی قەیرانەکاندا دۆزییەوە.</p>
+      <p data-i18n-html="dina_q2"><strong style="color:var(--black);">چی زانیارییەکت هەبوو لەسەر بەشەکە؟</strong><br>تەنها تێڕوانینێکی گشتیم هەبوو کە بۆ ڕیکلام و ڕەنگدانەوەی کارەکان بەکاردێت.</p>
+      <p data-i18n-html="dina_q3"><strong style="color:var(--black);">ئێستا چۆن بەشەکەت دەبینی؟</strong><br>ئێستا بەشەکەم بە یەکێک لە ستوونە سەرەکی و ستراتیژییەکانی هر سەرکەوتنێک دەبینم. تێگەیشتووم کە پەیوەندییە گشتییەکان تەنها وەڵامدانەوەی ڕووداوەکان نییە، بەڵکو پلاندانانی پێشوەختەیە بۆ پاراستنی ناوبانگ و دروستکردنی بەهای درێژخایەن بۆ دامەزراوەکە.</p>
+      <p data-i18n-html="dina_q4"><strong style="color:var(--black);">چی فێربووی؟</strong><br>توانای گوێگرتنی چالاک و شیکردنەوەی بۆچوونی جەماوەر. فێربووم چۆن پەیامێکی ڕوون، کاریگەر و متمانەپێکراو بگەیەنم و وێنەی ڕاستەقینەی دامەزراوەکە پیشان بدەم.</p>
       <div style="height:1px; background:var(--line); margin:22px 0;"></div>
-      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">گۆڤار شۆڕش ئەحمەد، قۆناغی ٣</div>
-      <p><strong style="color:var(--black);">چۆن بەشەکەم هەڵبژارد؟</strong><br>بەهۆی حەز و خولیای بەهێزم بۆ دروستکردنی پەیوەندی کۆمەڵایەتی، ڕاگەیاندن و تێگەیشتن لە ڕای گشتی ئەم بەشەم هەڵبژارد، وەک دەرفەتێک بۆ ئەوەی بە شێوازێکی زانستی بوارەکانی ڕێکخستنی کارگێڕی، پرۆتۆکۆڵ و بەڕێوەبردنی کەشوهەوای دەزگایی فێربم.</p>
-      <p><strong style="color:var(--black);">چی زانیارییەکم دەربارەی هەبوو؟</strong><br>زانیارییە سەرەتاییەکانم کورت بوون، بەڵام خاوەنی چەند هاوڕێیەک بووم لەم بەشە کە یارمەتیدەرێکی زۆر باش بوون بۆ زیادکردنی زانیارییەکانم سەبارەت بەوەی کە پەیوەندییە گشتییەکان پردی پەیوەندی نێوان ڕێکخراو و جەماوەرەکەیەتی، هەروەها دەمزانی بەشێکە لە بوارە گرنگەکانی میدیا و بەڕێوەبردن کە یارمەتی دروستکردنی وێنەی ئەرێنی کۆمپانیا و دامەزراوەکان دەدات.</p>
-      <p><strong style="color:var(--black);">ئێستا چۆن لێی ئەڕوانم؟</strong><br>ئێستا بەشەکە بە زۆر فراوانتر و گرنگتر دەبینم لە تەنها بەڕێوەبردنی ئاسایی، وەک هونەر و زانستێکی ستراتیژی لێی دەڕوانم بۆ بەڕێوەبردنی قەیرانەکان، دروستکردنی ناوبانگی ڕێکخراوەیی و هەماهەنگی پرۆتۆکۆڵی و ڕێکخستنی چالاکییەکان.</p>
-      <p><strong style="color:var(--black);">چی فێربووم؟</strong><br>فێری تیۆرەکانی پەیوەندیکردن، ستراتیژییەکانی بەڕێوەبردنی قەیران، بەڕێوەبردنی هەڵمەتە ڕاگەیاندنییەکان و کارامەییەکانی پێشکەشکردن بووم، لەگەڵ ئەوەشدا فێری دروستکردنی ناوەڕۆکی میدیایی بەهێز و تێگەیشتن لە بنەماکانی ڕەفتاری جەماوەر بووم.</p>
+      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;" data-i18n="govar_sign">گۆڤار شۆڕش ئەحمەد، قۆناغی ٣</div>
+      <p data-i18n-html="govar_q1"><strong style="color:var(--black);">چۆن بەشەکەم هەڵبژارد؟</strong><br>بەهۆی حەز و خولیای بەهێزم بۆ دروستکردنی پەیوەندی کۆمەڵایەتی، ڕاگەیاندن و تێگەیشتن لە ڕای گشتی ئەم بەشەم هەڵبژارد، وەک دەرفەتێک بۆ ئەوەی بە شێوازێکی زانستی بوارەکانی ڕێکخستنی کارگێڕی، پرۆتۆکۆڵ و بەڕێوەبردنی کەشوهەوای دەزگایی فێربم.</p>
+      <p data-i18n-html="govar_q2"><strong style="color:var(--black);">چی زانیارییەکم دەربارەی هەبوو؟</strong><br>زانیارییە سەرەتاییەکانم کورت بوون، بەڵام خاوەنی چەند هاوڕێیەک بووم لەم بەشە کە یارمەتیدەرێکی زۆر باش بوون بۆ زیادکردنی زانیارییەکانم سەبارەت بەوەی کە پەیوەندییە گشتییەکان پردی پەیوەندی نێوان ڕێکخراو و جەماوەرەکەیەتی، هەروەها دەمزانی بەشێکە لە بوارە گرنگەکانی میدیا و بەڕێوەبردن کە یارمەتی دروستکردنی وێنەی ئەرێنی کۆمپانیا و دامەزراوەکان دەدات.</p>
+      <p data-i18n-html="govar_q3"><strong style="color:var(--black);">ئێستا چۆن لێی ئەڕوانم؟</strong><br>ئێستا بەشەکە بە زۆر فراوانتر و گرنگتر دەبینم لە تەنها بەڕێوەبردنی ئاسایی، وەک هونەر و زانستێکی ستراتیژی لێی دەڕوانم بۆ بەڕێوەبردنی قەیرانەکان، دروستکردنی ناوبانگی ڕێکخراوەیی و هەماهەنگی پرۆتۆکۆڵی و ڕێکخستنی چالاکییەکان.</p>
+      <p data-i18n-html="govar_q4"><strong style="color:var(--black);">چی فێربووم؟</strong><br>فێری تیۆرەکانی پەیوەندیکردن، ستراتیژییەکانی بەڕێوەبردنی قەیران، بەڕێوەبردنی هەڵمەتە ڕاگەیاندنییەکان و کارامەییەکانی پێشکەشکردن بووم، لەگەڵ ئەوەشدا فێری دروستکردنی ناوەڕۆکی میدیایی بەهێز و تێگەیشتن لە بنەماکانی ڕەفتاری جەماوەر بووم.</p>
     </div>
   </details>
 
   <details class="acc">
-    <summary>قۆناغی چوارەم</summary>
+    <summary data-i18n="stage4_summary">قۆناغی چوارەم</summary>
     <div class="acc-body">
-      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">لاوان تاریق محەمەد، قۆناغی ٤</div>
-      <p><strong style="color:var(--black);">چۆن بەشەکەم هەڵبژارد؟</strong><br>چونکە بەشێکی تازە بوو، سەرنجی ڕاکێشام؛ حەزم کرد بوارێکی نوێ تاقیبکەمەوە کە تێکەڵەیەکە لە پەیوەندی کۆمەڵایەتی، ڕێکخستن و ڕاگەیاندن.</p>
-      <p><strong style="color:var(--black);">چی زانیارییەکم دەربارەی هەبوو؟</strong><br>تەنها تێگەیشتنێکی سەرەتایی؛ کە بەشێکە بۆ ڕێکخستنی وێنەی دامەزراوەکان و دروستکردنی پردی پەیوەندی لەگەڵ خەڵکدا.</p>
-      <p><strong style="color:var(--black);">ئێستا چۆن لێی دەڕوانم؟</strong><br>بە بەشێکی ستراتیژی و گرنگی دەبینم کە هیچ کۆمپانیا یان دامەزراوەیەک ناتوانێت بێ ئەوە سەرکەوتوو بێت.</p>
-      <p><strong style="color:var(--black);">چی فێربووم؟</strong><br>فێری هونەری گفتوگۆ، بەڕێوەبردنی بۆنە و ئیڤینتەکان، و پرۆتۆکۆڵ بووم.</p>
+      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;" data-i18n="lawan_sign">لاوان تاریق محەمەد، قۆناغی ٤</div>
+      <p data-i18n-html="lawan_q1"><strong style="color:var(--black);">چۆن بەشەکەم هەڵبژارد؟</strong><br>چونکە بەشێکی تازە بوو، سەرنجی ڕاکێشام؛ حەزم کرد بوارێکی نوێ تاقیبکەمەوە کە تێکەڵەیەکە لە پەیوەندی کۆمەڵایەتی، ڕێکخستن و ڕاگەیاندن.</p>
+      <p data-i18n-html="lawan_q2"><strong style="color:var(--black);">چی زانیارییەکم دەربارەی هەبوو؟</strong><br>تەنها تێگەیشتنێکی سەرەتایی؛ کە بەشێکە بۆ ڕێکخستنی وێنەی دامەزراوەکان و دروستکردنی پردی پەیوەندی لەگەڵ خەڵکدا.</p>
+      <p data-i18n-html="lawan_q3"><strong style="color:var(--black);">ئێستا چۆن لێی دەڕوانم؟</strong><br>بە بەشێکی ستراتیژی و گرنگی دەبینم کە هیچ کۆمپانیا یان دامەزراوەیەک ناتوانێت بێ ئەوە سەرکەوتوو بێت.</p>
+      <p data-i18n-html="lawan_q4"><strong style="color:var(--black);">چی فێربووم؟</strong><br>فێری هونەری گفتوگۆ، بەڕێوەبردنی بۆنە و ئیڤینتەکان، و پرۆتۆکۆڵ بووم.</p>
       <div style="height:1px; background:var(--line); margin:22px 0;"></div>
-      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;">ئاکام نەجمەدین، قۆناغی ٤</div>
-      <p><strong style="color:var(--black);">چۆن بەشەکەت هەڵبژارد؟</strong><br>ڕەفیقێکم لەو بەشە بوو، منیش بەهۆی ئەوەوە هەڵمبژارد.</p>
-      <p><strong style="color:var(--black);">چی زانیارییەکی دەربارەی هەبوو؟</strong><br>هیچ زانیارییەکی سەرەتایم نەبوو، تەنها ئەوەنەم دەزانی زۆرینەی بابەتەکان بە کوردی دەخوێندرێن.</p>
-      <p><strong style="color:var(--black);">ئێستا چۆن لێی دەڕوانم؟</strong><br>بەشێکی تازەیە و تا ئێستا زۆر ناسراو نییە لە ناو دامەزراوە و کۆمەڵگا.</p>
-      <p><strong style="color:var(--black);">چی فێربووم؟</strong><br>باشترکردنی پەیوەندی نێوان دامەزراوە و جەماوەر و چەندان شتی دیکە.</p>
+      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;" data-i18n="akam_sign">ئاکام نەجمەدین، قۆناغی ٤</div>
+      <p data-i18n-html="akam_q1"><strong style="color:var(--black);">چۆن بەشەکەت هەڵبژارد؟</strong><br>ڕەفیقێکم لەو بەشە بوو، منیش بەهۆی ئەوەوە هەڵمبژارد.</p>
+      <p data-i18n-html="akam_q2"><strong style="color:var(--black);">چی زانیارییەکی دەربارەی هەبوو؟</strong><br>هیچ زانیارییەکی سەرەتایم نەبوو، تەنها ئەوەنەم دەزانی زۆرینەی بابەتەکان بە کوردی دەخوێندرێن.</p>
+      <p data-i18n-html="akam_q3"><strong style="color:var(--black);">ئێستا چۆن لێی دەڕوانم؟</strong><br>بەشێکی تازەیە و تا ئێستا زۆر ناسراو نییە لە ناو دامەزراوە و کۆمەڵگا.</p>
+      <p data-i18n-html="akam_q4"><strong style="color:var(--black);">چی فێربووم؟</strong><br>باشترکردنی پەیوەندی نێوان دامەزراوە و جەماوەر و چەندان شتی دیکە.</p>
     </div>
   </details>
 </section>
 
 <section id="faq">
-  <span class="tag">وەڵامی خێرا</span>
-  <h2 class="title">❓ پرسیارە باوەکان</h2>
-  <p class="sub">ئەم وەڵامانەی خوارەوە بە شێوەیەکی ڕاستەقینە ڕوونکردنەوە دەدەن لەسەر ئەو پرسیارانەی زۆرترین جار لە لایەن خوێندکارانی نوێوە دەپرسرێن.</p>
+  <span class="tag" data-i18n="tag_faq">وەڵامی خێرا</span>
+  <h2 class="title" data-i18n="title_faq">❓ پرسیارە باوەکان</h2>
+  <p class="sub" data-i18n="sub_faq">ئەم وەڵامانەی خوارەوە بە شێوەیەکی ڕاستەقینە ڕوونکردنەوە دەدەن لەسەر ئەو پرسیارانەی زۆرترین جار لە لایەن خوێندکارانی نوێوە دەپرسرێن.</p>
   <div id="dyn-faq-list">
     <details class="faq-acc" open>
-      <summary>١. ئایا خوێندن لە بەشی پەیوەندییە گشتییەکان بە چ زمانێکە؟</summary>
-      <div class="acc-body">
+      <summary data-i18n="faq1_q">١. ئایا خوێندن لە بەشی پەیوەندییە گشتییەکان بە چ زمانێکە؟</summary>
+      <div class="acc-body" data-i18n="faq1_a">
         زۆربەی وانە سەرەکییەکان بە زمانی کوردی دەخوێندرێن، لەگەڵ هەندێک زاراوەی ئەکادیمی و وانەی تایبەت بە ئینگلیزی بۆ بەهێزکردنی ئاستی زمانی خوێندکاران.
       </div>
     </details>
 
     <details class="faq-acc">
-      <summary>٢. ئایا تەنها خوێندکارانی لقی وێژەیی دەتوانن بێنە ئەم بەشە یان لقی زانستیش؟</summary>
-      <div class="acc-body">
+      <summary data-i18n="faq2_q">٢. ئایا تەنها خوێندکارانی لقی وێژەیی دەتوانن بێنە ئەم بەشە یان لقی زانستیش؟</summary>
+      <div class="acc-body" data-i18n="faq2_a">
         دەرچووانی هەردوو لقی وێژەیی و زانستی دەتوانن لە ڕێگەی زانکۆلاین یان پاراڵێلەوە داواکاری پێشکەش بکەن.
       </div>
     </details>
 
     <details class="faq-acc">
-      <summary>٣. جیاوازیی سەرەکی لە نێوان بەشی "پەیوەندییە گشتییەکان (PR)" و بەشی "ڕاگەیاندن / ڕۆژنامەنووسی" چییە؟</summary>
-      <div class="acc-body">
+      <summary data-i18n="faq3_q">٣. جیاوازیی سەرەکی لە نێوان بەشی "پەیوەندییە گشتییەکان (PR)" و بەشی "ڕاگەیاندن / ڕۆژنامەنووسی" چییە؟</summary>
+      <div class="acc-body" data-i18n="faq3_a">
         بەشی ڕاگەیاندن زیاتر تیشک دەخاتە سەر دروستکردنی ڕاپۆرت و کارکردن لە کەناڵەکاندا؛ بەڵام بەشی پەیوەندییە گشتییەکان زانستی بەڕێوەبردنی ناوبانگ، دروستکردنی ستراتیژ، بەڕێوەبردنی قەیرانەکان و هەماهەنگییە لە نێوان دامەزراوەکان و جەماوەردا.
       </div>
     </details>
@@ -674,24 +716,450 @@
 </section>
 
 <section id="contact" class="contact-wrap">
-  <span class="tag">پەیوەندی</span>
-  <h2>هێشتا پرسیارت هەیە؟</h2>
-  <p>پەیوەندی بە بەشی پەیوەندییە گشتییەکانی زانکۆی سلێمانی بکە بۆ زانیاری زیاتر لەسەر وەرگرتن و خوێندن.</p>
-  <p class="addr">📍 کەمپی نوێی زانکۆی سلێمانی — کۆلێژی زانستە مرۆڤایەتییەکان (بینای ١١)</p>
+  <span class="tag" data-i18n="tag_contact">پەیوەندی</span>
+  <h2 data-i18n="title_contact">هێشتا پرسیارت هەیە؟</h2>
+  <p data-i18n="p_contact">پەیوەندی بە بەشی پەیوەندییە گشتییەکانی زانکۆی سلێمانی بکە بۆ زانیاری زیاتر لەسەر وەرگرتن و خوێندن.</p>
+  <p class="addr" data-i18n="addr_contact">📍 کەمپی نوێی زانکۆی سلێمانی — کۆلێژی زانستە مرۆڤایەتییەکان (بینای ١١)</p>
   <div class="contact-btns">
-    <a class="cbtn solid" href="https://wa.me/9647740823075" target="_blank" rel="noopener">💬 واتساپ</a>
-    <a class="cbtn" href="https://www.facebook.com/share/1Eu4ffZzKL/?mibextid=wwXIfr" target="_blank" rel="noopener">📘 فەیسبووکی فەرمی</a>
-    <a class="cbtn" href="https://www.instagram.com/public.relations.students?igsh=MThiOWV3dzZycjhreA==" target="_blank" rel="noopener">📷 ئینستاگرامی خوێندکاران</a>
+    <a class="cbtn solid" href="https://wa.me/9647740823075" target="_blank" rel="noopener" data-i18n="btn_wa">💬 واتساپ</a>
+    <a class="cbtn" href="https://www.facebook.com/share/1Eu4ffZzKL/?mibextid=wwXIfr" target="_blank" rel="noopener" data-i18n="btn_fb">📘 فەیسبووکی فەرمی</a>
+    <a class="cbtn" href="https://www.instagram.com/public.relations.students?igsh=MThiOWV3dzZycjhreA==" target="_blank" rel="noopener" data-i18n="btn_ig">📷 ئینستاگرامی خوێندکاران</a>
   </div>
 </section>
 
 <footer>
-  © ٢٠٢٦ بەشی پەیوەندییە گشتییەکان — زانکۆی سلێمانی
-  <span class="credit">دروستکراوە لە لایەن ئارا عەزیز، خوێندکاری قۆناغی دووەمی بەشی پەیوەندییە گشتییەکان</span>
-  <span class="thanks">شایەنی باسە دەمەوێ پێزانین و دەسخۆشی خۆم ئاڕاستەی تەواوی ستافی بەش و مامۆستا ماندوونەناسەکانمان بە گشتی، و دکتۆرە لانەی سەرۆک بەش و مامۆستا شۆخان بڕیاردەری بەشەکەمان و مامۆستا ئاڤێستا مامۆستا لە بەشەکەمان بە تایبەتی بکەم. هەروەها دەسخۆشی لە دژوار عادل هاوڕێ و نوێنەری قۆناغی دووەم و تەواوی ئەو خوێندکارانەی کە فیدباکیان ئەنجام دا بۆ سایتەکەم بکەم، کە هاوکاری تەواویان کردم لە باشترکردنی ئەم سایتە بۆ خوێندکاران</span>
+  <span data-i18n="footer_copy">© ٢٠٢٦ بەشی پەیوەندییە گشتییەکان — زانکۆی سلێمانی</span>
+  <span class="credit" data-i18n="footer_credit">دروستکراوە لە لایەن ئارا عەزیز، خوێندکاری قۆناغی دووەمی بەشی پەیوەندییە گشتییەکان</span>
+  <span class="thanks" data-i18n="footer_thanks">شایەنی باسە دەمەوێ پێزانین و دەسخۆشی خۆم ئاڕاستەی تەواوی ستافی بەش و مامۆستا ماندوونەناسەکانمان بە گشتی، و دکتۆرە لانەی سەرۆک بەش و مامۆستا شۆخان بڕیاردەری بەشەکەمان و مامۆستا ئاڤێستا مامۆستا لە بەشەکەمان بە تایبەتی بکەم. هەروەها دەسخۆشی لە دژوار عادل هاوڕێ و نوێنەری قۆناغی دووەم و تەواوی ئەو خوێندکارانەی کە فیدباکیان ئەنجام دا بۆ سایتەکەم بکەم، کە هاوکاری تەواویان کردم لە باشترکردنی ئەم سایتە بۆ خوێندکاران</span>
 </footer>
 
-<!-- سکریپتی نوێکراوە بۆ خوێندنەوەی Google Sheet CSV + Calculator -->
+<!-- Translations Dictionary & Language Switcher Logic -->
+<script>
+  const translations = {
+    ckb: {
+      lang_btn: "English",
+      brand_name: "پەیوەندییە گشتییەکان",
+      nav_history: "مێژوو",
+      nav_reason: "هۆکار",
+      nav_scores: "نمرەی وەرگیران",
+      nav_subjects: "وانەکان",
+      nav_opportunities: "دەرفەتەکان",
+      nav_careers: "دواڕۆژی کار",
+      nav_campaign: "کەمپەینی مانگ",
+      nav_feedback: "فیدباک",
+      nav_faq: "پرسیارە باوەکان",
+      nav_contact: "پەیوەندی",
+      hero_eyebrow: "بەشی پەیوەندییە گشتییەکان دامەزراوە لە ساڵی٢٠٢١ لە کۆلێژی زانستە مرۆڤایەتییەکان لە زانکۆی سلێمانی",
+      hero_title: 'بەشی <span class="accent">پەیوەندییە گشتییەکان</span><br>دەروازەیەکی نوێ بۆ داهاتووت',
+      hero_desc: "ئەم بەشە تازەیە لە زانکۆی سلێمانی، زۆرێک لە خوێندکارانی پۆلی ١٢ و کەسووکاریان زانیاریان کەمە لەسەری. لێرەدا هەموو ئەوەی پێویستە بزانن کۆمکردووەتەوە: نمرەی وەرگیران، ئەو بابەتانەی دەیخوێنیت، و ئەو کارانەی دواتر دەتوانیت تێیدا کاربکەیت.",
+      chap_history: "مێژوو و دەربارەمان",
+      chap_reason: "هۆکاری دروستبوونی سایتەکە",
+      chap_scores: "نمرەی وەرگیران",
+      chap_subjects: "وانەکان",
+      chap_opportunities: "دەرفەتەکانی خوێندکار",
+      chap_careers: "دواڕۆژی کار",
+      chap_campaign: "کەمپەینی مانگ",
+      chap_feedback: "فیدباکی خوێندکاران",
+      chap_faq: "پرسیارە باوەکان",
+      chap_contact: "پەیوەندی",
+      tag_about: "دەربارەی بەشەکەمان",
+      title_about: "مێژوو و دەربارەی بەشەکەمان",
+      about_p1: "بەشی پەیوەندییە گشتییەکان لە ساڵی ٢٠٢١ەوە لە پێناو دەستخستنی کادری ئەکادیمی و پڕکردنەوەی پێداویستی بازاڕ دامەزراوە. لەم بەشەدا گرنگی بە هەردوو لایەنی تیۆری و پراکتیکی دەدرێت. بەهۆی گرنگی پەیوەندییە گشتییەکان لە نێو کەرتی تایبەت و حکومیدا، ئەو ئامراز و ڕێگایانە بەکارهێنرێت، کە یارمەتیدەرن لە بەرهەمهێنانی کادری پرۆفیشناڵی پەیوەندییە گشتییەکان. لەم بەشەدا، گرنگی تەواو بەو وانە و بابەتانە دەدرێت کە پێداویستی ئێستای سەردەمی بازاڕن وەکو ڕاوێژکاری سیاسی و ڕاوێژکاری ستراتیژی بەڕێوەبردنی دامەزراوە، داهێنان، دارشتنی ستراتیژ، براندینگ، لێکۆڵینەوە لە هەڵسوکەوتی بەکاربەر، پاراستنی ناوبانگ، بەڕێوەبردنی کەمپەین و خۆپارێزی لە کاتی قەیراندا.",
+      tl_intake_h: "خولی وەرگیران",
+      tl_intake_p: 'تاکو ئێستا بەشەکە <span id="intake-rounds-text">٥</span> خولی وەرگیرانی هەبووە.',
+      tl_grad_h: "خولی دەرچوون",
+      tl_grad_p: '<span id="graduation-rounds-text">٢</span> خولی دەرچوونیش تاکو ئێستا تەواوی کردووە.',
+      tag_story: "وتەی دروستکەری سایتەکە",
+      title_story: "بۆچی ئەم سایتەم دروستکرد؟",
+      story_p1: "کاتێک پۆلی ١٢م تەواو کرد، زۆر گەڕام بۆ دۆزینەوەی بەشێک کە لەگەڵ خولیا و ئارەزوو و ئەزموونم بگونجێت. لەنێو چەند بەشێکدا، بەشی پەیوەندییە گشتییەکان زۆر سەرنجی ڕاکێشام — بەڵام چونکە بەشێکی تازە بوو لە زانکۆی سلێمانی، لە سۆشیال میدیا و ئینتەرنێت زانیارییەکی زۆر کەمم دەستکەوت دەربارەی وردەکاری خوێندن، وانەکان، و هەلی کار.",
+      story_p2: "پاشان چومە زانکۆ و دوای ئاشنابوون بە وانەکان، مامۆستا و دکتۆرە لێهاتووەکان، و بەتایبەتی سەرۆکی بەشەکەمان کە زانیاری زۆری هەبووە دەربارەی بەشەکە، بۆم دەرکەوت کە کارە ڕاستەکەم ئەنجام داوە. لەبەر ئەوە هەستام بە دروستکردنی ئەم سایتە بۆ خوێندکاران بۆ ئەوەی بە هەمان شێوەی من توشی کێشەی نەبوونی زانیاری نەبن سەبارەت بەم بەشە و زانیاری زیاتریان هەبێت.",
+      story_sign: "— ئارا عەزیز",
+      tag_scores: "وردەگیری",
+      title_scores: 'نمرەی وەرگیران — ساڵی <span id="dyn-academic-year">٢٠٢٥-٢٠٢٦</span>',
+      scores_sub: "ئەمانە نمرەکانی وەرگیرانی ساڵی پار بوون بۆ بەشی پەیوەندییە گشتییەکان. نمرەکان ساڵ بە ساڵ دەگۆڕێن بەپێی ژمارەی داواکار و کۆتای وەرگیراوان، بۆیە ئەمانە تەنها ڕێنماییەکن.",
+      plaque_zankoline: "کەمترین نمرەی وەرگیراو — زانکۆلاین",
+      plaque_yr1: 'ساڵی <span class="dyn-score-year">٢٠٢٥</span>',
+      plaque_parallel: "کەمترین نمرەی وەرگیراو — پاراڵێل",
+      plaque_yr2: 'ساڵی <span class="dyn-score-year">٢٠٢٥</span>',
+      scores_note1: "تێبینی: ئەم نمرانە بۆ ساڵی ڕابردوون و ڕەنگە ئەمساڵ بگۆڕێن. بۆ زانیاری وردتر و دووپاتکردنەوە، سەیری فۆڕمی زانکۆلاین یان بەشەکەمان بکە.",
+      scores_note2: 'لە ساڵی <span id="dyn-academic-year-note">٢٠٢٥-٢٠٢٦</span>، <span id="students-count">٨٠</span> خوێندکار وەرگیراوە.',
+      calc_h4: "🔍 ئامرازی تاقیکردنەوەی نمرەکەت:",
+      calc_p: "نمرەکەت بنووسە تاوەکو بزانیت چانسی وەرگیرانت لەسەر زانکۆلاین یان پاراڵێل چۆنە:",
+      calc_btn: "تاقیکردنەوەی نمرە",
+      calc_placeholder: "نمرەکەت (نموونە: 62)",
+      calc_err: '<span style="color: #ff6b6b;">تکایە نمرەکەت بنووسە.</span>',
+      calc_res_zanko: '🎉 پیرۆزە! نمرەکەت ({score}) لە کەمترین نمرەی زانکۆلاین ({threshold}) بەرزترە. چانسێکی زۆر بەرزت هەیە بۆ وەرگیرانی ڕاستەوخۆ!',
+      calc_res_para: '😊 نمرەکەت ({score}) لە کەمترین نمرەی پاراڵێل ({threshold}) بەرزترە. چانسی وەرگیرانت لەسەر سیستمی پاراڵێل زۆر بەرزە!',
+      calc_res_low: 'هێشتا هیوا هەیە! نمرەکەت ({score}) لە کەمترین نمرەی پاراڵێلی ساڵی ڕابردوو ({threshold}) کەمێک نزمترە. بەهۆی گۆڕانی نمرەکان، هێشتا چانس هەیە؛ هەمیشە فۆڕمی زانکۆلاین پڕبکەرەوە.',
+      tag_subjects: "پەرچەکردنی خوێندن",
+      title_subjects: '4ساڵی زانکۆت بە زیاتر لە <span id="subjects-count">20</span>وانەی بەهێز نەخشە ڕێگەی خوێندنەکەتە',
+      sub_subjects: "کۆمەڵێک وانەی پڕاکتیکی و تیۆری دەخوێندرێ لە چوارچێوەی ٤ ساڵدا کە دەکاتە ٨ وەرزی خوێندن. ئەمانەش نموونەی هەندێک لە وانە گرنگەکانە.",
+      subj1_t: "ڕیکلام", subj1_d: "شێوازەکانی دروستکردنی ڕیکلام و کاریگەری لەسەر بیرکردنەوەی کۆمەڵگا.",
+      subj2_t: "مارکێتینگ", subj2_d: "بەکارهێنانی ستراتیژەکانی بازاڕگەرمکردنی کاڵا و شتومەک و خزمەتگوزارییەکان لە ڕێگەی تێگەیشتن لە چۆنیەتی بەڕێوەچوونی ڕەوشی بازاڕ.",
+      subj3_t: "بەڕێوەبردنی ناوبانگ و براند", subj3_d: "پاراستن و بەهێزکردنی ناوبانگ و براندی کۆمپانیا و دامەزراوەکان.",
+      subj4_t: "پرۆتۆکۆڵ", subj4_d: "ڕێز و ڕێساکانی پێشوازیکردن و بەڕێوەبردنی چالاکی فەرمی و دیپلۆماسی.",
+      subj5_t: "بەڕێوەبردنی قەیرانەکان", subj5_d: "چۆنیەتی مامەڵەکردن لەگەڵ قەیران و پاراستنی وێنەی گشتی لە کاتی تەنگژەدا.",
+      subj6_t: "بەڕێوەبردنی دامەزراوە و پەیوەندییەکان", subj6_d: "چۆنیەتی بەڕێوەبردنی دامەزراوە و پەیوەندییەکانی.",
+      subj7_t: "وتووێژ و قسەکردنی گشتی", subj7_d: "لێهاتووی قسەکردن لەبەردەم کۆمەڵگا و پێشکەشکردنی پەیام بە شێوەیەکی کاریگەر.",
+      subj8_t: "ستراتیژی و پلاندانان", subj8_d: "دروستکردنی پلانی پەیوەندی گشتی بۆ کۆمپانیا و دامەزراوەکان.",
+      subj9_t: "بەڕێوەبردنی سۆشیال میدیا", subj9_d: "بەڕێوەبردنی ناوەڕۆکی دیجیتاڵ و کەمپینی ڕاگەیاندن لەسەر ئینتەرنێت.",
+      subj10_t: "ڕێکخستن و بەڕێوەبردنی ئیڤینت و بۆنەکان", subj10_d: "ڕێکخستن و بەڕێوەبردنی چالاکی و ئیڤینتی گشتی.",
+      subj11_t: "بەڕێوەبردنی پەیوەندییە میدیاییەکان", subj11_d: "چۆنیەتی دروستکردن و بەڕێوەبردنی پەیوەندی لەگەڵ میدیا و ڕۆژنامەنووسان.",
+      subj12_t: "گرافیک دیزاین", subj12_d: "دیزاینی بابەتە بینراوەکان بۆ کەمپین و ناوەڕۆکی ڕاگەیاندن.",
+      subj13_t: "فۆتۆگرافی و ڤیدیۆگرافی", subj13_d: "وێنەگرتن و تۆمارکردنی ڤیدیۆ بۆ کەمپین و ناوەڕۆکی ڕاگەیاندن.",
+      subj14_t: "بەرهەمهێنانی پەیوەندی گشتی", subj14_d: "ئامادەکردن و دروستکردنی ناوەڕۆکی پەیوەندی گشتی بۆ بڵاوکردنەوە.",
+      subj15_t: "هەڵمەتی پەیوەندی گشتی", subj15_d: "دروستکردن و بەڕێوەبردنی هەڵمەتی ڕاگەیاندن بۆ کۆمپانیا و دامەزراوەکان.",
+      subj16_t: "دیپلۆماسی", subj16_d: "پرۆسەی بەڕێوەبردنی پەیوەندییە لە ڕێگەی دانوستان و گفتوگۆ بە ئامانجی چارەسەرکردنی کێشەکان و دروستکردنی هاوپەیمانی.",
+      subj17_t: "ئابووری دامەزراوە", subj17_d: "بنەماکانی ئابووری کە پەیوەندیدارن بە کارکردنی دامەزراوەکانەوە.",
+      subj18_t: "بەڕێوەبردنی پەیجی ئەلیکترۆنی", subj18_d: "بنەماکانی دیزاینکردنی ماڵپەڕ و پێشکەشکردنی ناوەڕۆک لەسەر ئینتەرنێت.",
+      subj19_t: "پەیوەندی گشتی دیجیتاڵی", subj19_d: "بەکارهێنانی ئامرازە دیجیتاڵییەکان لە پەیوەندی گشتیدا لە سەردەمی ئۆنلایندا.",
+      subj20_t: "پەیوەندی نێودەوڵەتی", subj20_d: "لێکۆڵینەوە و پراکتیزەکردنی چۆنیەتی کارلێکی وڵاتان، حکوومەتەکان، ڕێکخراوەکان و خەڵک لە ئاستی جیهانیدا.",
+      tag_opp: "بەهای ڕاستەقینەی خوێندن",
+      title_opp: "🎓 دەرفەتە زێڕینەکانی خوێندکار لەم بەشەدا",
+      sub_opp: "خوێندنی پەیوەندییە گشتییەکان تەنها وەرگرتنی زانیاری ناو کتێبەکان نییە، بەڵکو کۆمەڵێک دەرفەتی کردارییە کە لە ساڵانی خوێندندا کارامەییەکانت پەرە پێدەدات.",
+      opp1_t: "پرۆژەی پڕاکتیکی ڕاستەقینە", opp1_d: "خوێندکاران لە ساڵانی خوێندندا تەنها تیۆری ناخوێنن، بەڵکو کەمپەین و پلانی پەیوەندی گشتی بۆ براند و ڕێکخراوە ڕاستەقینەکان دیزاین دەکەن.",
+      opp2_t: "سەردانی مەیدانی و وۆرکشۆپ", opp2_d: "ڕێکخستنی سەردانی مەیدانی بۆ کۆمپانیا گەورەکان، کەناڵەکانی ڕاگەیاندن و دامەزراوە حکومییەکان تا لە نزیکەوە ئاشنای ژینگەی کار ببن.",
+      opp3_t: "تۆڕی پەیوەندی بەهێز (Networking)", opp3_d: "دەرفەتی دروستکردنی پەیوەندی ڕاستەقینە لەگەڵ بەڕێوەبەرانی PR و مارکێتینگی کۆمپانیاکان هێشتا لە سەردەمی خوێندندایت.",
+      opp4_t: "پەرەپێدانی کارامەیی دیجیتاڵی", opp4_d: "ڕاهێنان لەسەر بەکارهێنانی مۆدێرنترین ئامرازەکانی دیزاین، فۆتۆگرافی، مۆنتاژ و بەڕێوەبردنی سۆشیال میدیا.",
+      tag_careers: "دواڕۆژی کار",
+      title_careers: "🚀 ئەو پۆست و پیشانەی چاوەڕێی دەرچوانی ئەم بەشە دەکات",
+      sub_careers: "پەیوەندییە گشتییەکان زانستێکە دەرگای زۆر بوار و پیشەی جیاواز دەکاتەوە، کە لە ئێستاو داهاتوودا بایەخ و گرنگی زۆریان لە بازاری کاردا هەیە.",
+      car1_t: "توێژینەوە و پێوانەکردنی ڕای گشتی", car1_d: "ئەنجامدانی ڕاپرسی توێژینەوە و شیکردنەوەی ئاڕاستە و هەڵوێستی جەماوەر و پێشنیار کردن بۆ پارتە سیاسیەکان و دامزراوە میریی و تایبەتەکان.",
+      car2_t: "پسپۆڕی پەیوەندییە گشتییەکان (PR Specialist)", car2_d: "ئامادەکردن و جێبەجێکردنی کەمپەین و هەڵمەتی پەیوەندییە گشتییەکان، نووسینی بەیاننامە و هەواڵە ڕۆژنامەوانییەکان.",
+      car3_t: "بەرپرسی پەیوەندیی دامەزراوە", car3_d: "بەڕێوەبردنی پەیوەندیی ناوخۆیی و دەرەکی دامەزراوە, دروستکردن و بەهێزکردنی ناسنامە و ناوبانگی دامەزراوە.",
+      car4_t: "بەڕێوەبەری/هەماهەنگکەری تۆڕە کۆمەڵایەتییەکان", car4_d: "بەڕێوەبردنی هەژمارە دیجیتاڵییەکان، ئامادەکردنی ناوەڕۆک و شوێنکەوتنی کاردانەوەی جەماوەر، و شیکردنەوەی ئامار.",
+      car5_t: "نووسەری ناوەڕۆک و ڕیکلام", car5_d: "نووسینی هەواڵ، ڕاپۆرت و وتار، و ئامادەکردنی ماددەی بانگەشە و پڕۆمۆشن.",
+      car6_t: "ڕێکخەری چالاکی، کۆنفرانس و پێشانگا", car6_d: "پلاندانان بۆ کۆنفرانس، پێشانگا و بۆنەکان، و هەماهەنگی لەگەڵ بەشداربووان و سپۆنسەرەکان.",
+      car7_t: "وتەبێژی فەرمی دامەزراوە و کۆمپانیاکان", car7_d: "نوێنەرایەتی دامەزراوە لە بەرامبەر میدیا، و بەڕێوەبردنی پەیامەکانی دامەزراوە.",
+      car8_t: "ڕاوێژکاری پەیوەندی و پەیوەندییە گشتییەکان", car8_d: "پێشکەشکردنی ڕاوێژ بۆ دامەزراوەکان و لایەنە سیاسییەکان و کۆمپانیاکان لە بوارەکانی ناوبانگ و بەڕێوەبردنی قەیران.",
+      car9_t: "پسپۆڕی بەرپرسیارێتی کۆمەڵایەتی", car9_d: "بەڕێوەبردنی بەرنامەکانی خزمەتگوزاری کۆمەڵگا، و دروستکردنی پەیوەندی لەگەڵ کۆمەڵگای خوارەوە و ڕێکخراوە مەدەنییەکان.",
+      car10_t: "کارکردن لە کەرتی حکومی، تایبەت و ڕێکخراوە نێودەوڵەتییەکان", car10_d: "وەزارەت و دامەزراوە حکومییەکان، کۆمپانیا و بانک و دامەزراوە ئابوورییەکان، زانکۆ و دامەزراوە پەروەردەییەکان، و ڕێکخراوە نێودەوڵەتی و ناحکومییەکان.",
+      career_summary: "دەرچووی پەیوەندییە گشتییەکان تەنها کارمەندێکی میدیایی نییە، بەڵکو پسپۆڕێکە لە بەڕێوەبردنی پەیوەندی و دروستکردنی ناوبانگ و پەیوەندی نێوان دامەزراوە و جەماوەر، هەروەها دەتوانێت لە بوارەکانی میدیای دیجیتاڵ، پەیوەندی دامەزراوەیی، بەڕێوەبردنی قەیران، ڕێکخستنی چالاکییەکان، بازاڕگەری، کارکردن لە کۆنسوڵخانەکانی وڵاتان و زۆر بواری گەشەسەندووەکانی تر کار بکات.",
+      tag_campaign: "فێربوونی کرداری",
+      title_campaign: '🏆 کەمپەینی سەرکەوتووی مانگ: "Share a Coke"',
+      sub_campaign: "چۆن زانستی پەیوەندییە گشتییەکان (PR) سەرکەوتنی جیهانی بۆ گەورەترین کۆمپانیاکان دروست دەکات؟",
+      camp_h3: 'کەمپەینی مێژوویی کۆکا کۆلا — "کۆکایەک ببه‌خشە بە..."',
+      camp_p1: 'لە ساڵی ٢٠١١دا، کۆمپانیای کۆکا کۆلا (Coca-Cola) ڕووبەڕووی دابەزینی فرۆش ببووەوە لەناو گەنجاندا. تیمی پەیوەندییە گشتییەکانی کۆمپانیاکە لە جیاتی بەکارهێنانی ڕیکلامی بەرهەمەکان، بڕیاریان دا لۆگۆیە سەرەکییەکەی سەر بوتڵەکان لاببەن و لە شوێنیدا **٢٥٠ ناوی کوڕان و کچانی باو** لەسەر بوتڵەکان بنووسن!',
+      camp_box_h: "💡 نھێنی سەرکەوتنی PR لەم کەمپەینەدا:",
+      camp_box_p: 'کۆمپانیاکە شتومەکی نەفرۆشت، بەڵکو **پەیوەندی کۆمەڵایەتی و هەستی تایبەتی** دروستکرد. خەڵک لە سۆشیال میدیا دەستیان کرد بە بڵاوکردنەوەی وێنەی بوتڵەکان بە ناوی خۆیان و هاوڕێکانیانەوە. بەمەش زیاتر لە **٥٠٠,٠٠٠ وێنە** لە ئینتەرنێت بڵاوبووەوە و فرۆشی کۆمپانیاکە بە ڕێژەی **٢.٥٪ بۆ یەکەمجار دوای ساڵانێک زیادی کرد**.',
+      camp_note: "کەڵکی ئەم نموونەیە بۆ تۆ: هێزی پەیوەندییە گشتییەکان لەوەدایە کە دەتوانێت ڕەفتار و بیرکردنەوەی جەماوەر بگۆڕێت بە بێ ئەوەی هەست بکەن ڕیکلامیان بۆ دەکرێت!",
+      tag_why: "بۆچی ئێمە؟",
+      title_why: "بۆچی ئەم بەشە هەڵبژێریت؟",
+      why1_t: "بەشێکی نوێ و مۆدێرن", why1_d: "وانەکان و شێوازی خوێندن بەپێی پێداویستی ڕاستەقینەی بازاڕی کار داڕێژراون، تایبەت بە سەردەمی دیجیتاڵ.",
+      why2_t: "سەرپەرشتی بەهێز", why2_d: "سەرۆکایەتی و مامۆستایانی پسپۆڕ کە لە دامەزراندنەوە هەوڵی بەرزکردنەوەی ئاستی بەشیان داوە.",
+      why3_t: "دەرفەتی کاری فراوان", why3_d: "لە کۆنسوڵخانە و کۆمپانیا تا دامەزراوەی میدیایی و دەرەوەی وڵات — بواری کارکردن یەک لایەن نییە.",
+      why4_t: "کۆمەڵگایەکی چالاک", why4_d: "پەیجی فەیسبووک و ئینستاگرامی چالاک، چالاکی و ئیڤینتی بەردەوام لەنێو خوێندکارانی بەش.",
+      tag_testi: "دەنگی خوێندکاران",
+      title_testi: "هەڵوێستی گەڕاوەی خوێندکاران لەسەر بەشەکە",
+      sub_testi: "💡 ڕاستییە شاراوەکانی ناو بەشەکە لە زمانی خوێندکارانی پێشخۆتانەوە (نهێنییەکان بخوێنەوە)",
+      stage2_summary: "قۆناغی دووەم",
+      soma_sign: "سۆما ئیبراهیم ئەحمەد، قۆناغی ٢، پەیوەندییە گشتییەکان",
+      soma_q1: '<strong style="color:var(--black);">چۆن بەشەکەم هەڵبژارد؟</strong><br>سەرەتا ئامانجم پەیوەندییە سیاسییەکان بوو، بەڵام نمرەکەم کەمتر بوو بۆ وەرگرتنم تێیدا. دواتر گەڕام بۆ بەشی پەیوەندییە گشتییەکان و تێبینیم کرد لەم بەشەدا هەلی کارکردن بۆ ئامانجەکەم گونجاوە.',
+      soma_q2: '<strong style="color:var(--black);">چی زانیارییەکم دەربارەی هەبوو؟</strong><br>هەوڵمدا زانیاری وەربگرم لە ماڵپەڕی سۆشیال میدیای زانکۆی سلێمانی، بەڵام زۆر ڕوون نەبوو لام.',
+      soma_q3: '<strong style="color:var(--black);">ئێستا چۆن لێی دەڕوانم؟</strong><br>بەو شێوەیە لێی دەڕوانم کە داهاتوویەکی زۆر گەش لە بەردەممە، و سەرکەوتنێکی زۆر باشم دەبێت.',
+      soma_q4: '<strong style="color:var(--black);">چی فێربووم؟</strong><br>ئەم بەشە فێری هونەری پەیوەندیکردنمان دەکات بە شێوەیەکی ستراتیژی، و کاریگەریمان لە کۆمەڵگا و لە دامودەزگاکان و تێگەیشتنی وردمان لە جەماوەری دامەزراوەکە، واتە گوێگرێکی باش بوون.',
+      maria_sign: "ماریا نەریمان، خاوەنی پلەی یەکەمی قۆناغی یەکەمی ساڵی ڕابردوو",
+      maria_q1: '<strong style="color:var(--black);">چۆن بەشەکەم هەڵبژارد؟</strong><br>ئەم بەشەم هەڵبژارد هەر لە قۆناغی ئامادەییەوە ئارەزووم لێی هەبووە، چونکە هەر زوو لە گرنگی ئەم بەشە تێگەیشتم لەبەر چەند هۆکارێک: ١- ئارەزوو دەکەم ببمە دەنگی کەسانی دیکە. ٢- ئارەزووی بزنسم هەیە و ئێرە بە بژاردەیەکی باش دەزانم.',
+      maria_q2: '<strong style="color:var(--black);">چی زانیارییەکم دەربارەی هەبوو؟</strong><br>نەمدەزانی خوێندنی ئەم بەشە لێرە چۆنە و وانەکانی چین. لە ڕێگەی هاوڕێکەمەوە کەمێک زانیاری گشتیم وەرگرت، بەڵام بە تەواوی نا.',
+      maria_q3: '<strong style="color:var(--black);">ئێستا چۆن لێی دەڕوانم؟</strong><br>پێشتر چۆن سەیری بەشەکەمم دەکرد لە ڕووی گرنگییەوە، ئێستا زۆر زیاتر گرنگتر لێی دەڕوانم دوای ساڵێک خوێندن لە بەشەکە.',
+      azhi_sign: "ئەژی بژار، قۆناغی ٢",
+      azhi_q1: '<strong style="color:var(--black);">چۆن ئەم بەشەت هەڵبژارد؟</strong><br>هەڵبژاردە نەبوو، بەڵکو ناوهاتنەوە بوو بەپێی نمرەکەم.',
+      azhi_q2: '<strong style="color:var(--black);">چی زانیارییەکت دەربارەی ئەم بەشە هەبوو؟</strong><br>هیچ، بەهۆی تازەیی بەشەکە هیچ زانیارییەکی ئەوتۆم نەبووە لەسەری. بەڵام دواتر گەڕانم بۆ کرد و زانیاریم دەستکەوت.',
+      azhi_q3: '<strong style="color:var(--black);">ئێستا چۆن لێی ئەڕوانی؟</strong><br>داهاتووی خۆمی لێدەبینم. ئەم بەشە دەرفەتی کارت پێدەدات، چ لە حکومەت یان کەرتی تایبەت، کە ئەگەر توانای تێدا بێت خۆت کاریگەری دەبێت.',
+      azhi_q4: '<strong style="color:var(--black);">چی فێربووی؟</strong><br>گرنگی پەیوەندییە کۆمەڵایەتی و کەسییەکانمان، بایەخدان و برەودان بە پەیوەندییەکان.',
+      stage3_summary: "قۆناغی سێیەم",
+      shanga_sign: "شەنگە لەتیف سلێمان، قۆناغی ٣",
+      shanga_q1: '<strong style="color:var(--black);">چۆن بەشەکەت هەڵبژارد؟</strong><br>سەرەتا لەبەر ئەوەی بەتەمای زانکۆی سلێمانی نەبووم، بۆخۆم هەر بە ئاسایی فۆڕمەکەم پڕکردەوە و لای ئیرادی ئەم بەشەم تێکرد، ئەگینا بە ویستی خۆم هەڵم نەبژارد.',
+      shanga_q2: '<strong style="color:var(--black);">چی زانیارییەکت دەربارەی هەبوو؟</strong><br>لەبەر ئەوەی بەشەکە زۆر نوێ بوو، هیچ زانیارییەکی ئەوتۆم لەسەری نەبوو. بەڵام دوای ئەوەی ناوم لەو بەشە هاتەوە، لە زۆر سەرچاوەوە هەوڵمدا زانیاری لەسەری کۆبکەمەوە.',
+      shanga_q3: '<strong style="color:var(--black);">ئێستا چۆن لێی ئەڕوانی؟</strong><br>بەڕاستی تاکە بڕیارە کە لە ژیانمدا یابێتم و لێی پەشیمان نەبووبێتمەوە. لەبەر ئەوەی من خۆم لەم بەشەدا دۆزییەوە، چونکە زۆر فراوانە و پەیوەندی زۆر باش لەگەڵ خەڵکدا دروست دەکەیت و بەشێکی وشک نییە. جگە لە هەمووی، هاوڕێیەتی بەڕاستی هاوڕێی زۆر باش و دڵسۆزم هەیە کە هەموو خەمخۆر و بەوەفان — لەبەر ئەوەش (خێزانی PR) بووە بە دروشمی بەشەکەمان.',
+      shanga_q4: '<strong style="color:var(--black);">چی فێربووی؟</strong><br>فێری جۆرەها ڕێگا و شێواز بووم کە بتوانم پەیوەندی پێ ببەستم و کاریان پێ بکەم.',
+      ashkan_sign: "ئەشکان یاسین حسێن، قۆناغی ٣",
+      ashkan_q1: '<strong style="color:var(--black);">چۆن بەشەکەت هەڵبژارد؟</strong><br>کاتێک زانیم کە بەشەکە پەیوەندی بە کۆمەڵگا و ژیانی ڕۆژانەوە هەیە و ئەو شتانەی کە ڕوودەدەن و ئەگەری ڕووداندنی هەیە لە داهاتوودا، پێشبینیکردنی بۆ ڕووداوەکانی کۆمەڵگا، زیاتر خولیام هەبوو بۆ بەشەکە و ویستم پەرە بەو بوارە بدەم چونکە خۆم حەزم لە پیشەیەکی لەو جۆرە بووە، هەستم دەکرد خۆم لەو بەشە دەبینمەوە.',
+      ashkan_q2: '<strong style="color:var(--black);">چی زانیارییەکت دەربارەی هەبوو؟</strong><br>سەرەتا هیچ زانیارییەکم نەبوو، بەحوکمی ئەوەی بەشەکە بەشێکی تازە بوو. پرسیارم کرد و هەندێک مامۆستا یارمەتیان دام، دواتر کە بۆم ڕوون بووەوە بەبێ هیچ دوودڵییەک لە یەکەم بەشی فۆڕمەکەمم دانا. دواتر سێرچم بۆی کرد و زانیاری زیاترم دەربارەی بەشەکە زانی کە پەیوەندی بە حکومەت و سیاسەت و کەرتی تایبەت و گشتی و کۆمپانیا و دامەزراوەکانەوە هەیە. زیاتر خولیای کارە سیاسییەکانم هەبوو، دواتر دڵنیایی تەواوم وەرگرت کە بەشێکی تەواو سەرکەوتووە.',
+      ashkan_q3: '<strong style="color:var(--black);">ئێستا چۆن لێی ئەڕوانی؟</strong><br>ئێستا وەک بەشێکی سەرکەوتوو، بەشێکی زۆر باش لێی دەڕوانم. هیچ پەشیمان نیم لە هەڵبژاردنی بەشەکەم و زۆر حەزم لێیەتی، هیواداریشم زیاتر پەرەی پێ بدرێت لە ساڵانی داهاتوودا.',
+      ashkan_q4: '<strong style="color:var(--black);">چی فێربووی؟</strong><br>زۆر شت لەم بەشەدا فێربووم — فێری ئیدارەدانی وێنەی زەینی و دروستکردنی ناوبانگی باش و شیکاری جەماوەر و ئیدارەدانی قەیران و پێشبینیکردن و بەرەنگاربوونەوە و داڕشتنی پەیامی ستراتیژی و میدیایی و ڕووبەڕووبوونەوەی پڕوپاگەندە و هtd. بە کورتی زۆر شتی باش لەم بەشەدا فێربووم و ڕۆژ بە ڕۆژ زیاتر خولیام بۆ بەشەکە و زانیاریەکانی مامۆستا ئازیزەکان زیاتر دەبێت. فێربووم کە پەیوەندییە گشتییەکان پردێکە لە نێوان ڕێکخراو و کۆمەڵگەدا، فێربووم چۆن بە شێوازێکی زانستی و ئەخلاقی ئەم پردە بپارێزم.',
+      dina_sign: "دینا دلێر جەبار، قۆناغی ٣",
+      dina_q1: '<strong style="color:var(--black);">چۆن بەشەکەت هەڵبژارد؟</strong><br>سەرەتا زانیارییەکی زۆرم نەبوو لەسەری، بەڵام بەشی پەیوەندییە گشتییەکانم وەک پردێکی سەرەکی لە نێوان ڕێکخراو، کۆمپانیا و جەماوەردا بینیوە. حەز و ئارەزووی خۆمم لە کارامەییەکانی پەیوەندیکردن و بەڕێوەبردنی قەیرانەکاندا دۆزییەوە.',
+      dina_q2: '<strong style="color:var(--black);">چی زانیارییەکت هەبوو لەسەر بەشەکە؟</strong><br>تەنها تێڕوانینێکی گشتیم هەبوو کە بۆ ڕیکلام و ڕەنگدانەوەی کارەکان بەکاردێت.',
+      dina_q3: '<strong style="color:var(--black);">ئێستا چۆن بەشەکەت دەبینی؟</strong><br>ئێستا بەشەکەم بە یەکێک لە ستوونە سەرەکی و ستراتیژییەکانی هەر سەرکەوتنێک دەبینم. تێگەیشتووم کە پەیوەندییە گشتییەکان تەنها وەڵامدانەوەی ڕووداوەکان نییە، بەڵکو پلاندانانی پێشوەختەیە بۆ پاراستنی ناوبانگ و دروستکردنی بەهای درێژخایەن بۆ دامەزراوەکە.',
+      dina_q4: '<strong style="color:var(--black);">چی فێربووی؟</strong><br>توانای گوێگرتنی چالاک و شیکردنەوەی بۆچوونی جەماوەر. فێربووم چۆن پەیامێکی ڕوون، کاریگەر و متمانەپێکراو بگەیەنم و وێنەی ڕاستەقینەی دامەزراوەکە پیشان بدەم.',
+      govar_sign: "گۆڤار شۆڕش ئەحمەد، قۆناغی ٣",
+      govar_q1: '<strong style="color:var(--black);">چۆن بەشەکەم هەڵبژارد؟</strong><br>بەهۆی حەز و خولیای بەهێزم بۆ دروستکردنی پەیوەندی کۆمەڵایەتی، ڕاگەیاندن و تێگەیشتن لە ڕای گشتی ئەم بەشەم هەڵبژارد، وەک دەرفەتێک بۆ ئەوەی بە شێوازێکی زانستی بوارەکانی ڕێکخستنی کارگێڕی، پرۆتۆکۆڵ و بەڕێوەبردنی کەشوهەوای دەزگایی فێربم.',
+      govar_q2: '<strong style="color:var(--black);">چی زانیارییەکم دەربارەی هەبوو؟</strong><br>زانیارییە سەرەتاییەکانم کورت بوون، بەڵام خاوەنی چەند هاوڕێیەک بووم لەم بەشە کە یارمەتیدەرێکی زۆر باش بوون بۆ زیادکردنی زانیارییەکانم سەبارەت بەوەی کە پەیوەندییە گشتییەکان پردی پەیوەندی نێوان ڕێکخراو و جەماوەرەکەیەتی، هەروەها دەمزانی بەشێکە لە بوارە گرنگەکانی میدیا و بەڕێوەبردن کە یارمەتی دروستکردنی وێنەی ئەرێنی کۆمپانیا و دامەزراوەکان دەدات.',
+      govar_q3: '<strong style="color:var(--black);">ئێستا چۆن لێی ئەڕوانم؟</strong><br>ئێستا بەشەکە بە زۆر فراوانتر و گرنگتر دەبینم لە تەنها بەڕێوەبردنی ئاسایی، وەک هونەر و زانستێکی ستراتیژی لێی دەڕوانم بۆ بەڕێوەبردنی قەیرانەکان، دروستکردنی ناوبانگی ڕێکخراوەیی و هەماهەنگی پرۆتۆکۆڵی و ڕێکخستنی چالاکییەکان.',
+      govar_q4: '<strong style="color:var(--black);">چی فێربووم؟</strong><br>فێری تیۆرەکانی پەیوەندیکردن، ستراتیژییەکانی بەڕێوەبردنی قەیران، بەڕێوەبردنی هەڵمەتە ڕاگەیاندنییەکان و کارامەییەکانی پێشکەشکردن بووم، لەگەڵ ئەوەشدا فێری دروستکردنی ناوەڕۆکی میدیایی بەهێز و تێگەیشتن لە بنەماکانی ڕەفتاری جەماوەر بووم.',
+      stage4_summary: "قۆناغی چوارەم",
+      lawan_sign: "لاوان تاریق محەمەد، قۆناغی ٤",
+      lawan_q1: '<strong style="color:var(--black);">چۆن بەشەکەم هەڵبژارد؟</strong><br>چونکە بەشێکی تازە بوو، سەرنجی ڕاکێشام؛ حەزم کرد بوارێکی نوێ تاقیبکەمەوە کە تێکەڵەیەکە لە پەیوەندی کۆمەڵایەتی، ڕێکخستن و ڕاگەیاندن.',
+      lawan_q2: '<strong style="color:var(--black);">چی زانیارییەکم دەربارەی هەبوو؟</strong><br>تەنها تێگەیشتنێکی سەرەتایی؛ کە بەشێکە بۆ ڕێکخستنی وێنەی دامەزراوەکان و دروستکردنی پردی پەیوەندی لەگەڵ خەڵکدا.',
+      lawan_q3: '<strong style="color:var(--black);">ئێستا چۆن لێی دەڕوانم؟</strong><br>بە بەشێکی ستراتیژی و گرنگی دەبینم کە هیچ کۆمپانیا یان دامەزراوەیەک ناتوانێت بێ ئەوە سەرکەوتوو بێت.',
+      lawan_q4: '<strong style="color:var(--black);">چی فێربووم؟</strong><br>فێری هونەری گفتوگۆ، بەڕێوەبردنی بۆنە و ئیڤینتەکان، و پرۆتۆکۆڵ بووم.',
+      akam_sign: "ئاکام نەجمەدین، قۆناغی ٤",
+      akam_q1: '<strong style="color:var(--black);">چۆن بەشەکەت هەڵبژارد؟</strong><br>ڕەفیقێکم لەو بەشە بوو، منیش بەهۆی ئەوەوە هەڵمبژارد.',
+      akam_q2: '<strong style="color:var(--black);">چی زانیارییەکی دەربارەی هەبوو؟</strong><br>هیچ زانیارییەکی سەرەتایم نەبوو، تەنها ئەوەنەم دەزانی زۆرینەی بابەتەکان بە کوردی دەخوێندرێن.',
+      akam_q3: '<strong style="color:var(--black);">ئێستا چۆن لێی دەڕوانم؟</strong><br>بەشێکی تازەیە و تا ئێستا زۆر ناسراو نییە لە ناو دامەزراوە و کۆمەڵگا.',
+      akam_q4: '<strong style="color:var(--black);">چی فێربووم؟</strong><br>باشترکردنی پەیوەندی نێوان دامەزراوە و جەماوەر و چەندان شتی دیکە.',
+      tag_faq: "وەڵامی خێرا",
+      title_faq: "❓ پرسیارە باوەکان",
+      sub_faq: "ئەم وەڵامانەی خوارەوە بە شێوەیەکی ڕاستەقینە ڕوونکردنەوە دەدەن لەسەر ئەو پرسیارانەی زۆرترین جار لە لایەن خوێندکارانی نوێوە دەپرسرێن.",
+      faq1_q: "١. ئایا خوێندن لە بەشی پەیوەندییە گشتییەکان بە چ زمانێکە؟",
+      faq1_a: "زۆربەی وانە سەرەکییەکان بە زمانی کوردی دەخوێندرێن، لەگەڵ هەندێک زاراوەی ئەکادیمی و وانەی تایبەت بە ئینگلیزی بۆ بەهێزکردنی ئاستی زمانی خوێندکاران.",
+      faq2_q: "٢. ئایا تەنها خوێندکارانی لقی وێژەیی دەتوانن بێنە ئەم بەشە یان لقی زانستیش؟",
+      faq2_a: "دەرچووانی هەردوو لقی وێژەیی و زانستی دەتوانن لە ڕێگەی زانکۆلاین یان پاراڵێلەوە داواکاری پێشکەش بکەن.",
+      faq3_q: '٣. جیاوازیی سەرەکی لە نێوان بەشی "پەیوەندییە گشتییەکان (PR)" و بەشی "ڕاگەیاندن / ڕۆژنامەنووسی" چییە؟',
+      faq3_a: "بەشی ڕاگەیاندن زیاتر تیشک دەخاتە سەر دروستکردنی ڕاپۆرت و کارکردن لە کەناڵەکاندا؛ بەڵام بەشی پەیوەندییە گشتییەکان زانستی بەڕێوەبردنی ناوبانگ، دروستکردنی ستراتیژ، بەڕێوەبردنی قەیرانەکان و هەماهەنگییە لە نێوان دامەزراوەکان و جەماوەردا.",
+      tag_contact: "پەیوەندی",
+      title_contact: "هێشتا پرسیارت هەیە؟",
+      p_contact: "پەیوەندی بە بەشی پەیوەندییە گشتییەکانی زانکۆی سلێمانی بکە بۆ زانیاری زیاتر لەسەر وەرگرتن و خوێندن.",
+      addr_contact: "📍 کەمپی نوێی زانکۆی سلێمانی — کۆلێژی زانستە مرۆڤایەتییەکان (بینای ١١)",
+      btn_wa: "💬 واتساپ",
+      btn_fb: "📘 فەیسبووکی فەرمی",
+      btn_ig: "📷 ئینستاگرامی خوێندکاران",
+      footer_copy: "© ٢٠٢٦ بەشی پەیوەندییە گشتییەکان — زانکۆی سلێمانی",
+      footer_credit: "دروستکراوە لە لایەن ئارا عەزیز، خوێندکاری قۆناغی دووەمی بەشی پەیوەندییە گشتییەکان",
+      footer_thanks: "شایەنی باسە دەمەوێ پێزانین و دەسخۆشی خۆم ئاڕاستەی تەواوی ستافی بەش و مامۆستا ماندوونەناسەکانمان بە گشتی، و دکتۆرە لانەی سەرۆک بەش و مامۆستا شۆخان بڕیاردەری بەشەکەمان و مامۆستا ئاڤێستا مامۆستا لە بەشەکەمان بە تایبەتی بکەم. هەروەها دەسخۆشی لە دژوار عادل هاوڕێ و نوێنەری قۆناغی دووەم و تەواوی ئەو خوێندکارانەی کە فیدباکیان ئەنجام دا بۆ سایتەکەم بکەم، کە هاوکاری تەواویان کردم لە باشترکردنی ئەم سایتە بۆ خوێندکاران"
+    },
+    en: {
+      lang_btn: "کوردی",
+      brand_name: "Public Relations",
+      nav_history: "History",
+      nav_reason: "Reason",
+      nav_scores: "Admission Scores",
+      nav_subjects: "Courses",
+      nav_opportunities: "Opportunities",
+      nav_careers: "Careers",
+      nav_campaign: "Campaign of the Month",
+      nav_feedback: "Feedback",
+      nav_faq: "FAQ",
+      nav_contact: "Contact",
+      hero_eyebrow: "The Department of Public Relations was established in 2021 in the College of Humanities at the University of Sulaimani",
+      hero_title: 'Department of <span class="accent">Public Relations</span><br>A New Gateway to Your Future',
+      hero_desc: "This is a new department at the University of Sulaimani, and many 12th-grade students and their families know little about it. Here, I have gathered everything you need to know: admission scores, subjects you will study, and future career paths you can pursue.",
+      chap_history: "History & About Us",
+      chap_reason: "Why I Built This Site",
+      chap_scores: "Admission Scores",
+      chap_subjects: "Courses",
+      chap_opportunities: "Student Opportunities",
+      chap_careers: "Career Prospects",
+      chap_campaign: "Campaign of the Month",
+      chap_feedback: "Student Feedback",
+      chap_faq: "FAQ",
+      chap_contact: "Contact",
+      tag_about: "About Our Department",
+      title_about: "History and About Our Department",
+      about_p1: "The Department of Public Relations was founded in 2021 to prepare academic cadres and meet the growing demands of the market. The department emphasizes both theoretical and practical dimensions. Given the importance of Public Relations across private and public sectors, tools and techniques are utilized to foster professional PR specialists. Special emphasis is placed on modern market-driven subjects such as political advisory, organizational strategic consulting, innovation, strategy formulation, branding, consumer behavior research, reputation management, campaign execution, and crisis management.",
+      tl_intake_h: "Admission Rounds",
+      tl_intake_p: 'So far, the department has completed <span id="intake-rounds-text">5</span> admission rounds.',
+      tl_grad_h: "Graduation Batches",
+      tl_grad_p: 'It has also successfully graduated <span id="graduation-rounds-text">2</span> student batches to date.',
+      tag_story: "Creator's Note",
+      title_story: "Why Did I Create This Website?",
+      story_p1: "When I finished 12th grade, I searched extensively for a department that matched my passion, interests, and background. Among several options, Public Relations caught my attention the most — but since it was a newly established department at the University of Sulaimani, there was very little information on social media or the internet regarding study details, course contents, and job prospects.",
+      story_p2: "Once I entered university and experienced the coursework, learned from accomplished professors and doctors, and particularly gained insights from our department head who possessed immense knowledge about the field, I realized I had made the right choice. Therefore, I built this website for students so that they wouldn't face the same lack of information I experienced and could gain a clear, comprehensive understanding of this department.",
+      story_sign: "— Ara Aziz",
+      tag_scores: "Admission Details",
+      title_scores: 'Admission Scores — Academic Year <span id="dyn-academic-year">2025-2026</span>',
+      scores_sub: "These were last year's minimum admission scores for the Public Relations Department. Cutoff scores vary annually depending on applicant volume and quota, so these serve as a general guide.",
+      plaque_zankoline: "Minimum Accepted Score — Zankoline",
+      plaque_yr1: 'Year <span class="dyn-score-year">2025</span>',
+      plaque_parallel: "Minimum Accepted Score — Parallel",
+      plaque_yr2: 'Year <span class="dyn-score-year">2025</span>',
+      scores_note1: "Note: These figures reflect last year's requirements and may shift this academic year. For precise details, consult the official Zankoline portal or our department.",
+      scores_note2: 'In the <span id="dyn-academic-year-note">2025-2026</span> academic year, <span id="students-count">80</span> students were admitted.',
+      calc_h4: "🔍 Score Evaluation Tool:",
+      calc_p: "Enter your high school score to check your admission chances via Zankoline or Parallel systems:",
+      calc_btn: "Evaluate Score",
+      calc_placeholder: "Your score (e.g., 62)",
+      calc_err: '<span style="color: #ff6b6b;">Please enter your score.</span>',
+      calc_res_zanko: '🎉 Congratulations! Your score ({score}) meets or exceeds the minimum Zankoline score ({threshold}). You have a very high chance of direct admission!',
+      calc_res_para: '😊 Your score ({score}) meets or exceeds the minimum Parallel system score ({threshold}). You have a strong chance of admission through Parallel!',
+      calc_res_low: 'There is still hope! Your score ({score}) is slightly below last year\'s Parallel cutoff ({threshold}). Admission thresholds fluctuate yearly, so be sure to submit your Zankoline application form.',
+      tag_subjects: "Academic Curriculum",
+      title_subjects: 'Your 4-Year Journey: Over <span id="subjects-count">20</span> Powerful Courses Mapping Your Education',
+      sub_subjects: "A rich blend of practical and theoretical modules spread over 4 years (8 academic semesters). Here are examples of key subjects covered:",
+      subj1_t: "Advertising", subj1_d: "Techniques of ad creation and analyzing their psychological and societal influence.",
+      subj2_t: "Marketing", subj2_d: "Applying promotional strategies for products and services through in-depth market behavior understanding.",
+      subj3_t: "Reputation & Brand Management", subj3_d: "Safeguarding and enhancing organizational corporate identity and brand image.",
+      subj4_t: "Protocol & Etiquette", subj4_d: "Rules of engagement, hospitality, and official diplomatic event management.",
+      subj5_t: "Crisis Management", subj5_d: "Strategies for managing organizational crises and maintaining positive public perception under stress.",
+      subj6_t: "Organizational Relations Management", subj6_d: "Principles of managing internal and external institutional communications.",
+      subj7_t: "Public Speaking & Negotiation", subj7_d: "Developing persuasive public address and effective messaging capabilities.",
+      subj8_t: "Strategic Communication Planning", subj8_d: "Designing comprehensive Public Relations master plans for institutions and enterprises.",
+      subj9_t: "Social Media Management", subj9_d: "Curating digital content and coordinating online media campaigns.",
+      subj10_t: "Event Planning & Management", subj10_d: "Organizing, structuring, and executing major public and corporate events.",
+      subj11_t: "Media Relations Management", subj11_d: "Building and maintaining active professional relationships with media outlets and journalists.",
+      subj12_t: "Graphic Design", subj12_d: "Designing visual assets tailored for promotional campaigns and media publications.",
+      subj13_t: "Photography & Videography", subj13_d: "Capturing professional imagery and video production for media campaigns.",
+      subj14_t: "PR Content Production", subj14_d: "Drafting and producing multifaceted PR materials ready for mass dissemination.",
+      subj15_t: "PR Campaigns", subj15_d: "Designing and managing end-to-end communication initiatives for corporate entities.",
+      subj16_t: "Diplomacy", subj16_d: "Managing international or organizational ties through negotiation, dialog, and coalition-building.",
+      subj17_t: "Institutional Economics", subj17_d: "Core economic fundamentals applicable to organizational operations and market sustainability.",
+      subj18_t: "Web Page Management", subj18_d: "Fundamentals of web design, digital user experience, and online content presentation.",
+      subj19_t: "Digital Public Relations", subj19_d: "Leveraging modern digital platforms and tools for online public relations strategies.",
+      subj20_t: "International Relations", subj20_d: "Analyzing global interactions among sovereign states, governments, NGOs, and global citizens.",
+      tag_opp: "The Real Value of Education",
+      title_opp: "🎓 Golden Student Opportunities in PR",
+      sub_opp: "Studying Public Relations goes far beyond textbook memorization; it offers hands-on experiential opportunities that refine your professional skillset throughout your academic years.",
+      opp1_t: "Real Practical Projects", opp1_d: "Students build complete PR campaigns and strategic plans for genuine commercial brands and organizations during their studies.",
+      opp2_t: "Field Visits & Workshops", opp2_d: "Organized site visits to major corporations, broadcasting networks, and government bodies to experience working environments firsthand.",
+      opp3_t: "Professional Networking", opp3_d: "Direct opportunities to build valuable networks with PR directors, marketing executives, and industry leaders while still studying.",
+      opp4_t: "Digital Skills Acceleration", opp4_d: "Hands-on training using state-of-the-art software tools for graphic design, photography, video editing, and social media management.",
+      tag_careers: "Career Pathways",
+      title_careers: "🚀 Future Roles & Professions Awaiting Graduates",
+      sub_careers: "Public Relations is an interdisciplinary field unlocking diverse professional tracks that hold high strategic value in current and future job markets.",
+      car1_t: "Public Opinion Analyst & Researcher", car1_d: "Conducting surveys, evaluating public trends, and providing data-driven recommendations to political parties, state agencies, and private entities.",
+      car2_t: "Public Relations Specialist (PR Specialist)", car2_d: "Planning and executing communication campaigns, drafting press releases, and distributing official media kits.",
+      car3_t: "Corporate Communications Officer", car3_d: "Managing internal and external organizational communications while developing brand identity and public standing.",
+      car4_t: "Social Media Manager / Coordinator", car4_d: "Managing corporate digital presence, producing engaging content, tracking community feedback, and analyzing reach metrics.",
+      car5_t: "Content Writer & Copywriter", car5_d: "Authoring press releases, promotional materials, investigative reports, and advertising copy across mediums.",
+      car6_t: "Event, Conference & Exhibition Planner", car6_d: "Designing and managing corporate conventions, press briefings, exhibitions, and sponsor coordination.",
+      car7_t: "Official Spokesperson", car7_d: "Representing institutions before media channels and managing strategic messaging during public engagements.",
+      car8_t: "PR & Communications Consultant", car8_d: "Providing expert counsel to enterprises, political figures, and NGOs regarding reputation strategy and crisis intervention.",
+      car9_t: "Corporate Social Responsibility (CSR) Specialist", car9_d: "Directing community initiatives, sustainability initiatives, and building alliances with civil society groups.",
+      car10_t: "Government, Private Sector & NGO Roles", car10_d: "Roles within ministries, corporate banks, universities, diplomatic missions, consulates, and global agencies.",
+      career_summary: "A Public Relations graduate is not merely a media operator; they are strategic experts in relationship management, brand positioning, and stakeholder engagement. Graduates are equipped to excel in digital media, corporate affairs, crisis management, event architecture, marketing communications, diplomatic consulates, and expanding market sectors.",
+      tag_campaign: "Practical Case Study",
+      title_campaign: '🏆 Campaign of the Month: "Share a Coke"',
+      sub_campaign: "How Public Relations science generates global market success for elite multinational brands.",
+      camp_h3: 'The Landmark Coca-Cola Campaign — "Share a Coke with..."',
+      camp_p1: 'In 2011, Coca-Cola faced declining sales trends among young adult demographics. Instead of launching traditional product advertisements, the PR strategy team temporarily replaced the iconic logo on bottles with **250 popular first names**!',
+      camp_box_h: "💡 The Strategic PR Secret:",
+      camp_box_p: 'The brand stopped selling just a soft drink and started creating **emotional personal connections and social sharing**. People spontaneously shared over **500,000 photos** online featuring bottles with their names or friends\' names, driving a **2.5% increase in total sales for the first time in over a decade**.',
+      camp_note: "Key Takeaway: The power of PR lies in its ability to shape consumer behavior organically, building trust without making audiences feel overtly sold to!",
+      tag_why: "Why Choose Us?",
+      title_why: "Why Select This Department?",
+      why1_t: "Modern & Evolving Curriculum", why1_d: "Syllabi tailored to real-world modern market needs, customized for the digital communication era.",
+      why2_t: "Strong Leadership", why2_d: "Dedicated department leadership and experienced faculty committed to elevating academic standards.",
+      why3_t: "Broad Employment Spectrum", why3_d: "Career choices span consulates, corporations, media networks, and international NGOs.",
+      why4_t: "Vibrant Student Community", why4_d: "Active social channels, academic events, and a collaborative environment summarized by the motto 'PR Family'.",
+      tag_testi: "Student Voice",
+      title_testi: "Student Feedback & Experiences",
+      sub_testi: "💡 Discover honest insights directly from current students across different academic stages.",
+      stage2_summary: "Second Year Students",
+      soma_sign: "Soma Ibrahim Ahmed — 2nd Year, Public Relations",
+      soma_q1: '<strong style="color:var(--black);">How did I choose this department?</strong><br>My initial goal was Political Relations, but my score was slightly lower than required. I then researched Public Relations and realized it provided excellent career avenues aligned with my ambitions.',
+      soma_q2: '<strong style="color:var(--black);">What prior information did I have?</strong><br>I tried gathering details through the University of Sulaimani social channels, but information was limited at the time.',
+      soma_q3: '<strong style="color:var(--black);">How do I view it now?</strong><br>I see a bright future ahead of me and feel confident about achieving great success here.',
+      soma_q4: '<strong style="color:var(--black);">What did I learn?</strong><br>This department teaches the art of strategic communication, influencing society and organizations, and understanding audiences through active listening.',
+      maria_sign: "Maria Nariman — Top Student of First Year (Last Academic Year)",
+      maria_q1: '<strong style="color:var(--black);">How did I choose this department?</strong><br>I wanted this department since high school because I recognized its value early on: 1. I love being a voice for others. 2. I have an interest in business, and PR is an optimal choice.',
+      maria_q2: '<strong style="color:var(--black);">What prior information did I have?</strong><br>I didn\'t fully know what studying here entailed or what courses were taught. A friend shared basic information, but not the complete picture.',
+      maria_q3: '<strong style="color:var(--black);">How do I view it now?</strong><br>After completing a year of studies, I value the department even more than I initially did.',
+      azhi_sign: "Azhi Bzhar — 2nd Year",
+      azhi_q1: '<strong style="color:var(--black);">How did you choose this department?</strong><br>It wasn\'t my first direct choice, but my central application score placed me here.',
+      azhi_q2: '<strong style="color:var(--black);">What prior information did you have?</strong><br>None, due to how new the department was. However, I researched it later and gained clear insight.',
+      azhi_q3: '<strong style="color:var(--black);">How do you view it now?</strong><br>I see my career future here. It provides strong employment prospects in both government and private sectors for those willing to develop their skills.',
+      azhi_q4: '<strong style="color:var(--black);">What did you learn?</strong><br>The immense value of interpersonal and professional connections, and how to cultivate them effectively.',
+      stage3_summary: "Third Year Students",
+      shanga_sign: "Shanga Latif Sulaiman — 3rd Year",
+      shanga_q1: '<strong style="color:var(--black);">How did you choose this department?</strong><br>Initially, I didn\'t plan on attending the University of Sulaimani, so I filled out the application form without expecting much and added this department. It wasn\'t my intentional pick at first.',
+      shanga_q2: '<strong style="color:var(--black);">What prior information did you have?</strong><br>Because it was brand new, I knew very little. Once accepted, I sought out every information source available.',
+      shanga_q3: '<strong style="color:var(--black);">How do you view it now?</strong><br>Honestly, it is the single best academic decision I\'ve made, and I have zero regrets. I truly found myself here because the field is dynamic and builds real human connections. Above all, I made loyal friends — which is why \'PR Family\' has become our department\'s true motto.',
+      shanga_q4: '<strong style="color:var(--black);">What did you learn?</strong><br>I learned practical methods and communication frameworks to connect effectively across professional environments.',
+      ashkan_sign: "Ashkan Yasin Hussein — 3rd Year",
+      ashkan_q1: '<strong style="color:var(--black);">How did you choose this department?</strong><br>When I realized PR deals with societal dynamics, daily human communication, and predicting public events, my interest grew significantly. I felt my personality fitted this career line perfectly.',
+      ashkan_q2: '<strong style="color:var(--black);">What prior information did you have?</strong><br>Initially very little due to its novelty. Teachers guided me, and once I understood its connection to governance, politics, corporate entities, and public institutions, I placed it first on my application form without hesitation.',
+      ashkan_q3: '<strong style="color:var(--black);">How do you view it now?</strong><br>I see it as an exceptionally successful choice. I do not regret selecting it at all, and I hope to see it expand further in coming years.',
+      ashkan_q4: '<strong style="color:var(--black);">What did you learn?</strong><br>I gained valuable expertise: brand image management, public opinion analysis, crisis response, media messaging strategy, and counter-propaganda tactics. I learned that Public Relations serves as a bridge between institutions and society, built on ethics and scientific methods.',
+      dina_sign: "Dina Dler Jabar — 3rd Year",
+      dina_q1: '<strong style="color:var(--black);">How did you choose this department?</strong><br>I saw PR as a vital bridge connecting corporations, institutions, and the public. I discovered my personal drive within crisis management and communication skillsets.',
+      dina_q2: '<strong style="color:var(--black);">What prior information did you have?</strong><br>I only held a general impression that it related to advertising and general exposure.',
+      dina_q3: '<strong style="color:var(--black);">How do you view it now?</strong><br>I view Public Relations as a foundational pillar for any organizational success. I learned it isn\'t just about reacting to events, but proactive planning to build long-term trust.',
+      dina_q4: '<strong style="color:var(--black);">What did you learn?</strong><br>Active listening, public opinion analysis, and delivering transparent, impactful messages that represent an organization\'s true values.',
+      govar_sign: "Govar Shoresh Ahmed — 3rd Year",
+      govar_q1: '<strong style="color:var(--black);">How did I choose this department?</strong><br>Driven by a passion for social connectivity, media, and public dynamics, I selected PR to scientifically master administration, protocol, and organizational climate management.',
+      govar_q2: '<strong style="color:var(--black);">What prior information did I have?</strong><br>My initial knowledge was basic, but friends in the department helped me realize that PR bridges organizations with their communities, serving as a core pillar of media and corporate management.',
+      govar_q3: '<strong style="color:var(--black);">How do I view it now?</strong><br>I regard it as a strategic art and science essential for handling crises, maintaining corporate standing, and coordinating diplomatic protocols.',
+      govar_q4: '<strong style="color:var(--black);">What did I learn?</strong><br>Communication theories, crisis response strategies, media campaign execution, presentation skills, and high-impact media content creation.',
+      stage4_summary: "Fourth Year Students",
+      lawan_sign: "Lawan Tariq Muhammad — 4th Year",
+      lawan_q1: '<strong style="color:var(--black);">How did I choose this department?</strong><br>Because it was new, it caught my attention. I wanted to explore an emerging field blending social relations, management, and media.',
+      lawan_q2: '<strong style="color:var(--black);">What prior information did I have?</strong><br>A basic understanding that it focused on shaping organizational image and building community ties.',
+      lawan_q3: '<strong style="color:var(--black);">How do I view it now?</strong><br>As a vital strategic department without which no modern enterprise or institution can thrive.',
+      lawan_q4: '<strong style="color:var(--black);">What did I learn?</strong><br>The art of negotiation, high-level event coordination, and official protocol.',
+      akam_sign: "Akam Najmaddin — 4th Year",
+      akam_q1: '<strong style="color:var(--black);">How did you choose this department?</strong><br>A friend was studying in this department, and I chose it based on their recommendation.',
+      akam_q2: '<strong style="color:var(--black);">What prior information did you have?</strong><br>No initial knowledge other than knowing most subjects were taught in Kurdish.',
+      akam_q3: '<strong style="color:var(--black);">How do you view it now?</strong><br>It is a modern department with growing recognition across institutions and society.',
+      akam_q4: '<strong style="color:var(--black);">What did you learn?</strong><br>Enhancing communication lines between organizations and the public, among many other professional skills.',
+      tag_faq: "Quick Answers",
+      title_faq: "❓ Frequently Asked Questions",
+      sub_faq: "Clear, factual responses to the most common queries raised by prospective students.",
+      faq1_q: "1. What language is used for instruction in the Public Relations Department?",
+      faq1_a: "Core modules are taught primarily in Kurdish, supplemented by key academic English terminology and dedicated English language courses to strengthen student language proficiency.",
+      faq2_q: "2. Is admission open to Literary high school branch students only, or Scientific branch too?",
+      faq2_a: "Graduates from both Literary and Scientific branches can apply through the official Zankoline or Parallel admission channels.",
+      faq3_q: '3. What is the core distinction between "Public Relations (PR)" and "Media / Journalism"?',
+      faq3_a: "Media/Journalism focuses heavily on news reporting and broadcasting operations; Public Relations is the strategic management of organizational reputation, crisis control, strategic planning, and building trust between institutions and their stakeholders.",
+      tag_contact: "Contact",
+      title_contact: "Still Have Questions?",
+      p_contact: "Reach out to the Public Relations Department at the University of Sulaimani for further academic and admission guidance.",
+      addr_contact: "📍 New Campus, University of Sulaimani — College of Humanities (Building 11)",
+      btn_wa: "💬 WhatsApp",
+      btn_fb: "📘 Official Facebook",
+      btn_ig: "📷 Student Instagram",
+      footer_copy: "© 2026 Department of Public Relations — University of Sulaimani",
+      footer_credit: "Created by Ara Aziz, Second-Year Student in Public Relations",
+      footer_thanks: "Special appreciation goes out to our tireless faculty, particularly Head of Department Dr. Lana, Department Representative Lecturer Shokhan, and Lecturer Avesta for their continuous support. Warm thanks also to Dzhwar Adil, 2nd-year student representative, and all students who provided feedback to enhance this platform for prospective students."
+    }
+  };
+
+  let currentLang = 'ckb';
+
+  function applyLanguage(lang) {
+    currentLang = lang;
+    const htmlEl = document.documentElement;
+    const bodyEl = document.body;
+
+    if (lang === 'en') {
+      htmlEl.setAttribute('lang', 'en');
+      htmlEl.setAttribute('dir', 'ltr');
+      bodyEl.classList.add('lang-en');
+    } else {
+      htmlEl.setAttribute('lang', 'ckb');
+      htmlEl.setAttribute('dir', 'rtl');
+      bodyEl.classList.remove('lang-en');
+    }
+
+    const dict = translations[lang];
+
+    // Language Button Label
+    document.getElementById('lang-btn-text').innerText = dict.lang_btn;
+
+    // Calc Input Placeholder
+    const calcInput = document.getElementById('user-score-input');
+    if (calcInput) calcInput.placeholder = dict.calc_placeholder;
+
+    // Apply plain text elements
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (dict[key] !== undefined) {
+        el.innerText = dict[key];
+      }
+    });
+
+    // Apply HTML formatted elements
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+      const key = el.getAttribute('data-i18n-html');
+      if (dict[key] !== undefined) {
+        el.innerHTML = dict[key];
+      }
+    });
+
+    // Re-trigger calculation text update if result exists
+    const calcResultEl = document.getElementById('calc-result');
+    if (calcResultEl && calcResultEl.innerHTML.trim() !== '') {
+      calculateChances();
+    }
+  }
+
+  function toggleLanguage() {
+    const newLang = currentLang === 'ckb' ? 'en' : 'ckb';
+    applyLanguage(newLang);
+  }
+</script>
+
+<!-- Google Sheets Data Fetch & Calculator Logic -->
 <script>
   const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSPjo4-lFAwndWw81v0KpDfU1gderIfedi5pSoe3g6ted4KEpNZ2GeUDHMVbk0D4dKZmAuc2ePFf45v/pub?gid=0&single=true&output=csv';
 
@@ -784,27 +1252,31 @@
       }
 
     } catch (err) {
-      console.log("کێشە لە هێنانی زانیاری Google Sheet:", err);
+      console.log("Error loading Google Sheet data:", err);
     }
   }
 
   function calculateChances() {
     const inputVal = document.getElementById('user-score-input').value;
     const resultDiv = document.getElementById('calc-result');
+    const dict = translations[currentLang];
     
     if (!inputVal) {
-      resultDiv.innerHTML = '<span style="color: #ff6b6b;">تکایە نمرەکەت بنووسە.</span>';
+      resultDiv.innerHTML = dict.calc_err;
       return;
     }
 
     const score = parseFloat(inputVal);
 
     if (score >= currentZankolineScore) {
-      resultDiv.innerHTML = `<span style="color: #51cf66;">🎉 پیرۆزە! نمرەکەت (${score}) لە کەمترین نمرەی زانکۆلاین (${currentZankolineScore}) بەرزترە. چانسێکی زۆر بەرزت هەیە بۆ وەرگیرانی ڕاستەوخۆ!</span>`;
+      const msg = dict.calc_res_zanko.replace('{score}', score).replace('{threshold}', currentZankolineScore);
+      resultDiv.innerHTML = `<span style="color: #51cf66;">${msg}</span>`;
     } else if (score >= currentParallelScore) {
-      resultDiv.innerHTML = `<span style="color: #fcc419;">😊 نمرەکەت (${score}) لە کەمترین نمرەی پاراڵێل (${currentParallelScore}) بەرزترە. چانسی وەرگیرانت لەسەر سیستمی پاراڵێل زۆر بەرزە!</span>`;
+      const msg = dict.calc_res_para.replace('{score}', score).replace('{threshold}', currentParallelScore);
+      resultDiv.innerHTML = `<span style="color: #fcc419;">${msg}</span>`;
     } else {
-      resultDiv.innerHTML = `<span style="color: #ff922b;">هێشتا هیوا هەیە! نمرەکەت (${score}) لە کەمترین نمرەی پاراڵێلی ساڵی ڕابردوو (${currentParallelScore}) کەمێک نزمترە. بەهۆی گۆڕانی نمرەکان، هێشتا چانس هەیە؛ هەمیشە فۆڕمی زانکۆلاین پڕبکەرەوە.</span>`;
+      const msg = dict.calc_res_low.replace('{score}', score).replace('{threshold}', currentParallelScore);
+      resultDiv.innerHTML = `<span style="color: #ff922b;">${msg}</span>`;
     }
   }
 
