@@ -335,9 +335,33 @@
   .contact-wrap{text-align:center;}
   .contact-wrap h2{font-size:27px; font-weight:900; color:var(--black); margin-bottom:12px;}
   .contact-wrap p{font-size:15px; color:var(--ink-soft); margin-bottom:6px;}
-  .addr{font-size:13.5px; color:var(--ink-soft); margin-bottom:28px;}
-  .addr a{color:inherit; text-decoration:underline; transition:color 0.2s;}
-  .addr a:hover{color:var(--red);}
+
+  /* Contact Map Button Styling */
+  .map-btn-wrap {
+    margin-top: 14px;
+    margin-bottom: 28px;
+  }
+  .map-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--paper-2);
+    color: var(--black);
+    border: 1.5px solid var(--black);
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .map-btn:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--black);
+    transform: translateY(-2px);
+  }
+
   .contact-btns{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
   .cbtn{
     display:inline-flex; align-items:center; gap:8px; text-decoration:none; font-weight:600; font-size:14px;
@@ -721,7 +745,14 @@
   <span class="tag" data-i18n="tag_contact">پەیوەندی</span>
   <h2 data-i18n="title_contact">هێشتا پرسیارت هەیە؟</h2>
   <p data-i18n="p_contact">پەیوەندی بە بەشی پەیوەندییە گشتییەکانی زانکۆی سلێمانی بکە بۆ زانیاری زیاتر لەسەر وەرگرتن و خوێندن.</p>
-  <p class="addr" data-i18n-html="addr_contact">📍 <a href="https://maps.app.goo.gl/RnutugqcDPuYnaE16" target="_blank" rel="noopener">کەمپی نوێی زانکۆی سلێمانی — کۆلێژی زانستە مرۆڤایەتییەکان (بینای ١١)</a></p>
+  
+  <!-- دوگمەی شوێن و ناونیشانی کۆلێژەکە -->
+  <div class="map-btn-wrap">
+    <a href="https://maps.app.goo.gl/RnutugqcDPuYnaE16" target="_blank" rel="noopener" class="map-btn" data-i18n="map_btn">
+      📍 کەمپی نوێی زانکۆی سلێمانی — کۆلێژی زانستە مرۆڤایەتییەکان (بینای ١١)
+    </a>
+  </div>
+
   <div class="contact-btns">
     <a class="cbtn solid" href="https://wa.me/9647740823075" target="_blank" rel="noopener" data-i18n="btn_wa">💬 واتساپ</a>
     <a class="cbtn" href="https://www.facebook.com/share/1Eu4ffZzKL/?mibextid=wwXIfr" target="_blank" rel="noopener" data-i18n="btn_fb">📘 فەیسبووکی فەرمی</a>
@@ -913,7 +944,7 @@
       tag_contact: "پەیوەندی",
       title_contact: "هێشتا پرسیارت هەیە؟",
       p_contact: "پەیوەندی بە بەشی پەیوەندییە گشتییەکانی زانکۆی سلێمانی بکە بۆ زانیاری زیاتر لەسەر وەرگرتن و خوێندن.",
-      addr_contact: '📍 <a href="https://maps.app.goo.gl/RnutugqcDPuYnaE16" target="_blank" rel="noopener">کەمپی نوێی زانکۆی سلێمانی — کۆلێژی زانستە مرۆڤایەتییەکان (بینای ١١)</a>',
+      map_btn: "📍 کەمپی نوێی زانکۆی سلێمانی — کۆلێژی زانستە مرۆڤایەتییەکان (بینای ١١)",
       btn_wa: "💬 واتساپ",
       btn_fb: "📘 فەیسبووکی فەرمی",
       btn_ig: "📷 ئینستاگرامی خوێندکاران",
@@ -1096,7 +1127,7 @@
       tag_contact: "Contact",
       title_contact: "Still Have Questions?",
       p_contact: "Reach out to the Public Relations Department at the University of Sulaimani for further academic and admission guidance.",
-      addr_contact: '📍 <a href="https://maps.app.goo.gl/RnutugqcDPuYnaE16" target="_blank" rel="noopener">New Campus, University of Sulaimani — College of Humanities (Building 11)</a>',
+      map_btn: "📍 New Campus, University of Sulaimani — College of Humanities (Building 11)",
       btn_wa: "💬 WhatsApp",
       btn_fb: "📘 Official Facebook",
       btn_ig: "📷 Student Instagram",
