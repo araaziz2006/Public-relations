@@ -69,9 +69,10 @@
     animation-play-state: paused;
   }
 
+  /* Reversed Marquee Direction */
   @keyframes marquee-left {
-    0% { transform: translate3d(100vw, 0, 0); }
-    100% { transform: translate3d(-100%, 0, 0); }
+    0% { transform: translate3d(-100%, 0, 0); }
+    100% { transform: translate3d(100vw, 0, 0); }
   }
 
   header{
@@ -91,12 +92,13 @@
     display:flex; flex-direction:column; gap:2px;
   }
   .brand .brand-top{display:flex; align-items:center; gap:8px;}
-  .brand .mark{
-    width:26px; height:26px; border-radius:50%;
-    border:1.5px solid var(--red);
-    display:flex; align-items:center; justify-content:center;
-    font-size:12px;
+  .brand .dept-logo {
+    width: 34px; height: 34px; border-radius: 50%;
+    border: 1.5px solid var(--red);
+    object-fit: contain;
+    background-color: #fff;
   }
+  
   .nav-right-wrap {
     display: flex;
     align-items: center;
@@ -274,33 +276,7 @@
 
   .contact-wrap{text-align:center;}
   .contact-wrap h2{font-size:27px; font-weight:900; color:var(--black); margin-bottom:12px;}
-  .contact-wrap p{font-size:15px; color:var(--ink-soft); margin-bottom:6px;}
-
-  /* Contact Map Button Styling */
-  .map-btn-wrap {
-    margin-top: 14px;
-    margin-bottom: 28px;
-  }
-  .map-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: var(--paper-2);
-    color: var(--black);
-    border: 1.5px solid var(--black);
-    padding: 12px 20px;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: all 0.2s ease;
-  }
-  .map-btn:hover {
-    background: var(--gold);
-    border-color: var(--gold);
-    color: var(--black);
-    transform: translateY(-2px);
-  }
+  .contact-wrap p{font-size:15px; color:var(--ink-soft); margin-bottom:28px;}
 
   .contact-btns{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
   .cbtn{
@@ -368,7 +344,10 @@
 <header>
   <nav>
     <div class="brand">
-      <div class="brand-top"><span class="mark">▲</span> <span data-i18n="brand_name">پەیوەندییە گشتییەکان</span></div>
+      <div class="brand-top">
+        <img src="image_2.png" alt="University Logo" class="dept-logo">
+        <span data-i18n="brand_name">پەیوەندییە گشتییەکان</span>
+      </div>
     </div>
     <div class="nav-right-wrap">
       <ul class="nav-links">
@@ -689,17 +668,11 @@
   <h2 data-i18n="title_contact">هێشتا پرسیارت هەیە؟</h2>
   <p data-i18n="p_contact">پەیوەندی بە بەشی پەیوەندییە گشتییەکانی زانکۆی سلێمانی بکە بۆ زانیاری زیاتر لەسەر وەرگرتن و خوێندن.</p>
   
-  <!-- دوگمەی شوێن و ناونیشانی کۆلێژەکە -->
-  <div class="map-btn-wrap">
-    <a href="https://maps.app.goo.gl/RnutugqcDPuYnaE16" target="_blank" rel="noopener" class="map-btn" data-i18n="map_btn">
-      📍 کەمپی نوێی زانکۆی سلێمانی — کۆلێژی زانستە مرۆڤایەتییەکان (بینای ١١)
-    </a>
-  </div>
-
   <div class="contact-btns">
     <a class="cbtn solid" href="https://wa.me/9647740823075" target="_blank" rel="noopener" data-i18n="btn_wa">💬 واتساپ</a>
     <a class="cbtn" href="https://www.facebook.com/share/1Eu4ffZzKL/?mibextid=wwXIfr" target="_blank" rel="noopener" data-i18n="btn_fb">📘 فەیسبووکی فەرمی</a>
     <a class="cbtn" href="https://www.instagram.com/public.relations.students?igsh=MThiOWV3dzZycjhreA==" target="_blank" rel="noopener" data-i18n="btn_ig">📷 ئینستاگرامی خوێندکاران</a>
+    <a class="cbtn" href="https://maps.app.goo.gl/RnutugqcDPuYnaE16" target="_blank" rel="noopener" data-i18n="btn_map">📍 کلیک لێرە بکە بۆ بینینی نەخشەی زانکۆ</a>
   </div>
 </section>
 
@@ -884,10 +857,10 @@
       faq1_a: "زۆربەی وانە سەرەکییەکان بە زمانی کوردی دەخوێندرێن، لەگەڵ هەندێک زاراوەی ئەکادیمی و وانەی تایبەت بە ئینگلیزی بۆ بەهێزکردنی ئاستی زمانی خوێندکاران.",
       faq2_q: "٢. ئایا تەنها خوێندکارانی لقی وێژەیی دەتوانن بێنە ئەم بەشە یان لقی زانستیش؟",
       faq2_a: "دەرچووانی هەردوو لقی وێژەیی و زانستی دەتوانن لە ڕێگەی زانکۆلاین یان پاراڵێلەوە داواکاری پێشکەش بکەن.",
+      btn_map: "📍 کلیک لێرە بکە بۆ بینینی نەخشەی زانکۆ",
       tag_contact: "پەیوەندی",
       title_contact: "هێشتا پرسیارت هەیە؟",
       p_contact: "پەیوەندی بە بەشی پەیوەندییە گشتییەکانی زانکۆی سلێمانی بکە بۆ زانیاری زیاتر لەسەر وەرگرتن و خوێندن.",
-      map_btn: "📍 کەمپی نوێی زانکۆی سلێمانی — کۆلێژی زانستە مرۆڤایەتییەکان (بینای ١١)",
       btn_wa: "💬 واتساپ",
       btn_fb: "📘 فەیسبووکی فەرمی",
       btn_ig: "📷 ئینستاگرامی خوێندکاران",
@@ -1067,10 +1040,10 @@
       faq1_a: "Core modules are taught primarily in Kurdish, supplemented by key academic English terminology and dedicated English language courses to strengthen student language proficiency.",
       faq2_q: "2. Is admission open to Literary high school branch students only, or Scientific branch too?",
       faq2_a: "Graduates from both Literary and Scientific branches can apply through the official Zankoline or Parallel admission channels.",
+      btn_map: "📍 Click here to view University Map",
       tag_contact: "Contact",
       title_contact: "Still Have Questions?",
       p_contact: "Reach out to the Public Relations Department at the University of Sulaimani for further academic and admission guidance.",
-      map_btn: "📍 New Campus, University of Sulaimani — College of Humanities (Building 11)",
       btn_wa: "💬 WhatsApp",
       btn_fb: "📘 Official Facebook",
       btn_ig: "📷 Student Instagram",
