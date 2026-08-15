@@ -220,66 +220,6 @@
     font-size:13px; color:#B9AF9C; line-height:1.8;
   }
 
-  /* Score Calculator Box */
-  .calc-box {
-    margin-top: 28px;
-    background: rgba(246,241,230,0.08);
-    border: 1px solid rgba(246,241,230,0.2);
-    border-radius: 6px;
-    padding: 24px;
-  }
-  .calc-box h4 {
-    font-size: 16px;
-    color: var(--gold);
-    margin-bottom: 8px;
-    font-weight: 700;
-  }
-  .calc-box p {
-    font-size: 13.5px;
-    color: #C9C0AE;
-    margin-bottom: 16px;
-  }
-  .calc-form {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
-  .calc-input {
-    flex: 1 1 180px;
-    padding: 12px 16px;
-    border-radius: 4px;
-    border: 1px solid rgba(246,241,230,0.3);
-    background: rgba(0,0,0,0.4);
-    color: #fff;
-    font-size: 14px;
-    outline: none;
-    font-family: inherit;
-  }
-  .calc-input:focus {
-    border-color: var(--gold);
-  }
-  .calc-btn {
-    padding: 12px 24px;
-    background: var(--gold);
-    color: var(--black);
-    font-weight: 700;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-    font-family: inherit;
-    transition: background 0.2s;
-  }
-  .calc-btn:hover {
-    background: #d4a037;
-  }
-  #calc-result {
-    margin-top: 16px;
-    font-size: 14.5px;
-    line-height: 1.8;
-    font-weight: 600;
-  }
-
   .grid3{
     display:grid; 
     grid-template-columns:repeat(3,1fr); 
@@ -528,17 +468,6 @@
     </div>
     <div class="note" data-i18n="scores_note1">تێبینی: ئەم نمرانە بۆ ساڵی ڕابردوون و ڕەنگە ئەمساڵ بگۆڕێن. بۆ زانیاری وردتر و دووپاتکردنەوە، سەیری فۆڕمی زانکۆلاین یان بەشەکەمان بکە.</div>
     <div class="note" style="margin-top:14px; border-top:none; padding-top:0; font-size:16px; font-weight:700; color:var(--gold);" data-i18n-html="scores_note2">لە ساڵی <span id="dyn-academic-year-note">٢٠٢٥-٢٠٢٦</span>، <span id="students-count">٨٠</span> خوێندکار وەرگیراوە.</div>
-
-    <!-- Zankoline Calculator Tool -->
-    <div class="calc-box">
-      <h4 data-i18n="calc_h4">🔍 ئامرازی تاقیکردنەوەی نمرەکەت:</h4>
-      <p data-i18n="calc_p">نمرەکەت بنووسە تاوەکو بزانیت چانسی وەرگیرانت لەسەر زانکۆلاین یان پاراڵێل چۆنە:</p>
-      <div class="calc-form">
-        <input type="number" id="user-score-input" class="calc-input" placeholder="نمرەکەت (نموونە: 62)" step="0.1" min="50" max="100">
-        <button type="button" onclick="calculateChances()" class="calc-btn" data-i18n="calc_btn">تاقیکردنەوەی نمرە</button>
-      </div>
-      <div id="calc-result"></div>
-    </div>
   </div>
 </section>
 
@@ -573,7 +502,7 @@
     <div class="cell"><div class="icon">📊</div><h3 data-i18n="subj8_t">ستراتیژی و پلاندانان</h3><p data-i18n="subj8_d">دروستکردنی پلانی پەیوەندی گشتی بۆ کۆمپانیا و دامەزراوەکان.</p></div>
     <div class="cell"><div class="icon">🎤</div><h3 data-i18n="subj10_t">بەڕێوەبردنی ئیڤینت و بۆنەکان</h3><p data-i18n="subj10_d">ڕێکخستن و بەڕێوەبردنی چالاکی و ئیڤینتی گشتی.</p></div>
     <div class="cell"><div class="icon">📡</div><h3 data-i18n="subj11_t">بەڕێوەبردنی پەیوەندییە میدیاییەکان</h3><p data-i18n="subj11_d">چۆنیەتی دروستکردن و بەڕێوەبردنی پەیوەندی لەگەڵ میدیا و ڕۆژنامەنووسان.</p></div>
-    <div class="cell"><div class="icon">🎬</div><h3 data-i18n="subj14_t">بەرهەمهێنانی پەیوەندی گشتی</h3><p data-i18n="subj14_d">برهه‌مهێنانی په‌یوه‌ندییه‌ گشتییه‌کان : پرۆسه‌‌ی دروستکردن، دیزاینکردن و بڵاوکردنه‌وه‌ی که‌ره‌سته‌ و بابه‌ته‌ ,به‌ مه‌به‌ستی شێوازپێدان به‌ وێنه‌ی گشتی، کەس ،دامەزراوە و پارت و لایەنێك و به‌ڕێوه‌بردنی ناوبانگی.</p></div>
+    <div class="cell"><div class="icon">🎬</div><h3 data-i18n="subj14_t">بەرهەمهێنانی پەیوەندی گشتی</h3><p data-i18n="subj14_d">بەرهەمهێنانی په‌یوه‌ندییه‌ گشتییه‌کان : پرۆسه‌‌ی دروستکردن، دیزاینکردن و بڵاوکردنه‌وه‌ی که‌ره‌سته‌ و بابه‌ته‌ ,به‌ مه‌به‌ستی شێوازپێدان به‌ وێنه‌ی گشتی، کەس ،دامەزراوە و پارت و لایەنێك و به‌ڕێوه‌بردنی ناوبانگی.</p></div>
     <div class="cell"><div class="icon">📣</div><h3 data-i18n="subj15_t">هەڵمەتی پەیوەندی گشتی</h3><p data-i18n="subj15_d">هەڵمەتی پەیوەندییە گشتییەکان :زنجیرە چالاکییەکی ستراتیژی و کاتییە بۆ گەیشتن بە ئامانجێکی دیاریکراوی  دامەزراوەیەك، براندێک، یان کەس و لایەنێك.</p></div>
     <div class="cell"><div class="icon">💰</div><h3 data-i18n="subj17_t">ئابووری دامەزراوە</h3><p data-i18n="subj17_d">بنەماکانی ئابووری کە پەیوەندیدارن بە کارکردنی دامەزراوەکانەوە.</p></div>
     <div class="cell"><div class="icon">🌐</div><h3 data-i18n="subj19_t">پەیوەندی گشتی دیجیتاڵی</h3><p data-i18n="subj19_d">بەکارهێنانی ئامرازە دیجیتاڵییەکان لە پەیوەندی گشتیدا لە سەردەمی ئۆنلایندا.</p></div>
@@ -724,13 +653,8 @@
       <p data-i18n-html="henar_q2"><strong style="color:var(--black);">چی زانیاریت دەربارەی هەبوو؟</strong><br>پێش ئەوەی بچمە بەشەکە، زانیاریم هەبوو کە پەیوەندییە گشتییەکان بە پەیوەندی لەگەڵ خەڵک، میدیا و بەڕێوەبردنی وێنەی دامەزراوەکانەوە پەیوەندی هەیە.</p>
       <p data-i18n-html="henar_q3"><strong style="color:var(--black);">ئێستا چۆن لێی دەڕوانێت؟</strong><br>ئێستا بەشەکەم بە گرنگتر و فراوانتر دەبینم و باوەڕم وایە بوارێکی گرنگە بۆ دامەزراوە و کۆمپانیاکان.</p>
       <p data-i18n-html="henar_q4"><strong style="color:var(--black);">چی فێربووی؟</strong><br>فێربووم چۆن پەیوەندییەکی کاریگەر لەگەڵ خەڵک دروست بکەم، کێشەکان چارەسەر بکەم، کار بە تیم بکەم و ڕێکخستنی بۆنە و چالاکییەکان بکەم.</p>
-    </div>
-  </details>
-
-  <details class="acc">
-    <summary data-i18n="graduates_summary">دەرچوانی بەشەکە</summary>
-    <div class="acc-body">
-      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;" data-i18n="sarwat_sign">سەروەت محمد، دەرچووی ٢٠٢٥-٢٠٢٦</div>
+      <div style="height:1px; background:var(--line); margin:22px 0;"></div>
+      <div class="acc-sign" style="margin-top:0; margin-bottom:14px;" data-i18n="sarwat_sign">سەروەت محمد، قۆناغی ٤</div>
       <p data-i18n-html="sarwat_q1"><strong style="color:var(--black);">چۆن بەشەکەت هەڵبژارد؟</strong><br>حەزی زۆرم بۆ کاری سیاسی هەبوو دەمویست بزانم کەسایەتیە سیاسیەکان چۆن دەتوانن کاریگەری بخەنە سەر ڕای گشتی و جەماوەر بەچی ڕێگایەک تا زانیم لە ڕێگای کەسانی پەیوەندییە گشتیەکانەوە ئەو کاریگەریە دروستدەکەن.</p>
       <p data-i18n-html="sarwat_q2"><strong style="color:var(--black);">چی زانیاریەکت دەربارەی هەبوو؟</strong><br>تەنها ئەوەندەم دەزانی کە کەسایەتیە سیاسیەکان تیمیان هەیە بۆ ئەوەی وتارو دەرکەوتنیان لە میدیاکانەوە ڕێکبخەن نەم دەزانی ئەم بەشە هێندە قوڵە پشتی بە توێژینەوەی دەرووناسی خەڵک بەستوە بۆ بەدەستهێنانی متمانە.</p>
       <p data-i18n-html="sarwat_q3"><strong style="color:var(--black);">ئێستا چۆن لێی دەڕوانی؟</strong><br>ئێستا بە سەرەکیترین هۆکاری سەرکەوتنی هر کارێکی سیاسی دەیبینم.</p>
@@ -755,13 +679,6 @@
       <summary data-i18n="faq2_q">٢. ئایا تەنها خوێندکارانی لقی وێژەیی دەتوانن بێنە ئەم بەشە یان لقی زانستیش؟</summary>
       <div class="acc-body" data-i18n="faq2_a">
         دەرچووانی هەردوو لقی وێژەیی و زانستی دەتوانن لە ڕێگەی زانکۆلاین یان پاراڵێلەوە داواکاری پێشکەش بکەن.
-      </div>
-    </details>
-
-    <details class="faq-acc">
-      <summary data-i18n="faq3_q">٣. جیاوازیی سەرەکی لە نێوان بەشی "پەیوەندییە گشتییەکان (PR)" و بەشی "ڕاگەیاندن / ڕۆژنامەنووسی" چییە؟</summary>
-      <div class="acc-body" data-i18n="faq3_a">
-        بەشی ڕاگەیاندن زیاتر تیشک دەخاتە سەر دروستکردنی ڕاپۆرت و کارکردن لە کەناڵەکاندا؛ بەڵام بەشی پەیوەندییە گشتییەکان زانستی بەڕێوەبردنی ناوبانگ، دروستکردنی ستراتیژ، بەڕێوەبردنی قەیرانەکان و هەماهەنگییە لە نێوان دامەزراوەکان و جەماوەردا.
       </div>
     </details>
   </div>
@@ -842,14 +759,6 @@
       plaque_yr2: 'ساڵی <span class="dyn-score-year">٢٠٢٥</span>',
       scores_note1: "تێبینی: ئەم نمرانە بۆ ساڵی ڕابردوون و ڕەنگە ئەمساڵ بگۆڕێن. بۆ زانیاری وردتر و دووپاتکردنەوە، سەیری فۆڕمی زانکۆلاین یان بەشەکەمان بکە.",
       scores_note2: 'لە ساڵی <span id="dyn-academic-year-note">٢٠٢٥-٢٠٢٦</span>، <span id="students-count">٨٠</span> خوێندکار وەرگیراوە.',
-      calc_h4: "🔍 ئامرازی تاقیکردنەوەی نمرەکەت:",
-      calc_p: "نمرەکەت بنووسە تاوەکو بزانیت چانسی وەرگیرانت لەسەر زانکۆلاین یان پاراڵێل چۆنە:",
-      calc_btn: "تاقیکردنەوەی نمرە",
-      calc_placeholder: "نمرەکەت (نموونە: 62)",
-      calc_err: '<span style="color: #ff6b6b;">تکایە نمرەکەت بنووسە.</span>',
-      calc_res_zanko: '🎉 پیرۆزە! نمرەکەت ({score}) لە کەمترین نمرەی زانکۆلاین ({threshold}) بەرزترە. چانسێکی زۆر بەرزت هەیە بۆ وەرگیرانی ڕاستەوخۆ!',
-      calc_res_para: '😊 نمرەکەت ({score}) لە کەمترین نمرەی پاراڵێل ({threshold}) بەرزترە. چانسی وەرگیرانت لەسەر سیستمی پاراڵێل زۆر بەرزە!',
-      calc_res_low: 'هێشتا هیوا هەیە! نمرەکەت ({score}) لە کەمترین نمرەی پاراڵێلی ساڵی ڕابردوو ({threshold}) کەمێک نزمترە. بەهۆی گۆڕانی نمرەکان، هێشتا چانس هەیە؛ هەمیشە فۆڕمی زانکۆلاین پڕبکەرەوە.',
       tag_subjects: "پەرچەکردنی خوێندن",
       title_subjects: '4ساڵی زانکۆت بە زیاتر لە <span id="subjects-count">20</span>وانەی بەهێز نەخشە ڕێگەی خوێندنەکەتە',
       sub_subjects: "کۆمەڵێک وانەی پڕاکتیکی و تیۆری دەخوێندرێ لە چوارچێوەی ٤ ساڵدا کە دەکاتە ٨ وەرزی خوێندن. ئەمانەش نموونەی هەندێک لە وانە گرنگەکانە.",
@@ -866,7 +775,7 @@
       subj11_t: "بەڕێوەبردنی پەیوەندییە میدیاییەکان", subj11_d: "چۆنیەتی دروستکردن و بەڕێوەبردنی پەیوەندی لەگەڵ میدیا و ڕۆژنامەنووسان.",
       subj12_t: "گرافیک دیزاین", subj12_d: "گرافیک دیزاین لە پەیوەندییە گشتییەکاندا : بەکارهێنانی توخمە بینراوەکانە بۆ گەیاندنی پەیام، بەمەبەستی بەدەستهێنانی تێڕوانینی گشتی .",
       subj13_t: "فۆتۆگرافی و ڤیدیۆگرافی", subj13_d: "وێنەگرتن و تۆمارکردنی ڤیدیۆ بۆ کەمپین و ناوەڕۆکی ڕاگەیاندن.",
-      subj14_t: "بەرهەمهێنانی پەیوەندی گشتی", subj14_d: "برهه‌مهێنانی په‌یوه‌ندییه‌ گشتییه‌کان : پرۆسه‌‌ی دروستکردن، دیزاینکردن و بڵاوکردنه‌وه‌ی که‌ره‌سته‌ و بابه‌ته‌ ,به‌ مه‌به‌ستی شێوازپێدان به‌ وێنه‌ی گشتی، کەس ،دامەزراوە و پارت و لایەنێك و به‌ڕێوه‌بردنی ناوبانگی.",
+      subj14_t: "بەرهەمهێنانی پەیوەندی گشتی", subj14_d: "بەرهەمهێنانی په‌یوه‌ندییه‌ گشتییه‌کان : پرۆسه‌‌ی دروستکردن، دیزاینکردن و بڵاوکردنه‌وه‌ی که‌ره‌سته‌ و بابه‌ته‌ ,به‌ مه‌به‌ستی شێوازپێدان به‌ وێنه‌ی گشتی، کەس ،دامەزراوە و پارت و لایەنێك و به‌ڕێوه‌بردنی ناوبانگی.",
       subj15_t: "هەڵمەتی پەیوەندی گشتی", subj15_d: "هەڵمەتی پەیوەندییە گشتییەکان :زنجیرە چالاکییەکی ستراتیژی و کاتییە بۆ گەیشتن بە ئامانجێکی دیاریکراوی  دامەزراوەیەك، براندێک، یان کەس و لایەنێك.",
       subj16_t: "دیپلۆماسی", subj16_d: "پرۆسەی بەڕێوەبردنی پەیوەندییە لە ڕێگەی دانوستان و گفتوگۆ بە ئامانجی چارەسەرکردنی کێشەکان و دروستکردنی هاوپەیمانی.",
       subj17_t: "ئابووری دامەزراوە", subj17_d: "بنەماکانی ئابووری کە پەیوەندیدارن بە کارکردنی دامەزراوەکانەوە.",
@@ -900,7 +809,7 @@
       camp_h3: 'کەمپەینی مێژوویی کۆکا کۆلا — "کۆکایەک ببه‌خشە بە..."',
       camp_p1: 'لە ساڵی ٢٠١١دا، کۆمپانیای کۆکا کۆلا (Coca-Cola) ڕووبەڕووی دابەزینی فرۆش ببووەوە لەناو گەنجاندا. تیمی پەیوەندییە گشتییەکانی کۆمپانیاکە لە جیاتی بەکارهێنانی ڕیکلامی بەرهەمەکان، بڕیاریان دا لۆگۆیە سەرەکییەکەی سەر بوتڵەکان لاببەن و لە شوێنیدا **٢٥٠ ناوی کوڕان و کچانی باو** لەسەر بوتڵەکان بنووسن!',
       camp_box_h: "💡 نھێنی سەرکەوتنی PR لەم کەمپەینەدا:",
-      camp_box_p: 'کۆمپانیاکە شتومەکی نەفرۆشت، بەڵکو **پەیوەندی کۆمەڵایەتی و هەستی تایبەتی** دروستکرد. خەڵک لە سۆشیال میدیا دەستیان کرد بە بڵاوکردنەوەی وێنەی بوتڵەکان بە ناوی خۆیان و هاوڕێکانیانەوە. بەمەش زیاتر لە **٥٠0,٠٠٠ وێنە** لە ئینتەرنێت بڵاوبووەوە و فرۆشی کۆمپانیاکە بە ڕێژەی **٢.٥٪ بۆ یەکەمجار دوای ساڵانێک زیادی کرد**.',
+      camp_box_p: 'کۆمپانیاکە شتومەکی نەفرۆشت، بەڵکو **پەیوەندی کۆمەڵایەتی و هەستی تایبەتی** دروستکرد. خەڵک لە سۆشیال میدیا دەستیان کرد بە بڵاوکردنەوەی وێنەی بوتڵەکان بە ناوی خۆیان و هاوڕێکانیانەوە. بەمەش زیاتر لە **٥٠٠,٠٠٠ وێنە** لە ئینتەرنێت بڵاوبووەوە و فرۆشی کۆمپانیاکە بە ڕێژەی **٢.٥٪ بۆ یەکەمجار دوای ساڵانێک زیادی کرد**.',
       camp_note: "کەڵکی ئەم نموونەیە بۆ تۆ: هێزی پەیوەندییە گشتییەکان لەوەدایە کە دەتوانێت ڕەفتار و بیرکردنەوەی جەماوەر بگۆڕێت بە بێ ئەوەی هەست بکەن ڕیکلامیان بۆ دەکرێت!",
       tag_why: "بۆچی ئێمە؟",
       title_why: "بۆچی ئەم بەشە هەڵبژێریت؟",
@@ -963,8 +872,7 @@
       henar_q2: '<strong style="color:var(--black);">چی زانیاریت دەربارەی هەبوو؟</strong><br>پێش ئەوەی بچمە بەشەکە، زانیاریم هەبوو کە پەیوەندییە گشتییەکان بە پەیوەندی لەگەڵ خەڵک، میدیا و بەڕێوەبردنی وێنەی دامەزراوەکانەوە پەیوەندی هەیە.',
       henar_q3: '<strong style="color:var(--black);">ئێستا چۆن لێی دەڕوانێت؟</strong><br>ئێستا بەشەکەم بە گرنگتر و فراوانتر دەبینم و باوەڕم وایە بوارێکی گرنگە بۆ دامەزراوە و کۆمپانیاکان.',
       henar_q4: '<strong style="color:var(--black);">چی فێربووی؟</strong><br>فێربووم چۆن پەیوەندییەکی کاریگەر لەگەڵ خەڵک دروست بکەم، کێشەکان چارەسەر بکەم، کار بە تیم بکەم و ڕێکخستنی بۆنە و چالاکییەکان بکەم.',
-      graduates_summary: "دەرچوانی بەشەکە",
-      sarwat_sign: "سەروەت محمد، دەرچووی ٢٠٢٥-٢٠٢٦",
+      sarwat_sign: "سەروەت محمد، قۆناغی ٤",
       sarwat_q1: '<strong style="color:var(--black);">چۆن بەشەکەت هەڵبژارد؟</strong><br>حەزی زۆرم بۆ کاری سیاسی هەبوو دەمویست بزانم کەسایەتیە سیاسیەکان چۆن دەتوانن کاریگەری بخەنە سەر ڕای گشتی و جەماوەر بەچی ڕێگایەک تا زانیم لە ڕێگای کەسانی پەیوەندییە گشتیەکانەوە ئەو کاریگەریە دروستدەکەن.',
       sarwat_q2: '<strong style="color:var(--black);">چی زانیاریەکت دەربارەی هەبوو؟</strong><br>تەنها ئەوەندەم دەزانی کە کەسایەتیە سیاسیەکان تیمیان هەیە بۆ ئەوەی وتارو دەرکەوتنیان لە میدیاکانەوە ڕێکبخەن نەم دەزانی ئەم بەشە هێندە قوڵە پشتی بە توێژینەوەی دەرووناسی خەڵک بەستوە بۆ بەدەستهێنانی متمانە.',
       sarwat_q3: '<strong style="color:var(--black);">ئێستا چۆن لێی دەڕوانی؟</strong><br>ئێستا بە سەرەکیترین هۆکاری سەرکەوتنی هر کارێکی سیاسی دەیبینم.',
@@ -976,8 +884,6 @@
       faq1_a: "زۆربەی وانە سەرەکییەکان بە زمانی کوردی دەخوێندرێن، لەگەڵ هەندێک زاراوەی ئەکادیمی و وانەی تایبەت بە ئینگلیزی بۆ بەهێزکردنی ئاستی زمانی خوێندکاران.",
       faq2_q: "٢. ئایا تەنها خوێندکارانی لقی وێژەیی دەتوانن بێنە ئەم بەشە یان لقی زانستیش؟",
       faq2_a: "دەرچووانی هەردوو لقی وێژەیی و زانستی دەتوانن لە ڕێگەی زانکۆلاین یان پاراڵێلەوە داواکاری پێشکەش بکەن.",
-      faq3_q: '٣. جیاوازیی سەرەکی لە نێوان بەشی "پەیوەندییە گشتییەکان (PR)" و بەشی "ڕاگەیاندن / ڕۆژنامەنووسی" چییە؟',
-      faq3_a: "بەشی ڕاگەیاندن زیاتر تیشک دەخاتە سەر دروستکردنی ڕاپۆرت و کارکردن لە کەناڵەکاندا؛ بەڵام بەشی پەیوەندییە گشتییەکان زانستی بەڕێوەبردنی ناوبانگ، دروستکردنی ستراتیژ، بەڕێوەبردنی قەیرانەکان و هەماهەنگییە لە نێوان دامەزراوەکان و جەماوەردا.",
       tag_contact: "پەیوەندی",
       title_contact: "هێشتا پرسیارت هەیە؟",
       p_contact: "پەیوەندی بە بەشی پەیوەندییە گشتییەکانی زانکۆی سلێمانی بکە بۆ زانیاری زیاتر لەسەر وەرگرتن و خوێندن.",
@@ -1036,14 +942,6 @@
       plaque_yr2: 'Year <span class="dyn-score-year">2025</span>',
       scores_note1: "Note: These figures reflect last year's requirements and may shift this academic year. For precise details, consult the official Zankoline portal or our department.",
       scores_note2: 'In the <span id="dyn-academic-year-note">2025-2026</span> academic year, <span id="students-count">80</span> students were admitted.',
-      calc_h4: "🔍 Score Evaluation Tool:",
-      calc_p: "Enter your high school score to check your admission chances via Zankoline or Parallel systems:",
-      calc_btn: "Evaluate Score",
-      calc_placeholder: "Your score (e.g., 62)",
-      calc_err: '<span style="color: #ff6b6b;">Please enter your score.</span>',
-      calc_res_zanko: '🎉 Congratulations! Your score ({score}) meets or exceeds the minimum Zankoline score ({threshold}). You have a very high chance of direct admission!',
-      calc_res_para: '😊 Your score ({score}) meets or exceeds the minimum Parallel system score ({threshold}). You have a strong chance of admission through Parallel!',
-      calc_res_low: 'There is still hope! Your score ({score}) is slightly below last year\'s Parallel cutoff ({threshold}). Admission thresholds fluctuate yearly, so be sure to submit your Zankoline application form.',
       tag_subjects: "Academic Curriculum",
       title_subjects: 'Your 4-Year Journey: Over <span id="subjects-count">20</span> Powerful Courses Mapping Your Education',
       sub_subjects: "A rich blend of practical and theoretical modules spread over 4 years (8 academic semesters). Here are examples of key subjects covered:",
@@ -1157,8 +1055,7 @@
       henar_q2: '<strong style="color:var(--black);">What prior information did you have?</strong><br>Before enrolling, I knew that PR was centered around communication with the public, media relations, and managing organizational public image.',
       henar_q3: '<strong style="color:var(--black);">How do you view it now?</strong><br>Now I view it as much more essential and broad, believing it is a critical field for both institutions and corporations.',
       henar_q4: '<strong style="color:var(--black);">What did you learn?</strong><br>I learned how to build effective public connections, resolve issues, work as a team, and organize public events and campaigns.',
-      graduates_summary: "Department Graduates",
-      sarwat_sign: "Sarwat Muhammad — Graduate of 2025-2026",
+      sarwat_sign: "Sarwat Muhammad — 4th Year",
       sarwat_q1: '<strong style="color:var(--black);">How did you choose this department?</strong><br>I had a deep passion for political affairs and wanted to understand how political figures influence public opinion and through what avenues, until I discovered that Public Relations specialists create that impact.',
       sarwat_q2: '<strong style="color:var(--black);">What prior information did you have?</strong><br>I only knew political figures had teams to organize their media appearances and speeches. I didn\'t realize how profound this field is, relying on public psychological research to establish trust.',
       sarwat_q3: '<strong style="color:var(--black);">How do you view it now?</strong><br>I now see it as the primary driver behind the success of any political effort.',
@@ -1170,8 +1067,6 @@
       faq1_a: "Core modules are taught primarily in Kurdish, supplemented by key academic English terminology and dedicated English language courses to strengthen student language proficiency.",
       faq2_q: "2. Is admission open to Literary high school branch students only, or Scientific branch too?",
       faq2_a: "Graduates from both Literary and Scientific branches can apply through the official Zankoline or Parallel admission channels.",
-      faq3_q: '3. What is the core distinction between "Public Relations (PR)" and "Media / Journalism"?',
-      faq3_a: "Media/Journalism focuses heavily on news reporting and broadcasting operations; Public Relations is the strategic management of organizational reputation, crisis control, strategic planning, and building trust between institutions and their stakeholders.",
       tag_contact: "Contact",
       title_contact: "Still Have Questions?",
       p_contact: "Reach out to the Public Relations Department at the University of Sulaimani for further academic and admission guidance.",
@@ -1207,10 +1102,6 @@
     // Language Button Label
     document.getElementById('lang-btn-text').innerText = dict.lang_btn;
 
-    // Calc Input Placeholder
-    const calcInput = document.getElementById('user-score-input');
-    if (calcInput) calcInput.placeholder = dict.calc_placeholder;
-
     // Apply plain text elements
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
@@ -1226,12 +1117,6 @@
         el.innerHTML = dict[key];
       }
     });
-
-    // Re-trigger calculation text update if result exists
-    const calcResultEl = document.getElementById('calc-result');
-    if (calcResultEl && calcResultEl.innerHTML.trim() !== '') {
-      calculateChances();
-    }
   }
 
   function toggleLanguage() {
@@ -1240,12 +1125,9 @@
   }
 </script>
 
-<!-- Google Sheets Data Fetch & Calculator Logic -->
+<!-- Google Sheets Data Fetch -->
 <script>
   const CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSPjo4-lFAwndWw81v0KpDfU1gderIfedi5pSoe3g6ted4KEpNZ2GeUDHMVbk0D4dKZmAuc2ePFf45v/pub?gid=0&single=true&output=csv';
-
-  let currentZankolineScore = 61.2;
-  let currentParallelScore = 58.79;
 
   function parseCSVLine(line) {
     const result = [];
@@ -1286,11 +1168,9 @@
 
       if (data.zankoline && document.getElementById('score-zankoline')) {
         document.getElementById('score-zankoline').innerText = data.zankoline;
-        currentZankolineScore = parseFloat(data.zankoline) || 61.2;
       }
       if (data.parallel && document.getElementById('score-parallel')) {
         document.getElementById('score-parallel').innerText = data.parallel;
-        currentParallelScore = parseFloat(data.parallel) || 58.79;
       }
       if (data.students && document.getElementById('students-count')) {
         document.getElementById('students-count').innerText = data.students;
@@ -1334,30 +1214,6 @@
 
     } catch (err) {
       console.log("Error loading Google Sheet data:", err);
-    }
-  }
-
-  function calculateChances() {
-    const inputVal = document.getElementById('user-score-input').value;
-    const resultDiv = document.getElementById('calc-result');
-    const dict = translations[currentLang];
-    
-    if (!inputVal) {
-      resultDiv.innerHTML = dict.calc_err;
-      return;
-    }
-
-    const score = parseFloat(inputVal);
-
-    if (score >= currentZankolineScore) {
-      const msg = dict.calc_res_zanko.replace('{score}', score).replace('{threshold}', currentZankolineScore);
-      resultDiv.innerHTML = `<span style="color: #51cf66;">${msg}</span>`;
-    } else if (score >= currentParallelScore) {
-      const msg = dict.calc_res_para.replace('{score}', score).replace('{threshold}', currentParallelScore);
-      resultDiv.innerHTML = `<span style="color: #fcc419;">${msg}</span>`;
-    } else {
-      const msg = dict.calc_res_low.replace('{score}', score).replace('{threshold}', currentParallelScore);
-      resultDiv.innerHTML = `<span style="color: #ff922b;">${msg}</span>`;
     }
   }
 
