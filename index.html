@@ -84,6 +84,16 @@ section{max-width:1180px; margin:0 auto; padding:48px 24px;}
 footer{text-align:center; padding:36px 24px; color:var(--ink-soft); font-size:12.5px; border-top:1px solid var(--line); background:var(--paper-2);}
 footer .thanks{display:block; max-width:640px; margin:10px auto 0; line-height:1.8; color:#8A8171;}
 
+.linkbox-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:18px;}
+.linkbox{
+  display:block; text-decoration:none; background:#fff; border:1.5px solid var(--line); border-radius:10px;
+  padding:26px 22px; transition:transform .15s, border-color .15s, box-shadow .15s;
+}
+.linkbox:hover{border-color:var(--red); transform:translateY(-2px); box-shadow:0 10px 24px rgba(24,20,16,0.08);}
+.linkbox .lb-icon{font-size:28px; margin-bottom:12px;}
+.linkbox h3{font-size:16px; color:var(--black); margin-bottom:6px;}
+.linkbox p{font-size:13px; color:var(--ink-soft); line-height:1.7;}
+
 @media (max-width:640px){
   .hero-wrap h1{font-size:26px;}
   .nav-links{gap:12px;}
@@ -101,6 +111,7 @@ footer .thanks{display:block; max-width:640px; margin:10px auto 0; line-height:1
     </div>
     <ul class="nav-links">
       <li><a href="index.html" class="active">سەرەکی</a></li>
+      <li><a href="about.html">زانیاری بەش</a></li>
       <li><a href="staff.html">ستافی مامۆستایان</a></li>
       <li><a href="activities.html">چالاکی و ژیانی خوێندکار</a></li>
     </ul>
@@ -121,6 +132,28 @@ footer .thanks{display:block; max-width:640px; margin:10px auto 0; line-height:1
     <a class="cbtn" href="https://maps.app.goo.gl/HHUUC1P5Eyx3yBMi6" target="_blank" rel="noopener">📍 نەخشە</a>
   </div>
 </div>
+
+<section>
+  <span class="tag">بگەڕێ لە سایتەکەدا</span>
+  <h2 class="title">بۆ زانیاری زیاتر سەردانی ئەم لاپەڕانە بکە</h2>
+  <div class="linkbox-grid">
+    <a class="linkbox" href="about.html">
+      <div class="lb-icon">📖</div>
+      <h3>زانیاری بەش</h3>
+      <p>مێژوو، نمرەی وەرگرتن، وانەکان، دواڕۆژی کار، و فیدباکی خوێندکاران</p>
+    </a>
+    <a class="linkbox" href="staff.html">
+      <div class="lb-icon">👩‍🏫</div>
+      <h3>ستافی مامۆستایان</h3>
+      <p>ناو و پسپۆڕی مامۆستایانی بەش</p>
+    </a>
+    <a class="linkbox" href="activities.html">
+      <div class="lb-icon">📅</div>
+      <h3>چالاکی و ژیانی خوێندکار</h3>
+      <p>تۆماری ڕووداو و چالاکییە ڕۆژانەکانی بەش</p>
+    </a>
+  </div>
+</section>
 
 <footer>
   © ٢٠٢٦ بەشی پەیوەندییە گشتییەکان — زانکۆی سلێمانی
