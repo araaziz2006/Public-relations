@@ -1,1 +1,145 @@
-بەم زوانە بەردەات دەبێ
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ستافی مامۆستایان | بەشی پەیوەندییە گشتییەکان</title>
+
+<!-- فۆنتەکان -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Noto+Kufi+Arabic:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --red:#A82823;
+    --black:#181410;
+    --green:#1C6B45;
+    --gold:#B8892B;
+    --paper:#F6F1E6;
+    --paper-2:#EFE7D6;
+    --ink:#2A241C;
+    --ink-soft:#5C5346;
+    --line:rgba(24,20,16,0.14);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Noto Kufi Arabic','Inter',Arial,sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    overflow-x:hidden;
+  }
+
+  /* هێدەر */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(246,241,230,0.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    max-width:1180px; margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 24px;
+  }
+  .brand{
+    font-size:17px; font-weight:700; color:var(--black);
+    display:flex; align-items:center; gap:10px;
+  }
+  .dept-logo {
+    width: 48px; height: 48px; border-radius: 50%; border: 1.5px solid var(--red); object-fit: contain; background-color: #fff;
+  }
+  .back-btn {
+    background: var(--black); color: var(--paper); text-decoration: none;
+    padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 700;
+    transition: 0.2s; display: inline-flex; align-items: center; gap: 6px;
+  }
+  .back-btn:hover { background: var(--red); color: #fff; }
+
+  /* بەشی هیرۆ */
+  .hero-wrap{max-width:1180px; margin:0 auto; padding:60px 24px 20px; text-align:center;}
+  .hero h1{ font-size:38px; font-weight:900; color:var(--black); margin-bottom:15px; }
+  .hero p.lede{ font-size:16px; color:var(--ink-soft); max-width:700px; line-height:1.9; margin:0 auto 30px; }
+  
+  .ridge{width:100%; height:70px; display:block; margin-top:20px;}
+  .ridge path{fill:none; stroke:var(--black); stroke-width:1.4; opacity:.55;}
+  .ridge .fill{fill:var(--green); opacity:.10; stroke:none;}
+
+  /* کاردی مامۆستایان */
+  section{max-width:1180px; margin:0 auto; padding:40px 24px 80px;}
+  .grid3{ display:grid; grid-template-columns:repeat(3, 1fr); gap:24px; }
+  
+  .faculty-card {
+    background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 30px 20px;
+    text-align: center; transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .faculty-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.06); }
+  .faculty-avatar {
+    width: 90px; height: 90px; border-radius: 50%; margin: 0 auto 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 40px; background: var(--paper-2);
+  }
+  .fac-name { font-size: 18px; font-weight: 800; color: var(--black); margin-bottom: 6px; }
+  .fac-role { font-size: 13.5px; font-weight: 700; margin-bottom: 12px; }
+  .fac-desc { font-size: 14px; color: var(--ink-soft); line-height: 1.7; }
+
+  footer{ text-align:center; padding:30px; background:var(--paper-2); color:var(--ink-soft); font-size:13px; border-top:1px solid var(--line); }
+
+  @media (max-width:860px){ .grid3{grid-template-columns: 1fr;} }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="brand">
+      <img src="IMG_5496.jpeg" alt="University Logo" class="dept-logo">
+      <span>بەشی پەیوەندییە گشتییەکان</span>
+    </div>
+    <a href="index.html" class="back-btn">⬅️ گەڕانەوە بۆ سەرەتا</a>
+  </nav>
+</header>
+
+<div class="hero-wrap hero">
+  <h1>ستافی <span style="color:var(--red);">مامۆستایان</span></h1>
+  <p class="lede">دەستەیەکی پسپۆڕ و شارەزا لە بوارەکانی پەیوەندییە گشتییەکان، میدیا، دیپلۆماسی و بەڕێوەبردنی قەیران، کە ئامانجیان پێگەیاندنی نەوەیەکی پرۆفیشناڵە.</p>
+  
+  <svg class="ridge" viewBox="0 0 1180 70" preserveAspectRatio="none">
+    <path class="fill" d="M0,70 L0,42 L120,16 L220,38 L340,8 L460,34 L600,4 L740,32 L860,14 L980,40 L1080,20 L1180,42 L1180,70 Z"></path>
+    <path d="M0,42 L120,16 L220,38 L340,8 L460,34 L600,4 L740,32 L860,14 L980,40 L1080,20 L1180,42"></path>
+  </svg>
+</div>
+
+<section>
+  <div class="grid3">
+    <!-- مامۆستا ١ -->
+    <div class="faculty-card">
+      <div class="faculty-avatar" style="border: 2px solid var(--red);">👩‍🏫</div>
+      <h3 class="fac-name">د. لانە ...</h3>
+      <p class="fac-role" style="color:var(--red);">سەرۆکی بەش</p>
+      <p class="fac-desc">دکتۆرا لە پەیوەندییە گشتییەکان و بەڕێوەبردنی ناوبانگ، سەرپەرشتیاری گشتی پلانەکانی بەش.</p>
+    </div>
+    
+    <!-- مامۆستا ٢ -->
+    <div class="faculty-card">
+      <div class="faculty-avatar" style="border: 2px solid var(--green);">🧑‍🏫</div>
+      <h3 class="fac-name">م. شۆخان ...</h3>
+      <p class="fac-role" style="color:var(--green);">بڕیاردەری بەش</p>
+      <p class="fac-desc">ماستەر لە ڕاگەیاندن و بەڕێوەبردنی ئیڤێنتەکان، هەماهەنگیکاری کاروباری خوێندکاران.</p>
+    </div>
+    
+    <!-- مامۆستا ٣ -->
+    <div class="faculty-card">
+      <div class="faculty-avatar" style="border: 2px solid var(--gold);">👩‍🏫</div>
+      <h3 class="fac-name">م. ئاڤێستا ...</h3>
+      <p class="fac-role" style="color:var(--gold);">مامۆستای بەش</p>
+      <p class="fac-desc">پسپۆڕ لە پەیوەندییە دیجیتاڵییەکان، زمانی جەستە و وتووێژی گشتی.</p>
+    </div>
+  </div>
+</section>
+
+<footer>© ٢٠٢٦ بەشی پەیوەندییە گشتییەکان — زانکۆی سلێمانی</footer>
+
+</body>
+</html>
