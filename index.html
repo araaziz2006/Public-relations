@@ -33,7 +33,7 @@
   .ridge path{fill:none; stroke:var(--black); stroke-width:1.4; opacity:.55;}
   .ridge .fill{fill:var(--red); opacity:.08; stroke:none;}
   section.content{max-width:1180px; margin:0 auto; padding:40px 24px 80px;}
-  .grid2{ display:grid; grid-template-columns:repeat(2, 1fr); gap:24px; }
+  .grid3{ display:grid; grid-template-columns:repeat(3, 1fr); gap:24px; }
   .nav-card { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 40px 24px; text-align: center; text-decoration: none; color: inherit; transition: transform 0.2s, box-shadow 0.2s; display: block; }
   .nav-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.06); border-color: var(--red); }
   .nav-icon { font-size: 50px; margin-bottom: 20px; }
@@ -54,7 +54,7 @@
   .main-footer .creator { color: #ffffff; font-size: 16px; font-weight: 800; margin-bottom: 15px; line-height: 1.6; }
   .main-footer .acknowledgement { max-width: 700px; margin: 0 auto; color: #7a7a7a; text-align: justify; text-align-last: center; }
 
-  @media (max-width:860px){ .grid2{grid-template-columns: 1fr;} }
+  @media (max-width:900px){ .grid3{grid-template-columns: 1fr;} }
   @media (max-width: 600px) { .contact-buttons { grid-template-columns: 1fr; } .btn-instagram, .btn-map { grid-column: span 1; } }
 </style>
 </head>
@@ -70,41 +70,4 @@
 <div class="hero-wrap hero">
   <h1>بەخێربێیت بۆ بەشی <span style="color:var(--red);">پەیوەندییە گشتییەکان</span></h1>
   <p class="lede">کۆلێژی زانستە مرۆڤایەتییەکان — زانکۆی سلێمانی. لێرەدا دەتوانیت ئاشنای ستافی مامۆستایان و نوێترین چالاکییەکانی بەشەکەمان ببیت.</p>
-  <svg class="ridge" viewBox="0 0 1180 70" preserveAspectRatio="none">
-    <path class="fill" d="M0,70 L0,42 L120,16 L220,38 L340,8 L460,34 L600,4 L740,32 L860,14 L980,40 L1080,20 L1180,42 L1180,70 Z"></path>
-    <path d="M0,42 L120,16 L220,38 L340,8 L460,34 L600,4 L740,32 L860,14 L980,40 L1080,20 L1180,42"></path>
-  </svg>
-</div>
-<section class="content">
-  <div class="grid2">
-    <a href="activities.html" class="nav-card">
-      <div class="nav-icon">📸</div>
-      <h3 class="nav-title">دواین چالاکییەکان</h3>
-      <p class="nav-desc">بینینی نوێترین کۆنفرانس، سیمینار و سەردانە مەیدانییەکانی خوێندکاران و مامۆستایان.</p>
-    </a>
-    <a href="staff.html" class="nav-card">
-      <div class="nav-icon">🎓</div>
-      <h3 class="nav-title">ستافی مامۆستایان</h3>
-      <p class="nav-desc">ئاشنابوون بە پرۆفایلی مامۆستایان و ستافی ئەکادیمی بەشی پەیوەندییە گشتییەکان.</p>
-    </a>
-  </div>
-</section>
-
-<!-- بەشی پەیوەندی و فوتەر -->
-<section class="contact-section">
-  <h2>هێشتا پرسیارت هەیە؟</h2>
-  <p>پەیوەندی بە بەشی پەیوەندییە گشتییەکانی زانکۆی سلێمانی بکە بۆ زانیاری زیاتر لەسەر وەرگرتن و خوێندن.</p>
-  <div class="contact-buttons">
-    <a href="https://www.facebook.com/share/1Eu4ffZzKL/?mibextid=wwXIfr" target="_blank" rel="noopener" class="btn-facebook">فەیسبووکی فەرمی 📘</a>
-    <a href="https://wa.me/9647740823075" target="_blank" rel="noopener" class="btn-whatsapp">واتساپ 💬</a>
-    <a href="https://www.instagram.com/public.relations.students?igsh=MThiOWV3dzZycjhreA==" target="_blank" rel="noopener" class="btn-instagram">ئینستاگرامی خوێندکاران 📷</a>
-    <a href="https://maps.app.goo.gl/HHUUC1P5Eyx3yBMi6" target="_blank" rel="noopener" class="btn-map">📍 کلیک لێرە بکە بۆ بینینی نەخشەی زانکۆ</a>
-  </div>
-</section>
-<footer class="main-footer">
-  <p class="copyright">© ٢٠٢٦ بەشی پەیوەندییە گشتییەکان — زانکۆی سلێمانی</p>
-  <h3 class="creator">دروستکراوە لە لایەن ئارا عەزیز، خوێندکاری قۆناغی دووەمی بەشی پەیوەندییە گشتییەکان</h3>
-  <p class="acknowledgement">شایەنی باسە دەمەوێ پێزانین و دەستخۆشی خۆم ئاراستەی تەواوی ستافی بەش و مامۆستا ماندوونەناسەکانمان بە گشتی، و دکتۆرە لانەی سەرۆک بەش و مامۆستا شۆخان بڕیاردەری بەشەکەمان و مامۆستا ئاڤێستا مامۆستا لە بەشەکەمان بە تایبەتی بکەم. هەروەها دەستخۆشی لە دڵسۆز عادل هاوڕێ و نوێنەری قۆناغی دووەم و تەواوی ئەو خوێندکارانەی کە فیدباکیان ئەنجام دا بۆ سایتەکەمان بکەم، کە هاوکاری تەواویان کردم لە باشترکردنی ئەم سایتە بۆ خوێندکاران.</p>
-</footer>
-</body>
-</html>
+  <svg class="ridge" viewBox="0 0 1180 7
