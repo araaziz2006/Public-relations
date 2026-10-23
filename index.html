@@ -9,7 +9,7 @@
 <meta http-equiv="Expires" content="0">
 
 <title>بەشی پەیوەندییە گشتییەکان | زانکۆی سلێمانی</title>
-<meta name="description" content="ڕێنمایی تەواو بۆ نمرەی وەرگیران، وانەکان، مێژوو و هەلی کاری بەشی پەیوەندییە گشتییەکان لە زانکۆی سلێمانی.">
+<meta name="description" content="سەکۆی فەرمی بەشی پەیوەندییە گشتییەکان لە زانکۆی سلێمانی — ڕێنمایی تەواو بۆ نمرەی وەرگیران، وانەکان، ستافی مامۆستایان و هەلی کار.">
 <meta name="keywords" content="پەیوەندییە گشتییەکان, بەشی پەیوەندییە گشتییەکان, زانکۆی سلێمانی, کۆلێژی زانستە مرۆڤایەتییەکان, public relations, زانکۆلاین">
 <meta name="author" content="ئارا عەزیز">
 <meta name="robots" content="index, follow">
@@ -69,7 +69,6 @@
     animation-play-state: paused;
   }
 
-  /* Reversed Marquee Direction */
   @keyframes marquee-left {
     0% { transform: translate3d(-100%, 0, 0); }
     100% { transform: translate3d(100vw, 0, 0); }
@@ -77,7 +76,7 @@
 
   header{
     position:sticky; top:0; z-index:50;
-    background:rgba(246,241,230,0.92);
+    background:rgba(246,241,230,0.95);
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
@@ -108,7 +107,6 @@
   .nav-links a{color:var(--ink-soft); text-decoration:none; font-weight:500; font-size:13.5px; transition:color .2s;}
   .nav-links a:hover{color:var(--red);}
 
-  /* Language Switcher Button */
   .lang-btn {
     background: var(--black);
     color: var(--paper);
@@ -143,9 +141,13 @@
     max-width:820px; margin-bottom:22px;
   }
   .hero h1 .accent{color:var(--red);}
-  .hero p.lede{font-size:16.5px; color:var(--ink-soft); max-width:600px; line-height:1.85; margin-bottom:8px;}
+  .hero p.lede{font-size:16.5px; color:var(--ink-soft); max-width:650px; line-height:1.85; margin-bottom:20px;}
 
-  .ridge{width:100%; height:70px; display:block; margin-top:44px;}
+  .hero-action-btns {
+    display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px;
+  }
+
+  .ridge{width:100%; height:70px; display:block; margin-top:24px;}
   .ridge path{fill:none; stroke:var(--black); stroke-width:1.4; opacity:.55;}
   .ridge .fill{fill:var(--green); opacity:.10; stroke:none;}
 
@@ -190,7 +192,25 @@
   .tl-body p{font-size:13.5px; color:var(--ink-soft); line-height:1.7;}
 
   .history-text p{font-size:15px; color:var(--ink-soft); line-height:1.95;}
-  .history-text p + p{margin-top:16px;}
+
+  .faculty-card {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 24px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .faculty-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+  }
+  .faculty-avatar {
+    width: 84px; height: 84px; border-radius: 50%;
+    margin: 0 auto 16px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 38px; background: var(--paper-2);
+  }
 
   .story-card{
     background:var(--black); color:var(--paper); border-radius:6px; padding:44px 36px; position:relative;
@@ -225,13 +245,13 @@
   .grid3{
     display:grid; 
     grid-template-columns:repeat(3,1fr); 
-    gap:1px; 
-    background:var(--line); 
-    border:1px solid var(--line);
+    gap:16px; 
   }
   .cell{
     background:var(--paper); 
     padding:26px; 
+    border:1px solid var(--line);
+    border-radius:6px;
     transition:background .2s;
   }
   .cell:hover{
@@ -244,13 +264,13 @@
   .grid2{
     display:grid; 
     grid-template-columns:repeat(2,1fr); 
-    gap:1px; 
-    background:var(--line); 
-    border:1px solid var(--line);
+    gap:16px; 
   }
   .cell-h{
     background:var(--paper); 
     padding:22px; 
+    border:1px solid var(--line);
+    border-radius:6px;
     display:flex; 
     gap:14px; 
     align-items:flex-start; 
@@ -282,7 +302,7 @@
   .cbtn{
     display:inline-flex; align-items:center; gap:8px; text-decoration:none; font-weight:600; font-size:14px;
     padding:14px 24px; border-radius:4px; border:1.5px solid var(--black); color:var(--black); background:transparent;
-    transition:all .2s;
+    transition:all .2s; cursor:pointer;
   }
   .cbtn:hover{background:var(--black); color:var(--paper);}
   .cbtn.solid{background:var(--red); border-color:var(--red); color:#fff;}
@@ -307,7 +327,6 @@
   .acc .acc-body{padding:0 22px 22px; font-size:14px; color:var(--ink-soft); line-height:1.9;}
   .acc .acc-sign{margin-top:16px; font-size:12.5px; font-weight:700; color:var(--gold);}
 
-  /* Campaign box border alignment */
   html[dir="rtl"] .campaign-box { border-right: 3px solid var(--red); }
   html[dir="ltr"] .campaign-box { border-left: 3px solid var(--red); }
 
@@ -328,7 +347,7 @@
   gtag('config', 'G-ETCW0EYQL1');
 </script>
 <meta property="og:title" content="بەشی پەیوەندییە گشتییەکان | زانکۆی سلێمانی">
-<meta property="og:description" content="ڕێنمایی تەواو بۆ نمرەی وەرگیران، وانەکان، مێژوو و هەلی کاری بەشی پەیوەندییە گشتییەکان لە زانکۆی سلێمانی.">
+<meta property="og:description" content="سەکۆی فەرمی بەشی پەیوەندییە گشتییەکان لە زانکۆی سلێمانی — نمرەکان، مامۆستایان، وانەکان و داهاتووی کار.">
 <meta property="og:url" content="https://publicrelationsdep.com">
 <meta property="og:type" content="website">
 </head>
@@ -351,13 +370,13 @@
     </div>
     <div class="nav-right-wrap">
       <ul class="nav-links">
-        <li><a href="#intro" data-i18n="nav_history">مێژوو</a></li>
-        <li><a href="#story" data-i18n="nav_reason">هۆکار</a></li>
-        <li><a href="#scores" data-i18n="nav_scores">نمرەی وەرگیران</a></li>
+        <li><a href="#intro" data-i18n="nav_about">دەربارەی بەش</a></li>
+        <li><a href="#faculty" data-i18n="nav_faculty">مامۆستایان</a></li>
+        <li><a href="#highschool" data-i18n="nav_highschool">پۆلی ١٢ 🎓</a></li>
         <li><a href="#subjects" data-i18n="nav_subjects">وانەکان</a></li>
         <li><a href="#opportunities" data-i18n="nav_opportunities">دەرفەتەکان</a></li>
         <li><a href="#careers" data-i18n="nav_careers">دواڕۆژی کار</a></li>
-        <li><a href="#campaign" data-i18n="nav_campaign">کەمپەینی مانگ</a></li>
+        <li><a href="#campaign" data-i18n="nav_campaign">کەمپەین</a></li>
         <li><a href="#testimonials" data-i18n="nav_feedback">فیدباک</a></li>
         <li><a href="#faq" data-i18n="nav_faq">پرسیارە باوەکان</a></li>
         <li><a href="#contact" data-i18n="nav_contact">پەیوەندی</a></li>
@@ -370,9 +389,14 @@
 </header>
 
 <div class="hero-wrap">
-  <span class="hero-eyebrow" data-i18n="hero_eyebrow">بەشی پەیوەندییە گشتییەکان دامەزراوە لە ساڵی٢٠٢١ لە کۆلێژی زانستە مرۆڤایەتییەکان لە زانکۆی سلێمانی</span>
-  <h1 id="dyn-hero-title" data-i18n-html="hero_title">بەشی <span class="accent">پەیوەندییە گشتییەکان</span><br>دەروازەیەکی نوێ بۆ داهاتووت</h1>
-  <p class="lede" id="dyn-hero-desc" data-i18n="hero_desc">ئەم بەشە تازەیە لە زانکۆی سلێمانی، زۆرێک لە خوێندکارانی پۆلی ١٢ و کەسووکاریان زانیاریان کەمە لەسەری. لێرەدا هەموو ئەوەی پێویستە بزانن کۆمکردووەتەوە: نمرەی وەرگیران، ئەو بابەتانەی دەیخوێنیت، و ئەو کارانەی دواتر دەتوانیت تێیدا کاربکەیت.</p>
+  <span class="hero-eyebrow" data-i18n="hero_eyebrow">سەکۆی فەرمی بەشی پەیوەندییە گشتییەکان — کۆلێژی زانستە مرۆڤایەتییەکان | زانکۆی سلێمانی</span>
+  <h1 id="dyn-hero-title" data-i18n-html="hero_title">بەشی <span class="accent">پەیوەندییە گشتییەکان</span><br>داهێنانی دەنگ، دروستکردنی ناوبانگ</h1>
+  <p class="lede" id="dyn-hero-desc" data-i18n="hero_desc">سەکۆیەکی ئەکادیمی و دیجیتاڵی گشتگیر بۆ ناساندنی چالاکییەکان، ستافی دەستەی وانەوتنەوە، زانیارییەکانی وەرگرتن، و ڕێنمایی تەواو بۆ خوێندکاران و ئارەزوومەندانی زانستی PR.</p>
+
+  <div class="hero-action-btns">
+    <a href="#highschool" class="cbtn solid" data-i18n="btn_hero_p12">🎓 تایبەت بە دەرچووانی پۆلی ١٢</a>
+    <a href="#faculty" class="cbtn" data-i18n="btn_hero_staff">👨‍🏫 ستافی مامۆستایان و دکتۆرەکان</a>
+  </div>
 
   <svg class="ridge" viewBox="0 0 1180 70" preserveAspectRatio="none">
     <path class="fill" d="M0,70 L0,42 L120,16 L220,38 L340,8 L460,34 L600,4 L740,32 L860,14 L980,40 L1080,20 L1180,42 L1180,70 Z"></path>
@@ -383,12 +407,12 @@
 <div class="chapters">
   <div class="chapter-strip">
     <a href="#intro" data-i18n="chap_history">مێژوو و دەربارەمان</a>
-    <a href="#story" data-i18n="chap_reason">هۆکاری دروستبوونی سایتەکە</a>
-    <a href="#scores" data-i18n="chap_scores">نمرەی وەرگیران</a>
+    <a href="#faculty" data-i18n="chap_faculty">ستافی مامۆستایان</a>
+    <a href="#highschool" data-i18n="chap_p12">دەروازەی پۆلی ١٢</a>
     <a href="#subjects" data-i18n="chap_subjects">وانەکان</a>
-    <a href="#opportunities" data-i18n="chap_opportunities">دەرفەتەکانی خوێندکار</a>
+    <a href="#opportunities" data-i18n="chap_opportunities">دەرفەتەکان</a>
     <a href="#careers" data-i18n="chap_careers">دواڕۆژی کار</a>
-    <a href="#campaign" data-i18n="chap_campaign">کەمپەینی مانگ</a>
+    <a href="#campaign" data-i18n="chap_campaign">کەمپەین</a>
     <a href="#testimonials" data-i18n="chap_feedback">فیدباکی خوێندکاران</a>
     <a href="#faq" data-i18n="chap_faq">پرسیارە باوەکان</a>
     <a href="#contact" data-i18n="chap_contact">پەیوەندی</a>
@@ -416,73 +440,95 @@
   </div>
 </section>
 
-<section id="story">
-  <span class="tag" data-i18n="tag_story">وتەی دروستکەری سایتەکە</span>
-  <h2 class="title" data-i18n="title_story">بۆچی ئەم سایتەم دروستکرد؟</h2>
-  <div class="story-card">
-    <div id="dyn-creator-story">
-      <p data-i18n="story_p1">کاتێک پۆلی ١٢م تەواو کرد، زۆر گەڕام بۆ دۆزینەوەی بەشێک کە لەگەڵ خولیا و ئارەزوو و ئەزموونم بگونجێت. لەنێو چەند بەشێکدا، بەشی پەیوەندییە گشتییەکان زۆر سەرنجی ڕاکێشام — بەڵام چونکە بەشێکی تازە بوو لە زانکۆی سلێمانی، لە سۆشیال میدیا و ئینتەرنێت زانیارییەکی زۆر کەمم دەستکەوت دەربارەی وردەکاری خوێندن، وانەکان، و هەلی کار.</p>
-      <p data-i18n="story_p2">پاشان چومە زانکۆ و دوای ئاشنابوون بە وانەکان، مامۆستا و دکتۆرە لێهاتووەکان، و بەتایبەتی سەرۆکی بەشەکەمان کە زانیاری زۆری هەبووە دەربارەی بەشەکە، بۆم دەرکەوت کە کارە ڕاستەکەم ئەنجام داوە. لەبەر ئەوە هەستام بە دروستکردنی ئەم سایتە بۆ خوێندکاران بۆ ئەوەی بە هەمان شێوەی من توشی کێشەی نەبوونی زانیاری نەبن سەبارەت بەم بەشە و زانیاری زیاتریان هەبێت.</p>
+<!-- بەشی نوێی ستافی مامۆستایان -->
+<section id="faculty">
+  <span class="tag" data-i18n="tag_faculty">کادرانی ئەکادیمی</span>
+  <h2 class="title" data-i18n="title_faculty">ستافی مامۆستایان و دکتۆرەکان</h2>
+  <p class="sub" data-i18n="sub_faculty">دەستەیەکی پسپۆڕ و شارەزا لە بوارەکانی پەیوەندییە گشتییەکان، میدیا، دیپلۆماسی و بەڕێوەبردنی قەیران.</p>
+
+  <div class="grid3">
+    <div class="faculty-card">
+      <div class="faculty-avatar" style="border: 2px solid var(--red);">👩‍🏫</div>
+      <h3 data-i18n="fac1_name">د. لانە ...</h3>
+      <p style="color:var(--red); font-weight:700; font-size:13px; margin: 4px 0 8px;" data-i18n="fac1_role">سەرۆکی بەش</p>
+      <p style="font-size:13px; color:var(--ink-soft);" data-i18n="fac1_desc">دکتۆرا لە پەیوەندییە گشتییەکان و بەڕێوەبردنی ناوبانگ</p>
     </div>
-    <div class="story-sign" data-i18n="story_sign">— ئارا عەزیز</div>
+    <div class="faculty-card">
+      <div class="faculty-avatar" style="border: 2px solid var(--green);">🧑‍🏫</div>
+      <h3 data-i18n="fac2_name">م. شۆخان ...</h3>
+      <p style="color:var(--green); font-weight:700; font-size:13px; margin: 4px 0 8px;" data-i18n="fac2_role">بڕیاردەری بەش</p>
+      <p style="font-size:13px; color:var(--ink-soft);" data-i18n="fac2_desc">ماستەر لە ڕاگەیاندن و بەڕێوەبردنی ئیڤێنتەکان</p>
+    </div>
+    <div class="faculty-card">
+      <div class="faculty-avatar" style="border: 2px solid var(--gold);">👩‍🏫</div>
+      <h3 data-i18n="fac3_name">م. ئاڤێستا ...</h3>
+      <p style="color:var(--gold); font-weight:700; font-size:13px; margin: 4px 0 8px;" data-i18n="fac3_role">مامۆستای بەش</p>
+      <p style="font-size:13px; color:var(--ink-soft);" data-i18n="fac3_desc">پسپۆڕ لە پەیوەندییە دیجیتاڵییەکان و زمانی جەستە</p>
+    </div>
   </div>
 </section>
 
-<section id="scores">
-  <span class="tag" data-i18n="tag_scores">وردەگیری</span>
-  <h2 class="title" data-i18n-html="title_scores">نمرەی وەرگیران — ساڵی <span id="dyn-academic-year">٢٠٢٥-٢٠٢٦</span></h2>
-  <div class="scores-band">
-    <p class="sub" style="margin-bottom:26px;" data-i18n="scores_sub">ئەمانە نمرەکانی وەرگیرانی ساڵی پار بوون بۆ بەشی پەیوەندییە گشتییەکان. نمرەکان ساڵ بە ساڵ دەگۆڕێن بەپێی ژمارەی داواکار و کۆتای وەرگیراوان، بۆیە ئەمانە تەنها ڕێنماییەکن.</p>
-    <div class="plaque-row">
-      <div class="plaque">
-        <div class="num" id="score-zankoline">٦١.٢</div>
-        <div class="lbl" data-i18n="plaque_zankoline">کەمترین نمرەی وەرگیراو — زانکۆلاین</div>
-        <div class="yr" data-i18n-html="plaque_yr1">ساڵی <span class="dyn-score-year">٢٠٢٥</span></div>
+<!-- بەشی جیاکراوە بۆ پۆلی ١٢ (کۆدە کۆنەکە) -->
+<div id="highschool" style="background:var(--paper-2); border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding: 20px 0;">
+  
+  <section id="scores" style="padding-top:20px; padding-bottom:20px;">
+    <span class="tag" style="color:var(--red);" data-i18n="tag_scores">وردەگیری پۆلی ١٢</span>
+    <h2 class="title" data-i18n-html="title_scores">🎓 نمرەی وەرگیران — ساڵی <span id="dyn-academic-year">٢٠٢٥-٢٠٢٦</span></h2>
+    <div class="scores-band">
+      <p class="sub" style="margin-bottom:26px;" data-i18n="scores_sub">ئەمانە نمرەکانی وەرگیرانی ساڵی پار بوون بۆ بەشی پەیوەندییە گشتییەکان. نمرەکان ساڵ بە ساڵ دەگۆڕێن بەپێی ژمارەی داواکار و کۆتای وەرگیراوان، بۆیە ئەمانە تەنها ڕێنماییەکن.</p>
+      <div class="plaque-row">
+        <div class="plaque">
+          <div class="num" id="score-zankoline">٦١.٢</div>
+          <div class="lbl" data-i18n="plaque_zankoline">کەمترین نمرەی وەرگیراو — زانکۆلاین</div>
+          <div class="yr" data-i18n-html="plaque_yr1">ساڵی <span class="dyn-score-year">٢٠٢٥</span></div>
+        </div>
+        <div class="plaque">
+          <div class="num" id="score-parallel">٥٨.٧٩</div>
+          <div class="lbl" data-i18n="plaque_parallel">کەمترین نمرەی وەرگیراو — پاراڵێل</div>
+          <div class="yr" data-i18n-html="plaque_yr2">ساڵی <span class="dyn-score-year">٢٠٢٥</span></div>
+        </div>
       </div>
-      <div class="plaque">
-        <div class="num" id="score-parallel">٥٨.٧٩</div>
-        <div class="lbl" data-i18n="plaque_parallel">کەمترین نمرەی وەرگیراو — پاراڵێل</div>
-        <div class="yr" data-i18n-html="plaque_yr2">ساڵی <span class="dyn-score-year">٢٠٢٥</span></div>
-      </div>
+      <div class="note" data-i18n="scores_note1">تێبینی: ئەم نمرانە بۆ ساڵی ڕابردوون و ڕەنگە ئەمساڵ بگۆڕێن. بۆ زانیاری وردتر و دووپاتکردنەوە، سەیری فۆڕمی زانکۆلاین یان بەشەکەمان بکە.</div>
+      <div class="note" style="margin-top:14px; border-top:none; padding-top:0; font-size:16px; font-weight:700; color:var(--gold);" data-i18n-html="scores_note2">لە ساڵی <span id="dyn-academic-year-note">٢٠٢٥-٢٠٢٦</span>، <span id="students-count">٨٠</span> خوێندکار وەرگیراوە.</div>
     </div>
-    <div class="note" data-i18n="scores_note1">تێبینی: ئەم نمرانە بۆ ساڵی ڕابردوون و ڕەنگە ئەمساڵ بگۆڕێن. بۆ زانیاری وردتر و دووپاتکردنەوە، سەیری فۆڕمی زانکۆلاین یان بەشەکەمان بکە.</div>
-    <div class="note" style="margin-top:14px; border-top:none; padding-top:0; font-size:16px; font-weight:700; color:var(--gold);" data-i18n-html="scores_note2">لە ساڵی <span id="dyn-academic-year-note">٢٠٢٥-٢٠٢٦</span>، <span id="students-count">٨٠</span> خوێندکار وەرگیراوە.</div>
-  </div>
-</section>
+  </section>
+
+  <section id="story" style="padding-top:20px; padding-bottom:20px;">
+    <span class="tag" data-i18n="tag_story">وتەی دروستکەری سایتەکە</span>
+    <h2 class="title" data-i18n="title_story">بۆچی ئەم سایتەم دروستکرد؟</h2>
+    <div class="story-card">
+      <div id="dyn-creator-story">
+        <p data-i18n="story_p1">کاتێک پۆلی ١٢م تەواو کرد، زۆر گەڕام بۆ دۆزینەوەی بەشێک کە لەگەڵ خولیا و ئارەزوو و ئەزموونم بگونجێت. لەنێو چەند بەشێکدا، بەشی پەیوەندییە گشتییەکان زۆر سەرنجی ڕاکێشام — بەڵام چونکە بەشێکی تازە بوو لە زانکۆی سلێمانی، لە سۆشیال میدیا و ئینتەرنێت زانیارییەکی زۆر کەمم دەستکەوت دەربارەی وردەکاری خوێندن، وانەکان، و هەلی کار.</p>
+        <p data-i18n="story_p2">پاشان چومە زانکۆ و دوای ئاشنابوون بە وانەکان، مامۆستا و دکتۆرە لێهاتووەکان، و بەتایبەتی سەرۆکی بەشەکەمان کە زانیاری زۆری هەبووە دەربارەی بەشەکە، بۆم دەرکەوت کە کارە ڕاستەکەم ئەنجام داوە. لەبەر ئەوە هەستام بە دروستکردنی ئەم سایتە بۆ خوێندکاران بۆ ئەوەی بە هەمان شێوەی من توشی کێشەی نەبوونی زانیاری نەبن سەبارەت بەم بەشە و زانیاری زیاتریان هەبێت.</p>
+      </div>
+      <div class="story-sign" data-i18n="story_sign">— ئارا عەزیز</div>
+    </div>
+  </section>
+
+</div>
 
 <section id="subjects">
   <span class="tag" data-i18n="tag_subjects">پەرچەکردنی خوێندن</span>
   <h2 class="title" data-i18n-html="title_subjects">4ساڵی زانکۆت بە زیاتر لە <span id="subjects-count">20</span>وانەی بەهێز نەخشە ڕێگەی خوێندنەکەتە</h2>
   <p class="sub" data-i18n="sub_subjects">کۆمەڵێک وانەی پڕاکتیکی و تیۆری دەخوێندرێ لە چوارچێوەی ٤ ساڵدا کە دەکاتە ٨ وەرزی خوێندن. ئەمانەش نموونەی هەندێک لە وانە گرنگەکانە.</p>
   <div class="grid3">
-    <!-- 1 -->
     <div class="cell"><div class="icon">🏅</div><h3 data-i18n="subj3_t">بەڕێوەبردنی ناوبانگ و براند</h3><p data-i18n="subj3_d">پاراستن و بەهێزکردنی ناوبانگ و براندی کۆمپانیا و دامەزراوەکان.</p></div>
-    <!-- 2 -->
     <div class="cell"><div class="icon">🤝</div><h3 data-i18n="subj4_t">پرۆتۆکۆڵ</h3><p data-i18n="subj4_d">ڕێز و ڕێساکانی پێشوازیکردن و بەڕێوەبردنی چالاکی فەرمی و دیپلۆماسی.</p></div>
-    <!-- 3 -->
     <div class="cell"><div class="icon">🗣️</div><h3 data-i18n="subj7_t">زمانی جەستە و وتووێژی گشتی</h3><p data-i18n="subj7_d">لێهاتوویی بەکارهێنانی زمانی جەستە و قسەکردن لەبەردەم کۆمەڵگا بۆ پێشکەشکردنی پەیام بە شێوەیەکی کاریگەر.</p></div>
-    <!-- 4 -->
     <div class="cell"><div class="icon">💻</div><h3 data-i18n="subj9_t">بەڕێوەبردنی سۆشیال میدیا و پەیجی ئەلیکترۆنی</h3><p data-i18n="subj9_d">بەڕێوەبردنی ناوەڕۆکی دیجیتاڵ، کەمپینی ڕاگەیاندن و پێشکەشکردنی زانیارییەکان لەسەر ماڵپەڕەکان.</p></div>
-    <!-- 5 -->
     <div class="cell"><div class="icon">🛒</div><h3 data-i18n="subj2_t">مارکێتینگ</h3><p data-i18n="subj2_d">بەکارهێنانی ستراتیژەکانی بازاڕگەرمکردنی کاڵا و شتومەک و خزمەتگوزارییەکان لە ڕێگەی تێگەیشتن لە چۆنیەتی بەڕێوەچوونی ڕەوشی بازاڕ.</p></div>
-    <!-- Crisis -->
     <div class="cell"><div class="icon">🚨</div><h3 data-i18n="subj5_t">بەڕێوەبردنی قەیرانەکان</h3><p data-i18n="subj5_d">چۆنیەتی مامەڵەکردن لەگەڵ قەیران و پاراستنی وێنەی گشتی لە کاتی تەنگژەدا.</p></div>
-    <!-- 6 -->
     <div class="cell"><div class="icon">📷</div><h3 data-i18n="subj13_t">فۆتۆگرافی و ڤیدیۆگرافی</h3><p data-i18n="subj13_d">وێنەگرتن و تۆمارکردنی ڤیدیۆ بۆ کەمپین و ناوەڕۆکی ڕاگەیاندن.</p></div>
-    <!-- 7 -->
     <div class="cell"><div class="icon">🤵</div><h3 data-i18n="subj16_t">دیپلۆماسی</h3><p data-i18n="subj16_d">پرۆسەی بەڕێوەبردنی پەیوەندییە لە ڕێگەی دانوستان و گفتوگۆ بە ئامانجی چارەسەرکردنی کێشەکان و دروستکردنی هاوپەیمانی.</p></div>
-    <!-- 8 -->
     <div class="cell"><div class="icon">🕊️</div><h3 data-i18n="subj20_t">پەیوەندی نێودەوڵەتی</h3><p data-i18n="subj20_d">لێکۆڵینەوە و پراکتیزەکردنی چۆنیەتی کارلێکی وڵاتان، حکوومەتەکان، ڕێکخراوەکان و خەڵک لە ئاستی جیهانیدا.</p></div>
-    <!-- 9 -->
     <div class="cell"><div class="icon">🎨</div><h3 data-i18n="subj12_t">گرافیک دیزاین</h3><p data-i18n="subj12_d">گرافیک دیزاین لە پەیوەندییە گشتییەکاندا : بەکارهێنانی توخمە بینراوەکانە بۆ گەیاندنی پەیام، بەمەبەستی بەدەستهێنانی تێڕوانینی گشتی .</p></div>
-    <!-- Remaining -->
     <div class="cell"><div class="icon">📺</div><h3 data-i18n="subj1_t">ڕیکلام</h3><p data-i18n="subj1_d">شێوازەکانی دروستکردنی ڕیکلام و کاریگەری لەسەر بیرکردنەوەی کۆمەڵگا.</p></div>
     <div class="cell"><div class="icon">🏢</div><h3 data-i18n="subj6_t">بەڕێوەبردنی دامەزراوە و پەیوەندییەکان</h3><p data-i18n="subj6_d">چۆنیەتی بەڕێوەبردنی دامەزراوە و پەیوەندییەکانی.</p></div>
     <div class="cell"><div class="icon">📊</div><h3 data-i18n="subj8_t">ستراتیژی و پلاندانان</h3><p data-i18n="subj8_d">دروستکردنی پلانی پەیوەندی گشتی بۆ کۆمپانیا و دامەزراوەکان.</p></div>
     <div class="cell"><div class="icon">🎤</div><h3 data-i18n="subj10_t">بەڕێوەبردنی ئیڤینت و بۆنەکان</h3><p data-i18n="subj10_d">ڕێکخستن و بەڕێوەبردنی چالاکی و ئیڤینتی گشتی.</p></div>
     <div class="cell"><div class="icon">📡</div><h3 data-i18n="subj11_t">بەڕێوەبردنی پەیوەندییە میدیاییەکان</h3><p data-i18n="subj11_d">چۆنیەتی دروستکردن و بەڕێوەبردنی پەیوەندی لەگەڵ میدیا و ڕۆژنامەنووسان.</p></div>
     <div class="cell"><div class="icon">🎬</div><h3 data-i18n="subj14_t">بەرهەمهێنانی پەیوەندی گشتی</h3><p data-i18n="subj14_d">بەرهەمهێنانی په‌یوه‌ندییه‌ گشتییه‌کان : پرۆسه‌‌ی دروستکردن، دیزاینکردن و بڵاوکردنه‌وه‌ی که‌ره‌سته‌ و بابه‌ته‌ ,به‌ مه‌به‌ستی شێوازپێدان به‌ وێنه‌ی گشتی، کەس ،دامەزراوە و پارت و لایەنێك و به‌ڕێوه‌بردنی ناوبانگی.</p></div>
-    <div class="cell"><div class="icon">📣</div><h3 data-i18n="subj15_t">هەڵمەتی پەیوەندی گشتی</h3><p data-i18n="subj15_d">هەڵمەتی پەیوەندییە گشتییەکان :زنجیرە چالاکییەکی ستراتیژی و کاتییە بۆ گەیشتن بە ئامانجێکی دیاریکراوی  دامەزراوەیەك، براندێک، یان کەس و لایەنێك.</p></div>
+    <div class="cell"><div class="icon">📣</div><h3 data-i18n="subj15_t">هەڵمەتی پەیوەندی گشتی</h3><p data-i18n="subj15_d">هەڵمەتی پەیوەندییە گشتییەکان :زنجیرە چالاکییەکی ستراتیژی و کاتییە بۆ گەیشتن بە ئامانجێکی دیاریکراوی دامەزراوەیەك، براندێک، یان کەس و لایەنێك.</p></div>
     <div class="cell"><div class="icon">💰</div><h3 data-i18n="subj17_t">ئابووری دامەزراوە</h3><p data-i18n="subj17_d">بنەماکانی ئابووری کە پەیوەندیدارن بە کارکردنی دامەزراوەکانەوە.</p></div>
     <div class="cell"><div class="icon">🌐</div><h3 data-i18n="subj19_t">پەیوەندی گشتی دیجیتاڵی</h3><p data-i18n="subj19_d">بەکارهێنانی ئامرازە دیجیتاڵییەکان لە پەیوەندی گشتیدا لە سەردەمی ئۆنلایندا.</p></div>
   </div>
@@ -536,7 +582,7 @@
     <div class="campaign-box" style="background:#fff; padding:20px; border-radius:6px; margin-bottom:14px;">
       <h4 style="font-size:14.5px; font-weight:700; color:var(--black); margin-bottom:6px;" data-i18n="camp_box_h">💡 نھێنی سەرکەوتنی PR لەم کەمپەینەدا:</h4>
       <p style="font-size:13.5px; line-height:1.8; color:var(--ink-soft);" data-i18n-html="camp_box_p">
-        کۆمپانیاکە شتومەکی نەفرۆشت، بەڵکو **پەیوەندی کۆمەڵایەتی و هەستی تایبەتی** دروستکرد. خەڵک لە سۆشیال میدیا دەستیان کرد بە بڵاوکردنەوەی وێنەی بوتڵەکان بە ناوی خۆیان و هاوڕێکانیانەوە. بەمەش زیاتر لە **٥٠٠,٠٠٠ وێنە** لە ئینتەرنێت بڵاوبووەوە و فرۆشی کۆمپانیاکە بە ڕێژەی **٢.٥٪ بۆ یەکەمجار دوای ساڵانێک زیادی کرد**.
+        کۆمپانیاکە شتومەکی نەفرۆشت، بەڵکو **پەیوەندی کۆمەڵایەتی و هەستی تایبەتی** دروستکرد. خەڵک لە سۆشیال میدیا دەستیان کرد بە بڵاوکردنەوەی وێنەی بوتڵەکان بە ناوی خۆیان و هاوڕێکانیانەوە. بەمەش زیاتر لە **٥٠0,٠٠٠ وێنە** لە ئینتەرنێت بڵاوبووەوە و فرۆشی کۆمپانیاکە بە ڕێژەی **٢.٥٪ بۆ یەکەمجار دوای ساڵانێک زیادی کرد**.
       </p>
     </div>
     <p style="font-size:13.5px; font-weight:600; color:var(--green);" data-i18n="camp_note">
@@ -688,26 +734,28 @@
     "ckb": {
       "lang_btn": "English",
       "brand_name": "پەیوەندییە گشتییەکان",
-      "nav_history": "مێژوو",
-      "nav_reason": "هۆکار",
-      "nav_scores": "نمرەی وەرگیران",
+      "nav_about": "دەربارەی بەش",
+      "nav_faculty": "مامۆستایان",
+      "nav_highschool": "پۆلی ١٢ 🎓",
       "nav_subjects": "وانەکان",
       "nav_opportunities": "دەرفەتەکان",
       "nav_careers": "دواڕۆژی کار",
-      "nav_campaign": "کەمپەینی مانگ",
+      "nav_campaign": "کەمپەین",
       "nav_feedback": "فیدباک",
       "nav_faq": "پرسیارە باوەکان",
       "nav_contact": "پەیوەندی",
-      "hero_eyebrow": "بەشی پەیوەندییە گشتییەکان دامەزراوە لە ساڵی٢٠٢١ لە کۆلێژی زانستە مرۆڤایەتییەکان لە زانکۆی سلێمانی",
-      "hero_title": "بەشی <span class=\"accent\">پەیوەندییە گشتییەکان</span><br>دەروازەیەکی نوێ بۆ داهاتووت",
-      "hero_desc": "ئەم بەشە تازەیە لە زانکۆی سلێمانی، زۆرێک لە خوێندکارانی پۆلی ١٢ و کەسووکاریان زانیاریان کەمە لەسەری. لێرەدا هەموو ئەوەی پێویستە بزانن کۆمکردووەتەوە: نمرەی وەرگیران، ئەو بابەتانەی دەیخوێنیت، و ئەو کارانەی دواتر دەتوانیت تێیدا کاربکەیت.",
+      "hero_eyebrow": "سەکۆی فەرمی بەشی پەیوەندییە گشتییەکان — کۆلێژی زانستە مرۆڤایەتییەکان | زانکۆی سلێمانی",
+      "hero_title": "بەشی <span class=\"accent\">پەیوەندییە گشتییەکان</span><br>داهێنانی دەنگ، دروستکردنی ناوبانگ",
+      "hero_desc": "سەکۆیەکی ئەکادیمی و دیجیتاڵی گشتگیر بۆ ناساندنی چالاکییەکان، ستافی دەستەی وانەوتنەوە، زانیارییەکانی وەرگرتن، و ڕێنمایی تەواو بۆ خوێندکاران و ئارەزوومەندانی زانستی PR.",
+      "btn_hero_p12": "🎓 تایبەت بە دەرچووانی پۆلی ١٢",
+      "btn_hero_staff": "👨‍🏫 ستافی مامۆستایان و دکتۆرەکان",
       "chap_history": "مێژوو و دەربارەمان",
-      "chap_reason": "هۆکاری دروستبوونی سایتەکە",
-      "chap_scores": "نمرەی وەرگیران",
+      "chap_faculty": "ستافی مامۆستایان",
+      "chap_p12": "دەروازەی پۆلی ١٢",
       "chap_subjects": "وانەکان",
-      "chap_opportunities": "دەرفەتەکانی خوێندکار",
+      "chap_opportunities": "دەرفەتەکان",
       "chap_careers": "دواڕۆژی کار",
-      "chap_campaign": "کەمپەینی مانگ",
+      "chap_campaign": "کەمپەین",
       "chap_feedback": "فیدباکی خوێندکاران",
       "chap_faq": "پرسیارە باوەکان",
       "chap_contact": "پەیوەندی",
@@ -718,13 +766,19 @@
       "tl_intake_p": "تاکو ئێستا بەشەکە <span id=\"intake-rounds-text\">٥</span> خوولی وەرگرتنی هەبووە.",
       "tl_grad_h": "خولی دەرچوون",
       "tl_grad_p": "<span id=\"graduation-rounds-text\">٢</span> خولی دەرچوونیش تاکو ئێستا تەواوی کردووە.",
+      "tag_faculty": "کادرانی ئەکادیمی",
+      "title_faculty": "ستافی مامۆستایان و دکتۆرەکان",
+      "sub_faculty": "دەستەیەکی پسپۆڕ و شارەزا لە بوارەکانی پەیوەندییە گشتییەکان، میدیا، دیپلۆماسی و بەڕێوەبردنی قەیران.",
+      "fac1_name": "د. لانە ...", "fac1_role": "سەرۆکی بەش", "fac1_desc": "دکتۆرا لە پەیوەندییە گشتییەکان و بەڕێوەبردنی ناوبانگ",
+      "fac2_name": "م. شۆخان ...", "fac2_role": "بڕیاردەری بەش", "fac2_desc": "ماستەر لە ڕاگەیاندن و بەڕێوەبردنی ئیڤێنتەکان",
+      "fac3_name": "م. ئاڤێستا ...", "fac3_role": "مامۆستای بەش", "fac3_desc": "پسپۆڕ لە پەیوەندییە دیجیتاڵییەکان و زمانی جەستە",
       "tag_story": "وتەی دروستکەری سایتەکە",
       "title_story": "بۆچی ئەم سایتەم دروستکرد؟",
       "story_p1": "کاتێک پۆلی ١٢م تەواو کرد، زۆر گەڕام بۆ دۆزینەوەی بەشێک کە لەگەڵ خولیا و ئارەزوو و ئەزموونم بگونجێت. لەنێو چەند بەشێکدا، بەشی پەیوەندییە گشتییەکان زۆر سەرنجی ڕاکێشام — بەڵام چونکە بەشێکی تازە بوو لە زانکۆی سلێمانی، لە سۆشیال میدیا و ئینتەرنێت زانیارییەکی زۆر کەمم دەستکەوت دەربارەی وردەکاری خوێندن، وانەکان، و هەلی کار.",
       "story_p2": "پاشان چومە زانکۆ و دوای ئاشنابوون بە وانەکان، مامۆستا و دکتۆرە لێهاتووەکان، و بەتایبەتی سەرۆکی بەشەکەمان کە زانیاری زۆری هەبووە دەربارەی بەشەکە، بۆم دەرکەوت کە کارە ڕاستەکەم ئەنجام داوە. لەبەر ئەوە هەستام بە دروستکردنی ئەم سایتە بۆ خوێندکاران بۆ ئەوەی بە هەمان شێوەی من توشی کێشەی نەبوونی زانیاری نەبن سەبارەت بەم بەشە و زانیاری زیاتریان هەبێت.",
       "story_sign": "— ئارا عەزیز",
-      "tag_scores": "وردەگیری",
-      "title_scores": "نمرەی وەرگیران — ساڵی <span id=\"dyn-academic-year\">٢٠٢٥-٢٠٢٦</span>",
+      "tag_scores": "وردەگیری پۆلی ١٢",
+      "title_scores": "🎓 نمرەی وەرگیران — ساڵی <span id=\"dyn-academic-year\">٢٠٢٥-٢٠٢٦</span>",
       "scores_sub": "ئەمانە نمرەکانی وەرگیرانی ساڵی پار بوون بۆ بەشی پەیوەندییە گشتییەکان. نمرەکان ساڵ بە ساڵ دەگۆڕێن بەپێی ژمارەی داواکار و کۆتای وەرگیراوان، بۆیە ئەمانە تەنها ڕێنماییەکن.",
       "plaque_zankoline": "کەمترین نمرەی وەرگیراو — زانکۆلاین",
       "plaque_yr1": "ساڵی <span class=\"dyn-score-year\">٢٠٢٥</span>",
@@ -749,7 +803,7 @@
       "subj12_t": "گرافیک دیزاین", "subj12_d": "گرافیک دیزاین لە پەیوەندییە گشتییەکاندا : بەکارهێنانی توخمە بینراوەکانە بۆ گەیاندنی پەیام، بەمەبەستی بەدەستهێنانی تێڕوانینی گشتی .",
       "subj13_t": "فۆتۆگرافی و ڤیدیۆگرافی", "subj13_d": "وێنەگرتن و تۆمارکردنی ڤیدیۆ بۆ کەمپین و ناوەڕۆکی ڕاگەیاندن.",
       "subj14_t": "بەرهەمهێنانی پەیوەندی گشتی", "subj14_d": "بەرهەمهێنانی په‌یوه‌ندییه‌ گشتییه‌کان : پرۆسه‌‌ی دروستکردن، دیزاینکردن و بڵاوکردنه‌وه‌ی که‌ره‌سته‌ و بابه‌ته‌ ,به‌ مه‌به‌ستی شێوازپێدان به‌ وێنه‌ی گشتی، کەس ،دامەزراوە و پارت و لایەنێك و به‌ڕێوه‌بردنی ناوبانگی.",
-      "subj15_t": "هەڵمەتی پەیوەندی گشتی", "subj15_d": "هەڵمەتی پەیوەندییە گشتییەکان :زنجیرە چالاکییەکی ستراتیژی و کاتییە بۆ گەیشتن بە ئامانجێکی دیاریکراوی  دامەزراوەیەك، براندێک، یان کەس و لایەنێك.",
+      "subj15_t": "هەڵمەتی پەیوەندی گشتی", "subj15_d": "هەڵمەتی پەیوەندییە گشتییەکان :زنجیرە چالاکییەکی ستراتیژی و کاتییە بۆ گەیشتن بە ئامانجێکی دیاریکراوی دامەزراوەیەك، براندێک، یان کەس و لایەنێك.",
       "subj16_t": "دیپلۆماسی", "subj16_d": "پرۆسەی بەڕێوەبردنی پەیوەندییە لە ڕێگەی دانوستان و گفتوگۆ بە ئامانجی چارەسەرکردنی کێشەکان و دروستکردنی هاوپەیمانی.",
       "subj17_t": "ئابووری دامەزراوە", "subj17_d": "بنەماکانی ئابووری کە پەیوەندیدارن بە کارکردنی دامەزراوەکانەوە.",
       "subj18_t": "بەڕێوەبردنی پەیجی ئەلیکترۆنی", "subj18_d": "بنەماکانی دیزاینکردنی ماڵپەڕ و پێشکەشکردنی ناوەڕۆک لەسەر ئینتەرنێت.",
@@ -871,185 +925,193 @@
     "en": {
       "lang_btn": "کوردی",
       "brand_name": "Public Relations",
-      "nav_history": "History",
-      "nav_reason": "Reason",
-      "nav_scores": "Admission Scores",
+      "nav_about": "About",
+      "nav_faculty": "Faculty",
+      "nav_highschool": "Grade 12 🎓",
       "nav_subjects": "Courses",
       "nav_opportunities": "Opportunities",
       "nav_careers": "Careers",
-      "nav_campaign": "Campaign of the Month",
+      "nav_campaign": "Campaign",
       "nav_feedback": "Feedback",
       "nav_faq": "FAQ",
       "nav_contact": "Contact",
-      "hero_eyebrow": "The Department of Public Relations was established in 2021 in the College of Humanities at the University of Sulaimani",
-      "hero_title": "Department of <span class=\"accent\">Public Relations</span><br>A New Gateway to Your Future",
-      "hero_desc": "This is a new department at the University of Sulaimani, and many 12th-grade students and their families know little about it. Here, I have gathered everything you need to know: admission scores, subjects you will study, and future career paths you can pursue.",
+      "hero_eyebrow": "Official Platform of Public Relations Department — College of Humanities | University of Sulaimani",
+      "hero_title": "Department of <span class=\"accent\">Public Relations</span><br>Innovating Voice, Building Reputation",
+      "hero_desc": "A comprehensive academic and digital platform showcasing departmental activities, teaching staff, admission guidance, and complete resources for students and PR enthusiasts.",
+      "btn_hero_p12": "🎓 For Grade 12 Graduates",
+      "btn_hero_staff": "👨‍🏫 Faculty & Lecturers",
       "chap_history": "History & About Us",
-      "chap_reason": "Why I Built This Site",
-      "chap_scores": "Admission Scores",
+      "chap_faculty": "Faculty Staff",
+      "chap_p12": "Grade 12 Portal",
       "chap_subjects": "Courses",
       "chap_opportunities": "Student Opportunities",
-      "chap_careers": "Career Prospects",
-      "chap_campaign": "Campaign of the Month",
+      "chap_careers": "Career Pathways",
+      "chap_campaign": "Campaign",
       "chap_feedback": "Student Feedback",
       "chap_faq": "FAQ",
       "chap_contact": "Contact",
       "tag_about": "About Our Department",
       "title_about": "History and About Our Department",
-      "about_p1": "The Department of Public Relations was founded in 2021 to prepare academic cadres and meet the growing demands of the market. The department emphasizes both theoretical and practical dimensions. Given the importance of Public Relations across private and public sectors, tools and techniques are utilized to foster professional PR specialists. Special emphasis is placed on modern market-driven subjects such as political advisory, organizational strategic consulting, innovation, strategy formulation, branding, consumer behavior research, reputation management, campaign execution, and crisis management.",
+      "about_p1": "The Department of Public Relations was founded in 2021 to prepare academic cadres and meet market demands. It emphasizes theoretical and practical dimensions in PR, strategic consulting, branding, reputation management, and crisis communication.",
       "tl_intake_h": "Admission Rounds",
       "tl_intake_p": "So far, the department has completed <span id=\"intake-rounds-text\">5</span> admission rounds.",
       "tl_grad_h": "Graduation Batches",
       "tl_grad_p": "It has also successfully graduated <span id=\"graduation-rounds-text\">2</span> student batches to date.",
+      "tag_faculty": "Academic Staff",
+      "title_faculty": "Faculty & Lecturers",
+      "sub_faculty": "A specialized team of experts in Public Relations, Media, Diplomacy, and Crisis Management.",
+      "fac1_name": "Dr. Lana ...", "fac1_role": "Head of Department", "fac1_desc": "PhD in Public Relations & Reputation Management",
+      "fac2_name": "Lect. Shoxan ...", "fac2_role": "Department Rapporteur", "fac2_desc": "MA in Media & Event Management",
+      "fac3_name": "Lect. Avesta ...", "fac3_role": "Department Lecturer", "fac3_desc": "Specialist in Digital PR & Body Language",
       "tag_story": "Creator's Note",
       "title_story": "Why This Website Was Created",
-      "story_p1": "When I finished 12th grade, I searched extensively for a department that matched my passion, interests, and background. Among several options, Public Relations caught my attention the most — but since it was a newly established department at the University of Sulaimani, there was very little information on social media or the internet regarding study details, course contents, and job prospects.",
-      "story_p2": "Once I entered university and experienced the coursework, learned from accomplished professors and doctors, and particularly gained insights from our department head who possessed immense knowledge about the field, I realized I had made the right choice. Therefore, I built this website for students so that they wouldn't face the same lack of information I experienced and could gain a clear, comprehensive understanding of this department.",
+      "story_p1": "When I finished 12th grade, I searched extensively for a department matching my passion. Public Relations caught my attention, but information was scarce online.",
+      "story_p2": "After enrolling and learning from our accomplished professors, I realized I made the right choice. I built this site to provide future students with clear guidance.",
       "story_sign": "— Ara Aziz",
       "tag_scores": "Admission Details",
-      "title_scores": "Admission Scores — Academic Year <span id=\"dyn-academic-year\">2025-2026</span>",
-      "scores_sub": "These were last year's minimum admission scores for the Public Relations Department. Cutoff scores vary annually depending on applicant volume and quota, so these serve as a general guide.",
+      "title_scores": "🎓 Admission Scores — Academic Year <span id=\"dyn-academic-year\">2025-2026</span>",
+      "scores_sub": "These reflect last year's requirements and serve as a general guide.",
       "plaque_zankoline": "Minimum Accepted Score — Zankoline",
       "plaque_yr1": "Year <span class=\"dyn-score-year\">2025</span>",
       "plaque_parallel": "Minimum Accepted Score — Parallel",
       "plaque_yr2": "Year <span class=\"dyn-score-year\">2025</span>",
-      "scores_note1": "Note: These figures reflect last year's requirements and may shift this academic year. For precise details, consult the official Zankoline portal or our department.",
+      "scores_note1": "Note: Requirements shift annually based on quota.",
       "scores_note2": "In the <span id=\"dyn-academic-year-note\">2025-2026</span> academic year, <span id=\"students-count\">80</span> students were admitted.",
       "tag_subjects": "Academic Curriculum",
       "title_subjects": "Your 4-Year Journey: Over <span id=\"subjects-count\">20</span> Powerful Courses Mapping Your Education",
-      "sub_subjects": "A rich blend of practical and theoretical modules spread over 4 years (8 academic semesters). Here are examples of key subjects covered:",
-      "subj1_t": "Advertising", "subj1_d": "Techniques of ad creation and analyzing their psychological and societal influence.",
-      "subj2_t": "Marketing", "subj2_d": "Applying promotional strategies for products and services through in-depth market behavior understanding.",
-      "subj3_t": "Reputation & Brand Management", "subj3_d": "Safeguarding and enhancing organizational corporate identity and brand image.",
-      "subj4_t": "Protocol & Etiquette", "subj4_d": "Rules of engagement, hospitality, and official diplomatic event management.",
-      "subj5_t": "Crisis Management", "subj5_d": "Strategies for managing organizational crises and maintaining positive public perception under stress.",
-      "subj6_t": "Organizational Relations Management", "subj6_d": "Principles of managing internal and external institutional communications.",
-      "subj7_t": "Body Language & Public Speaking", "subj7_d": "Mastering non-verbal communication and public address to deliver impactful messages.",
-      "subj8_t": "Strategic Communication Planning", "subj8_d": "Designing comprehensive Public Relations master plans for institutions and enterprises.",
-      "subj9_t": "Social Media & Web Page Management", "subj9_d": "Managing digital content, online media campaigns, and web presentation.",
-      "subj10_t": "Event & Occasion Management", "subj10_d": "Organizing, structuring, and executing major public and corporate events.",
-      "subj11_t": "Media Relations Management", "subj11_d": "Building and maintaining active professional relationships with media outlets and journalists.",
-      "subj12_t": "Graphic Design", "subj12_d": "Graphic Design in PR: The use of visual elements to convey messages, with the aim of capturing public perception.",
-      "subj13_t": "Photography & Videography", "subj13_d": "Capturing professional imagery and video production for media campaigns.",
-      "subj14_t": "PR Content Production", "subj14_d": "PR Production: The process of creating, designing, and distributing materials and content to shape the public image of an individual, institution, party, or entity, and managing their reputation.",
-      "subj15_t": "PR Campaigns", "subj15_d": "Public Relations Campaign: A strategic, temporary series of activities designed to achieve a specific goal for an institution, brand, individual, or entity.",
-      "subj16_t": "Diplomacy", "subj16_d": "Managing international or organizational ties through negotiation, dialog, and coalition-building.",
-      "subj17_t": "Institutional Economics", "subj17_d": "Core economic fundamentals applicable to organizational operations and market sustainability.",
-      "subj18_t": "Web Page Management", "subj18_d": "Fundamentals of web design, digital user experience, and online content presentation.",
-      "subj19_t": "Digital Public Relations", "subj19_d": "Leveraging modern digital platforms and tools for online public relations strategies.",
-      "subj20_t": "International Relations", "subj20_d": "Analyzing global interactions among sovereign states, governments, NGOs, and global citizens.",
+      "sub_subjects": "A rich blend of practical and theoretical modules spread over 4 years.",
+      "subj1_t": "Advertising", "subj1_d": "Techniques of ad creation and psychological influence.",
+      "subj2_t": "Marketing", "subj2_d": "Promotional strategies and market dynamics.",
+      "subj3_t": "Reputation & Brand Management", "subj3_d": "Safeguarding corporate identity and brand image.",
+      "subj4_t": "Protocol & Etiquette", "subj4_d": "Official diplomatic event management and rules of engagement.",
+      "subj5_t": "Crisis Management", "subj5_d": "Handling organizational crises under pressure.",
+      "subj6_t": "Organizational Relations Management", "subj6_d": "Principles of managing institutional communications.",
+      "subj7_t": "Body Language & Public Speaking", "subj7_d": "Mastering non-verbal communication and public address.",
+      "subj8_t": "Strategic Communication Planning", "subj8_d": "Designing comprehensive PR master plans.",
+      "subj9_t": "Social Media & Web Management", "subj9_d": "Managing digital content and online campaigns.",
+      "subj10_t": "Event & Occasion Management", "subj10_d": "Organizing major public and corporate events.",
+      "subj11_t": "Media Relations Management", "subj11_d": "Building relationships with media outlets.",
+      "subj12_t": "Graphic Design", "subj12_d": "Visual elements for messaging and public perception.",
+      "subj13_t": "Photography & Videography", "subj13_d": "Professional imagery and video production.",
+      "subj14_t": "PR Content Production", "subj14_d": "Creating and shaping institutional public image.",
+      "subj15_t": "PR Campaigns", "subj15_d": "Strategic series of activities to achieve brand goals.",
+      "subj16_t": "Diplomacy", "subj16_d": "Negotiation, dialog, and coalition-building.",
+      "subj17_t": "Institutional Economics", "subj17_d": "Core economic fundamentals for organizations.",
+      "subj18_t": "Web Page Management", "subj18_d": "Fundamentals of web design and online content.",
+      "subj19_t": "Digital Public Relations", "subj19_d": "Modern digital tools for public relations.",
+      "subj20_t": "International Relations", "subj20_d": "Analyzing global interactions among sovereign states.",
       "tag_opp": "The Real Value of Education",
       "title_opp": "🎓 Golden Student Opportunities in PR",
-      "sub_opp": "Studying Public Relations goes far beyond textbook memorization; it offers hands-on experiential opportunities that refine your professional skillset throughout your academic years.",
-      "opp1_t": "Real Practical Projects", "opp1_d": "Students build complete PR campaigns and strategic plans for genuine commercial brands and organizations during their studies.",
-      "opp2_t": "Field Visits & Workshops", "opp2_d": "Organized site visits to major corporations, broadcasting networks, and government bodies to experience working environments firsthand.",
-      "opp3_t": "Professional Networking", "opp3_d": "Direct opportunities to build valuable networks with PR directors, marketing executives, and industry leaders while still studying.",
-      "opp4_t": "Digital Skills Acceleration", "opp4_d": "Hands-on training using state-of-the-art software tools for graphic design, photography, video editing, and social media management.",
+      "sub_opp": "Experiential opportunities refining your professional skillset.",
+      "opp1_t": "Real Practical Projects", "opp1_d": "Designing PR campaigns for genuine commercial brands.",
+      "opp2_t": "Field Visits & Workshops", "opp2_d": "Site visits to major corporations and broadcasting networks.",
+      "opp3_t": "Professional Networking", "opp3_d": "Connecting directly with industry PR directors.",
+      "opp4_t": "Digital Skills Acceleration", "opp4_d": "Training on software for design, photo, and video.",
       "tag_careers": "Career Pathways",
-      "title_careers": "🚀 Future Roles & Professions Awaiting Graduates",
-      "sub_careers": "Public Relations is an interdisciplinary field unlocking diverse professional tracks that hold high strategic value in current and future job markets.",
-      "car1_t": "Public Opinion Analyst & Researcher", "car1_d": "Conducting surveys, evaluating public trends, and providing data-driven recommendations to political parties, state agencies, and private entities.",
-      "car2_t": "Public Relations Specialist (PR Specialist)", "car2_d": "Planning and executing communication campaigns, drafting press releases, and distributing official media kits.",
-      "car3_t": "Corporate Communications Officer", "car3_d": "Managing internal and external organizational communications while developing brand identity and public standing.",
-      "car4_t": "Social Media Manager / Coordinator", "car4_d": "Managing corporate digital presence, producing engaging content, tracking community feedback, and analyzing reach metrics.",
-      "car5_t": "Content Writer & Copywriter", "car5_d": "Authoring press releases, promotional materials, investigative reports, and advertising copy across mediums.",
-      "car6_t": "Event, Conference & Exhibition Planner", "car6_d": "Designing and managing corporate conventions, press briefings, exhibitions, and sponsor coordination.",
-      "car7_t": "Official Spokesperson", "car7_d": "Representing institutions before media channels and managing strategic messaging during public engagements.",
-      "car8_t": "PR & Communications Consultant", "car8_d": "Providing expert counsel to enterprises, political figures, and NGOs regarding reputation strategy and crisis intervention.",
-      "car9_t": "Corporate Social Responsibility (CSR) Specialist", "car9_d": "Directing community initiatives, sustainability initiatives, and building alliances with civil society groups.",
-      "car10_t": "Government, Private Sector & NGO Roles", "car10_d": "Roles within ministries, corporate banks, universities, diplomatic missions, consulates, and global agencies.",
-      "career_summary": "A Public Relations graduate is not merely a media operator; they are strategic experts in relationship management, brand positioning, and stakeholder engagement. Graduates are equipped to excel in digital media, corporate affairs, crisis management, event architecture, marketing communications, diplomatic consulates, and expanding market sectors.",
+      "title_careers": "🚀 Future Roles Awaiting Graduates",
+      "sub_careers": "PR unlocks diverse professional tracks with high strategic market value.",
+      "car1_t": "Public Opinion Analyst", "car1_d": "Surveys and public trend analysis.",
+      "car2_t": "Public Relations Specialist", "car2_d": "Planning campaigns and media releases.",
+      "car3_t": "Corporate Communications Officer", "car3_d": "Internal and external organizational ties.",
+      "car4_t": "Social Media Manager", "car4_d": "Digital accounts and audience analytics.",
+      "car5_t": "Content Writer", "car5_d": "Drafting promotional copy and investigative reports.",
+      "car6_t": "Event Planner", "car6_d": "Managing corporate conventions and briefings.",
+      "car7_t": "Official Spokesperson", "car7_d": "Representing institutions before media.",
+      "car8_t": "PR Consultant", "car8_d": "Reputation counsel for enterprises and NGOs.",
+      "car9_t": "CSR Specialist", "car9_d": "Directing community and sustainability initiatives.",
+      "car10_t": "Government & International Roles", "car10_d": "Roles in ministries, banks, consulates, and global NGOs.",
+      "career_summary": "PR graduates are strategic experts in relationship management, brand positioning, and stakeholder engagement.",
       "tag_campaign": "Practical Case Study",
-      "title_campaign": "🏆 Historical Campaigns of Public Relations Science Worldwide",
-      "sub_campaign": "How Public Relations science generates global market success for elite multinational brands.",
+      "title_campaign": "🏆 Historical Campaigns of Public Relations Science",
+      "sub_campaign": "How PR science generates global market success.",
       "camp_h3": "The Landmark Coca-Cola Campaign — \"Share a Coke with...\"",
-      "camp_p1": "In 2011, Coca-Cola faced declining sales trends among young adult demographics. Instead of launching traditional product advertisements, the PR strategy team temporarily replaced the iconic logo on bottles with **250 popular first names**!",
+      "camp_p1": "Coca-Cola replaced its logo with popular first names on bottles to drive organic social engagement.",
       "camp_box_h": "💡 The Strategic PR Secret:",
-      "camp_box_p": "The brand stopped selling just a soft drink and started creating **emotional personal connections and social sharing**. People spontaneously shared over **500,000 photos** online featuring bottles with their names or friends' names, driving a **2.5% increase in total sales for the first time in over a decade**.",
-      "camp_note": "Key Takeaway: The power of PR lies in its ability to shape consumer behavior organically, building trust without making audiences feel overtly sold to!",
+      "camp_box_p": "The brand fostered emotional social sharing, resulting in 500,000+ online shares and a 2.5% sales increase.",
+      "camp_note": "Key Takeaway: PR shapes consumer behavior organically.",
       "tag_why": "Why Choose Us?",
       "title_why": "Why Select This Department?",
-      "why1_t": "Modern & Evolving Curriculum", "why1_d": "Syllabi tailored to real-world modern market needs, customized for the digital communication era.",
-      "why2_t": "Strong Leadership", "why2_d": "Dedicated department leadership and experienced faculty committed to elevating academic standards.",
-      "why3_t": "Broad Employment Spectrum", "why3_d": "Career choices span consulates, corporations, media networks, and international NGOs.",
-      "why4_t": "Vibrant Student Community", "why4_d": "Active social channels, academic events, and a collaborative environment summarized by the motto 'PR Family'.",
+      "why1_t": "Modern Curriculum", "why1_d": "Tailored to real-world modern market needs.",
+      "why2_t": "Strong Leadership", "why2_d": "Faculty committed to elevating academic standards.",
+      "why3_t": "Broad Employment", "why3_d": "Careers span consulates, corporations, and media.",
+      "why4_t": "Vibrant Community", "why4_d": "Active social channels summarized by 'PR Family'.",
       "tag_testi": "Student Voice",
       "title_testi": "Student Feedback & Experiences",
-      "sub_testi": "💡 Discover honest insights directly from current students across different academic stages.",
+      "sub_testi": "Discover honest insights directly from current students.",
       "stage2_summary": "Second Year Students",
-      "soma_sign": "Soma Ibrahim Ahmed — 2nd Year, Public Relations",
-      "soma_q1": "<strong style=\"color:var(--black);\">How did I choose this department?</strong><br>My initial goal was Political Relations, but my score was slightly lower than required. I then researched Public Relations and realized it provided excellent career avenues aligned with my ambitions.",
-      "soma_q2": "<strong style=\"color:var(--black);\">What prior information did I have?</strong><br>I tried gathering details through the University of Sulaimani social channels, but information was limited at the time.",
-      "soma_q3": "<strong style=\"color:var(--black);\">How do I view it now?</strong><br>I see a bright future ahead of me and feel confident about achieving great success here.",
-      "soma_q4": "<strong style=\"color:var(--black);\">What did I learn?</strong><br>This department teaches the art of strategic communication, influencing society and organizations, and understanding audiences through active listening.",
-      "maria_sign": "Maria Neriman — Top Student of First Year (Last Academic Year)",
-      "maria_q1": "<strong style=\"color:var(--black);\">How did I choose this department?</strong><br>I wanted this department since high school because I recognized its value early on: 1. I love being a voice for others. 2. I have an interest in business, and PR is an optimal choice.",
-      "maria_q2": "<strong style=\"color:var(--black);\">What prior information did I have?</strong><br>I didn't fully know what studying here entailed or what courses were taught. A friend shared basic information, but not the complete picture.",
-      "maria_q3": "<strong style=\"color:var(--black);\">How do I view it now?</strong><br>After completing a year of studies, I value the department even more than I initially did.",
+      "soma_sign": "Soma Ibrahim Ahmed — 2nd Year",
+      "soma_q1": "<strong>How did I choose this department?</strong><br>I researched PR and realized it aligned with my political goals.",
+      "soma_q2": "<strong>What prior info did I have?</strong><br>Information was limited at first.",
+      "soma_q3": "<strong>How do I view it now?</strong><br>I see a bright future ahead.",
+      "soma_q4": "<strong>What did I learn?</strong><br>Strategic communication and active listening.",
+      "maria_sign": "Maria Neriman — Top 1st Year Student",
+      "maria_q1": "<strong>How did I choose?</strong><br>I wanted to be a voice for others and learn business PR.",
+      "maria_q2": "<strong>Prior info?</strong><br>Basic insights from friends.",
+      "maria_q3": "<strong>Current view?</strong><br>I value it even more now.",
       "azhi_sign": "Azhi Bzhar — 2nd Year",
-      "azhi_q1": "<strong style=\"color:var(--black);\">How did you choose this department?</strong><br>It wasn't my first direct choice, but my central application score placed me here.",
-      "azhi_q2": "<strong style=\"color:var(--black);\">What prior information did you have?</strong><br>None, due to how new the department was. However, I researched it later and gained clear insight.",
-      "azhi_q3": "<strong style=\"color:var(--black);\">How do you view it now?</strong><br>I see my career future here. It provides strong employment prospects in both government and private sectors for those willing to develop their skills.",
-      "azhi_q4": "<strong style=\"color:var(--black);\">What did you learn?</strong><br>The immense value of interpersonal and professional connections, and how to cultivate them effectively.",
+      "azhi_q1": "<strong>How chosen?</strong><br>Central score placement.",
+      "azhi_q2": "<strong>Prior info?</strong><br>None, but researched it afterwards.",
+      "azhi_q3": "<strong>Current view?</strong><br>Strong employment prospects in government & private sectors.",
+      "azhi_q4": "<strong>What learned?</strong><br>Cultivating interpersonal networks.",
       "stage3_summary": "Third Year Students",
       "shanga_sign": "Shanga Latif Sulaiman — 3rd Year",
-      "shanga_q1": "<strong style=\"color:var(--black);\">How did you choose this department?</strong><br>Initially, I didn't plan on attending the University of Sulaimani, so I filled out the application form without expecting much and added this department. It wasn't my intentional pick at first.",
-      "shanga_q2": "<strong style=\"color:var(--black);\">What prior information did you have?</strong><br>Because it was brand new, I knew very little. Once accepted, I sought out every information source available.",
-      "shanga_q3": "<strong style=\"color:var(--black);\">How do you view it now?</strong><br>Honestly, it is the single best academic decision I've made, and I have zero regrets. I truly found myself here because the field is dynamic and builds real human connections. Above all, I made loyal friends — which is why 'PR Family' has become our department's true motto.",
-      "shanga_q4": "<strong style=\"color:var(--black);\">What did you learn?</strong><br>I learned practical methods and communication frameworks to connect effectively across professional environments.",
+      "shanga_q1": "<strong>How chosen?</strong><br>Added it on my application form without initial intention.",
+      "shanga_q2": "<strong>Prior info?</strong><br>Very little due to its novelty.",
+      "shanga_q3": "<strong>Current view?</strong><br>Single best decision with zero regrets; 'PR Family' is real.",
+      "shanga_q4": "<strong>What learned?</strong><br>Practical frameworks to connect across environments.",
       "ashkan_sign": "Ashkan Yasin Hussein — 3rd Year",
-      "ashkan_q1": "<strong style=\"color:var(--black);\">How did you choose this department?</strong><br>When I realized PR deals with societal dynamics, daily human communication, and predicting public events, my interest grew significantly. I felt my personality fitted this career line perfectly.",
-      "ashkan_q2": "<strong style=\"color:var(--black);\">What prior information did you have?</strong><br>Initially very little due to its novelty. Teachers guided me, and once I understood its connection to governance, politics, corporate entities, and public institutions, I placed it first on my application form without hesitation.",
-      "ashkan_q3": "<strong style=\"color:var(--black);\">How do you view it now?</strong><br>I see it as an exceptionally successful choice. I do not regret selecting it at all, and I hope to see it expand further in coming years.",
-      "ashkan_q4": "<strong style=\"color:var(--black);\">What did you learn?</strong><br>I gained valuable expertise: brand image management, public opinion analysis, crisis response, media messaging strategy, and counter-propaganda tactics. I learned that Public Relations serves as a bridge between institutions and society, built on ethics and scientific methods.",
+      "ashkan_q1": "<strong>How chosen?</strong><br>Its connection to public opinion and society fascinated me.",
+      "ashkan_q2": "<strong>Prior info?</strong><br>Guided by teachers before placing it first on my form.",
+      "ashkan_q3": "<strong>Current view?</strong><br>An exceptionally successful choice.",
+      "ashkan_q4": "<strong>What learned?</strong><br>Brand image, crisis management, and media strategy.",
       "dina_sign": "Dina Dler Jabar — 3rd Year",
-      "dina_q1": "<strong style=\"color:var(--black);\">How did you choose this department?</strong><br>I saw PR as a vital bridge connecting corporations, institutions, and the public. I discovered my personal drive within crisis management and communication skillsets.",
-      "dina_q2": "<strong style=\"color:var(--black);\">What prior information did you have?</strong><br>I only held a general impression that it related to advertising and general exposure.",
-      "dina_q3": "<strong style=\"color:var(--black);\">How do you view it now?</strong><br>I view Public Relations as a foundational pillar for any organizational success. I learned it isn't just about reacting to events, but proactive planning to build long-term trust.",
-      "dina_q4": "<strong style=\"color:var(--black);\">What did you learn?</strong><br>Active listening, public opinion analysis, and delivering transparent, impactful messages that represent an organization's true values.",
+      "dina_q1": "<strong>How chosen?</strong><br>Saw PR as a bridge connecting institutions with the public.",
+      "dina_q2": "<strong>Prior info?</strong><br>General exposure impression.",
+      "dina_q3": "<strong>Current view?</strong><br>A foundational pillar for organizational success.",
+      "dina_q4": "<strong>What learned?</strong><br>Active listening and transparent public messaging.",
       "govar_sign": "Govar Shoresh Ahmed — 3rd Year",
-      "govar_q1": "<strong style=\"color:var(--black);\">How did I choose this department?</strong><br>Driven by a passion for social connectivity, media, and public dynamics, I selected PR to scientifically master administration, protocol, and organizational climate management.",
-      "govar_q2": "<strong style=\"color:var(--black);\">What prior information did I have?</strong><br>My initial knowledge was basic, but friends in the department helped me realize that PR bridges organizations with their communities, serving as a core pillar of media and corporate management.",
-      "govar_q3": "<strong style=\"color:var(--black);\">How do I view it now?</strong><br>I regard it as a strategic art and science essential for handling crises, maintaining corporate standing, and coordinating diplomatic protocols.",
-      "govar_q4": "<strong style=\"color:var(--black);\">What did I learn?</strong><br>Communication theories, crisis response strategies, media campaign execution, presentation skills, and high-impact media content creation.",
+      "govar_q1": "<strong>How chosen?</strong><br>Passion for social connectivity and public administration.",
+      "govar_q2": "<strong>Prior info?</strong><br>Friends helped explain its media importance.",
+      "govar_q3": "<strong>Current view?</strong><br>A strategic science for crises and protocol.",
+      "govar_q4": "<strong>What learned?</strong><br>Communication theories and high-impact content.",
       "stage4_summary": "Fourth Year Students",
       "lawan_sign": "Lawan Tariq Muhammad — 4th Year",
-      "lawan_q1": "<strong style=\"color:var(--black);\">How did I choose this department?</strong><br>Because it was new, it caught my attention. I wanted to explore an emerging field blending social relations, management, and media.",
-      "lawan_q2": "<strong style=\"color:var(--black);\">What prior information did I have?</strong><br>A basic understanding that it focused on shaping organizational image and building community ties.",
-      "lawan_q3": "<strong style=\"color:var(--black);\">How do you view it now?</strong><br>As a vital strategic department without which no modern enterprise or institution can thrive.",
-      "lawan_q4": "<strong style=\"color:var(--black);\">What did I learn?</strong><br>The art of negotiation, high-level event coordination, and official protocol.",
+      "lawan_q1": "<strong>How chosen?</strong><br>Wanted an emerging field blending social ties and media.",
+      "lawan_q2": "<strong>Prior info?</strong><br>Basic understanding of organizational image.",
+      "lawan_q3": "<strong>Current view?</strong><br>A strategic department essential for all enterprises.",
+      "lawan_q4": "<strong>What learned?</strong><br>Negotiation and event management.",
       "akam_sign": "Akam Najmaddin — 4th Year",
-      "akam_q1": "<strong style=\"color:var(--black);\">How did you choose this department?</strong><br>A friend was studying in this department, and I chose it based on their recommendation.",
-      "akam_q2": "<strong style=\"color:var(--black);\">What prior information did you have?</strong><br>No initial knowledge other than knowing most subjects were taught in Kurdish.",
-      "akam_q3": "<strong style=\"color:var(--black);\">How do you view it now?</strong><br>It is a modern department with growing recognition across institutions and society.",
-      "akam_q4": "<strong style=\"color:var(--black);\">What did you learn?</strong><br>Enhancing communication lines between organizations and the public, among many other professional skills.",
+      "akam_q1": "<strong>How chosen?</strong><br>Friend recommendation.",
+      "akam_q2": "<strong>Prior info?</strong><br>Only knew subjects were in Kurdish.",
+      "akam_q3": "<strong>Current view?</strong><br>A modern department with growing recognition.",
+      "akam_q4": "<strong>What learned?</strong><br>Enhancing communication channels.",
       "henar_sign": "Henar Fadhil — 4th Year",
-      "henar_q1": "<strong style=\"color:var(--black);\">How did you choose this department?</strong><br>I chose this department because of my passion for communicating with people and working in media and event organization.",
-      "henar_q2": "<strong style=\"color:var(--black);\">What prior information did you have?</strong><br>Before enrolling, I knew that PR was centered around communication with the public, media relations, and managing organizational public image.",
-      "henar_q3": "<strong style=\"color:var(--black);\">How do you view it now?</strong><br>Now I view it as much more essential and broad, believing it is a critical field for both institutions and corporations.",
-      "henar_q4": "<strong style=\"color:var(--black);\">What did you learn?</strong><br>I learned how to build effective public connections, resolve issues, work as a team, and organize public events and campaigns.",
+      "henar_q1": "<strong>How chosen?</strong><br>Passion for public communication and event organizing.",
+      "henar_q2": "<strong>Prior info?</strong><br>Knew it focused on media relations.",
+      "henar_q3": "<strong>Current view?</strong><br>Essential and broad field for modern corporations.",
+      "henar_q4": "<strong>What learned?</strong><br>Effective public connections and problem solving.",
       "sarwat_sign": "Sarwat Muhammad — 4th Year",
-      "sarwat_q1": "<strong style=\"color:var(--black);\">How did you choose this department?</strong><br>I had a deep passion for political affairs and wanted to understand how political figures influence public opinion and through what avenues, until I discovered that Public Relations specialists create that impact.",
-      "sarwat_q2": "<strong style=\"color:var(--black);\">What prior information did you have?</strong><br>I only knew political figures had teams to organize their media appearances and speeches. I didn't realize how profound this field is, relying on public psychological research to establish trust.",
-      "sarwat_q3": "<strong style=\"color:var(--black);\">How do you view it now?</strong><br>I now see it as the primary driver behind the success of any political effort.",
-      "sarwat_q4": "<strong style=\"color:var(--black);\">What did you learn?</strong><br>Managing election campaigns, writing political speeches, controlling political crises, protecting reputations, media interview techniques, press conference management, and field research.",
+      "sarwat_q1": "<strong>How chosen?</strong><br>Wanted to understand how political figures influence public opinion.",
+      "sarwat_q2": "<strong>Prior info?</strong><br>Knew political figures had PR media teams.",
+      "sarwat_q3": "<strong>Current view?</strong><br>Primary driver behind political success.",
+      "sarwat_q4": "<strong>What learned?</strong><br>Election campaigns, political speechwriting, and crisis control.",
       "tag_faq": "Quick Answers",
       "title_faq": "❓ Frequently Asked Questions",
-      "sub_faq": "Clear, factual responses to the most common queries raised by prospective students.",
-      "faq1_q": "1. What language is used for instruction in the Public Relations Department?",
-      "faq1_a": "Core modules are taught primarily in Kurdish, supplemented by key academic English terminology and dedicated English language courses to strengthen student language proficiency.",
-      "faq2_q": "2. Is admission open to Literary high school branch students only, or Scientific branch too?",
-      "faq2_a": "Graduates from both Literary and Scientific branches can apply through the official Zankoline or Parallel admission channels.",
+      "sub_faq": "Clear responses to common prospective student queries.",
+      "faq1_q": "1. Language of instruction?",
+      "faq1_a": "Core modules are taught in Kurdish, supplemented by academic English.",
+      "faq2_q": "2. Literary vs Scientific branch?",
+      "faq2_a": "Both literary and scientific high school graduates can apply.",
       "btn_map": "📍 Click here to view University Map",
       "tag_contact": "Contact",
       "title_contact": "Still Have Questions?",
-      "p_contact": "Reach out to the Public Relations Department at the University of Sulaimani for further academic and admission guidance.",
+      "p_contact": "Reach out to the Public Relations Department for academic guidance.",
       "btn_wa": "💬 WhatsApp",
       "btn_fb": "📘 Official Facebook",
       "btn_ig": "📷 Student Instagram",
       "footer_copy": "© 2026 Department of Public Relations — University of Sulaimani",
       "footer_credit": "Created by Ara Aziz, Second-Year Student in Public Relations",
-      "footer_thanks": "Special appreciation goes out to our tireless faculty, particularly Head of Department Dr. Lana, Department Representative Lecturer Shokhan, and Lecturer Avesta for their continuous support. Warm thanks also to Dzhwar Adil, 2nd-year student representative, and all students who provided feedback to enhance this platform for prospective students."
+      "footer_thanks": "Special appreciation goes to faculty, particularly Dr. Lana, Lect. Shoxan, Lect. Avesta, Dzhwar Adil, and all student contributors."
     }
   };
 
@@ -1073,12 +1135,10 @@
 
       const dict = translations[lang];
 
-      // Language Button Label
       if(document.getElementById('lang-btn-text')) {
         document.getElementById('lang-btn-text').innerText = dict.lang_btn;
       }
 
-      // Apply plain text elements
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (dict[key] !== undefined) {
@@ -1086,7 +1146,6 @@
         }
       });
 
-      // Apply HTML formatted elements
       document.querySelectorAll('[data-i18n-html]').forEach(el => {
         const key = el.getAttribute('data-i18n-html');
         if (dict[key] !== undefined) {
@@ -1145,7 +1204,6 @@
         }
       });
 
-      // Update static numbers regardless of language mode
       if (data.zankoline && document.getElementById('score-zankoline')) {
         document.getElementById('score-zankoline').innerText = data.zankoline;
       }
@@ -1175,7 +1233,6 @@
         scoreYearElements.forEach(el => el.innerText = data.score_year);
       }
 
-      // Update structural elements only if they aren't already translated
       if (data.hero_title && document.getElementById('dyn-hero-title') && currentLang === 'ckb') {
         document.getElementById('dyn-hero-title').innerHTML = data.hero_title;
       }
@@ -1186,7 +1243,6 @@
         document.getElementById('dyn-creator-story').innerHTML = `<p>${data.creator_story}</p>`;
       }
 
-      // Handle Notice Banner
       if (data.notice_text && data.notice_text.trim().length > 0) {
         document.getElementById('notice-text').innerText = data.notice_text;
         document.getElementById('notice-banner').style.display = 'block';
