@@ -68,4 +68,103 @@
   .card-link:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.08); border-color: var(--red); }
   .card-link .icon { font-size: 45px; margin-bottom: 15px; }
   .card-link h3 { font-size: 19px; color: var(--black); font-weight: 800; margin-bottom: 10px; }
-  .card-link p { font-size: 1
+  .card-link p { font-size: 14px; color: var(--ink-soft); line-height: 1.7; }
+
+  /* بەشی پەیوەندی */
+  .contact-section { background-color: #120e0a; color: #ffffff; text-align: center; padding: 60px 24px; border-top: 1px solid rgba(255,255,255,0.1); }
+  .contact-section h2 { font-size: 28px; font-weight: 900; margin-bottom: 15px; color: #fff;}
+  .contact-section p { font-size: 15px; line-height: 1.8; color: #d4d4d4; max-width: 600px; margin: 0 auto 30px; }
+  .contact-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 500px; margin: 0 auto; }
+  .btn-whatsapp { background-color: #9b2c28; color: #fff; padding: 12px; border-radius: 6px; text-decoration: none; font-weight: 700; transition: 0.2s; }
+  .btn-whatsapp:hover { background-color: #c0392b; }
+  .btn-facebook { background-color: transparent; border: 1px solid #fff; color: #fff; padding: 12px; border-radius: 6px; text-decoration: none; font-weight: 700; transition: 0.2s;}
+  .btn-facebook:hover { background-color: rgba(255,255,255,0.1); }
+  .btn-instagram { background-color: #f0f0f0; color: #111; padding: 12px; border-radius: 6px; text-decoration: none; font-weight: 700; grid-column: span 2; transition: 0.2s;}
+  .btn-instagram:hover { background-color: #fff; }
+  .btn-map { background-color: transparent; border: 1px solid #fff; color: #fff; padding: 12px; border-radius: 6px; text-decoration: none; font-weight: 700; grid-column: span 2; transition: 0.2s;}
+  .btn-map:hover { background-color: rgba(255,255,255,0.1); }
+  
+  /* بەشی فوتەر */
+  .main-footer { background-color: #0a0805; color: #a3a3a3; text-align: center; padding: 50px 24px; font-size: 13px; line-height: 1.8; }
+  .main-footer .copyright { margin-bottom: 15px; font-family: Tahoma, sans-serif;}
+  .main-footer .creator { color: #ffffff; font-size: 16px; font-weight: 800; margin-bottom: 15px; line-height: 1.6; }
+  .main-footer .acknowledgement { max-width: 700px; margin: 0 auto; color: #7a7a7a; text-align: justify; text-align-last: center; }
+
+  @media (max-width:860px){
+    .hero h1{font-size:32px;}
+    .grid3{grid-template-columns:1fr;}
+    .info-section{padding:44px 20px;}
+  }
+  @media (max-width: 600px) {
+    .contact-buttons { grid-template-columns: 1fr; }
+    .btn-instagram, .btn-map { grid-column: span 1; }
+  }
+</style>
+</head>
+<body>
+
+<!-- هێدەر -->
+<header>
+  <nav>
+    <div class="brand">
+      <img src="IMG_5496.jpeg" alt="University Logo" class="dept-logo">
+      <span>بەشی پەیوەندییە گشتییەکان</span>
+    </div>
+  </nav>
+</header>
+
+<!-- پێشەکی -->
+<div class="hero-wrap hero">
+  <span class="hero-eyebrow">زانکۆی سلێمانی - کۆلێژی زانستە مرۆڤایەتییەکان</span>
+  <h1>دەروازەی فەرمی بەشی<br><span class="accent">پەیوەندییە گشتییەکان</span></h1>
+  <p class="lede">بەخێربێن بۆ پێگەی فەرمی بەشەکەمان. ئامانجی ئەم سایتە ئاسانکارییە بۆ خوێندکارانی ئێستا و داهاتوو، تا بە خێراترین شێوە بگەن بە نوێترین زانیارییەکان، چالاکییەکان و ڕێنماییەکانی تایبەت بە پەیوەندییە گشتییەکان.</p>
+  <svg class="ridge" viewBox="0 0 1180 70" preserveAspectRatio="none">
+    <path class="fill" d="M0,70 L0,42 L120,16 L220,38 L340,8 L460,34 L600,4 L740,32 L860,14 L980,40 L1080,20 L1180,42 L1180,70 Z"></path>
+    <path d="M0,42 L120,16 L220,38 L340,8 L460,34 L600,4 L740,32 L860,14 L980,40 L1080,20 L1180,42"></path>
+  </svg>
+</div>
+
+<!-- بەشی زانیاری -->
+<section class="info-section">
+  <span class="tag">گەڕان و دۆزینەوە</span>
+  <h2 class="title">زانیاری زیاتر</h2>
+  <div class="grid3">
+    <a href="activities.html" class="card-link">
+      <div class="icon">📰</div>
+      <h3>دواین چالاکییەکان</h3>
+      <p>نوێترین ئیڤێنت، کۆنفرانس و کەمپەینە مەیدانییەکانی خوێندکاران و بەشەکەمان لێرە بخوێنەوە.</p>
+    </a>
+    <a href="staff.html" class="card-link">
+      <div class="icon">👨‍🏫</div>
+      <h3>ستافی مامۆستایان</h3>
+      <p>ئاشنابە بە سەرۆکایەتی بەش، دکتۆرەکان و مامۆستا پسپۆڕەکانی بواری پەیوەندییە گشتییەکان.</p>
+    </a>
+    <a href="home.html" class="card-link" style="background-color: var(--paper-2); border: 1.5px solid var(--red);">
+      <div class="icon">🎓</div>
+      <h3 style="color: var(--red);">زانیاری بۆ دەرچووانی پۆلی ١٢</h3>
+      <p>نمرەی وەرگیران، شێوازی خوێندن، وانەکان، مێژووی بەش و داهاتووی کارکردن.</p>
+    </a>
+  </div>
+</section>
+
+<!-- بەشی پەیوەندی (ڕەشەکە) -->
+<section class="contact-section">
+  <h2>هێشتا پرسیارت هەیە؟</h2>
+  <p>پەیوەندی بە بەشی پەیوەندییە گشتییەکانی زانکۆی سلێمانی بکە بۆ زانیاری زیاتر لەسەر وەرگرتن و خوێندن.</p>
+  <div class="contact-buttons">
+    <a href="#" class="btn-facebook">فەیسبووکی فەرمی 📘</a>
+    <a href="#" class="btn-whatsapp">واتساپ 💬</a>
+    <a href="#" class="btn-instagram">ئینستاگرامی خوێندکاران 📷</a>
+    <a href="#" class="btn-map">📍 کلیک لێرە بکە بۆ بینینی نەخشەی زانکۆ</a>
+  </div>
+</section>
+
+<!-- بەشی فوتەر (ڕەشەکە) -->
+<footer class="main-footer">
+  <p class="copyright">© ٢٠٢٦ بەشی پەیوەندییە گشتییەکان — زانکۆی سلێمانی</p>
+  <h3 class="creator">دروستکراوە لە لایەن ئارا عەزیز، خوێندکاری قۆناغی دووەمی بەشی پەیوەندییە گشتییەکان</h3>
+  <p class="acknowledgement">شایەنی باسە دەمەوێ پێزانین و دەستخۆشی خۆم ئاراستەی تەواوی ستافی بەش و مامۆستا ماندوونەناسەکانمان بە گشتی، و دکتۆرە لانەی سەرۆک بەش و مامۆستا شۆخان بڕیاردەری بەشەکەمان و مامۆستا ئاڤێستا مامۆستا لە بەشەکەمان بە تایبەتی بکەم. هەروەها دەستخۆشی لە دڵسۆز عادل هاوڕێ و نوێنەری قۆناغی دووەم و تەواوی ئەو خوێندکارانەی کە فیدباکیان ئەنجام دا بۆ سایتەکەمان بکەم، کە هاوکاری تەواویان کردم لە باشترکردنی ئەم سایتە بۆ خوێندکاران.</p>
+</footer>
+
+</body>
+</html>
