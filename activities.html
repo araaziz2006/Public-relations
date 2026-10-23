@@ -8,87 +8,32 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --red:#A82823;
-  --black:#181410;
-  --green:#1C6B45;
-  --gold:#B8892B;
-  --paper:#F6F1E6;
-  --paper-2:#EFE7D6;
-  --ink:#2A241C;
-  --ink-soft:#5C5346;
-  --line:rgba(24,20,16,0.14);
+  --red:#A82823; --black:#181410; --green:#1C6B45; --gold:#B8892B;
+  --paper:#F6F1E6; --paper-2:#EFE7D6; --ink:#2A241C; --ink-soft:#5C5346; --line:rgba(24,20,16,0.14);
 }
 *{box-sizing:border-box; margin:0; padding:0;}
-body{
-  font-family:'Noto Kufi Arabic','Tahoma',Arial,sans-serif;
-  background:var(--paper);
-  color:var(--ink);
-}
+body{font-family:'Noto Kufi Arabic','Tahoma',Arial,sans-serif; background:var(--paper); color:var(--ink);}
 a{color:inherit;}
-
-/* Header / Nav */
-header{
-  position:sticky; top:0; z-index:50;
-  background:rgba(246,241,230,0.92);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--line);
-}
-nav{
-  max-width:1180px; margin:0 auto;
-  display:flex; align-items:center; justify-content:space-between;
-  padding:16px 24px; gap:12px; flex-wrap:wrap;
-}
+header{position:sticky; top:0; z-index:50; background:rgba(246,241,230,0.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
+nav{max-width:1180px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:16px 24px; gap:12px; flex-wrap:wrap;}
 .brand{display:flex; align-items:center; gap:10px; font-size:17px; font-weight:700; color:var(--black);}
 .dept-logo{width:44px; height:44px; border-radius:50%; border:1.5px solid var(--red); background:#fff; object-fit:contain;}
 .nav-links{display:flex; gap:20px; list-style:none; flex-wrap:wrap;}
 .nav-links a{text-decoration:none; font-weight:600; font-size:13.5px; color:var(--ink-soft); transition:color .2s;}
 .nav-links a.active, .nav-links a:hover{color:var(--red);}
-
-/* Hero */
-.hero-wrap{max-width:1180px; margin:0 auto; padding:56px 24px 10px; text-align:center;}
-.hero-wrap h1{font-size:34px; font-weight:900; color:var(--black); margin-bottom:14px;}
-.hero-wrap p{max-width:640px; margin:0 auto; color:var(--ink-soft); font-size:15.5px; line-height:1.9;}
-
-section{max-width:1180px; margin:0 auto; padding:48px 24px;}
+section{max-width:800px; margin:0 auto; padding:48px 24px;}
 .tag{font-weight:700; letter-spacing:.5px; color:var(--green); font-size:13px; display:block; margin-bottom:10px;}
 .title{font-size:26px; font-weight:900; color:var(--black); margin-bottom:10px;}
-.sub{font-size:14.5px; color:var(--ink-soft); max-width:680px; margin-bottom:28px; line-height:1.85;}
-
-/* Social buttons */
-.social-row{display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:26px;}
-.cbtn{
-  display:inline-flex; align-items:center; gap:8px; text-decoration:none; font-weight:600; font-size:14px;
-  padding:12px 22px; border-radius:4px; border:1.5px solid var(--black); color:var(--black);
-  transition:all .2s;
-}
-.cbtn:hover{background:var(--black); color:var(--paper);}
-.cbtn.solid{background:var(--red); border-color:var(--red); color:#fff;}
-.cbtn.solid:hover{background:#8A1F1B;}
-
-/* Cards */
-.grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(230px,1fr)); gap:18px;}
-.card{background:#fff; border:1px solid var(--line); border-radius:8px; padding:22px; text-align:center;}
-.avatar{
-  width:84px; height:84px; border-radius:50%; margin:0 auto 14px; display:flex; align-items:center; justify-content:center;
-  background:var(--paper-2); color:var(--red); font-weight:900; font-size:22px; border:2px solid var(--gold);
-}
-.card h3{font-size:15.5px; color:var(--black); margin-bottom:4px;}
-.card .role{font-size:12.5px; color:var(--green); font-weight:700; margin-bottom:8px;}
-.card p{font-size:12.5px; color:var(--ink-soft); line-height:1.7;}
-
-.cell-h{display:flex; gap:14px; align-items:flex-start; background:#fff; border:1px solid var(--line); border-radius:8px; padding:20px;}
-.cell-h .icon{font-size:22px; width:36px; flex-shrink:0;}
-.cell-h h4{font-size:14.5px; color:var(--black); margin-bottom:5px;}
-.cell-h p{font-size:12.5px; color:var(--ink-soft); line-height:1.7;}
-
+.sub{font-size:14.5px; color:var(--ink-soft); max-width:680px; margin-bottom:30px; line-height:1.85;}
+.log{border-right:2px solid var(--gold); padding-right:20px;}
+.entry{position:relative; margin-bottom:26px;}
+.entry::before{content:""; position:absolute; right:-26px; top:4px; width:10px; height:10px; border-radius:50%; background:var(--red);}
+.entry .date{font-size:12.5px; font-weight:700; color:var(--green); margin-bottom:4px;}
+.entry h4{font-size:15.5px; color:var(--black); margin-bottom:6px;}
+.entry p{font-size:13.5px; color:var(--ink-soft); line-height:1.8;}
+.entry.placeholder{opacity:.6;}
+.entry.placeholder h4{color:var(--ink-soft);}
 footer{text-align:center; padding:36px 24px; color:var(--ink-soft); font-size:12.5px; border-top:1px solid var(--line); background:var(--paper-2);}
-footer .thanks{display:block; max-width:640px; margin:10px auto 0; line-height:1.8; color:#8A8171;}
-
-@media (max-width:640px){
-  .hero-wrap h1{font-size:26px;}
-  .nav-links{gap:12px;}
-}
-
 </style>
 </head>
 <body>
@@ -101,6 +46,7 @@ footer .thanks{display:block; max-width:640px; margin:10px auto 0; line-height:1
     </div>
     <ul class="nav-links">
       <li><a href="index.html">سەرەکی</a></li>
+      <li><a href="about.html">زانیاری بەش</a></li>
       <li><a href="staff.html">ستافی مامۆستایان</a></li>
       <li><a href="activities.html" class="active">چالاکی و ژیانی خوێندکار</a></li>
     </ul>
@@ -108,30 +54,20 @@ footer .thanks{display:block; max-width:640px; margin:10px auto 0; line-height:1
 </header>
 
 <section>
-  <span class="tag">ژیانی ڕۆژانە</span>
-  <h2 class="title">کارو چالاکیەکانی خوێندکاران</h2>
-  <p class="sub">نموونەی چالاکییەکانی ساڵانی خوێندن. هەر وێنە و وردەکارییەکی ڕاستی بنێریت، لێرە زیادی دەکەین.</p>
+  <span class="tag">تۆماری ڕۆژانە</span>
+  <h2 class="title">کارو چالاکیەکانی بەش</h2>
+  <p class="sub">ئەمە تۆمارێکی زنجیرەییە — هەر ڕووداوێکی ڕاستی (بەشداری لە کۆنفڕانس، توێژینەوەی مامۆستا، وۆرکشۆپ...) وەک تۆمارێکی نوێ لەسەرەوە زیاد دەکرێت.</p>
 
-  <div class="grid" style="grid-template-columns:repeat(auto-fill, minmax(260px,1fr));">
-    <div class="cell-h">
-      <div class="icon">🎤</div>
-      <div><h4>کەمپەین و پلانی پەیوەندی گشتی</h4><p>خوێندکاران لە ساڵانی خوێندندا کەمپەین و پلانی ڕاستەقینە بۆ براند و ڕێکخراوەکان دادەڕێژن.</p></div>
+  <div class="log">
+    <div class="entry">
+      <div class="date">٢٤ی ئۆکتۆبەری ٢٠٢٦</div>
+      <h4>بەشداریکردن لە کۆنفڕانسێک</h4>
+      <p>خوێندکارانی بەش بەشداریان لە کۆنفڕانسێکدا کرد. [وردەکاری زیاتر و وێنە بنێرە بۆ تەواوکردنی ئەم تۆمارە]</p>
     </div>
-    <div class="cell-h">
-      <div class="icon">🏢</div>
-      <div><h4>سەردانی مەیدانی</h4><p>سەردانی کۆمپانیا و دامەزراوە حکومی و میدیاییەکان بۆ ئاشنابوون لەگەڵ ژینگەی کار.</p></div>
-    </div>
-    <div class="cell-h">
-      <div class="icon">🎪</div>
-      <div><h4>ڕێکخستنی بۆنە و ئیڤینت</h4><p>خوێندکاران خۆیان بۆنە و چالاکی لەناو کۆلێژدا ڕێکدەخەن.</p></div>
-    </div>
-    <div class="cell-h">
-      <div class="icon">📷</div>
-      <div><h4>وۆرکشۆپی وێنەگرتن و مۆنتاژ</h4><p>ڕاهێنان لەسەر ئامرازەکانی دیزاین، فۆتۆگرافی و بەڕێوەبردنی سۆشیال میدیا.</p></div>
-    </div>
-    <div class="cell-h" style="border-style:dashed; color:var(--ink-soft);">
-      <div class="icon">+</div>
-      <div><h4>چالاکی تر</h4><p>وردەکاری و وێنەی چالاکییەکانی تریش بنێرە بۆ زیادکردن.</p></div>
+    <div class="entry placeholder">
+      <div class="date">[بەروار]</div>
+      <h4>[نموونە: توێژینەوەی مامۆستایەک]</h4>
+      <p>ئەم تۆمارە placeholderە — بۆ هەر ڕووداوێکی تر (توێژینەوەی مامۆستا، وۆرکشۆپ، سەردانی مەیدانی) هەمان شێوازی تۆمارێکی سەرەوە کۆپی بکە و پڕی بکەرەوە.</p>
     </div>
   </div>
 </section>
