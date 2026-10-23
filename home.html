@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پەڕەی سەرەکی - پێگەی فێرکاری و هەواڵ</title>
+    <style>
+        /* ڕێکخستنی بنەڕەتی */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* بەشی سەرەوە (هێدەر) */
+        header {
+            background-color: #1a252f;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        header p {
+            margin: 5px 0 0 0;
+            font-size: 14px;
+            color: #bdc3c7;
+        }
+
+        /* مینیو (ڕێدۆزی) */
+        nav {
+            background-color: #2c3e50;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 10px 0;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        nav a:hover {
+            background-color: #e74c3c;
+        }
+
+        /* چوارچێوەی سەرەکی */
+        .container {
+            max-width: 1100px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        /* شێوازی بەشەکان */
+        .section {
+            background: #fff;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid #3498db;
+        }
+        .section h2 {
+            margin-top: 0;
+            color: #2c3e50;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        /* تایبەت بە پۆلی 12 */
+        .grade12-section {
+            border-top: 4px solid #e74c3c;
+            background-color: #fffaf9;
+            text-align: center;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #e74c3c;
+            color: #fff;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background-color: #c0392b;
+        }
+
+        /* بەشی ڕیکلام */
+        .ad-space {
+            background-color: #f1c40f;
+            color: #333;
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            border: 2px dashed #d35400;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        /* هەواڵەکان */
+        .news-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .news-list li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #ccc;
+        }
+        .news-list li:last-child {
+            border-bottom: none;
+        }
+        .news-list a {
+            text-decoration: none;
+            color: #2980b9;
+            font-weight: bold;
+        }
+        .news-list a:hover {
+            color: #e74c3c;
+        }
+
+        /* بەشی خوارەوە */
+        footer {
+            background-color: #1a252f;
+            color: #bdc3c7;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- بەشی سەرەوە -->
+    <header>
+        <h1>ناوی ماڵپەڕەکەت</h1>
+        <p>پێگەی گشتی بۆ هەواڵ، پەروەردە، و زانیاری سەردەمیانە</p>
+    </header>
+
+    <!-- مینیوی سەرەکی -->
+    <nav>
+        <a href="#">سەرەتا</a>
+        <a href="#news">دواین هەواڵەکان</a>
+        <a href="#grade12">پۆلی ١٢</a>
+        <a href="#services">خزمەتگوزارییەکان</a>
+        <a href="#contact">پەیوەندی</a>
+    </nav>
+
+    <div class="container">
+        
+        <!-- ڕیکلامی سەرەوە -->
+        <div class="ad-space">
+            شوێنی ڕیکلامی کۆمپانیا (قەبارەی گەورە)
+            <div style="font-size: 14px; font-weight: normal; margin-top: 10px;">لێرەدا دەتوانیت وێنە یان بەستەری سپۆنسەر دابنێیت</div>
+        </div>
+
+        <!-- بەشی دواین هەواڵەکان -->
+        <div id="news" class="section">
+            <h2>دواین هەواڵەکان</h2>
+            <ul class="news-list">
+                <li><a href="#">🔴 وەزارەتی پەروەردە بڕیارێکی نوێی دەرکرد بۆ تاقیکردنەوەکان</a> - <small>٢٣ی تشرینی یەکەم</small></li>
+                <li><a href="#">🔵 کردنەوەی خولێکی نوێی بەهێزکردن بۆ خوێندکاران لە سەرتاسەری هەرێم</a> - <small>٢١ی تشرینی یەکەم</small></li>
+                <li><a href="#">🟢 ئەنجامی تاقیکردنەوە بەراییەکان کەی ڕادەگەیەنرێت؟</a> - <small>١٨ی تشرینی یەکەم</small></li>
+            </ul>
+        </div>
+
+        <!-- بەشی پۆلی ١٢ -->
+        <div id="grade12" class="section grade12-section">
+            <h2 style="border-bottom: none; color: #e74c3c;">تایبەت بە خوێندکارانی پۆلی ١٢</h2>
+            <p>سەرجەم پرسیارەکانی ساڵانی پێشوو، مەلزەمە، ڕێنماییەکان و ڤیدیۆ فێرکارییەکانی پۆلی ١٢ی ئامادەیی لە یەک شوێندایە.</p>
+            <!-- بەستەرەکە ڕێکخراوە بۆ پەڕە کۆنەکەت -->
+            <a href="index.html" class="btn">چوونە ناو پەڕەی پۆلی ١٢</a>
+        </div>
+
+        <!-- بەشی دیکەی گشتی -->
+        <div id="services" class="section">
+            <h2>بەشە جۆراوجۆرەکان</h2>
+            <p>لێرەدا دەتوانیت زانیاری تر زیاد بکەیت، بۆ نموونە:</p>
+            <ul>
+                <li>پەڕتووکخانەی ئەلیکترۆنی</li>
+                <li>ڕێنمایی دەروونی بۆ خوێندکاران</li>
+                <li>پێشکەشکردن بۆ زانکۆ و پەیمانگاکان (زانکۆلاین)</li>
+            </ul>
+        </div>
+
+        <!-- ڕیکلامی خوارەوە -->
+        <div class="ad-space" style="background-color: #ecf0f1; border-color: #bdc3c7; color: #7f8c8d;">
+            شوێنی ڕیکلامی دووەم یان بانگەشەی خولەکان
+        </div>
+
+    </div>
+
+    <!-- بەشی خوارەوە (فوتەر) -->
+    <footer id="contact">
+        <p>سەرجەم مافەکان پارێزراوە بۆ ماڵپەڕی [ناوی ماڵپەڕ] &copy; 2026</p>
+        <p style="font-size: 13px;">بۆ ڕیکلامکردن پەیوەندیمان پێوە بکەن: info@yourwebsite.com</p>
+    </footer>
+
+</body>
+</html>
