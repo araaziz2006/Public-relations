@@ -3,119 +3,140 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>دواین چالاکییەکان | بەشی پەیوەندییە گشتییەکان</title>
-
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ETCW0EYQL1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-ETCW0EYQL1');
-</script>
-
+<title>چالاکی و ژیانی خوێندکار | بەشی پەیوەندییە گشتییەکان</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Noto+Kufi+Arabic:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
-  :root{ --red:#A82823; --black:#181410; --green:#1C6B45; --gold:#B8892B; --paper:#F6F1E6; --paper-2:#EFE7D6; --ink:#2A241C; --ink-soft:#5C5346; --line:rgba(24,20,16,0.14); }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  html{scroll-behavior:smooth;}
-  body{ font-family:'Noto Kufi Arabic','Inter',Arial,sans-serif; background:var(--paper); color:var(--ink); overflow-x:hidden; }
-  header{ position:sticky; top:0; z-index:50; background:rgba(246,241,230,0.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
-  nav{ max-width:1180px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:16px 24px; }
-  .brand{ font-size:17px; font-weight:700; color:var(--black); display:flex; align-items:center; gap:10px; }
-  .dept-logo { width: 48px; height: 48px; border-radius: 50%; border: 1.5px solid var(--red); object-fit: contain; background-color: #fff; }
-  .back-btn { background: var(--black); color: var(--paper); text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 700; transition: 0.2s; display: inline-flex; align-items: center; gap: 6px; }
-  .back-btn:hover { background: var(--red); color: #fff; }
-  .hero-wrap{max-width:1180px; margin:0 auto; padding:60px 24px 20px; text-align:center;}
-  .hero h1{ font-size:38px; font-weight:900; color:var(--black); margin-bottom:15px; }
-  .hero p.lede{ font-size:16px; color:var(--ink-soft); max-width:700px; line-height:1.9; margin:0 auto 30px; }
-  .ridge{width:100%; height:70px; display:block; margin-top:20px;}
-  .ridge path{fill:none; stroke:var(--black); stroke-width:1.4; opacity:.55;}
-  .ridge .fill{fill:var(--green); opacity:.10; stroke:none;}
-  section.content{max-width:1180px; margin:0 auto; padding:40px 24px 80px;}
-  .grid2{ display:grid; grid-template-columns:repeat(2, 1fr); gap:24px; }
-  .activity-card { background: #fff; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; }
-  .activity-card:hover { transform: translateY(-4px); box-shadow: 0 10px 20px rgba(0,0,0,0.06); }
-  .act-img { width: 100%; height: 200px; background: var(--paper-2); display: flex; align-items: center; justify-content: center; font-size: 40px; color: var(--gold); }
-  .act-body { padding: 24px; }
-  .act-date { font-size: 12.5px; font-weight: 700; color: var(--red); margin-bottom: 8px; display: block;}
-  .act-title { font-size: 18px; font-weight: 800; color: var(--black); margin-bottom: 12px; }
-  .act-desc { font-size: 14px; color: var(--ink-soft); line-height: 1.8; }
-  
-  .contact-section { background-color: #120e0a; color: #ffffff; text-align: center; padding: 60px 24px; border-top: 1px solid rgba(255,255,255,0.1); }
-  .contact-section h2 { font-size: 28px; font-weight: 900; margin-bottom: 15px; color:#fff;}
-  .contact-section p { font-size: 15px; line-height: 1.8; color: #d4d4d4; max-width: 600px; margin: 0 auto 30px; }
-  .contact-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; max-width: 500px; margin: 0 auto; }
-  .btn-whatsapp { background-color: #9b2c28; color: #fff; padding: 12px; border-radius: 6px; text-decoration: none; font-weight: 700; transition: 0.2s; }
-  .btn-facebook { background-color: transparent; border: 1px solid #fff; color: #fff; padding: 12px; border-radius: 6px; text-decoration: none; font-weight: 700; transition: 0.2s;}
-  .btn-instagram { background-color: #f0f0f0; color: #111; padding: 12px; border-radius: 6px; text-decoration: none; font-weight: 700; grid-column: span 2; transition: 0.2s;}
-  .btn-map { background-color: transparent; border: 1px solid #fff; color: #fff; padding: 12px; border-radius: 6px; text-decoration: none; font-weight: 700; grid-column: span 2; transition: 0.2s;}
-  
-  .main-footer { background-color: #0a0805; color: #a3a3a3; text-align: center; padding: 50px 24px; font-size: 13px; line-height: 1.8; }
-  .main-footer .copyright { margin-bottom: 15px; font-family: Tahoma, sans-serif;}
-  .main-footer .creator { color: #ffffff; font-size: 16px; font-weight: 800; margin-bottom: 15px; line-height: 1.6; }
-  .main-footer .acknowledgement { max-width: 700px; margin: 0 auto; color: #7a7a7a; text-align: justify; text-align-last: center; }
+:root{
+  --red:#A82823;
+  --black:#181410;
+  --green:#1C6B45;
+  --gold:#B8892B;
+  --paper:#F6F1E6;
+  --paper-2:#EFE7D6;
+  --ink:#2A241C;
+  --ink-soft:#5C5346;
+  --line:rgba(24,20,16,0.14);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+body{
+  font-family:'Noto Kufi Arabic','Tahoma',Arial,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+}
+a{color:inherit;}
 
-  @media (max-width:860px){ .grid2{grid-template-columns: 1fr;} }
-  @media (max-width: 600px) { .contact-buttons { grid-template-columns: 1fr; } .btn-instagram, .btn-map { grid-column: span 1; } }
+/* Header / Nav */
+header{
+  position:sticky; top:0; z-index:50;
+  background:rgba(246,241,230,0.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+}
+nav{
+  max-width:1180px; margin:0 auto;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px 24px; gap:12px; flex-wrap:wrap;
+}
+.brand{display:flex; align-items:center; gap:10px; font-size:17px; font-weight:700; color:var(--black);}
+.dept-logo{width:44px; height:44px; border-radius:50%; border:1.5px solid var(--red); background:#fff; object-fit:contain;}
+.nav-links{display:flex; gap:20px; list-style:none; flex-wrap:wrap;}
+.nav-links a{text-decoration:none; font-weight:600; font-size:13.5px; color:var(--ink-soft); transition:color .2s;}
+.nav-links a.active, .nav-links a:hover{color:var(--red);}
+
+/* Hero */
+.hero-wrap{max-width:1180px; margin:0 auto; padding:56px 24px 10px; text-align:center;}
+.hero-wrap h1{font-size:34px; font-weight:900; color:var(--black); margin-bottom:14px;}
+.hero-wrap p{max-width:640px; margin:0 auto; color:var(--ink-soft); font-size:15.5px; line-height:1.9;}
+
+section{max-width:1180px; margin:0 auto; padding:48px 24px;}
+.tag{font-weight:700; letter-spacing:.5px; color:var(--green); font-size:13px; display:block; margin-bottom:10px;}
+.title{font-size:26px; font-weight:900; color:var(--black); margin-bottom:10px;}
+.sub{font-size:14.5px; color:var(--ink-soft); max-width:680px; margin-bottom:28px; line-height:1.85;}
+
+/* Social buttons */
+.social-row{display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:26px;}
+.cbtn{
+  display:inline-flex; align-items:center; gap:8px; text-decoration:none; font-weight:600; font-size:14px;
+  padding:12px 22px; border-radius:4px; border:1.5px solid var(--black); color:var(--black);
+  transition:all .2s;
+}
+.cbtn:hover{background:var(--black); color:var(--paper);}
+.cbtn.solid{background:var(--red); border-color:var(--red); color:#fff;}
+.cbtn.solid:hover{background:#8A1F1B;}
+
+/* Cards */
+.grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(230px,1fr)); gap:18px;}
+.card{background:#fff; border:1px solid var(--line); border-radius:8px; padding:22px; text-align:center;}
+.avatar{
+  width:84px; height:84px; border-radius:50%; margin:0 auto 14px; display:flex; align-items:center; justify-content:center;
+  background:var(--paper-2); color:var(--red); font-weight:900; font-size:22px; border:2px solid var(--gold);
+}
+.card h3{font-size:15.5px; color:var(--black); margin-bottom:4px;}
+.card .role{font-size:12.5px; color:var(--green); font-weight:700; margin-bottom:8px;}
+.card p{font-size:12.5px; color:var(--ink-soft); line-height:1.7;}
+
+.cell-h{display:flex; gap:14px; align-items:flex-start; background:#fff; border:1px solid var(--line); border-radius:8px; padding:20px;}
+.cell-h .icon{font-size:22px; width:36px; flex-shrink:0;}
+.cell-h h4{font-size:14.5px; color:var(--black); margin-bottom:5px;}
+.cell-h p{font-size:12.5px; color:var(--ink-soft); line-height:1.7;}
+
+footer{text-align:center; padding:36px 24px; color:var(--ink-soft); font-size:12.5px; border-top:1px solid var(--line); background:var(--paper-2);}
+footer .thanks{display:block; max-width:640px; margin:10px auto 0; line-height:1.8; color:#8A8171;}
+
+@media (max-width:640px){
+  .hero-wrap h1{font-size:26px;}
+  .nav-links{gap:12px;}
+}
+
 </style>
 </head>
 <body>
+
 <header>
   <nav>
     <div class="brand">
-      <img src="IMG_5496.jpeg" alt="University Logo" class="dept-logo">
+      <img src="IMG_5496.jpeg" alt="لۆگۆی بەش" class="dept-logo">
       <span>بەشی پەیوەندییە گشتییەکان</span>
     </div>
-    <a href="index.html" class="back-btn">⬅️ گەڕانەوە بۆ سەرەتا</a>
+    <ul class="nav-links">
+      <li><a href="index.html">سەرەکی</a></li>
+      <li><a href="staff.html">ستافی مامۆستایان</a></li>
+      <li><a href="activities.html" class="active">چالاکی و ژیانی خوێندکار</a></li>
+    </ul>
   </nav>
 </header>
-<div class="hero-wrap hero">
-  <h1>دواین <span style="color:var(--red);">چالاکییەکان</span></h1>
-  <p class="lede">لێرەدا دەتوانیت ئاگاداری نوێترین کۆنفرانس، سیمینار، سەردانە مەیدانییەکان و کەمپەینەکانی خوێندکاران و مامۆستایانی بەشەکەمان بیت.</p>
-  <svg class="ridge" viewBox="0 0 1180 70" preserveAspectRatio="none">
-    <path class="fill" d="M0,70 L0,42 L120,16 L220,38 L340,8 L460,34 L600,4 L740,32 L860,14 L980,40 L1080,20 L1180,42 L1180,70 Z"></path>
-    <path d="M0,42 L120,16 L220,38 L340,8 L460,34 L600,4 L740,32 L860,14 L980,40 L1080,20 L1180,42"></path>
-  </svg>
-</div>
-<section class="content">
-  <div class="grid2">
-    <div class="activity-card">
-      <img src="activity1.jpg" alt="سەردانی مەیدانی" class="act-img" style="object-fit: cover;">
-      <div class="act-body">
-        <span class="act-date">١٥ی تشرینی دووەمی ٢٠٢٦</span>
-        <h3 class="act-title">سەردانی مەیدانی بۆ کەناڵەکانی ڕاگەیاندن</h3>
-        <p class="act-desc">خوێندکارانی قۆناغی سێیەم بە مەبەستی ئاشنابوون بە ژینگەی کاری ڕاستەقینە سەردانی چەند دەزگایەکی میدیاییان کرد.</p>
-      </div>
+
+<section>
+  <span class="tag">ژیانی ڕۆژانە</span>
+  <h2 class="title">کارو چالاکیەکانی خوێندکاران</h2>
+  <p class="sub">نموونەی چالاکییەکانی ساڵانی خوێندن. هەر وێنە و وردەکارییەکی ڕاستی بنێریت، لێرە زیادی دەکەین.</p>
+
+  <div class="grid" style="grid-template-columns:repeat(auto-fill, minmax(260px,1fr));">
+    <div class="cell-h">
+      <div class="icon">🎤</div>
+      <div><h4>کەمپەین و پلانی پەیوەندی گشتی</h4><p>خوێندکاران لە ساڵانی خوێندندا کەمپەین و پلانی ڕاستەقینە بۆ براند و ڕێکخراوەکان دادەڕێژن.</p></div>
     </div>
-    <div class="activity-card">
-      <div class="act-img">🎤</div>
-      <div class="act-body">
-        <span class="act-date">٥ی تشرینی دووەمی ٢٠٢٦</span>
-        <h3 class="act-title">سیمینار لەسەر بەڕێوەبردنی قەیرانەکان</h3>
-        <p class="act-desc">بە ئامادەبوونی ژمارەیەک لە مامۆستایان و خوێندکاران، سیمینارێکی تایبەت لەسەر ڕۆڵی PR لە کاتی قەیراندا بەڕێوەچوو.</p>
-      </div>
+    <div class="cell-h">
+      <div class="icon">🏢</div>
+      <div><h4>سەردانی مەیدانی</h4><p>سەردانی کۆمپانیا و دامەزراوە حکومی و میدیاییەکان بۆ ئاشنابوون لەگەڵ ژینگەی کار.</p></div>
+    </div>
+    <div class="cell-h">
+      <div class="icon">🎪</div>
+      <div><h4>ڕێکخستنی بۆنە و ئیڤینت</h4><p>خوێندکاران خۆیان بۆنە و چالاکی لەناو کۆلێژدا ڕێکدەخەن.</p></div>
+    </div>
+    <div class="cell-h">
+      <div class="icon">📷</div>
+      <div><h4>وۆرکشۆپی وێنەگرتن و مۆنتاژ</h4><p>ڕاهێنان لەسەر ئامرازەکانی دیزاین، فۆتۆگرافی و بەڕێوەبردنی سۆشیال میدیا.</p></div>
+    </div>
+    <div class="cell-h" style="border-style:dashed; color:var(--ink-soft);">
+      <div class="icon">+</div>
+      <div><h4>چالاکی تر</h4><p>وردەکاری و وێنەی چالاکییەکانی تریش بنێرە بۆ زیادکردن.</p></div>
     </div>
   </div>
 </section>
 
-<!-- بەشی پەیوەندی و فوتەر -->
-<section class="contact-section">
-  <h2>هێشتا پرسیارت هەیە؟</h2>
-  <p>پەیوەندی بە بەشی پەیوەندییە گشتییەکانی زانکۆی سلێمانی بکە بۆ زانیاری زیاتر لەسەر وەرگرتن و خوێندن.</p>
-  <div class="contact-buttons">
-    <a href="https://www.facebook.com/share/1Eu4ffZzKL/?mibextid=wwXIfr" target="_blank" rel="noopener" class="btn-facebook">فەیسبووکی فەرمی 📘</a>
-    <a href="https://wa.me/9647740823075" target="_blank" rel="noopener" class="btn-whatsapp">واتساپ 💬</a>
-    <a href="https://www.instagram.com/public.relations.students?igsh=MThiOWV3dzZycjhreA==" target="_blank" rel="noopener" class="btn-instagram">ئینستاگرامی خوێندکاران 📷</a>
-    <a href="https://maps.app.goo.gl/HHUUC1P5Eyx3yBMi6" target="_blank" rel="noopener" class="btn-map">📍 کلیک لێرە بکە بۆ بینینی نەخشەی زانکۆ</a>
-  </div>
-</section>
-<footer class="main-footer">
-  <p class="copyright">© ٢٠٢٦ بەشی پەیوەندییە گشتییەکان — زانکۆی سلێمانی</p>
-  <h3 class="creator">دروستکراوە لە لایەن ئارا عەزیز، خوێندکاری قۆناغی دووەمی بەشی پەیوەندییە گشتییەکان</h3>
-  <p class="acknowledgement">شایەنی باسە دەمەوێ پێزانین و دەستخۆشی خۆم ئاراستەی تەواوی ستافی بەش و مامۆستا ماندوونەناسەکانمان بە گشتی، و دکتۆرە لانەی سەرۆک بەش و مامۆستا شۆخان بڕیاردەری بەشەکەمان و مامۆستا ئاڤێستا مامۆستا لە بەشەکەمان بە تایبەتی بکەم. هەروەها دەستخۆشی لە دڵسۆز عادل هاوڕێ و نوێنەری قۆناغی دووەم و تەواوی ئەو خوێندکارانەی کە فیدباکیان ئەنجام دا بۆ سایتەکەمان بکەم، کە هاوکاری تەواویان کردم لە باشترکردنی ئەم سایتە بۆ خوێندکاران.</p>
-</footer>
+<footer>© ٢٠٢٦ بەشی پەیوەندییە گشتییەکان — زانکۆی سلێمانی</footer>
+
 </body>
 </html>
