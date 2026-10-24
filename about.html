@@ -14,7 +14,7 @@
 <meta name="author" content="ئارا عەزیز">
 <meta name="robots" content="index, follow">
 
-<link rel="canonical" href="https://publicrelationsdep.com">
+<link rel="canonical" href="https://publicrelationsdep.com/about.html">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -62,14 +62,13 @@
 
   .notice-scroll-content {
     display: inline-block;
-    animation: marquee-left 18s linear infinite;
+    animation: marquee-left 20s linear infinite;
   }
 
   #notice-banner:hover .notice-scroll-content {
     animation-play-state: paused;
   }
 
-  /* Reversed Marquee Direction */
   @keyframes marquee-left {
     0% { transform: translate3d(-100%, 0, 0); }
     100% { transform: translate3d(100vw, 0, 0); }
@@ -103,6 +102,8 @@
     display: flex;
     align-items: center;
     gap: 16px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
   }
   .nav-links{display:flex; gap:18px; list-style:none; flex-wrap:wrap; align-items:center;}
   .nav-links a{color:var(--ink-soft); text-decoration:none; font-weight:500; font-size:13.5px; transition:color .2s;}
@@ -318,6 +319,8 @@
     .nav-links li:not(:last-child){display:none;}
     .nav-links{gap:0;}
     section{padding:44px 20px;}
+    .nav-right-wrap { width: 100%; justify-content: center; margin-top: 10px; }
+    .page-links { justify-content: center; }
   }
 
   /* Added: cross-page navigation (links to the other site pages) */
@@ -338,7 +341,7 @@
 </script>
 <meta property="og:title" content="بەشی پەیوەندییە گشتییەکان | زانکۆی سلێمانی">
 <meta property="og:description" content="ڕێنمایی تەواو بۆ نمرەی وەرگیران، وانەکان، مێژوو و هەلی کاری بەشی پەیوەندییە گشتییەکان لە زانکۆی سلێمانی.">
-<meta property="og:url" content="https://publicrelationsdep.com">
+<meta property="og:url" content="https://publicrelationsdep.com/about.html">
 <meta property="og:type" content="website">
 </head>
 <body>
@@ -359,7 +362,6 @@
       </div>
     </div>
     <div class="nav-right-wrap">
-      <!-- Added: back/cross-page links -->
       <div class="page-links">
         <a href="index.html">⬅ سەرەکی</a>
         <a href="staff.html">ستافی مامۆستایان</a>
@@ -467,7 +469,7 @@
 
 <section id="subjects">
   <span class="tag" data-i18n="tag_subjects">پەرچەکردنی خوێندن</span>
-  <h2 class="title" data-i18n-html="title_subjects">4ساڵی زانکۆت بە زیاتر لە <span id="subjects-count">20</span>وانەی بەهێز نەخشە ڕێگەی خوێندنەکەتە</h2>
+  <h2 class="title" data-i18n-html="title_subjects">٤ ساڵی زانکۆت بە زیاتر لە <span id="subjects-count">20</span> وانەی بەهێز نەخشە ڕێگەی خوێندنەکەتە</h2>
   <p class="sub" data-i18n="sub_subjects">کۆمەڵێک وانەی پڕاکتیکی و تیۆری دەخوێندرێ لە چوارچێوەی ٤ ساڵدا کە دەکاتە ٨ وەرزی خوێندن. ئەمانەش نموونەی هەندێک لە وانە گرنگەکانە.</p>
   <div class="grid3">
     <!-- 1 -->
@@ -616,7 +618,7 @@
       <div class="acc-sign" style="margin-top:0; margin-bottom:14px;" data-i18n="dina_sign">دینا دلێر جەبار، قۆناغی ٣</div>
       <p data-i18n-html="dina_q1"><strong style="color:var(--black);">چۆن بەشەکەت هەڵبژارد؟</strong><br>سەرەتا زانیارییەکی زۆرم نەبوو لەسەری، بەڵام بەشی پەیوەندییە گشتییەکانم وەک پردێکی سەرەکی لە نێوان ڕێکخراو، کۆمپانیا و جەماوەردا بینیوە. حەز و ئارەزووی خۆمم لە کارامەییەکانی پەیوەندیکردن و بەڕێوەبردنی قەیرانەکاندا دۆزییەوە.</p>
       <p data-i18n-html="dina_q2"><strong style="color:var(--black);">چی زانیارییەکت هەبوو لەسەر بەشەکە؟</strong><br>تەنها تێڕوانینێکی گشتیم هەبوو کە بۆ ڕیکلام و ڕەنگدانەوەی کارەکان بەکاردێت.</p>
-      <p data-i18n-html="dina_q3"><strong style="color:var(--black);">ئێستا چۆن بەشەکەت دەبینی؟</strong><br>ئێستا بەشەکەم بە یەکێک لە ستوونە سەرەکی و ستراتیژییەکانی هەر سەرکەوتنێک دەبینم. تێگەیشتووم کە پەیوەندییە گشتییەکان تەنها وەڵامدانەوەی ڕووداوەکان نییە، بەڵکو پلاندانانی پێشوەختەیە بۆ پاراستنی ناوبانگ و دروستکردنی بەهای درێژخایەن بۆ دامەزراوەکە.</p>
+      <p data-i18n-html="dina_q3"><strong style=\"color:var(--black);\">ئێستا چۆن بەشەکەت دەبینی؟</strong><br>ئێستا بەشەکەم بە یەکێک لە ستوونە سەرەکی و ستراتیژییەکانی هەر سەرکەوتنێک دەبینم. تێگەیشتووم کە پەیوەندییە گشتییەکان تەنها وەڵامدانەوەی ڕووداوەکان نییە، بەڵکو پلاندانانی پێشوەختەیە بۆ پاراستنی ناوبانگ و دروستکردنی بەهای درێژخایەن بۆ دامەزراوەکە.</p>
       <p data-i18n-html="dina_q4"><strong style="color:var(--black);">چی فێربووی؟</strong><br>توانای گوێگرتنی چالاک و شیکردنەوەی بۆچوونی جەماوەر. فێربووم چۆن پەیامێکی ڕوون، کاریگەر و متمانەپێکراو بگەیەنم و وێنەی ڕاستەقینەی دامەزراوەکە پیشان بدەم.</p>
       <div style="height:1px; background:var(--line); margin:22px 0;"></div>
       <div class="acc-sign" style="margin-top:0; margin-bottom:14px;" data-i18n="govar_sign">گۆڤار شۆڕش ئەحمەد، قۆناغی ٣</div>
@@ -748,7 +750,7 @@
       "scores_note1": "تێبینی: ئەم نمرانە بۆ ساڵی ڕابردوون و ڕەنگە ئەمساڵ بگۆڕێن. بۆ زانیاری وردتر و دووپاتکردنەوە، سەیری فۆڕمی زانکۆلاین یان بەشەکەمان بکە.",
       "scores_note2": "لە ساڵی <span id=\"dyn-academic-year-note\">٢٠٢٥-٢٠٢٦</span>، <span id=\"students-count\">٨٠</span> خوێندکار وەرگیراوە.",
       "tag_subjects": "پەرچەکردنی خوێندن",
-      "title_subjects": "4ساڵی زانکۆت بە زیاتر لە <span id=\"subjects-count\">20</span>وانەی بەهێز نەخشە ڕێگەی خوێندنەکەتە",
+      "title_subjects": "٤ ساڵی زانکۆت بە زیاتر لە <span id=\"subjects-count\">20</span> وانەی بەهێز نەخشە ڕێگەی خوێندنەکەتە",
       "sub_subjects": "کۆمەڵێک وانەی پڕاکتیکی و تیۆری دەخوێندرێ لە چوارچێوەی ٤ ساڵدا کە دەکاتە ٨ وەرزی خوێندن. ئەمانەش نموونەی هەندێک لە وانە گرنگەکانە.",
       "subj1_t": "ڕیکلام", "subj1_d": "شێوازەکانی دروستکردنی ڕیکلام و کاریگەری لەسەر بیرکردنەوەی کۆمەڵگا.",
       "subj2_t": "مارکێتینگ", "subj2_d": "بەکارهێنانی ستراتیژەکانی بازاڕگەرمکردنی کاڵا و شتومەک و خزمەتگوزارییەکان لە ڕێگەی تێگەیشتن لە چۆنیەتی بەڕێوەچوونی ڕەوشی بازاڕ.",
@@ -1088,12 +1090,10 @@
 
       const dict = translations[lang];
 
-      // Language Button Label
       if(document.getElementById('lang-btn-text')) {
         document.getElementById('lang-btn-text').innerText = dict.lang_btn;
       }
 
-      // Apply plain text elements
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (dict[key] !== undefined) {
@@ -1101,7 +1101,6 @@
         }
       });
 
-      // Apply HTML formatted elements
       document.querySelectorAll('[data-i18n-html]').forEach(el => {
         const key = el.getAttribute('data-i18n-html');
         if (dict[key] !== undefined) {
@@ -1160,7 +1159,6 @@
         }
       });
 
-      // Update static numbers regardless of language mode
       if (data.zankoline && document.getElementById('score-zankoline')) {
         document.getElementById('score-zankoline').innerText = data.zankoline;
       }
@@ -1190,7 +1188,6 @@
         scoreYearElements.forEach(el => el.innerText = data.score_year);
       }
 
-      // Update structural elements only if they aren't already translated
       if (data.hero_title && document.getElementById('dyn-hero-title') && currentLang === 'ckb') {
         document.getElementById('dyn-hero-title').innerHTML = data.hero_title;
       }
@@ -1201,7 +1198,6 @@
         document.getElementById('dyn-creator-story').innerHTML = `<p>${data.creator_story}</p>`;
       }
 
-      // Handle Notice Banner
       if (data.notice_text && data.notice_text.trim().length > 0) {
         document.getElementById('notice-text').innerText = data.notice_text;
         document.getElementById('notice-banner').style.display = 'block';
