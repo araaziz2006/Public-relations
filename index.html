@@ -5,25 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>بەشی پەیوەندییە گشتییەکان | زانکۆی سلێمانی</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Noto+Kufi+Arabic:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --red:#A82823;
-  --black:#181410;
-  --green:#1C6B45;
-  --gold:#B8892B;
-  --paper:#F6F1E6;
-  --paper-2:#EFE7D6;
-  --ink:#2A241C;
-  --ink-soft:#5C5346;
-  --line:rgba(24,20,16,0.14);
+  --red:#A82823; --black:#181410; --green:#1C6B45; --gold:#B8892B;
+  --paper:#F6F1E6; --paper-2:#EFE7D6; --ink:#2A241C; --ink-soft:#5C5346; --line:rgba(24,20,16,0.14);
 }
 *{box-sizing:border-box; margin:0; padding:0;}
-body{
-  font-family:'Noto Kufi Arabic','Tahoma',Arial,sans-serif;
-  background:var(--paper);
-  color:var(--ink);
-}
+body{font-family:'Noto Kufi Arabic','Inter',Arial,sans-serif; background:var(--paper); color:var(--ink); overflow-x:hidden;}
+body.lang-en { font-family:'Inter', Arial, sans-serif; }
 a{color:inherit;}
 
 /* Header / Nav */
@@ -43,6 +33,14 @@ nav{
 .nav-links{display:flex; gap:20px; list-style:none; flex-wrap:wrap;}
 .nav-links a{text-decoration:none; font-weight:600; font-size:13.5px; color:var(--ink-soft); transition:color .2s;}
 .nav-links a.active, .nav-links a:hover{color:var(--red);}
+
+/* Language Switcher Button */
+.lang-btn {
+  background: var(--black); color: var(--paper); border: 1px solid var(--black);
+  padding: 6px 14px; border-radius: 4px; font-size: 12.5px; font-weight: 700;
+  cursor: pointer; transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 6px;
+}
+.lang-btn:hover { background: var(--red); border-color: var(--red); color: #fff; }
 
 /* Hero */
 .hero-wrap{
@@ -97,7 +95,6 @@ footer .thanks{
   padding: 20px; background: #fff; border-radius: 10px; border: 1px solid var(--line);
 }
 
-/* Mobile Responsive */
 @media (max-width:768px){
   .hero-wrap h1{font-size:28px;}
   .hero-wrap p{font-size:14.5px;}
@@ -114,85 +111,155 @@ footer .thanks{
   <nav>
     <div class="brand">
       <img src="IMG_5496.jpeg" alt="لۆگۆی بەش" class="dept-logo">
-      <span>بەشی پەیوەندییە گشتییەکان</span>
+      <span data-i18n="brand_name">بەشی پەیوەندییە گشتییەکان</span>
     </div>
     <ul class="nav-links">
-      <li><a href="index.html" class="active">سەرەکی</a></li>
-      <li><a href="about.html">زانیاری بەش</a></li>
-      <li><a href="staff.html">ستافی مامۆستایان</a></li>
-      <li><a href="activities.html">چالاکی و ژیانی خوێندکار</a></li>
+      <li><a href="index.html" class="active" data-i18n="nav_home">سەرەکی</a></li>
+      <li><a href="about.html" data-i18n="nav_about">زانیاری بەش</a></li>
+      <li><a href="staff.html" data-i18n="nav_staff">ستافی مامۆستایان</a></li>
+      <li><a href="activities.html" data-i18n="nav_activities">چالاکی و ژیانی خوێندکار</a></li>
     </ul>
+    <button class="lang-btn" onclick="toggleLanguage()">
+      🌐 <span id="lang-btn-text">English</span>
+    </button>
   </nav>
 </header>
 
 <div class="hero-wrap">
-  <h1>بەشی پەیوەندییە گشتییەکان</h1>
-  <p>
+  <h1 data-i18n="hero_title">بەشی پەیوەندییە گشتییەکان</h1>
+  <p data-i18n="hero_desc">
     بەشی پەیوەندییە گشتییەکان لە ساڵی ٢٠٢١ەوە لە کۆلێژی زانستە مرۆڤایەتییەکان لە زانکۆی سلێمانی دامەزراوە.
     لەم بەشەدا گرنگی بە هەردوو لایەنی تیۆری و پراکتیکی پەیوەندییە گشتییەکان دەدرێت — لە ڕاوێژکاری ستراتیژی و
     براندینگ بگرە تا بەڕێوەبردنی قەیران و میدیای دیجیتاڵ — بۆ ئامادەکردنی کادرێکی پرۆفیشناڵی ئەم بوارە.
   </p>
   <div class="social-row">
-    <!-- واتساپ -->
     <a class="cbtn solid" href="https://wa.me/9647740823075" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 3.825 0 6.936 3.113 6.936 6.938 0 3.825-3.113 6.938-6.936 6.938z"/></svg>
-      واتساپ
+      <span data-i18n="btn_wa">واتساپ</span>
     </a>
-    <!-- فەیسبووک -->
     <a class="cbtn" href="https://www.facebook.com/share/1Eu4ffZzKL/?mibextid=wwXIfr" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
-      فەیسبووک
+      <span data-i18n="btn_fb">فەیسبووک</span>
     </a>
-    <!-- ئینستاگرام -->
     <a class="cbtn" href="https://www.instagram.com/public.relations.students" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-      ئینستاگرام
+      <span data-i18n="btn_ig">ئینستاگرام</span>
     </a>
-    <!-- نەخشە -->
     <a class="cbtn" href="https://maps.app.goo.gl/HHUUC1P5Eyx3yBMi6" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/></svg>
-      نەخشە
+      <span data-i18n="btn_map">نەخشە</span>
     </a>
   </div>
 </div>
 
 <section>
-  <span class="tag">بگەڕێ لە سایتەکەدا</span>
-  <h2 class="title">بۆ زانیاری زیاتر سەردانی ئەم لاپەڕانە بکە</h2>
+  <span class="tag" data-i18n="tag_nav">بگەڕێ لە سایتەکەدا</span>
+  <h2 class="title" data-i18n="title_nav">بۆ زانیاری زیاتر سەردانی ئەم لاپەڕانە بکە</h2>
   <div class="linkbox-grid">
     <a class="linkbox" href="about.html">
       <div class="lb-icon">
         <svg viewBox="0 0 24 24"><path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10-10-4.477-10-10 4.477-10 10-10zm0 2c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zm1 13h-2v-6h2v6zm0-8h-2v-2h2v2z"/></svg>
       </div>
-      <h3>زانیاری بەش</h3>
-      <p>مێژوو، نمرەی وەرگرتن، وانەکان، دواڕۆژی کار، و فیدباکی خوێندکاران</p>
+      <h3 data-i18n="box_about_h">زانیاری بەش</h3>
+      <p data-i18n="box_about_p">مێژوو، نمرەی وەرگرتن، وانەکان، دواڕۆژی کار، و فیدباکی خوێندکاران</p>
     </a>
     <a class="linkbox" href="staff.html">
       <div class="lb-icon">
         <svg viewBox="0 0 24 24"><path d="M12 2c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3zm0 18c-4.418 0-8-1.79-8-4v-1c0-2.21 3.582-4 8-4s8 1.79 8 4v1c0 2.21-3.582 4-8 4zm0-2c3.866 0 6-1.343 6-2v-1c0-.737-2.582-2-6-2s-6 1.263-6 2v1c0 .657 2.134 2 6 2z"/></svg>
       </div>
-      <h3>ستافی مامۆستایان</h3>
-      <p>ناو و پسپۆڕی مامۆستایانی بەش</p>
+      <h3 data-i18n="box_staff_h">ستافی مامۆستایان</h3>
+      <p data-i18n="box_staff_p">ناو و پسپۆڕی مامۆستایانی بەش</p>
     </a>
     <a class="linkbox" href="activities.html">
       <div class="lb-icon">
         <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5z"/></svg>
       </div>
-      <h3>چالاکی و ژیانی خوێندکار</h3>
-      <p>تۆماری ڕووداو و چالاکییە ڕۆژانەکانی بەش</p>
+      <h3 data-i18n="box_act_h">چالاکی و ژیانی خوێندکار</h3>
+      <p data-i18n="box_act_p">تۆماری ڕووداو و چالاکییە ڕۆژانەکانی بەش</p>
     </a>
   </div>
 </section>
 
 <footer>
-  © ٢٠٢٦ بەشی پەیوەندییە گشتییەکان — زانکۆی سلێمانی
-  <span class="thanks">
+  <span data-i18n="footer_copy">© ٢٠٢٦ بەشی پەیوەندییە گشتییەکان — زانکۆی سلێمانی</span>
+  <span class="thanks" data-i18n="footer_thanks">
     شایەنی باسە دەمەوێ پێزانین و دەسخۆشی خۆم ئاڕاستەی تەواوی ستافی بەش و مامۆستا ماندوونەناسەکانمان بە گشتی،
     و دکتۆرە لانەی سەرۆک بەش و مامۆستا شۆخان بڕیاردەری بەشەکەمان و مامۆستا ئاڤێستا مامۆستا لە بەشەکەمان بە تایبەتی
     بکەم. هەروەها دەسخۆشی لە دژوار عادل هاوڕێ و نوێنەری قۆناغی دووەم و تەواوی ئەو خوێندکارانەی کە فیدباکیان ئەنجام
     دا بۆ سایتەکەم بکەم، کە هاوکاری تەواویان کردم لە باشترکردنی ئەم سایتە بۆ خوێندکاران.
   </span>
 </footer>
+
+<script>
+  const translations = {
+    "ckb": {
+      "lang_btn": "English",
+      "brand_name": "بەشی پەیوەندییە گشتییەکان",
+      "nav_home": "سەرەکی",
+      "nav_about": "زانیاری بەش",
+      "nav_staff": "ستافی مامۆستایان",
+      "nav_activities": "چالاکی و ژیانی خوێندکار",
+      "hero_title": "بەشی پەیوەندییە گشتییەکان",
+      "hero_desc": "بەشی پەیوەندییە گشتییەکان لە ساڵی ٢٠٢١ەوە لە کۆلێژی زانستە مرۆڤایەتییەکان لە زانکۆی سلێمانی دامەزراوە. لەم بەشەدا گرنگی بە هەردوو لایەنی تیۆری و پراکتیکی پەیوەندییە گشتییەکان دەدرێت — لە ڕاوێژکاری ستراتیژی و براندینگ بگرە تا بەڕێوەبردنی قەیران و میدیای دیجیتاڵ — بۆ ئامادەکردنی کادرێکی پرۆفیشناڵی ئەم بوارە.",
+      "btn_wa": "واتساپ",
+      "btn_fb": "فەیسبووک",
+      "btn_ig": "ئینستاگرام",
+      "btn_map": "نەخشە",
+      "tag_nav": "بگەڕێ لە سایتەکەدا",
+      "title_nav": "بۆ زانیاری زیاتر سەردانی ئەم لاپەڕانە بکە",
+      "box_about_h": "زانیاری بەش",
+      "box_about_p": "مێژوو، نمرەی وەرگرتن، وانەکان، دواڕۆژی کار، و فیدباکی خوێندکاران",
+      "box_staff_h": "ستافی مامۆستایان",
+      "box_staff_p": "ناو و پسپۆڕی مامۆستایانی بەش",
+      "box_act_h": "چالاکی و ژیانی خوێندکار",
+      "box_act_p": "تۆماری ڕووداو و چالاکییە ڕۆژانەکانی بەش",
+      "footer_copy": "© ٢٠٢٦ بەشی پەیوەندییە گشتییەکان — زانکۆی سلێمانی",
+      "footer_thanks": "شایەنی باسە دەمەوێ پێزانین و دەسخۆشی خۆم ئاڕاستەی تەواوی ستافی بەش و مامۆستا ماندوونەناسەکانمان بە گشتی، و دکتۆرە لانەی سەرۆک بەش و مامۆستا شۆخان بڕیاردەری بەشەکەمان و مامۆستا ئاڤێستا مامۆستا لە بەشەکەمان بە تایبەتی بکەم. هەروەها دەسخۆشی لە دژوار عادل هاوڕێ و نوێنەری قۆناغی دووەم و تەواوی ئەو خوێندکارانەی کە فیدباکیان ئەنجام دا بۆ سایتەکەم بکەم، کە هاوکاری تەواویان کردم لە باشترکردنی ئەم سایتە بۆ خوێندکاران."
+    },
+    "en": {
+      "lang_btn": "کوردی",
+      "brand_name": "Public Relations Dept.",
+      "nav_home": "Home",
+      "nav_about": "About Dept.",
+      "nav_staff": "Staff",
+      "nav_activities": "Activities",
+      "hero_title": "Department of Public Relations",
+      "hero_desc": "The Department of Public Relations was established in 2021 at the College of Humanities, University of Sulaimani. The department emphasizes both theoretical and practical aspects of PR — from strategic consulting and branding to crisis management and digital media — to prepare professional cadres in this field.",
+      "btn_wa": "WhatsApp",
+      "btn_fb": "Facebook",
+      "btn_ig": "Instagram",
+      "btn_map": "Map",
+      "tag_nav": "Explore the Website",
+      "title_nav": "Visit these pages for more information",
+      "box_about_h": "About Department",
+      "box_about_p": "History, admission scores, courses, careers, and student feedback",
+      "box_staff_h": "Teaching Staff",
+      "box_staff_p": "Names and specialties of department lecturers",
+      "box_act_h": "Activities & Student Life",
+      "box_act_p": "Record of daily events and activities in the department",
+      "footer_copy": "© 2026 Department of Public Relations — University of Sulaimani",
+      "footer_thanks": "It is worth mentioning that I would like to express my gratitude to all our department staff and tireless lecturers in general, and specifically to Dr. Lana, Head of Department, Lecturer Shokhan, Department Representative, and Lecturer Avesta. I also thank Dzhwar Adil, the 2nd-year representative, and all students who provided feedback for this website, as they fully assisted me in improving this site for students."
+    }
+  };
+
+  let currentLang = 'ckb';
+
+  function toggleLanguage() {
+    currentLang = currentLang === 'ckb' ? 'en' : 'ckb';
+    document.documentElement.lang = currentLang;
+    document.documentElement.dir = currentLang === 'ckb' ? 'rtl' : 'ltr';
+    document.body.classList.toggle('lang-en', currentLang === 'en');
+    
+    document.getElementById('lang-btn-text').innerText = translations[currentLang].lang_btn;
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (translations[currentLang][key]) {
+        el.innerText = translations[currentLang][key];
+      }
+    });
+  }
+</script>
 
 </body>
 </html>
