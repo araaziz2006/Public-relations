@@ -30,4 +30,204 @@ nav{max-width:1180px; margin:0 auto; display:flex; align-items:center; justify-c
 .lang-btn:hover {background: var(--red); border-color: var(--red); color: #fff;}
 
 /* Hero */
-.hero-wrap{max-width:1180px; margin:0 auto; padding:
+.hero-wrap{max-width:1180px; margin:0 auto; padding:56px 24px 10px; text-align:center; background: linear-gradient(180deg, var(--paper-2) 0%, var(--paper) 100%); border-bottom: 1px solid var(--line);}
+.hero-wrap h1{font-size:34px; font-weight:900; color:var(--black); margin-bottom:14px;}
+.hero-wrap p{max-width:640px; margin:0 auto; color:var(--ink-soft); font-size:15.5px; line-height:1.9;}
+
+section{max-width:1180px; margin:0 auto; padding:56px 24px;}
+.tag{font-weight:700; letter-spacing:.5px; color:var(--green); font-size:13.5px; display:block; margin-bottom:10px;}
+.title{font-size:26px; font-weight:900; color:var(--black); margin-bottom:10px;}
+.sub{font-size:15px; color:var(--ink-soft); max-width:680px; margin-bottom:32px; line-height:1.85;}
+
+/* Cards */
+.grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(250px,1fr)); gap:24px;}
+.card{background:#fff; border:1px solid var(--line); border-radius:12px; padding:28px 20px; text-align:center; transition: transform .2s, box-shadow .2s; display: flex; flex-direction: column; align-items: center;}
+.card:hover{transform: translateY(-4px); box-shadow: 0 10px 24px rgba(24,20,16,0.08); border-color: var(--gold);}
+
+.avatar{width:100px; height:100px; border-radius:50%; margin:0 auto 16px; display:flex; align-items:center; justify-content:center; background:var(--paper-2); color:var(--red); font-weight:900; font-size:26px; border:2.5px solid var(--gold); object-fit: cover;}
+
+.card h3{font-size:16px; color:var(--black); margin-bottom:4px; line-height: 1.5;}
+.card .role{font-size:13px; color:var(--green); font-weight:700; margin-bottom:12px;}
+.card p{font-size:13px; color:var(--ink-soft); line-height:1.7;}
+
+footer{text-align:center; padding:36px 24px; color:var(--ink-soft); font-size:12.5px; border-top:1px solid var(--line); background:var(--paper-2); margin-top: 40px;}
+
+@media (max-width:768px){.hero-wrap h1{font-size:28px;} .nav-links{gap:14px; justify-content: center; margin-top: 10px; width: 100%;} section{padding:36px 20px;}}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="brand">
+      <img src="IMG_5496.jpeg" alt="لۆگۆی بەش" class="dept-logo">
+      <span data-i18n="brand_name">بەشی پەیوەندییە گشتییەکان</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html" data-i18n="nav_home">سەرەکی</a></li>
+      <li><a href="about.html" data-i18n="nav_about">زانیاری بەش</a></li>
+      <li><a href="staff.html" class="active" data-i18n="nav_staff">ستافی مامۆستایان</a></li>
+      <li><a href="activities.html" data-i18n="nav_activities">چالاکی و ژیانی خوێندکار</a></li>
+    </ul>
+    <button class="lang-btn" onclick="toggleLanguage()">🌐 <span id="lang-btn-text">English</span></button>
+  </nav>
+</header>
+
+<div class="hero-wrap">
+  <h1 data-i18n="hero_title">ستافی مامۆستایان</h1>
+  <p data-i18n="hero_desc">مامۆستایانی بەشی پەیوەندییە گشتییەکان، کە ستوونی ئەکادیمی و ڕێبەری زانستی بەشەکەمانن بۆ ئامادەکردنی نەوەیەکی شارەزای ئەم بوارە.</p>
+</div>
+
+<section>
+  <div class="grid">
+    <!-- مامۆستا ١ -->
+    <div class="card">
+      <div class="avatar">لس</div>
+      <h3 data-i18n="t1_name">د. لانە سابیر محەمەد سەعید</h3>
+      <div class="role" data-i18n="t1_role">سەرۆکی بەش</div>
+      <p data-i18n="t1_spec">پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]</p>
+    </div>
+    <!-- مامۆستا ٢ -->
+    <div class="card">
+      <div class="avatar">شۆ</div>
+      <h3 data-i18n="t2_name">مامۆستا شۆخان</h3>
+      <div class="role" data-i18n="t2_role">بڕیاردەری بەش</div>
+      <p data-i18n="t2_spec">پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]</p>
+    </div>
+    <!-- مامۆستا ٣ -->
+    <div class="card">
+      <div class="avatar">ئا</div>
+      <h3 data-i18n="t3_name">مامۆستا ئاڤێستا</h3>
+      <div class="role" data-i18n="t3_role">مامۆستای بەش</div>
+      <p data-i18n="t3_spec">پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]</p>
+    </div>
+    <!-- مامۆستا ٤ -->
+    <div class="card">
+      <div class="avatar">ڕۆ</div>
+      <h3 data-i18n="t4_name">م. ڕۆژان</h3>
+      <div class="role" data-i18n="t4_role">مامۆستای بەش</div>
+      <p data-i18n="t4_spec">پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]</p>
+    </div>
+    <!-- مامۆستا ٥ -->
+    <div class="card">
+      <div class="avatar">خە</div>
+      <h3 data-i18n="t5_name">م. خەندە</h3>
+      <div class="role" data-i18n="t5_role">مامۆستای بەش</div>
+      <p data-i18n="t5_spec">پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]</p>
+    </div>
+    <!-- مامۆستا ٦ -->
+    <div class="card">
+      <div class="avatar">دا</div>
+      <h3 data-i18n="t6_name">م. دانا</h3>
+      <div class="role" data-i18n="t6_role">مامۆستای بەش</div>
+      <p data-i18n="t6_spec">پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]</p>
+    </div>
+    <!-- مامۆستا ٧ -->
+    <div class="card">
+      <div class="avatar">مح</div>
+      <h3 data-i18n="t7_name">د. محەمەد</h3>
+      <div class="role" data-i18n="t7_role">مامۆستای بەش</div>
+      <p data-i18n="t7_spec">پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]</p>
+    </div>
+    <!-- مامۆستا ٨ -->
+    <div class="card">
+      <div class="avatar">چر</div>
+      <h3 data-i18n="t8_name">د. چرۆ</h3>
+      <div class="role" data-i18n="t8_role">مامۆستای بەش</div>
+      <p data-i18n="t8_spec">پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]</p>
+    </div>
+    <!-- مامۆستا ٩ -->
+    <div class="card">
+      <div class="avatar">چن</div>
+      <h3 data-i18n="t9_name">م. چنور</h3>
+      <div class="role" data-i18n="t9_role">مامۆستای بەش</div>
+      <p data-i18n="t9_spec">پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]</p>
+    </div>
+    <!-- مامۆستا ١٠ -->
+    <div class="card">
+      <div class="avatar">دی</div>
+      <h3 data-i18n="t10_name">د. دیاری</h3>
+      <div class="role" data-i18n="t10_role">مامۆستای بەش</div>
+      <p data-i18n="t10_spec">پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]</p>
+    </div>
+    <!-- مامۆستا ١١ -->
+    <div class="card">
+      <div class="avatar">شێ</div>
+      <h3 data-i18n="t11_name">م. شێنێ</h3>
+      <div class="role" data-i18n="t11_role">مامۆستای بەش</div>
+      <p data-i18n="t11_spec">پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span data-i18n="footer_copy">© ٢٠٢٦ بەشی پەیوەندییە گشتییەکان — زانکۆی سلێمانی</span>
+</footer>
+
+<script>
+  const translations = {
+    "ckb": {
+      "lang_btn": "English",
+      "brand_name": "بەشی پەیوەندییە گشتییەکان",
+      "nav_home": "سەرەکی",
+      "nav_about": "زانیاری بەش",
+      "nav_staff": "ستافی مامۆستایان",
+      "nav_activities": "چالاکی و ژیانی خوێندکار",
+      "hero_title": "ستافی مامۆستایان",
+      "hero_desc": "مامۆستایانی بەشی پەیوەندییە گشتییەکان، کە ستوونی ئەکادیمی و ڕێبەری زانستی بەشەکەمانن بۆ ئامادەکردنی نەوەیەکی شارەزای ئەم بوارە.",
+      "t1_name": "د. لانە سابیر محەمەد سەعید", "t1_role": "سەرۆکی بەش", "t1_spec": "پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]",
+      "t2_name": "مامۆستا شۆخان", "t2_role": "بڕیاردەری بەش", "t2_spec": "پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]",
+      "t3_name": "مامۆستا ئاڤێستا", "t3_role": "مامۆستای بەش", "t3_spec": "پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]",
+      "t4_name": "م. ڕۆژان", "t4_role": "مامۆستای بەش", "t4_spec": "پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]",
+      "t5_name": "م. خەندە", "t5_role": "مامۆستای بەش", "t5_spec": "پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]",
+      "t6_name": "م. دانا", "t6_role": "مامۆستای بەش", "t6_spec": "پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]",
+      "t7_name": "د. محەمەد", "t7_role": "مامۆستای بەش", "t7_spec": "پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]",
+      "t8_name": "د. چرۆ", "t8_role": "مامۆستای بەش", "t8_spec": "پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]",
+      "t9_name": "م. چنور", "t9_role": "مامۆستای بەش", "t9_spec": "پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]",
+      "t10_name": "د. دیاری", "t10_role": "مامۆستای بەش", "t10_spec": "پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]",
+      "t11_name": "م. شێنێ", "t11_role": "مامۆستای بەش", "t11_spec": "پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]",
+      "footer_copy": "© ٢٠٢٦ بەشی پەیوەندییە گشتییەکان — زانکۆی سلێمانی"
+    },
+    "en": {
+      "lang_btn": "کوردی",
+      "brand_name": "Public Relations Dept.",
+      "nav_home": "Home",
+      "nav_about": "About Dept.",
+      "nav_staff": "Staff",
+      "nav_activities": "Activities",
+      "hero_title": "Teaching Staff",
+      "hero_desc": "Lecturers of the Public Relations Department, who are the academic pillars and scientific guides of our department to prepare a knowledgeable generation in this field.",
+      "t1_name": "Dr. Lana Sabir Mohammed", "t1_role": "Head of Department", "t1_spec": "Specialty: [Write specialty here]",
+      "t2_name": "Lecturer Shokhan", "t2_role": "Department Representative", "t2_spec": "Specialty: [Write specialty here]",
+      "t3_name": "Lecturer Avesta", "t3_role": "Lecturer", "t3_spec": "Specialty: [Write specialty here]",
+      "t4_name": "Lecturer Rozhan", "t4_role": "Lecturer", "t4_spec": "Specialty: [Write specialty here]",
+      "t5_name": "Lecturer Khanda", "t5_role": "Lecturer", "t5_spec": "Specialty: [Write specialty here]",
+      "t6_name": "Lecturer Dana", "t6_role": "Lecturer", "t6_spec": "Specialty: [Write specialty here]",
+      "t7_name": "Dr. Mohammed", "t7_role": "Lecturer", "t7_spec": "Specialty: [Write specialty here]",
+      "t8_name": "Dr. Chiro", "t8_role": "Lecturer", "t8_spec": "Specialty: [Write specialty here]",
+      "t9_name": "Lecturer Chinur", "t9_role": "Lecturer", "t9_spec": "Specialty: [Write specialty here]",
+      "t10_name": "Dr. Diyari", "t10_role": "Lecturer", "t10_spec": "Specialty: [Write specialty here]",
+      "t11_name": "Lecturer Shene", "t11_role": "Lecturer", "t11_spec": "Specialty: [Write specialty here]",
+      "footer_copy": "© 2026 Department of Public Relations — University of Sulaimani"
+    }
+  };
+
+  let currentLang = 'ckb';
+  function toggleLanguage() {
+    currentLang = currentLang === 'ckb' ? 'en' : 'ckb';
+    document.documentElement.lang = currentLang;
+    document.documentElement.dir = currentLang === 'ckb' ? 'rtl' : 'ltr';
+    document.body.classList.toggle('lang-en', currentLang === 'en');
+    
+    document.getElementById('lang-btn-text').innerText = translations[currentLang].lang_btn;
+
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      const key = el.getAttribute('data-i18n');
+      if (translations[currentLang][key]) {
+        el.innerText = translations[currentLang][key];
+      }
+    });
+  }
+</script>
+</body>
+</html>
