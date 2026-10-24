@@ -5,227 +5,29 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ستافی مامۆستایان | بەشی پەیوەندییە گشتییەکان</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Noto+Kufi+Arabic:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --red:#A82823;
-  --black:#181410;
-  --green:#1C6B45;
-  --gold:#B8892B;
-  --paper:#F6F1E6;
-  --paper-2:#EFE7D6;
-  --ink:#2A241C;
-  --ink-soft:#5C5346;
-  --line:rgba(24,20,16,0.14);
+  --red:#A82823; --black:#181410; --green:#1C6B45; --gold:#B8892B;
+  --paper:#F6F1E6; --paper-2:#EFE7D6; --ink:#2A241C; --ink-soft:#5C5346; --line:rgba(24,20,16,0.14);
 }
 *{box-sizing:border-box; margin:0; padding:0;}
-body{
-  font-family:'Noto Kufi Arabic','Tahoma',Arial,sans-serif;
-  background:var(--paper);
-  color:var(--ink);
-}
+body{font-family:'Noto Kufi Arabic','Inter',Arial,sans-serif; background:var(--paper); color:var(--ink);}
+body.lang-en { font-family:'Inter', Arial, sans-serif; }
 a{color:inherit;}
 
 /* Header / Nav */
-header{
-  position:sticky; top:0; z-index:50;
-  background:rgba(246,241,230,0.92);
-  backdrop-filter:blur(10px);
-  border-bottom:1px solid var(--line);
-}
-nav{
-  max-width:1180px; margin:0 auto;
-  display:flex; align-items:center; justify-content:space-between;
-  padding:16px 24px; gap:12px; flex-wrap:wrap;
-}
+header{position:sticky; top:0; z-index:50; background:rgba(246,241,230,0.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--line);}
+nav{max-width:1180px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; padding:16px 24px; gap:12px; flex-wrap:wrap;}
 .brand{display:flex; align-items:center; gap:10px; font-size:17px; font-weight:700; color:var(--black);}
 .dept-logo{width:44px; height:44px; border-radius:50%; border:1.5px solid var(--red); background:#fff; object-fit:contain;}
 .nav-links{display:flex; gap:20px; list-style:none; flex-wrap:wrap;}
 .nav-links a{text-decoration:none; font-weight:600; font-size:13.5px; color:var(--ink-soft); transition:color .2s;}
 .nav-links a.active, .nav-links a:hover{color:var(--red);}
 
+/* Language Switcher Button */
+.lang-btn {background: var(--black); color: var(--paper); border: 1px solid var(--black); padding: 6px 14px; border-radius: 4px; font-size: 12.5px; font-weight: 700; cursor: pointer; transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 6px;}
+.lang-btn:hover {background: var(--red); border-color: var(--red); color: #fff;}
+
 /* Hero */
-.hero-wrap{
-  max-width:1180px; margin:0 auto; padding:56px 24px 10px; text-align:center;
-  background: linear-gradient(180deg, var(--paper-2) 0%, var(--paper) 100%);
-  border-bottom: 1px solid var(--line);
-}
-.hero-wrap h1{font-size:34px; font-weight:900; color:var(--black); margin-bottom:14px;}
-.hero-wrap p{max-width:640px; margin:0 auto; color:var(--ink-soft); font-size:15.5px; line-height:1.9;}
-
-section{max-width:1180px; margin:0 auto; padding:56px 24px;}
-.tag{font-weight:700; letter-spacing:.5px; color:var(--green); font-size:13.5px; display:block; margin-bottom:10px;}
-.title{font-size:26px; font-weight:900; color:var(--black); margin-bottom:10px;}
-.sub{font-size:15px; color:var(--ink-soft); max-width:680px; margin-bottom:32px; line-height:1.85;}
-
-/* Cards */
-.grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(250px,1fr)); gap:24px;}
-.card{
-  background:#fff; border:1px solid var(--line); border-radius:12px; padding:28px 20px; text-align:center;
-  transition: transform .2s, box-shadow .2s; display: flex; flex-direction: column; align-items: center;
-}
-.card:hover{transform: translateY(-4px); box-shadow: 0 10px 24px rgba(24,20,16,0.08); border-color: var(--gold);}
-
-/* ئەگەر وێنەت دانا، ئەم کلاسە بەکاردێت. ئێستا بەبێ وێنە کار دەکات */
-.avatar{
-  width:100px; height:100px; border-radius:50%; margin:0 auto 16px; display:flex; align-items:center; justify-content:center;
-  background:var(--paper-2); color:var(--red); font-weight:900; font-size:26px; border:2.5px solid var(--gold);
-  object-fit: cover; /* بۆ وێنە */
-}
-
-.card h3{font-size:16px; color:var(--black); margin-bottom:4px; line-height: 1.5;}
-.card .role{font-size:13px; color:var(--green); font-weight:700; margin-bottom:12px;}
-.card p{font-size:13px; color:var(--ink-soft); line-height:1.7;}
-
-/* Placeholder Card */
-.card-placeholder{
-  border: 1.5px dashed var(--line); background: transparent; box-shadow: none; opacity: 0.7;
-}
-.card-placeholder:hover{transform: none; box-shadow: none; border-color: var(--line);}
-.card-placeholder .avatar{
-  color: var(--ink-soft); border-color: var(--line); background: var(--paper);
-}
-
-footer{
-  text-align:center; padding:36px 24px; color:var(--ink-soft); font-size:12.5px; 
-  border-top:1px solid var(--line); background:var(--paper-2); margin-top: 40px;
-}
-
-@media (max-width:768px){
-  .hero-wrap h1{font-size:28px;}
-  .nav-links{gap:14px; justify-content: center; margin-top: 10px; width: 100%;}
-  section{padding:36px 20px;}
-}
-</style>
-</head>
-<body>
-
-<header>
-  <nav>
-    <div class="brand">
-      <img src="IMG_5496.jpeg" alt="لۆگۆی بەش" class="dept-logo">
-      <span>بەشی پەیوەندییە گشتییەکان</span>
-    </div>
-    <ul class="nav-links">
-      <li><a href="index.html">سەرەکی</a></li>
-      <li><a href="about.html">زانیاری بەش</a></li>
-      <li><a href="staff.html" class="active">ستافی مامۆستایان</a></li>
-      <li><a href="activities.html">چالاکی و ژیانی خوێندکار</a></li>
-    </ul>
-  </nav>
-</header>
-
-<div class="hero-wrap">
-  <h1>ستافی مامۆستایان</h1>
-  <p>مامۆستایانی بەشی پەیوەندییە گشتییەکان، کە ستوونی ئەکادیمی و ڕێبەری زانستی بەشەکەمانن بۆ ئامادەکردنی نەوەیەکی شارەزای ئەم بوارە.</p>
-</div>
-
-<section>
-  <div class="grid">
-    
-    <!-- مامۆستا ١ -->
-    <div class="card">
-      <div class="avatar">لس</div>
-      <!-- <img src="IMG_LANA.jpeg" alt="د. لانە سابیر" class="avatar"> -->
-      <h3>د. لانە سابیر محەمەد سەعید</h3>
-      <div class="role">سەرۆکی بەش</div>
-      <p>پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]</p>
-    </div>
-
-    <!-- مامۆستا ٢ -->
-    <div class="card">
-      <div class="avatar">شۆ</div>
-      <!-- <img src="IMG_SHOKHAN.jpeg" alt="مامۆستا شۆخان" class="avatar"> -->
-      <h3>مامۆستا شۆخان</h3>
-      <div class="role">بڕیاردەری بەش</div>
-      <p>پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]</p>
-    </div>
-
-    <!-- مامۆستا ٣ -->
-    <div class="card">
-      <div class="avatar">ئا</div>
-      <!-- <img src="IMG_AVESTA.jpeg" alt="مامۆستا ئاڤێستا" class="avatar"> -->
-      <h3>مامۆستا ئاڤێستا</h3>
-      <div class="role">مامۆستای بەش</div>
-      <p>پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]</p>
-    </div>
-
-    <!-- مامۆستا ٤: ڕۆژان -->
-    <div class="card">
-      <div class="avatar">ڕۆ</div>
-      <!-- <img src="IMG_ROZHAN.jpeg" alt="م. ڕۆژان" class="avatar"> -->
-      <h3>م. ڕۆژان</h3>
-      <div class="role">مامۆستای بەش</div>
-      <p>پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]</p>
-    </div>
-
-    <!-- مامۆستا ٥: خەندە -->
-    <div class="card">
-      <div class="avatar">خە</div>
-      <!-- <img src="IMG_KHANDA.jpeg" alt="م. خەندە" class="avatar"> -->
-      <h3>م. خەندە</h3>
-      <div class="role">مامۆستای بەش</div>
-      <p>پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]</p>
-    </div>
-
-    <!-- مامۆستا ٦: دانا -->
-    <div class="card">
-      <div class="avatar">دا</div>
-      <!-- <img src="IMG_DANA.jpeg" alt="م. دانا" class="avatar"> -->
-      <h3>م. دانا</h3>
-      <div class="role">مامۆستای بەش</div>
-      <p>پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]</p>
-    </div>
-
-    <!-- مامۆستا ٧: محەمەد -->
-    <div class="card">
-      <div class="avatar">مح</div>
-      <!-- <img src="IMG_MUHAMMED.jpeg" alt="د. محەمەد" class="avatar"> -->
-      <h3>د. محەمەد</h3>
-      <div class="role">مامۆستای بەش</div>
-      <p>پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]</p>
-    </div>
-
-    <!-- مامۆستا ٨: چرۆ -->
-    <div class="card">
-      <div class="avatar">چر</div>
-      <!-- <img src="IMG_CHIRO.jpeg" alt="د. چرۆ" class="avatar"> -->
-      <h3>د. چرۆ</h3>
-      <div class="role">مامۆستای بەش</div>
-      <p>پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]</p>
-    </div>
-
-    <!-- مامۆستا ٩: چنور -->
-    <div class="card">
-      <div class="avatar">چن</div>
-      <!-- <img src="IMG_CHINUR.jpeg" alt="م. چنور" class="avatar"> -->
-      <h3>م. چنور</h3>
-      <div class="role">مامۆستای بەش</div>
-      <p>پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]</p>
-    </div>
-
-    <!-- مامۆستا ١٠: دیاری -->
-    <div class="card">
-      <div class="avatar">دی</div>
-      <!-- <img src="IMG_DIYARI.jpeg" alt="د. دیاری" class="avatar"> -->
-      <h3>د. دیاری</h3>
-      <div class="role">مامۆستای بەش</div>
-      <p>پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]</p>
-    </div>
-
-    <!-- مامۆستا ١١: شێنێ -->
-    <div class="card">
-      <div class="avatar">شێ</div>
-      <!-- <img src="IMG_SHENE.jpeg" alt="م. شێنێ" class="avatar"> -->
-      <h3>م. شێنێ</h3>
-      <div class="role">مامۆستای بەش</div>
-      <p>پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]</p>
-    </div>
-
-  </div>
-</section>
-
-<footer>© ٢٠٢٦ بەشی پەیوەندییە گشتییەکان — زانکۆی سلێمانی</footer>
-
-</body>
-</html>
+.hero-wrap{max-width:1180px; margin:0 auto; padding:
