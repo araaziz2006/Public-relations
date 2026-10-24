@@ -45,60 +45,67 @@ nav{
 .nav-links a.active, .nav-links a:hover{color:var(--red);}
 
 /* Hero */
-.hero-wrap{max-width:1180px; margin:0 auto; padding:56px 24px 10px; text-align:center;}
-.hero-wrap h1{font-size:34px; font-weight:900; color:var(--black); margin-bottom:14px;}
-.hero-wrap p{max-width:640px; margin:0 auto; color:var(--ink-soft); font-size:15.5px; line-height:1.9;}
+.hero-wrap{
+  max-width:1180px; margin:0 auto; padding:64px 24px 20px; text-align:center;
+  background: linear-gradient(180deg, var(--paper-2) 0%, var(--paper) 100%);
+  border-bottom: 1px solid var(--line);
+}
+.hero-wrap h1{font-size:36px; font-weight:900; color:var(--black); margin-bottom:18px; letter-spacing: -0.5px;}
+.hero-wrap p{max-width:680px; margin:0 auto; color:var(--ink-soft); font-size:16px; line-height:1.9;}
 
-section{max-width:1180px; margin:0 auto; padding:48px 24px;}
-.tag{font-weight:700; letter-spacing:.5px; color:var(--green); font-size:13px; display:block; margin-bottom:10px;}
-.title{font-size:26px; font-weight:900; color:var(--black); margin-bottom:10px;}
-.sub{font-size:14.5px; color:var(--ink-soft); max-width:680px; margin-bottom:28px; line-height:1.85;}
+section{max-width:1180px; margin:0 auto; padding:56px 24px;}
+.tag{font-weight:700; letter-spacing:.5px; color:var(--green); font-size:13.5px; display:block; margin-bottom:10px;}
+.title{font-size:26px; font-weight:900; color:var(--black); margin-bottom:12px;}
+.sub{font-size:15px; color:var(--ink-soft); max-width:680px; margin-bottom:32px; line-height:1.85;}
 
 /* Social buttons */
-.social-row{display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:26px;}
+.social-row{display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:36px; margin-bottom: 10px;}
 .cbtn{
-  display:inline-flex; align-items:center; gap:8px; text-decoration:none; font-weight:600; font-size:14px;
-  padding:12px 22px; border-radius:4px; border:1.5px solid var(--black); color:var(--black);
-  transition:all .2s;
+  display:inline-flex; align-items:center; gap:10px; text-decoration:none; font-weight:700; font-size:14px;
+  padding:12px 24px; border-radius:6px; border:1.5px solid var(--black); color:var(--black);
+  transition:all .2s; background: #fff;
 }
-.cbtn:hover{background:var(--black); color:var(--paper);}
+.cbtn:hover{background:var(--black); color:var(--paper); border-color: var(--black);}
 .cbtn.solid{background:var(--red); border-color:var(--red); color:#fff;}
-.cbtn.solid:hover{background:#8A1F1B;}
+.cbtn.solid:hover{background:#8A1F1B; border-color:#8A1F1B;}
+.cbtn svg{width:20px; height:20px; fill:currentColor;}
 
-/* Cards */
-.grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(230px,1fr)); gap:18px;}
-.card{background:#fff; border:1px solid var(--line); border-radius:8px; padding:22px; text-align:center;}
-.avatar{
-  width:84px; height:84px; border-radius:50%; margin:0 auto 14px; display:flex; align-items:center; justify-content:center;
-  background:var(--paper-2); color:var(--red); font-weight:900; font-size:22px; border:2px solid var(--gold);
-}
-.card h3{font-size:15.5px; color:var(--black); margin-bottom:4px;}
-.card .role{font-size:12.5px; color:var(--green); font-weight:700; margin-bottom:8px;}
-.card p{font-size:12.5px; color:var(--ink-soft); line-height:1.7;}
-
-.cell-h{display:flex; gap:14px; align-items:flex-start; background:#fff; border:1px solid var(--line); border-radius:8px; padding:20px;}
-.cell-h .icon{font-size:22px; width:36px; flex-shrink:0;}
-.cell-h h4{font-size:14.5px; color:var(--black); margin-bottom:5px;}
-.cell-h p{font-size:12.5px; color:var(--ink-soft); line-height:1.7;}
-
-footer{text-align:center; padding:36px 24px; color:var(--ink-soft); font-size:12.5px; border-top:1px solid var(--line); background:var(--paper-2);}
-footer .thanks{display:block; max-width:640px; margin:10px auto 0; line-height:1.8; color:#8A8171;}
-
-.linkbox-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:18px;}
+/* Linkboxes */
+.linkbox-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:24px; margin-top: 20px;}
 .linkbox{
-  display:block; text-decoration:none; background:#fff; border:1.5px solid var(--line); border-radius:10px;
-  padding:26px 22px; transition:transform .15s, border-color .15s, box-shadow .15s;
+  display:block; text-decoration:none; background:#fff; border:1.5px solid var(--line); border-radius:12px;
+  padding:32px 26px; transition:transform .2s, border-color .2s, box-shadow .2s; position: relative; overflow: hidden;
 }
-.linkbox:hover{border-color:var(--red); transform:translateY(-2px); box-shadow:0 10px 24px rgba(24,20,16,0.08);}
-.linkbox .lb-icon{font-size:28px; margin-bottom:12px;}
-.linkbox h3{font-size:16px; color:var(--black); margin-bottom:6px;}
-.linkbox p{font-size:13px; color:var(--ink-soft); line-height:1.7;}
+.linkbox:hover{border-color:var(--red); transform:translateY(-4px); box-shadow:0 12px 30px rgba(24,20,16,0.08);}
+.linkbox .lb-icon{
+  width: 56px; height: 56px; border-radius: 12px; background: var(--paper-2);
+  display: flex; align-items: center; justify-content: center; margin-bottom: 20px;
+  color: var(--red); transition: background .2s, color .2s;
+}
+.linkbox:hover .lb-icon{background: var(--red); color: #fff;}
+.linkbox .lb-icon svg{width: 28px; height: 28px; fill: currentColor;}
+.linkbox h3{font-size:17px; color:var(--black); margin-bottom:10px;}
+.linkbox p{font-size:13.5px; color:var(--ink-soft); line-height:1.7;}
 
-@media (max-width:640px){
-  .hero-wrap h1{font-size:26px;}
-  .nav-links{gap:12px;}
+/* Footer */
+footer{
+  text-align:center; padding:48px 24px 36px; color:var(--ink-soft); font-size:13px; 
+  border-top:1px solid var(--line); background:var(--paper-2); margin-top: 40px;
+}
+footer .thanks{
+  display:block; max-width:760px; margin:24px auto 0; line-height:2; color:#6A6151; font-size: 13.5px;
+  padding: 20px; background: #fff; border-radius: 10px; border: 1px solid var(--line);
 }
 
+/* Mobile Responsive */
+@media (max-width:768px){
+  .hero-wrap h1{font-size:28px;}
+  .hero-wrap p{font-size:14.5px;}
+  .nav-links{gap:14px; justify-content: center; margin-top: 10px; width: 100%;}
+  .social-row{gap:10px;}
+  .cbtn{padding:10px 16px; font-size:13px;}
+  section{padding:36px 20px;}
+}
 </style>
 </head>
 <body>
@@ -126,10 +133,26 @@ footer .thanks{display:block; max-width:640px; margin:10px auto 0; line-height:1
     براندینگ بگرە تا بەڕێوەبردنی قەیران و میدیای دیجیتاڵ — بۆ ئامادەکردنی کادرێکی پرۆفیشناڵی ئەم بوارە.
   </p>
   <div class="social-row">
-    <a class="cbtn solid" href="https://wa.me/9647740823075" target="_blank" rel="noopener">💬 واتساپ</a>
-    <a class="cbtn" href="https://www.facebook.com/share/1Eu4ffZzKL/?mibextid=wwXIfr" target="_blank" rel="noopener">📘 فەیسبووک</a>
-    <a class="cbtn" href="https://www.instagram.com/public.relations.students" target="_blank" rel="noopener">📷 ئینستاگرام</a>
-    <a class="cbtn" href="https://maps.app.goo.gl/HHUUC1P5Eyx3yBMi6" target="_blank" rel="noopener">📍 نەخشە</a>
+    <!-- واتساپ -->
+    <a class="cbtn solid" href="https://wa.me/9647740823075" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 3.825 0 6.936 3.113 6.936 6.938 0 3.825-3.113 6.938-6.936 6.938z"/></svg>
+      واتساپ
+    </a>
+    <!-- فەیسبووک -->
+    <a class="cbtn" href="https://www.facebook.com/share/1Eu4ffZzKL/?mibextid=wwXIfr" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
+      فەیسبووک
+    </a>
+    <!-- ئینستاگرام -->
+    <a class="cbtn" href="https://www.instagram.com/public.relations.students" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      ئینستاگرام
+    </a>
+    <!-- نەخشە -->
+    <a class="cbtn" href="https://maps.app.goo.gl/HHUUC1P5Eyx3yBMi6" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/></svg>
+      نەخشە
+    </a>
   </div>
 </div>
 
@@ -138,17 +161,23 @@ footer .thanks{display:block; max-width:640px; margin:10px auto 0; line-height:1
   <h2 class="title">بۆ زانیاری زیاتر سەردانی ئەم لاپەڕانە بکە</h2>
   <div class="linkbox-grid">
     <a class="linkbox" href="about.html">
-      <div class="lb-icon">📖</div>
+      <div class="lb-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10-10-4.477-10-10 4.477-10 10-10zm0 2c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8-3.582-8-8-8zm1 13h-2v-6h2v6zm0-8h-2v-2h2v2z"/></svg>
+      </div>
       <h3>زانیاری بەش</h3>
       <p>مێژوو، نمرەی وەرگرتن، وانەکان، دواڕۆژی کار، و فیدباکی خوێندکاران</p>
     </a>
     <a class="linkbox" href="staff.html">
-      <div class="lb-icon">👩‍🏫</div>
+      <div class="lb-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2c1.657 0 3 1.343 3 3s-1.343 3-3 3-3-1.343-3-3 1.343-3 3-3zm0 18c-4.418 0-8-1.79-8-4v-1c0-2.21 3.582-4 8-4s8 1.79 8 4v1c0 2.21-3.582 4-8 4zm0-2c3.866 0 6-1.343 6-2v-1c0-.737-2.582-2-6-2s-6 1.263-6 2v1c0 .657 2.134 2 6 2z"/></svg>
+      </div>
       <h3>ستافی مامۆستایان</h3>
       <p>ناو و پسپۆڕی مامۆستایانی بەش</p>
     </a>
     <a class="linkbox" href="activities.html">
-      <div class="lb-icon">📅</div>
+      <div class="lb-icon">
+        <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20a2 2 0 0 0 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5z"/></svg>
+      </div>
       <h3>چالاکی و ژیانی خوێندکار</h3>
       <p>تۆماری ڕووداو و چالاکییە ڕۆژانەکانی بەش</p>
     </a>
