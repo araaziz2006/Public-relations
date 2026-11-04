@@ -21,7 +21,7 @@ header{
   background:var(--paper); border-bottom:1px solid var(--line); position:sticky; top:0; z-index:100;
 }
 nav{
-  max-width:1180px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:20px;
+  max-width:1180px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;
 }
 .brand{display:flex; align-items:center; gap:10px; font-weight:700; font-size:15px;}
 .dept-logo{width:38px; height:38px; border-radius:50%; object-fit:cover; border:1px solid var(--line);}
@@ -29,13 +29,16 @@ nav{
 .nav-links a{text-decoration:none; font-weight:600; font-size:13.5px; color:var(--ink-soft); transition:color .2s;}
 .nav-links a.active, .nav-links a:hover{color:var(--red);}
 
-/* Language Switcher Button */
+/* Buttons (Lang & Share) */
+.nav-actions { display: flex; gap: 8px; align-items: center; }
 .lang-btn {
   background: var(--black); color: var(--paper); border: 1px solid var(--black);
   padding: 6px 14px; border-radius: 4px; font-size: 12.5px; font-weight: 700;
   cursor: pointer; transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 6px;
 }
 .lang-btn:hover { background: var(--red); border-color: var(--red); color: #fff; }
+.share-btn { background: var(--green); border-color: var(--green); }
+.share-btn:hover { background: var(--gold); border-color: var(--gold); }
 
 /* Hero */
 .hero-wrap{
@@ -82,11 +85,13 @@ footer{
 }
 footer .thanks{display:block; margin-top:10px; font-size:11.5px;}
 
+/* Mobile Responsive */
 @media (max-width:768px){
+  .nav-links{display:none;}
   .hero-wrap h1{font-size:28px;}
   .hero-wrap p{font-size:14.5px;}
-  .nav-links{display:none;}
   .title{font-size:20px;}
+  .nav-actions { width: 100%; justify-content: center; margin-top: 10px; }
 }
 </style>
 </head>
@@ -104,9 +109,16 @@ footer .thanks{display:block; margin-top:10px; font-size:11.5px;}
       <li><a href="staff.html" data-i18n="nav_staff">ستافی مامۆستایان</a></li>
       <li><a href="activities.html" data-i18n="nav_activities">چالاکی و ژیانی خوێندکار</a></li>
     </ul>
-    <button class="lang-btn" onclick="toggleLanguage()">
-      🌐 <span id="lang-btn-text">English</span>
-    </button>
+    
+    <!-- دوگمەکانی وەرگێڕان و هاوبەشکردن -->
+    <div class="nav-actions">
+      <button class="lang-btn" onclick="toggleLanguage()">
+        🌐 <span id="lang-btn-text">English</span>
+      </button>
+      <button class="lang-btn share-btn" onclick="shareWebsite()">
+        🔗 <span data-i18n="btn_share">هاوبەشکردن</span>
+      </button>
+    </div>
   </nav>
 </header>
 
@@ -179,6 +191,7 @@ footer .thanks{display:block; margin-top:10px; font-size:11.5px;}
   const translations = {
     "ckb": {
       "lang_btn": "English",
+      "btn_share": "هاوبەشکردن",
       "brand_name": "بەشی پەیوەندییە گشتییەکان",
       "nav_home": "سەرەکی",
       "nav_about": "زانیاری بەش",
@@ -203,6 +216,7 @@ footer .thanks{display:block; margin-top:10px; font-size:11.5px;}
     },
     "en": {
       "lang_btn": "کوردی",
+      "btn_share": "Share",
       "brand_name": "Public Relations Dept.",
       "nav_home": "Home",
       "nav_about": "About Dept.",
@@ -243,6 +257,24 @@ footer .thanks{display:block; margin-top:10px; font-size:11.5px;}
         el.innerText = translations[currentLang][key];
       }
     });
+  }
+
+  // فەنکشنی هاوبەشکردن
+  function shareWebsite() {
+    if (navigator.share) {
+      navigator.share({
+        title: 'بەشی پەیوەندییە گشتییەکان | زانکۆی سلێمانی',
+        text: 'سەردانی ماڵپەڕی بەشی پەیوەندییە گشتییەکان بکە',
+        url: window.location.href
+      }).catch((error) => console.log('Error sharing', error));
+    } else {
+      // ئەگەر وێبگەڕەکە پشتگیری هاوبەشکردنی نەکرد، لینکەکە کۆپی دەکات
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        alert(currentLang === 'ckb' ? 'لینکی ماڵپەڕەکە کۆپی کرا!' : 'Website link copied!');
+      }).catch(err => {
+        console.error('Failed to copy: ', err);
+      });
+    }
   }
 </script>
 
