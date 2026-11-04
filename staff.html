@@ -3,39 +3,46 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ستافی مامۆستایان | زانکۆی سلێمانی</title>
+<title>ستافی مامۆستایان | بەشی پەیوەندییە گشتییەکان</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Noto+Kufi+Arabic:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 <style>
-/* هەمان ستایلی index.html */
-:root{ --red:#A82823; --black:#181410; --green:#1C6B45; --gold:#B8892B; --paper:#F6F1E6; --paper-2:#EFE7D6; --ink:#2A241C; --ink-soft:#5C5346; --line:rgba(24,20,16,0.14); }
+:root{
+  --red:#A82823; --black:#181410; --green:#1C6B45; --gold:#B8892B;
+  --paper:#F6F1E6; --paper-2:#EFE7D6; --ink:#2A241C; --ink-soft:#5C5346; --line:rgba(24,20,16,0.14);
+}
 *{box-sizing:border-box; margin:0; padding:0;}
-body{font-family:'Noto Kufi Arabic','Inter',Arial,sans-serif; background:var(--paper); color:var(--ink); overflow-x:hidden;}
+body{font-family:'Noto Kufi Arabic','Inter',Arial,sans-serif; background:var(--paper); color:var(--ink);}
 body.lang-en { font-family:'Inter', Arial, sans-serif; }
 a{color:inherit;}
-header{ background:var(--paper); border-bottom:1px solid var(--line); position:sticky; top:0; z-index:100; }
-nav{ max-width:1180px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; }
+header{background:var(--paper); border-bottom:1px solid var(--line); position:sticky; top:0; z-index:100;}
+nav{max-width:1180px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;}
 .brand{display:flex; align-items:center; gap:10px; font-weight:700; font-size:15px;}
 .dept-logo{width:38px; height:38px; border-radius:50%; object-fit:cover; border:1px solid var(--line);}
 .nav-links{display:flex; gap:26px; list-style:none;}
 .nav-links a{text-decoration:none; font-weight:600; font-size:13.5px; color:var(--ink-soft); transition:color .2s;}
 .nav-links a.active, .nav-links a:hover{color:var(--red);}
 .nav-actions { display: flex; gap: 8px; align-items: center; }
-.lang-btn { background: var(--black); color: var(--paper); border: 1px solid var(--black); padding: 6px 14px; border-radius: 4px; font-size: 12.5px; font-weight: 700; cursor: pointer; transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 6px; }
-.lang-btn:hover { background: var(--red); border-color: var(--red); color: #fff; }
+.lang-btn {background: var(--black); color: var(--paper); border: 1px solid var(--black); padding: 6px 14px; border-radius: 4px; font-size: 12.5px; font-weight: 700; cursor: pointer; transition: all 0.2s ease; display: inline-flex; align-items: center; gap: 6px;}
+.lang-btn:hover {background: var(--red); border-color: var(--red); color: #fff;}
 .share-btn { background: var(--green); border-color: var(--green); }
 .share-btn:hover { background: var(--gold); border-color: var(--gold); }
-section{ max-width:1180px; margin:0 auto; padding:50px 24px; min-height: 60vh; }
-.title{font-size:28px; font-weight:800; margin-bottom:26px; color: var(--red);}
-/* شێوازی کارتی مامۆستایان */
-.staff-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-.staff-card { background: #fff; padding: 20px; border-radius: 10px; border: 1px solid var(--line); text-align: center; }
-.staff-card img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; border: 2px solid var(--paper-2); }
-.staff-card h3 { font-size: 16px; margin-bottom: 5px; color: var(--ink); }
-.staff-card p { font-size: 13px; color: var(--ink-soft); }
-footer{ border-top:1px solid var(--line); padding:30px 24px; text-align:center; font-size:12px; color:var(--ink-soft); max-width:1180px; margin:0 auto; line-height:1.8; }
-footer .thanks{display:block; margin-top:10px; font-size:11.5px;}
-@media (max-width:768px){ .nav-links{display:none;} .title{font-size:22px;} .nav-actions { width: 100%; justify-content: center; margin-top: 10px; } }
+
+.hero-wrap{max-width:1180px; margin:0 auto; padding:56px 24px 10px; text-align:center;}
+.hero-wrap h1{font-size:34px; font-weight:900; margin-bottom:14px;}
+.hero-wrap p{max-width:640px; margin:0 auto; color:var(--ink-soft); font-size:15.5px; line-height:1.9;}
+
+section{max-width:1180px; margin:0 auto; padding:56px 24px;}
+.grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(250px,1fr)); gap:24px;}
+.card{background:#fff; border:1px solid var(--line); border-radius:12px; padding:28px 20px; text-align:center; transition: transform .2s, box-shadow .2s; display: flex; flex-direction: column; align-items: center;}
+.card:hover{transform: translateY(-4px); box-shadow: 0 10px 24px rgba(24,20,16,0.08); border-color: var(--gold);}
+.avatar{width:100px; height:100px; border-radius:50%; margin:0 auto 16px; display:flex; align-items:center; justify-content:center; background:var(--paper-2); color:var(--red); font-weight:900; font-size:26px; border:2.5px solid var(--gold); object-fit: cover;}
+.card h3{font-size:16px; color:var(--black); margin-bottom:4px; line-height: 1.5;}
+.card .role{font-size:13px; color:var(--green); font-weight:700; margin-bottom:12px;}
+.card p{font-size:13px; color:var(--ink-soft); line-height:1.7;}
+
+footer{border-top:1px solid var(--line); padding:30px 24px; text-align:center; font-size:12px; color:var(--ink-soft); max-width:1180px; margin:0 auto;}
+@media (max-width:768px){.nav-links{display:none;} .hero-wrap h1{font-size:28px;} section{padding:36px 20px;} .nav-actions { width: 100%; justify-content: center; margin-top: 10px; }}
 </style>
 </head>
 <body>
@@ -53,53 +60,136 @@ footer .thanks{display:block; margin-top:10px; font-size:11.5px;}
       <li><a href="activities.html" data-i18n="nav_activities">چالاکی و ژیانی خوێندکار</a></li>
     </ul>
     <div class="nav-actions">
-      <button class="lang-btn" onclick="toggleLanguage()"> 🌐 <span id="lang-btn-text">English</span> </button>
-      <button class="lang-btn share-btn" onclick="shareWebsite()"> 🔗 <span data-i18n="btn_share">هاوبەشکردن</span> </button>
+      <button class="lang-btn" onclick="toggleLanguage()">🌐 <span id="lang-btn-text">English</span></button>
+      <button class="lang-btn share-btn" onclick="shareWebsite()">🔗 <span data-i18n="btn_share">هاوبەشکردن</span></button>
     </div>
   </nav>
 </header>
 
+<div class="hero-wrap">
+  <h1 data-i18n="hero_title">ستافی مامۆستایان</h1>
+  <p data-i18n="hero_desc">مامۆستایانی بەشی پەیوەندییە گشتییەکان، کە ستوونی ئەکادیمی و ڕێبەری زانستی بەشەکەمانن بۆ ئامادەکردنی نەوەیەکی شارەزای ئەم بوارە.</p>
+</div>
+
 <section>
-  <h1 class="title" data-i18n="staff_page_title">ستافی مامۆستایان</h1>
-  
-  <div class="staff-grid">
-    <!-- لێرەدا کارتی مامۆستایان دابنێ -->
-    <div class="staff-card">
-      <!-- <img src="teacher1.jpg" alt="مامۆستا"> -->
-      <h3>ناوی مامۆستا</h3>
-      <p>پسپۆڕی (بۆ نموونە: پەیوەندییە گشتییەکان)</p>
+  <div class="grid">
+    <div class="card">
+      <div class="avatar">لس</div>
+      <h3 data-i18n="t1_name">د. لانە سابیر محەمەد سەعید</h3>
+      <div class="role" data-i18n="t1_role">سەرۆکی بەش</div>
+      <p data-i18n="t1_spec">پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]</p>
     </div>
-    
-    <div class="staff-card">
-      <!-- <img src="teacher2.jpg" alt="مامۆستا"> -->
-      <h3>ناوی مامۆستا</h3>
-      <p>پسپۆڕی (بۆ نموونە: میدیای دیجیتاڵ)</p>
+    <div class="card">
+      <div class="avatar">شۆ</div>
+      <h3 data-i18n="t2_name">مامۆستا شۆخان</h3>
+      <div class="role" data-i18n="t2_role">بڕیاردەری بەش</div>
+      <p data-i18n="t2_spec">پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]</p>
     </div>
-    
-    <!-- زیاتر زیاد بکە بەپێی پێویست -->
+    <div class="card">
+      <div class="avatar">ئا</div>
+      <h3 data-i18n="t3_name">مامۆستا ئاڤێستا</h3>
+      <div class="role" data-i18n="t3_role">مامۆستای بەش</div>
+      <p data-i18n="t3_spec">پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]</p>
+    </div>
+    <div class="card">
+      <div class="avatar">ڕۆ</div>
+      <h3 data-i18n="t4_name">م. ڕۆژان</h3>
+      <div class="role" data-i18n="t4_role">مامۆستای بەش</div>
+      <p data-i18n="t4_spec">پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]</p>
+    </div>
+    <div class="card">
+      <div class="avatar">خە</div>
+      <h3 data-i18n="t5_name">م. خەندە</h3>
+      <div class="role" data-i18n="t5_role">مامۆستای بەش</div>
+      <p data-i18n="t5_spec">پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]</p>
+    </div>
+    <div class="card">
+      <div class="avatar">دا</div>
+      <h3 data-i18n="t6_name">م. دانا</h3>
+      <div class="role" data-i18n="t6_role">مامۆستای بەش</div>
+      <p data-i18n="t6_spec">پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]</p>
+    </div>
+    <div class="card">
+      <div class="avatar">مح</div>
+      <h3 data-i18n="t7_name">د. محەمەد</h3>
+      <div class="role" data-i18n="t7_role">مامۆستای بەش</div>
+      <p data-i18n="t7_spec">پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]</p>
+    </div>
+    <div class="card">
+      <div class="avatar">چر</div>
+      <h3 data-i18n="t8_name">د. چرۆ</h3>
+      <div class="role" data-i18n="t8_role">مامۆستای بەش</div>
+      <p data-i18n="t8_spec">پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]</p>
+    </div>
+    <div class="card">
+      <div class="avatar">چن</div>
+      <h3 data-i18n="t9_name">م. چنور</h3>
+      <div class="role" data-i18n="t9_role">مامۆستای بەش</div>
+      <p data-i18n="t9_spec">پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]</p>
+    </div>
+    <div class="card">
+      <div class="avatar">دی</div>
+      <h3 data-i18n="t10_name">د. دیاری</h3>
+      <div class="role" data-i18n="t10_role">مامۆستای بەش</div>
+      <p data-i18n="t10_spec">پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]</p>
+    </div>
+    <div class="card">
+      <div class="avatar">شێ</div>
+      <h3 data-i18n="t11_name">م. شێنێ</h3>
+      <div class="role" data-i18n="t11_role">مامۆستای بەش</div>
+      <p data-i18n="t11_spec">پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]</p>
+    </div>
   </div>
 </section>
 
 <footer>
   <span data-i18n="footer_copy">© ٢٠٢٦ بەشی پەیوەندییە گشتییەکان — زانکۆی سلێمانی</span>
-  <span class="thanks" data-i18n="footer_thanks">شایەنی باسە دەمەوێ پێزانین و دەسخۆشی خۆم ئاڕاستەی تەواوی ستافی بەش و مامۆستا ماندوونەناسەکانمان بە گشتی، و دکتۆرە لانەی سەرۆک بەش و مامۆستا شۆخان بڕیاردەری بەشەکەمان و مامۆستا ئاڤێستا مامۆستا لە بەشەکەمان بە تایبەتی بکەم. هەروەها دەسخۆشی لە دژوار عادل هاوڕێ و نوێنەری قۆناغی دووەم و تەواوی ئەو خوێندکارانەی کە فیدباکیان ئەنجام دا بۆ سایتەکەم بکەم، کە هاوکاری تەواویان کردم لە باشترکردنی ئەم سایتە بۆ خوێندکاران.</span>
 </footer>
 
 <script>
   const translations = {
     "ckb": {
-      "lang_btn": "English", "btn_share": "هاوبەشکردن", "brand_name": "بەشی پەیوەندییە گشتییەکان", "nav_home": "سەرەکی", "nav_about": "زانیاری بەش", "nav_staff": "ستافی مامۆستایان", "nav_activities": "چالاکی و ژیانی خوێندکار",
-      "staff_page_title": "ستافی مامۆستایان",
-      "footer_copy": "© ٢٠٢٦ بەشی پەیوەندییە گشتییەکان — زانکۆی سلێمانی",
-      "footer_thanks": "شایەنی باسە دەمەوێ پێزانین و دەسخۆشی خۆم ئاڕاستەی تەواوی ستافی بەش و مامۆستا ماندوونەناسەکانمان بە گشتی، و دکتۆرە لانەی سەرۆک بەش و مامۆستا شۆخان بڕیاردەری بەشەکەمان و مامۆستا ئاڤێستا مامۆستا لە بەشەکەمان بە تایبەتی بکەم. هەروەها دەسخۆشی لە دژوار عادل هاوڕێ و نوێنەری قۆناغی دووەم و تەواوی ئەو خوێندکارانەی کە فیدباکیان ئەنجام دا بۆ سایتەکەم بکەم، کە هاوکاری تەواویان کردم لە باشترکردنی ئەم سایتە بۆ خوێندکاران."
+      "lang_btn": "English",
+      "btn_share": "هاوبەشکردن",
+      "brand_name": "بەشی پەیوەندییە گشتییەکان",
+      "nav_home": "سەرەکی", "nav_about": "زانیاری بەش", "nav_staff": "ستافی مامۆستایان", "nav_activities": "چالاکی و ژیانی خوێندکار",
+      "hero_title": "ستافی مامۆستایان",
+      "hero_desc": "مامۆستایانی بەشی پەیوەندییە گشتییەکان، کە ستوونی ئەکادیمی و ڕێبەری زانستی بەشەکەمانن بۆ ئامادەکردنی نەوەیەکی شارەزای ئەم بوارە.",
+      "t1_name": "د. لانە سابیر محەمەد سەعید", "t1_role": "سەرۆکی بەش", "t1_spec": "پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]",
+      "t2_name": "مامۆستا شۆخان", "t2_role": "بڕیاردەری بەش", "t2_spec": "پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]",
+      "t3_name": "مامۆستا ئاڤێستا", "t3_role": "مامۆستای بەش", "t3_spec": "پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]",
+      "t4_name": "م. ڕۆژان", "t4_role": "مامۆستای بەش", "t4_spec": "پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]",
+      "t5_name": "م. خەندە", "t5_role": "مامۆستای بەش", "t5_spec": "پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]",
+      "t6_name": "م. دانا", "t6_role": "مامۆستای بەش", "t6_spec": "پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]",
+      "t7_name": "د. محەمەد", "t7_role": "مامۆستای بەش", "t7_spec": "پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]",
+      "t8_name": "د. چرۆ", "t8_role": "مامۆستای بەش", "t8_spec": "پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]",
+      "t9_name": "م. چنور", "t9_role": "مامۆستای بەش", "t9_spec": "پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]",
+      "t10_name": "د. دیاری", "t10_role": "مامۆستای بەش", "t10_spec": "پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]",
+      "t11_name": "م. شێنێ", "t11_role": "مامۆستای بەش", "t11_spec": "پسپۆڕی: [لێرەدا پسپۆڕی بنووسە]",
+      "footer_copy": "© ٢٠٢٦ بەشی پەیوەندییە گشتییەکان — زانکۆی سلێمانی"
     },
     "en": {
-      "lang_btn": "کوردی", "btn_share": "Share", "brand_name": "Public Relations Dept.", "nav_home": "Home", "nav_about": "About Dept.", "nav_staff": "Staff", "nav_activities": "Activities",
-      "staff_page_title": "Teaching Staff",
-      "footer_copy": "© 2026 Department of Public Relations — University of Sulaimani",
-      "footer_thanks": "It is worth mentioning that I would like to express my gratitude to all our department staff and tireless lecturers in general, and specifically to Dr. Lana, Head of Department, Lecturer Shokhan, Department Representative, and Lecturer Avesta. I also thank Dzhwar Adil, the 2nd-year representative, and all students who provided feedback for this website, as they fully assisted me in improving this site for students."
+      "lang_btn": "کوردی",
+      "btn_share": "Share",
+      "brand_name": "Public Relations Dept.",
+      "nav_home": "Home", "nav_about": "About Dept.", "nav_staff": "Staff", "nav_activities": "Activities",
+      "hero_title": "Teaching Staff",
+      "hero_desc": "Lecturers of the Public Relations Department, who are the academic pillars and scientific guides of our department to prepare a knowledgeable generation in this field.",
+      "t1_name": "Dr. Lana Sabir Mohammed", "t1_role": "Head of Department", "t1_spec": "Specialty: [Write specialty here]",
+      "t2_name": "Lecturer Shokhan", "t2_role": "Department Representative", "t2_spec": "Specialty: [Write specialty here]",
+      "t3_name": "Lecturer Avesta", "t3_role": "Lecturer", "t3_spec": "Specialty: [Write specialty here]",
+      "t4_name": "Lecturer Rozhan", "t4_role": "Lecturer", "t4_spec": "Specialty: [Write specialty here]",
+      "t5_name": "Lecturer Khanda", "t5_role": "Lecturer", "t5_spec": "Specialty: [Write specialty here]",
+      "t6_name": "Lecturer Dana", "t6_role": "Lecturer", "t6_spec": "Specialty: [Write specialty here]",
+      "t7_name": "Dr. Mohammed", "t7_role": "Lecturer", "t7_spec": "Specialty: [Write specialty here]",
+      "t8_name": "Dr. Chiro", "t8_role": "Lecturer", "t8_spec": "Specialty: [Write specialty here]",
+      "t9_name": "Lecturer Chinur", "t9_role": "Lecturer", "t9_spec": "Specialty: [Write specialty here]",
+      "t10_name": "Dr. Diyari", "t10_role": "Lecturer", "t10_spec": "Specialty: [Write specialty here]",
+      "t11_name": "Lecturer Shene", "t11_role": "Lecturer", "t11_spec": "Specialty: [Write specialty here]",
+      "footer_copy": "© 2026 Department of Public Relations — University of Sulaimani"
     }
   };
+
   let currentLang = 'ckb';
   function toggleLanguage() {
     currentLang = currentLang === 'ckb' ? 'en' : 'ckb';
@@ -109,12 +199,23 @@ footer .thanks{display:block; margin-top:10px; font-size:11.5px;}
     document.getElementById('lang-btn-text').innerText = translations[currentLang].lang_btn;
     document.querySelectorAll('[data-i18n]').forEach(el => {
       const key = el.getAttribute('data-i18n');
-      if (translations[currentLang][key]) el.innerText = translations[currentLang][key];
+      if (translations[currentLang][key]) {
+        el.innerText = translations[currentLang][key];
+      }
     });
   }
   function shareWebsite() {
-    if (navigator.share) { navigator.share({ title: 'ستافی مامۆستایان', text: 'سەردانی ماڵپەڕەکە بکە', url: window.location.href }).catch(console.error); }
-    else { navigator.clipboard.writeText(window.location.href).then(() => alert(currentLang === 'ckb' ? 'لینک کۆپی کرا!' : 'Link copied!')); }
+    if (navigator.share) {
+      navigator.share({
+        title: document.title,
+        text: currentLang === 'ckb' ? 'سەردانی ماڵپەڕی بەشی پەیوەندییە گشتییەکان بکە' : 'Visit the Public Relations Department Website',
+        url: window.location.href
+      }).catch((error) => console.log('Error sharing', error));
+    } else {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        alert(currentLang === 'ckb' ? 'لینکی ماڵپەڕەکە کۆپی کرا!' : 'Website link copied!');
+      }).catch(err => console.error('Failed to copy: ', err));
+    }
   }
 </script>
 </body>
